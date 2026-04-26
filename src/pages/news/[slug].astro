@@ -1,0 +1,382 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const news = await getCollection('news');
+  return news
+    .filter(n => !n.data.draft)
+    .map(item => ({
+      params: { slug: item.id },
+      props: { item },
+    }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+
+// ─────── Earlier articles for the "More news" footer
+const allNews = (await getCollection('news'))
+  .filter(n => !n.data.draft && n.id !== item.id)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+// ─────── Date formatting
+const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+}).format(d).replace(',', '');
+
+const fmtShort = (d: Date) => new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric', month: 'short', year: 'numeric'
+}).format(d);
+---
+<Layout
+  title={`${item.data.title} — PFO News`}
+  description={item.data.summary}
+>
+
+<main id="main">
+
+  <!-- ─────────────────────────── Article hero -->
+  <article class="article-hero">
+    <div class="article-hero-wrap">
+      <a class="back-link" href="/news">← All news</a>
+      <p class="eyebrow">News</p>
+      <h1>{item.data.title}</h1>
+      <p class="article-meta">
+        <time datetime={item.data.date.toISOString()}>{fmtDate(item.data.date)}</time>
+        {item.data.author && <span aria-hidden="true"> · </span>}
+        {item.data.author && <span>by {item.data.author}</span>}
+      </p>
+      <p class="article-summary">{item.data.summary}</p>
+    </div>
+
+    {item.data.heroImage && (
+      <div class="article-hero-image">
+        <img src={item.data.heroImage} alt={item.data.heroImageAlt ?? ""}>
+      </div>
+    )}
+  </article>
+
+  <!-- ─────────────────────────── Body -->
+  <article class="article-body">
+    <div class="article-body-wrap">
+      <div class="article-prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <!-- ─────────────────────────── Gallery (optional) -->
+  {item.data.gallery && item.data.gallery.length > 0 && (
+    <section class="article-gallery">
+      <div class="article-gallery-wrap">
+        <h2>More photos</h2>
+        <ul class="gallery-grid">
+          {item.data.gallery.map(image => (
+            <li>
+              <img src={image.src} alt={image.alt}>
+              {image.caption && <p class="gallery-caption">{image.caption}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ─────────────────────────── More news -->
+  {allNews.length > 0 && (
+    <section class="more-news">
+      <div class="more-news-wrap">
+        <div class="sec-head">
+          <p class="eyebrow">More news</p>
+          <a class="sec-link" href="/news">All news →</a>
+        </div>
+        <ul class="more-news-grid">
+          {allNews.map(other => (
+            <li>
+              <a class="more-news-card" href={`/news/${other.id}`}>
+                <time datetime={other.data.date.toISOString()}>{fmtShort(other.data.date)}</time>
+                <h3>{other.data.title}</h3>
+                <p>{other.data.summary}</p>
+                <span class="more-news-read" aria-hidden="true">Read →</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+</main>
+
+</Layout>
+
+<style>
+  /* ─────────────────────────── Article hero */
+  .article-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(28px, 4vw, 48px) var(--pad-x) 0;
+  }
+  .article-hero-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-bottom: clamp(28px, 3vw, 40px);
+  }
+  .back-link {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    transition: color .18s ease;
+  }
+  .back-link:hover { color: var(--plum); }
+
+  .article-hero .eyebrow {
+    color: var(--gold-muted);
+    margin-bottom: 16px;
+  }
+  .article-hero .eyebrow::before { background: var(--plum); }
+
+  .article-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(32px, 4.4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    margin: 0 0 18px 0;
+    color: var(--ink);
+  }
+  .article-meta {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    margin: 0 0 22px 0;
+  }
+  .article-meta span { color: var(--ink-mute); }
+  .article-summary {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.4;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 60ch;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+  }
+
+  .article-hero-image {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    transform: translateY(48px);
+    margin-bottom: 48px;
+  }
+  .article-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    box-shadow: 0 20px 60px -20px rgba(27, 59, 98, 0.35);
+  }
+
+  /* ─────────────────────────── Body */
+  .article-body {
+    padding: clamp(32px, 4vw, 60px) var(--pad-x);
+  }
+  .article-body-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .article-prose :global(h2) {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: clamp(24px, 2.4vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    color: var(--navy);
+    margin: 36px 0 14px 0;
+  }
+  .article-prose :global(h2:first-child) { margin-top: 0; }
+  .article-prose :global(h3) {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 21px;
+    color: var(--ink);
+    margin: 28px 0 10px 0;
+  }
+  .article-prose :global(p) {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 18px 0;
+  }
+  .article-prose :global(strong) { color: var(--ink); font-weight: 500; }
+  .article-prose :global(ul), .article-prose :global(ol) {
+    margin: 0 0 18px 1.4em;
+    padding: 0;
+  }
+  .article-prose :global(li) {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .article-prose :global(a) {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+  .article-prose :global(a:hover) { color: var(--plum); }
+  .article-prose :global(blockquote) {
+    border-left: 3px solid var(--plum);
+    padding: 6px 0 6px 20px;
+    margin: 24px 0;
+    font-family: var(--ff-display);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+  }
+
+  /* ─────────────────────────── Gallery */
+  .article-gallery {
+    background: var(--paper-2);
+    padding: clamp(40px, 5vw, 64px) var(--pad-x);
+  }
+  .article-gallery-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .article-gallery h2 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--navy);
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    margin: 0 0 24px 0;
+  }
+  .gallery-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .gallery-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-caption {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 8px 0 0 0;
+    line-height: 1.4;
+  }
+
+  /* ─────────────────────────── More news */
+  .more-news {
+    background: var(--navy-deep);
+    color: var(--paper);
+    padding: clamp(40px, 5vw, 64px) var(--pad-x);
+    border-top: 4px solid var(--gold);
+  }
+  .more-news-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .more-news .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(240, 243, 247, 0.18);
+  }
+  .more-news .eyebrow {
+    color: var(--gold-bright);
+    margin: 0;
+  }
+  .more-news .eyebrow::before { background: var(--gold-bright); }
+  .more-news .sec-link {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper);
+    border-bottom: 1px solid var(--paper);
+    padding-bottom: 2px;
+    transition: color .18s, border-color .18s;
+  }
+  .more-news .sec-link:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
+
+  .more-news-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0;
+  }
+  .more-news-grid li { border-right: 1px solid rgba(240, 243, 247, 0.12); }
+  .more-news-grid li:last-child { border-right: 0; }
+
+  .more-news-card {
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px;
+    color: var(--paper);
+    transition: background .18s ease;
+    height: 100%;
+  }
+  .more-news-card:hover { background: rgba(255, 255, 255, 0.05); }
+
+  .more-news-card time {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 12px;
+  }
+  .more-news-card h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    margin: 0 0 8px 0;
+    color: var(--paper);
+  }
+  .more-news-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(240, 243, 247, 0.78);
+    margin: 0 0 16px 0;
+  }
+  .more-news-read {
+    margin-top: auto;
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+  }
+
+  /* ─────────────────────────── Responsive */
+  @media (max-width: 720px) {
+    .article-hero h1 { font-size: clamp(28px, 7vw, 40px); }
+    .article-hero-image { transform: translateY(32px); margin-bottom: 32px; }
+    .more-news-grid { grid-template-columns: 1fr; }
+    .more-news-grid li { border-right: 0; border-bottom: 1px solid rgba(240, 243, 247, 0.12); }
+    .more-news-grid li:last-child { border-bottom: 0; }
+  }
+</style>

@@ -13,6 +13,12 @@ const upcoming = allEvents
 const nextEvent = upcoming[0];
 const alsoComingUp = upcoming.slice(1, 5);
 
+// ─────── Data: most recent news article for the homepage
+const allNews = (await getCollection('news'))
+  .filter(n => !n.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const latestNews = allNews[0];
+
 // ─────── Date formatters (UK English, no comma after weekday)
 const fmtFeaturedDate = (d) => new Intl.DateTimeFormat('en-GB', {
   weekday: 'short', day: 'numeric', month: 'long'
@@ -21,6 +27,10 @@ const fmtFeaturedDate = (d) => new Intl.DateTimeFormat('en-GB', {
 const fmtCardDate = (d) => new Intl.DateTimeFormat('en-GB', {
   weekday: 'short', day: 'numeric', month: 'short'
 }).format(d).replace(',', '');
+
+const fmtNewsCaption = (d) => new Intl.DateTimeFormat('en-GB', {
+  month: 'short', year: 'numeric'
+}).format(d);
 
 const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 ---
@@ -186,18 +196,22 @@ const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
   <!-- ─────────────────────────── LATEST + NEWCOMERS -->
   <section class="bottom-split">
-    <article class="featured-news">
-      <a class="news-image" href="https://www.pfo.org.uk/news/pfo-success-in-europe" aria-label="PFO Success in Europe">
-        <img src="/assets/photos/podium-cret-2025.jpg" alt="Kay and Emma on the CRET 2025 podium in Toledo, Spain">
-        <p class="news-caption">City Race Euro Tour · Toledo, Nov 2025</p>
-      </a>
-      <div class="news-body">
-        <p class="eyebrow">Latest news</p>
-        <h2>Two PFO titles at the 2025 City Race Euro Tour.</h2>
-        <p>Kay and Emma defended their category wins at the final round in Toledo, Spain — nine European cities across the year, best five results count, and both kept the trophies they took in 2024. Here's how the year went.</p>
-        <a class="more" href="https://www.pfo.org.uk/news/pfo-success-in-europe">Read the story →</a>
-      </div>
-    </article>
+    {latestNews && (
+      <article class="featured-news">
+        <a class="news-image" href={`/news/${latestNews.id}`} aria-label={latestNews.data.title}>
+          {latestNews.data.heroImage && (
+            <img src={latestNews.data.heroImage} alt={latestNews.data.heroImageAlt ?? ""}>
+          )}
+          <p class="news-caption">{fmtNewsCaption(latestNews.data.date)}</p>
+        </a>
+        <div class="news-body">
+          <p class="eyebrow">Latest news</p>
+          <h2>{latestNews.data.title}</h2>
+          <p>{latestNews.data.summary}</p>
+          <a class="more" href={`/news/${latestNews.id}`}>Read the story →</a>
+        </div>
+      </article>
+    )}
 
     <aside class="newcomer-cta">
       <p class="eyebrow">Never tried this?</p>

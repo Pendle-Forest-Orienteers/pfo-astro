@@ -61,4 +61,58 @@ const events = defineCollection({
   }),
 });
 
-export const collections = { events };
+// ─────── News collection
+// Each .md file is one news article. Frontmatter holds the publication date,
+// summary, and optional hero image. The Markdown body is the long-form article.
+const news = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    summary: z.string(),
+    heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
+    author: z.string().optional(),
+    gallery: z.array(z.object({
+      src: z.string(),
+      alt: z.string(),
+      caption: z.string().optional(),
+    })).optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+// ─────── Maps collection
+// Each .md file is one mapped area. Frontmatter holds the area name, terrain
+// type, image (the orienteering map itself), and metadata. Markdown body is
+// the long-form description, history of the area, access notes, etc.
+const maps = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/maps' }),
+  schema: z.object({
+    title: z.string(),                       // "Hurstwood", "Towneley Park"
+    nearTown: z.string().optional(),         // "Burnley"
+    terrain: z.enum([
+      'urban',       // streets, housing estates, town parks
+      'parkland',    // mixed park / urban-park / school grounds
+      'forest',      // woodland, plantation
+      'moorland',    // open hill, fells
+      'mtbo',        // mountain bike orienteering
+      'mixed',       // combinations
+    ]),
+    surveyYear: z.number().optional(),
+    surveyor: z.string().optional(),
+    scale: z.string().optional(),            // "1:7500", "1:10000"
+    contourInterval: z.string().optional(),  // "5m"
+    permanentCourse: z.boolean().optional(), // has a POC
+    coords: z.object({
+      lat: z.number(),
+      lng: z.number(),
+    }).optional(),
+    image: z.string(),                       // path to the map image
+    imageAlt: z.string().optional(),
+    summary: z.string(),                     // one-line description for cards
+    draft: z.boolean().optional(),
+  }),
+});
+
+export const collections = { events, news, maps };
