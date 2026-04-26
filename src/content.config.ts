@@ -41,8 +41,10 @@ const events = defineCollection({
     capacity: z.number().optional(),
 
     // ─────── External links
-    siEntriesUrl: z.string().url().optional(),
-    routeGadgetUrl: z.string().url().optional(),
+    // Plain string rather than .url() so the CMS can save empty values
+    // when the field isn't filled in. Validation happens at render time.
+    siEntriesUrl: z.string().optional(),
+    routeGadgetUrl: z.string().optional(),
 
     // ─────── Display
     summary: z.string(),                    // 1-line subtitle for cards
@@ -51,7 +53,7 @@ const events = defineCollection({
     // ─────── Results (filled in after the event)
     results: z.array(z.object({
       label: z.string(),                    // "Full results", "Splits", "RouteGadget"
-      url: z.string().url(),
+      url: z.string(),                      // plain string for CMS-friendliness
       type: z.enum(['html', 'pdf', 'xlsx', 'csv']),
     })).optional(),
 
