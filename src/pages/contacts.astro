@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Committee data — single source of truth. The Decap CMS in Phase 7 will let
+// the committee edit this list directly. For now it's a hand-maintained array.
+const committee = [
+  { name: "Hannah Dabinett", roles: ["Chair", "Equipment Officer"], photo: "https://www.pfo.org.uk/images/_thumb/HD-PFO.jpg", contactId: "11921" },
+  { name: "Helen Ellis", roles: ["Treasurer"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Helen_Ellis.jpg", contactId: "293" },
+  { name: "Andy Ellis", roles: ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Andy-Halifax-urban-3-2.png", contactId: "295" },
+  { name: "Cath Wilson", roles: ["Lead Coach", "CompassSport coordinator"], photo: null, contactId: "9367" },
+  { name: "Judith Wood", roles: ["Club Event Controller", "Permissions Officer"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Judith_Wood.jpg", contactId: null },
+  { name: "Kay Hawke", roles: ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Kay-Hawke.jpg", contactId: "5156" },
+  { name: "Emma Taylor", roles: ["Membership Secretary"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Emma_Taylor.jpg", contactId: "5158" },
+  { name: "Colin Woolford", roles: ["Mapping Co-ordinator"], photo: null, contactId: null },
+  { name: "Helen Smethurst", roles: ["Equipment Officer"], photo: null, contactId: null },
+  { name: "Daniel Allen", roles: ["Permissions Officer"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Danny_Allen2.jpg", contactId: "300" },
+];
+
+const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase();
+---
+<Layout
+  title="Contacts — Pendle Forest Orienteers"
+  description="Get in touch with the PFO committee — chair, secretary, treasurer, events, membership and more."
+>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="page-hero-wrap">
+      <p class="eyebrow rise d-1">Contacts</p>
+      <h1 class="rise d-2">Who does what at PFO.</h1>
+      <p class="page-lede rise d-3">PFO is run entirely by volunteers — every committee member below is doing this in their spare time. Pick the right person for your question and they'll get back to you when they can.</p>
+    </div>
+  </section>
+
+  <section class="contacts-section">
+    <div class="contacts-wrap">
+      <ul class="contacts-grid">
+        {committee.map(person => (
+          <li class="contact-card">
+            <div class="contact-photo">
+              {person.photo ? (
+                <img src={person.photo} alt="" loading="lazy">
+              ) : (
+                <span class="contact-initials" aria-hidden="true">{initials(person.name)}</span>
+              )}
+            </div>
+            <div class="contact-body">
+              <h2>{person.name}</h2>
+              <ul class="contact-roles">
+                {person.roles.map(role => <li>{role}</li>)}
+              </ul>
+              {person.contactId && (
+                <a class="contact-button" href={`https://www.pfo.org.uk/contact-form?id=${person.contactId}`} rel="noopener">
+                  Send a message →
+                </a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="info-block alt">
+    <div class="info-wrap">
+      <p class="eyebrow">General questions</p>
+      <h2>Not sure who to ask?</h2>
+      <p>For anything that doesn't fit a specific role above, drop a message to the <strong>Secretary, Andy Ellis</strong>. For event-day enquiries close to a fixture, the listed event organiser on the relevant <a href="/events">event page</a> is your fastest route.</p>
+      <p>Membership-specific questions go to <strong>Emma Taylor</strong> via the message form on her card. Press, photography, or social-media requests go to <strong>Kay Hawke</strong>.</p>
+    </div>
+  </section>
+
+</main>
+
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(40px, 5vw, 80px) var(--pad-x) clamp(40px, 4vw, 64px);
+  }
+  .page-hero-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .page-hero .eyebrow { color: var(--gold-muted); margin-bottom: 18px; }
+  .page-hero .eyebrow::before { background: var(--plum); }
+  .page-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    margin: 0 0 20px 0;
+    color: var(--ink);
+    max-width: 22ch;
+  }
+  .page-lede {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .contacts-section { padding: clamp(40px, 5vw, 64px) var(--pad-x); }
+  .contacts-wrap { max-width: var(--max-w); margin: 0 auto; }
+
+  .contacts-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .contact-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -20px rgba(27, 59, 98, 0.4);
+    border-color: var(--rule-2);
+  }
+  .contact-photo {
+    aspect-ratio: 1 / 1;
+    background: var(--paper-2);
+    overflow: hidden;
+    border-bottom: 1px solid var(--rule);
+    display: grid; place-items: center;
+  }
+  .contact-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .contact-initials {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 56px;
+    color: var(--gold-muted);
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    letter-spacing: -0.02em;
+  }
+  .contact-body {
+    padding: 18px 20px 20px;
+    display: flex; flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+  }
+  .contact-body h2 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    margin: 0;
+    color: var(--ink);
+  }
+  .contact-roles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .contact-roles li {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    padding: 3px 8px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+  }
+  .contact-button {
+    margin-top: auto;
+    align-self: flex-start;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color .18s, border-color .18s;
+  }
+  .contact-button:hover { color: var(--plum); border-color: var(--plum); }
+
+  .info-block { padding: clamp(48px, 5vw, 80px) var(--pad-x); }
+  .info-block.alt { background: var(--paper-2); }
+  .info-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .info-block .eyebrow { color: var(--gold-muted); margin-bottom: 14px; }
+  .info-block .eyebrow::before { background: var(--plum); }
+  .info-block h2 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 48, "SOFT" 20;
+    color: var(--ink);
+    margin: 0 0 18px 0;
+  }
+  .info-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 70ch;
+    margin: 0 0 14px 0;
+  }
+  .info-block strong { color: var(--ink); font-weight: 500; }
+  .info-block a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  .info-block a:hover { color: var(--plum); }
+</style>

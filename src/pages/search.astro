@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Search — Pendle Forest Orienteers"
+  description="Search PFO events, news, maps and information pages."
+>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="page-hero-wrap">
+      <p class="eyebrow rise d-1">Search</p>
+      <h1 class="rise d-2">Find what you're looking for.</h1>
+      <p class="page-lede rise d-3">Search across all events, news, maps and information pages on the PFO site.</p>
+    </div>
+  </section>
+
+  <section class="search-section">
+    <div class="search-wrap">
+      <form class="search-form" action="https://www.google.com/search" method="get" target="_blank">
+        <label for="q" class="visually-hidden">Search PFO</label>
+        <input
+          type="search"
+          id="q"
+          name="q"
+          placeholder="e.g. Hurstwood, regional, snook-O"
+          autofocus
+        >
+        <input type="hidden" name="as_sitesearch" value={Astro.site?.host ?? "pfo.org.uk"}>
+        <button type="submit">Search →</button>
+      </form>
+
+      <p class="search-help">Results open in a new tab using Google site search. The committee will replace this with on-site search before launch.</p>
+
+      <div class="quick-links">
+        <p class="eyebrow">Or jump straight to</p>
+        <ul>
+          <li><a href="/events">Events calendar</a></li>
+          <li><a href="/events#past">Past results</a></li>
+          <li><a href="/maps">Map library</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/newcomers">Newcomers' guide</a></li>
+          <li><a href="/membership">Membership</a></li>
+          <li><a href="/contacts">Committee contacts</a></li>
+          <li><a href="/information">Information hub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</Layout>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .page-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(40px, 5vw, 80px) var(--pad-x) clamp(40px, 4vw, 64px);
+  }
+  .page-hero-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .page-hero .eyebrow { color: var(--gold-muted); margin-bottom: 18px; }
+  .page-hero .eyebrow::before { background: var(--plum); }
+  .page-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    margin: 0 0 20px 0;
+    color: var(--ink);
+  }
+  .page-lede {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .search-section { padding: clamp(40px, 5vw, 64px) var(--pad-x); }
+  .search-wrap { max-width: 720px; margin: 0 auto; }
+
+  .search-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .search-form input[type="search"] {
+    font-family: var(--ff-body);
+    font-size: 18px;
+    padding: 16px 18px;
+    background: var(--paper);
+    border: 1px solid var(--rule-2);
+    color: var(--ink);
+    width: 100%;
+  }
+  .search-form input[type="search"]:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+    border-color: var(--ink);
+  }
+  .search-form button {
+    background: var(--gold);
+    color: var(--ink);
+    border: 0;
+    font-family: var(--ff-body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: background .18s ease;
+  }
+  .search-form button:hover { background: var(--gold-dark); color: var(--paper); }
+
+  .search-help {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin: 0 0 40px 0;
+  }
+
+  .quick-links { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .quick-links .eyebrow { color: var(--gold-muted); margin-bottom: 14px; }
+  .quick-links .eyebrow::before { background: var(--plum); }
+  .quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px 24px;
+  }
+  .quick-links a {
+    display: block;
+    padding: 6px 0;
+    font-size: 15px;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .quick-links a:hover { color: var(--plum); border-bottom-color: var(--plum); }
+
+  @media (max-width: 600px) {
+    .search-form { grid-template-columns: 1fr; }
+    .search-form button { padding: 14px; }
+  }
+</style>

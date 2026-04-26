@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Note for Kyle: the BO join URL preserves PFO's club code (ms_club_id=78).
+// Annual fees here are placeholders — confirm current figures with the committee
+// (Membership Secretary: Emma Taylor) and update before launch.
+const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=78&ms_assoc_id=5";
+---
+<Layout
+  title="Membership — Pendle Forest Orienteers"
+  description="How to join PFO, the benefits of membership, and current annual fees."
+>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="page-hero-wrap">
+      <p class="eyebrow rise d-1">Membership</p>
+      <h1 class="rise d-2">Join the club, support the sport.</h1>
+      <p class="page-lede rise d-3">If you plan to orienteer more than a couple of times a year, joining PFO is a small annual cost that gets you insured, ranked, discounted at events, and contributing to the sport's future.</p>
+      <div class="hero-cta-row rise d-4">
+        <a class="btn btn-primary" href={joinUrl} rel="noopener">Join PFO online <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#what-you-get">What you get</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── Why join -->
+  <section id="what-you-get" class="info-block">
+    <div class="info-wrap">
+      <p class="eyebrow">What you get</p>
+      <h2>Insurance, lower fees, ranking points, and a voice in the club.</h2>
+
+      <div class="benefits-grid">
+        <div>
+          <h3>British Orienteering insurance</h3>
+          <p>Public liability insurance covers you at every BO-affiliated event. From January 2026, non-members are no longer covered — you take part at your own risk and are personally liable for accidents to others or property damage. Membership solves this.</p>
+        </div>
+        <div>
+          <h3>Discounted entry</h3>
+          <p>Members pay a few pounds less per event than non-members at most fixtures, including all PFO events and most regional and national fixtures.</p>
+        </div>
+        <div>
+          <h3>Ranking points</h3>
+          <p>Your results count toward the British Orienteering ranking system and the regional NWOA league. You also become eligible for age-class trophies and the club's own awards.</p>
+        </div>
+        <div>
+          <h3>Newsletter and events priority</h3>
+          <p>Three or four newsletters a year with race reports, route reviews, and what's coming up. Members also get priority on capacity-limited events.</p>
+        </div>
+        <div>
+          <h3>Training and coaching</h3>
+          <p>Members-only training sessions on map-reading, pace judgement, route choice, and night orienteering. Coaching support for juniors aiming at JK, JEC and EYOC selection.</p>
+        </div>
+        <div>
+          <h3>A voice in the club</h3>
+          <p>Members can vote at the AGM, stand for committee, propose events, and shape what PFO does next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── Cost -->
+  <section class="info-block alt">
+    <div class="info-wrap">
+      <p class="eyebrow">Annual cost</p>
+      <h2>One payment, three layers of membership.</h2>
+      <p class="cost-intro">When you join PFO, you automatically become a member of the North West Orienteering Association and British Orienteering. One annual fee covers all three.</p>
+
+      <div class="cost-grid">
+        <div class="cost-card">
+          <p class="cost-label">Senior</p>
+          <p class="cost-figure">[Current fee]</p>
+          <p class="cost-detail">Adult orienteer aged 21+</p>
+        </div>
+        <div class="cost-card">
+          <p class="cost-label">Junior</p>
+          <p class="cost-figure">[Current fee]</p>
+          <p class="cost-detail">Under 21 on 1 January</p>
+        </div>
+        <div class="cost-card">
+          <p class="cost-label">Family</p>
+          <p class="cost-figure">[Current fee]</p>
+          <p class="cost-detail">Adults and juniors at one address</p>
+        </div>
+      </div>
+
+      <p class="cost-note">Confirm current fees on the <a href="https://www.britishorienteering.org.uk/join" rel="noopener">British Orienteering join page</a>. Most members renew automatically each January.</p>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── How to join -->
+  <section class="info-block">
+    <div class="info-wrap">
+      <p class="eyebrow">How to join</p>
+      <h2>Two minutes online.</h2>
+      <ol class="steps-list">
+        <li><strong>Click the join link.</strong> It takes you to the British Orienteering join form with PFO already selected as your club.</li>
+        <li><strong>Choose your membership type</strong> (Senior, Junior, or Family) and fill in your details.</li>
+        <li><strong>Pay by card.</strong> Membership runs to 31 December — joining mid-year still gets you full benefits to year-end.</li>
+        <li><strong>You're in.</strong> A confirmation email arrives within a few minutes; we'll add you to the newsletter and members' WhatsApp group.</li>
+      </ol>
+
+      <p class="join-cta">
+        <a class="btn btn-primary" href={joinUrl} rel="noopener">Start the join form <span class="arrow">→</span></a>
+      </p>
+
+      <p class="contact-note">Questions about membership? Get in touch with the Membership Secretary, <a href="/contacts">Emma Taylor</a>, via the contacts page.</p>
+    </div>
+  </section>
+
+</main>
+
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(40px, 5vw, 80px) var(--pad-x) clamp(40px, 4vw, 64px);
+  }
+  .page-hero-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .page-hero .eyebrow { color: var(--gold-muted); margin-bottom: 18px; }
+  .page-hero .eyebrow::before { background: var(--plum); }
+  .page-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    margin: 0 0 20px 0;
+    color: var(--ink);
+    max-width: 22ch;
+  }
+  .page-lede {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0 0 26px 0;
+  }
+  .hero-cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Info blocks (shared with other static pages) */
+  .info-block { padding: clamp(48px, 5vw, 80px) var(--pad-x); }
+  .info-block.alt { background: var(--paper-2); }
+  .info-wrap { max-width: var(--max-w); margin: 0 auto; }
+  .info-block .eyebrow { color: var(--gold-muted); margin-bottom: 14px; }
+  .info-block .eyebrow::before { background: var(--plum); }
+  .info-block h2 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 48, "SOFT" 20;
+    color: var(--ink);
+    margin: 0 0 32px 0;
+    max-width: 28ch;
+  }
+  .info-block h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.2;
+    color: var(--ink);
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    margin: 0 0 8px 0;
+  }
+  .info-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 14px 0;
+  }
+  .info-block a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  .info-block a:hover { color: var(--plum); }
+
+  /* Benefits */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px 36px;
+  }
+  .benefits-grid h3 {
+    border-top: 2px solid var(--plum);
+    padding-top: 12px;
+  }
+
+  /* Cost */
+  .cost-intro { max-width: 60ch; margin-bottom: 28px; }
+  .cost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .cost-card {
+    background: var(--paper);
+    padding: 24px 24px;
+    border-top: 4px solid var(--gold);
+  }
+  .cost-card .cost-label {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    margin: 0 0 10px 0;
+  }
+  .cost-card .cost-figure {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--navy);
+    font-variation-settings: "opsz" 48, "SOFT" 20;
+    margin: 0 0 6px 0;
+  }
+  .cost-card .cost-detail {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .cost-note {
+    font-size: 14px;
+    color: var(--ink-mute);
+    max-width: 60ch;
+    font-style: italic;
+    margin-top: 12px;
+  }
+
+  /* Steps list */
+  .steps-list {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    display: grid;
+    gap: 18px;
+    max-width: 65ch;
+  }
+  .steps-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 56px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .steps-list li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: -2px;
+    width: 38px; height: 38px;
+    display: grid; place-items: center;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--ff-mono);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .steps-list strong { color: var(--ink); font-weight: 500; }
+
+  .join-cta { margin: 8px 0 24px 0; }
+  .contact-note { font-size: 14px; color: var(--ink-mute); }
+</style>
