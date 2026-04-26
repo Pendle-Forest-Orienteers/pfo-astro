@@ -4,7 +4,7 @@ nearTown: "Burnley"
 terrain: "parkland"
 scale: "1:7500"
 permanentCourse: true
-image: "https://www.pfo.org.uk/images/map-images/Healey-Colliery.gif"
+image: "/assets/maps/Healey-Colliery.gif"
 imageAlt: "Orienteering map of Towneley Park and Healey Heights"
 summary: "Mature parkland in the heart of Burnley with a permanent course on the ground."
 ---

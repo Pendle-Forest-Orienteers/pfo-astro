@@ -3,7 +3,7 @@ title: "Brun Valley Forest Park"
 nearTown: "Burnley"
 terrain: "forest"
 scale: "1:7500"
-image: "https://www.pfo.org.uk/images/BVFP-v7-1-7500-A3-competition.gif"
+image: "/assets/maps/BVFP-v7-1-7500-A3-competition.gif"
 imageAlt: "Orienteering map of Brun Valley Forest Park, Burnley"
 summary: "PFO's flagship venue — mixed forest, open land, and the river Brun."
 ---

@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('infoPages');
+  return pages
+    .filter(p => !p.data.draft)
+    .map(p => ({ params: { slug: p.id }, props: { page: p } }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+// Other info pages in the same section, for the sidebar
+const allPages = (await getCollection('infoPages'))
+  .filter(p => !p.data.draft && p.id !== page.id)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const sectionLabel: Record<string, string> = {
+  governance: 'Governance',
+  safety: 'Safety',
+  participation: 'Participation',
+  members: 'Members',
+  admin: 'Admin',
+};
+
+const fmtReviewed = (d: Date) => new Intl.DateTimeFormat('en-GB', {
+  month: 'long', year: 'numeric'
+}).format(d);
+---
+<Layout
+  title={`${page.data.title} — Information — PFO`}
+  description={page.data.summary}
+>
+
+<main id="main">
+
+  <section class="info-page-hero">
+    <div class="info-page-hero-wrap">
+      <a class="back-link" href="/information">← All information</a>
+      {page.data.section && <p class="eyebrow">{sectionLabel[page.data.section]}</p>}
+      <h1>{page.data.title}</h1>
+      <p class="info-summary">{page.data.summary}</p>
+      {page.data.lastReviewed && (
+        <p class="info-meta">Last reviewed: <time datetime={page.data.lastReviewed.toISOString()}>{fmtReviewed(page.data.lastReviewed)}</time></p>
+      )}
+    </div>
+  </section>
+
+  <section class="info-page-body">
+    <div class="info-page-body-wrap">
+      <article class="info-prose">
+        <Content />
+      </article>
+
+      <aside class="info-page-aside">
+        <p class="aside-label">Other information</p>
+        <ul>
+          {allPages.map(p => (
+            <li><a href={`/information/${p.id}`}>{p.data.title}</a></li>
+          ))}
+          <li><a href="/information">All information →</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+</Layout>
+
+<style>
+  .info-page-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(28px, 4vw, 48px) var(--pad-x) clamp(28px, 3vw, 40px);
+  }
+  .info-page-hero-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    transition: color .18s ease;
+  }
+  .back-link:hover { color: var(--plum); }
+  .eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    display: inline-flex; align-items: center; gap: 10px;
+    margin: 0 0 16px 0;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--plum);
+    transform: rotate(45deg);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  }
+  .info-page-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    color: var(--ink);
+    margin: 0 0 14px 0;
+  }
+  .info-summary {
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 14px 0;
+    max-width: 60ch;
+  }
+  .info-meta {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+    margin: 0;
+  }
+
+  .info-page-body { padding: clamp(40px, 5vw, 64px) var(--pad-x); }
+  .info-page-body-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  .info-prose { max-width: 65ch; }
+  .info-prose :global(h2) {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: clamp(22px, 2vw, 26px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    color: var(--navy);
+    margin: 32px 0 12px 0;
+  }
+  .info-prose :global(h2:first-child) { margin-top: 0; }
+  .info-prose :global(h3) {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 19px;
+    color: var(--ink);
+    margin: 24px 0 8px 0;
+  }
+  .info-prose :global(p) {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0 0 16px 0;
+  }
+  .info-prose :global(strong) { font-weight: 500; }
+  .info-prose :global(ul), .info-prose :global(ol) {
+    margin: 0 0 18px 1.4em;
+    padding: 0;
+  }
+  .info-prose :global(li) {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .info-prose :global(a) {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+  .info-prose :global(a:hover) { color: var(--plum); }
+
+  .info-page-aside {
+    background: var(--paper-2);
+    padding: 18px;
+    border-left: 3px solid var(--plum);
+    position: sticky; top: 24px;
+  }
+  .aside-label {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px 0;
+  }
+  .info-page-aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; flex-direction: column;
+    gap: 6px;
+  }
+  .info-page-aside a {
+    display: block;
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .info-page-aside a:hover { color: var(--plum); border-bottom-color: var(--plum); }
+
+  @media (max-width: 720px) {
+    .info-page-body-wrap { grid-template-columns: 1fr; }
+    .info-page-aside { position: static; }
+  }
+</style>

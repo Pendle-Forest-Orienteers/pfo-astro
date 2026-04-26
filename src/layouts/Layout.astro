@@ -1026,5 +1026,22 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   }());
 </script>
 
+<!-- Netlify Identity widget — handles committee logins for the /admin CMS.
+     Loads on every page so email-invite links work from any URL. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" is:inline></script>
+<script is:inline>
+  // After a successful login, redirect the user to the admin area.
+  // (If they're already on /admin, the CMS handles login itself.)
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
 </body>
 </html>

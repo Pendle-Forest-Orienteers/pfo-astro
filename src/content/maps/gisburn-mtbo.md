@@ -3,7 +3,7 @@ title: "Gisburn Forest"
 nearTown: "Tosside"
 terrain: "mtbo"
 scale: "1:15000"
-image: "https://www.pfo.org.uk/images/map-images/Gisburn_MTBO_2018.gif"
+image: "/assets/maps/Gisburn_MTBO_2018.gif"
 imageAlt: "Mountain bike orienteering map of Gisburn Forest"
 summary: "Large MTBO area in the Forest of Bowland — purpose-built for bike orienteering."
 ---

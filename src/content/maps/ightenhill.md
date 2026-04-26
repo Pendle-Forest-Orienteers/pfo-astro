@@ -3,7 +3,7 @@ title: "Ightenhill"
 nearTown: "Burnley"
 terrain: "urban"
 scale: "1:5000"
-image: "https://www.pfo.org.uk/images/map-images/Aitken_Wood_v12.gif"
+image: "/assets/maps/Aitken_Wood_v12.gif"
 imageAlt: "Urban orienteering map of Ightenhill, Burnley"
 summary: "Interlinked urban housing estates west of Burnley town centre — quick route choice and lots of cut-throughs."
 ---

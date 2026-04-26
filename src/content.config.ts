@@ -115,4 +115,19 @@ const maps = defineCollection({
   }),
 });
 
-export const collections = { events, news, maps };
+// ─────── Info pages collection
+// Sub-pages of the Information hub — policies, privacy, etc.
+// Each .md file becomes /information/<slug>
+const infoPages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/info-pages' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    section: z.enum(['governance', 'safety', 'participation', 'members', 'admin']).optional(),
+    order: z.number().optional(),
+    lastReviewed: z.date().optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+export const collections = { events, news, maps, infoPages };

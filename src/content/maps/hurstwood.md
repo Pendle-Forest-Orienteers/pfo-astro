@@ -3,7 +3,7 @@ title: "Hurstwood"
 nearTown: "Hurstwood, Burnley"
 terrain: "moorland"
 scale: "1:10000"
-image: "https://www.pfo.org.uk/images/Hurstwood_All_2016_Comp_A3_10000.gif"
+image: "/assets/maps/Hurstwood_All_2016_Comp_A3_10000.gif"
 imageAlt: "Orienteering map of Hurstwood — moorland and woodland near Burnley, scale 1:10000"
 summary: "Open moorland, plantation forest, and a network of paths above Hurstwood Reservoir."
 ---

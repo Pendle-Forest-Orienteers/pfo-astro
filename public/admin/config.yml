@@ -1,0 +1,214 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Decap CMS configuration for Pendle Forest Orienteers
+#
+# Edits made in the admin UI commit directly to the GitHub repo via Netlify's
+# Git Gateway. Netlify rebuilds and the live site updates within ~30 seconds.
+#
+# Committee members log in by email invitation (sent from the Netlify dashboard).
+# No Git knowledge or developer tools required.
+# ─────────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: git-gateway
+  branch: main
+  squash_merges: true
+
+# Drafts go through an editorial workflow — Save as draft → Ready → Publish
+publish_mode: editorial_workflow
+
+# Where uploaded media (event photos, map images, news heroes) lives in the repo
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+# Show a friendlier site logo on the login screen
+logo_url: /assets/logo.svg
+site_url: https://pfo.org.uk
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COLLECTIONS
+# Each collection maps to a content collection in src/content/
+# ─────────────────────────────────────────────────────────────────────────────
+collections:
+
+  # ─── EVENTS ──────────────────────────────────────────────────────────────
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"
+    description: "Upcoming and past events. The site shows events with a future entry close date as 'upcoming' and past ones as 'results'."
+    folder: "src/content/events"
+    create: true
+    delete: true
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
+    summary: "{{title}} — {{year}}-{{month}}-{{day}}"
+    sort: "date:desc"
+    fields:
+      - { name: "title", label: "Event title", widget: "string", hint: "e.g. 'Ightenhill South Urban' — short, no format suffix" }
+      - { name: "date", label: "Event date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - { name: "startTime", label: "Start time", widget: "string", required: false, hint: "e.g. '7:00pm' or '10:30am' (display only, not parsed)" }
+      - { name: "entryCloseDate", label: "Entry close date / time", widget: "datetime", picker_utc: false, hint: "When entries close. Drives the auto-transition from upcoming to results." }
+      - { name: "location", label: "Location", widget: "string", hint: "Short label for cards, e.g. 'Burnley'" }
+      - { name: "venue", label: "Venue", widget: "string", required: false, hint: "Specific building, e.g. 'Ighten Leigh Social Club'" }
+      - { name: "postcode", label: "Postcode", widget: "string", required: false }
+      - name: "coords"
+        label: "Coordinates"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
+          - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }
+      - name: "format"
+        label: "Format"
+        widget: "select"
+        options:
+          - "Standard"
+          - "Score"
+          - "Urban"
+          - "Urban Score"
+          - "Street-O"
+          - "Snook-O"
+          - "Sprint"
+          - "Night-O"
+          - "Regional"
+          - "MTBO"
+          - "Training"
+        default: "Standard"
+      - name: "level"
+        label: "Event level"
+        widget: "select"
+        options:
+          - { label: "Local", value: "local" }
+          - { label: "Regional", value: "regional" }
+          - { label: "National", value: "national" }
+          - { label: "Major", value: "major" }
+        default: "local"
+      - { name: "duration", label: "Duration (minutes)", widget: "number", required: false, value_type: "int", min: 0 }
+      - { name: "series", label: "Series name", widget: "string", required: false, hint: "Optional series this event belongs to, e.g. 'May Street-O'" }
+      - { name: "entryFee", label: "Entry fee", widget: "string", required: false, hint: "Free-text, e.g. 'From £6' or '£6 / £8 pair / £9 trio'" }
+      - { name: "capacity", label: "Entry cap", widget: "number", required: false, value_type: "int", min: 0 }
+      - { name: "siEntriesUrl", label: "SI Entries URL", widget: "string", required: false, hint: "Direct link to the entry form for this event on sientries.co.uk" }
+      - { name: "routeGadgetUrl", label: "RouteGadget URL", widget: "string", required: false }
+      - { name: "summary", label: "Card subtitle", widget: "string", hint: "1-line subtitle shown on cards, e.g. 'Score event · Burnley · Local level'" }
+      - { name: "description", label: "Hero description", widget: "text", required: false, hint: "1-2 sentences for the homepage featured-event card. Optional." }
+      - name: "results"
+        label: "Results files"
+        widget: "list"
+        required: false
+        summary: "{{fields.label}} ({{fields.type}})"
+        fields:
+          - { name: "label", label: "File label", widget: "string", hint: "e.g. 'Full results', 'Splits', 'RouteGadget'" }
+          - { name: "url", label: "File URL", widget: "string", hint: "Upload via Media Library, then paste the URL — or paste an external URL" }
+          - name: "type"
+            label: "File type"
+            widget: "select"
+            options:
+              - { label: "HTML / web page", value: "html" }
+              - { label: "PDF", value: "pdf" }
+              - { label: "Excel (.xlsx)", value: "xlsx" }
+              - { label: "CSV", value: "csv" }
+      - { name: "cancelled", label: "Event cancelled", widget: "boolean", default: false, required: false }
+      - { name: "notes", label: "Committee notes", widget: "text", required: false, hint: "Private notes, not shown publicly" }
+      - { name: "body", label: "Long-form description", widget: "markdown", required: false, hint: "Full event details, course information, parking notes, etc." }
+
+  # ─── NEWS ────────────────────────────────────────────────────────────────
+  - name: "news"
+    label: "News"
+    label_singular: "News article"
+    description: "Race reports, club announcements and news."
+    folder: "src/content/news"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{year}}-{{month}}-{{day}}"
+    sort: "date:desc"
+    fields:
+      - { name: "title", label: "Headline", widget: "string" }
+      - { name: "date", label: "Publish date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - { name: "summary", label: "Summary / standfirst", widget: "text", hint: "1-2 sentences shown on cards and listings." }
+      - { name: "heroImage", label: "Hero image", widget: "image", required: false }
+      - { name: "heroImageAlt", label: "Hero image alt text", widget: "string", required: false, hint: "Describe the image for screen readers." }
+      - { name: "author", label: "Author", widget: "string", required: false }
+      - name: "gallery"
+        label: "Photo gallery"
+        widget: "list"
+        required: false
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: "src", label: "Image", widget: "image" }
+          - { name: "alt", label: "Alt text", widget: "string" }
+          - { name: "caption", label: "Caption", widget: "string", required: false }
+      - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
+      - { name: "body", label: "Article body", widget: "markdown" }
+
+  # ─── MAPS ────────────────────────────────────────────────────────────────
+  - name: "maps"
+    label: "Maps"
+    label_singular: "Map"
+    description: "The map library — every venue PFO has surveyed."
+    folder: "src/content/maps"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sort: "title:asc"
+    fields:
+      - { name: "title", label: "Map name", widget: "string", hint: "e.g. 'Hurstwood', 'Towneley Park'" }
+      - { name: "nearTown", label: "Near town", widget: "string", required: false }
+      - name: "terrain"
+        label: "Terrain type"
+        widget: "select"
+        options:
+          - { label: "Urban (streets, estates)", value: "urban" }
+          - { label: "Parkland (parks, gardens)", value: "parkland" }
+          - { label: "Forest (woodland, plantation)", value: "forest" }
+          - { label: "Moorland (open hill)", value: "moorland" }
+          - { label: "Mountain bike (MTBO)", value: "mtbo" }
+          - { label: "Mixed terrain", value: "mixed" }
+        default: "mixed"
+      - { name: "scale", label: "Scale", widget: "string", required: false, hint: "e.g. '1:7500'" }
+      - { name: "contourInterval", label: "Contour interval", widget: "string", required: false, hint: "e.g. '5m'" }
+      - { name: "surveyYear", label: "Year last surveyed", widget: "number", required: false, value_type: "int", min: 1970, max: 2099 }
+      - { name: "surveyor", label: "Surveyor / mapper", widget: "string", required: false }
+      - { name: "permanentCourse", label: "Has permanent course (POC)", widget: "boolean", default: false, required: false }
+      - name: "coords"
+        label: "Coordinates"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
+          - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }
+      - { name: "image", label: "Map image", widget: "image", hint: "The orienteering map itself — JPEG, PNG, or GIF." }
+      - { name: "imageAlt", label: "Map image alt text", widget: "string", required: false }
+      - { name: "summary", label: "Card description", widget: "string", hint: "1-line description shown on the map library page." }
+      - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
+      - { name: "body", label: "Long-form description", widget: "markdown", required: false, hint: "Area history, access notes, parking, hazards, etc." }
+
+  # ─── INFO PAGES ──────────────────────────────────────────────────────────
+  - name: "infoPages"
+    label: "Information pages"
+    label_singular: "Information page"
+    description: "Sub-pages of the Information hub — privacy, safeguarding, policies, and similar."
+    folder: "src/content/info-pages"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sort: "section:asc"
+    fields:
+      - { name: "title", label: "Page title", widget: "string" }
+      - { name: "summary", label: "1-line summary", widget: "string", hint: "Shown as the description on the info hub card." }
+      - name: "section"
+        label: "Hub section"
+        widget: "select"
+        options:
+          - { label: "Governance", value: "governance" }
+          - { label: "Safety", value: "safety" }
+          - { label: "Participation", value: "participation" }
+          - { label: "Members' resources", value: "members" }
+          - { label: "Admin", value: "admin" }
+        required: false
+      - { name: "order", label: "Sort order within section", widget: "number", required: false, value_type: "int" }
+      - { name: "lastReviewed", label: "Last reviewed", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, required: false }
+      - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
+      - { name: "body", label: "Page content", widget: "markdown" }

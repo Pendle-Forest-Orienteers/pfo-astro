@@ -3,7 +3,7 @@ title: "Calf Hey"
 nearTown: "Haslingden"
 terrain: "moorland"
 scale: "1:7500"
-image: "https://www.pfo.org.uk/images/map-images/Calf_Hey_1-7500_2015-10-04.gif"
+image: "/assets/maps/Calf_Hey_1-7500_2015-10-04.gif"
 imageAlt: "Orienteering map of Calf Hey near Haslingden — moorland water-catchment area"
 summary: "A typical Lancashire water-catchment landscape — grazing, plantation, and rough open moorland."
 ---
