@@ -1,5 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// ─────── Data: upcoming events from the content collection
+const now = new Date();
+const allEvents = await getCollection('events');
+
+const upcoming = allEvents
+  .filter(e => e.data.entryCloseDate >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const nextEvent = upcoming[0];
+const alsoComingUp = upcoming.slice(1, 5);
+
+// ─────── Date formatters (UK English, no comma after weekday)
+const fmtFeaturedDate = (d) => new Intl.DateTimeFormat('en-GB', {
+  weekday: 'short', day: 'numeric', month: 'long'
+}).format(d).replace(',', '');
+
+const fmtCardDate = (d) => new Intl.DateTimeFormat('en-GB', {
+  weekday: 'short', day: 'numeric', month: 'short'
+}).format(d).replace(',', '');
+
+const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 ---
 <Layout
   title="Pendle Forest Orienteers — orienteering across East Lancashire"
@@ -31,7 +54,7 @@ import Layout from '../layouts/Layout.astro';
       <p class="lede rise d-4">A small club running twelve to fifteen events a year — midweek street-Os, weekend regionals on the fells, and training for members. Turn up, pick a course, and navigate your way round at your own pace. <a class="lede-link" href="https://www.pfo.org.uk/info/membership">Join us →</a></p>
       <div class="hero-cta rise d-5">
         <a class="btn btn-primary" href="https://www.pfo.org.uk/info/what-is-orienteering">Find your first event <span class="arrow">→</span></a>
-        <a class="btn btn-ghost" href="https://www.pfo.org.uk/events">All upcoming events</a>
+        <a class="btn btn-ghost" href="/events">All upcoming events</a>
       </div>
       <dl class="hero-stats rise d-6">
         <div><dt>Mapped areas</dt><dd>60+</dd></div>
@@ -39,18 +62,24 @@ import Layout from '../layouts/Layout.astro';
       </dl>
     </div>
 
-    <aside class="next-event rise d-4" aria-label="Next event">
-      <p class="eyebrow">Next event</p>
-      <p class="event-when">Wed 29 April · 7:00pm</p>
-      <h2>Ightenhill South Urban</h2>
-      <p class="event-where">Score event · Burnley · Local level</p>
-      <p class="event-terms">
-        <span>45 min</span>
-        <span>From £6</span>
-        <span>80 capacity</span>
-      </p>
-      <a class="btn btn-primary btn-full" href="https://www.sientries.co.uk/event.php?event_id=17463" rel="noopener">Enter via SI Entries <span class="arrow">→</span></a>
-    </aside>
+    {nextEvent && (
+      <aside class="next-event rise d-4" aria-label="Next event">
+        <p class="eyebrow">Next event</p>
+        <p class="event-when">{fmtFeaturedDate(nextEvent.data.date)}{nextEvent.data.startTime && ` · ${nextEvent.data.startTime}`}</p>
+        <h2>{nextEvent.data.title}</h2>
+        <p class="event-where">{nextEvent.data.summary}</p>
+        <p class="event-terms">
+          {nextEvent.data.duration && <span>{nextEvent.data.duration} min</span>}
+          {nextEvent.data.entryFee && <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>}
+          {nextEvent.data.capacity && <span>{nextEvent.data.capacity} capacity</span>}
+        </p>
+        {nextEvent.data.siEntriesUrl ? (
+          <a class="btn btn-primary btn-full" href={nextEvent.data.siEntriesUrl} rel="noopener">Enter via SI Entries <span class="arrow">→</span></a>
+        ) : (
+          <a class="btn btn-primary btn-full" href={`/events/${nextEvent.id}`}>Event details <span class="arrow">→</span></a>
+        )}
+      </aside>
+    )}
   </div>
   </section>
 
@@ -66,45 +95,20 @@ import Layout from '../layouts/Layout.astro';
   <section class="upcoming">
     <div class="sec-head">
       <p class="eyebrow">Also coming up</p>
-      <a class="sec-link" href="https://www.pfo.org.uk/events">Full calendar →</a>
+      <a class="sec-link" href="/events">Full calendar →</a>
     </div>
     <ul class="event-row">
-      <li>
-        <a class="ev-card" href="https://www.pfo.org.uk/events/oswaldtwistle-2026-05-06">
-          <span class="arrow-mono">→</span>
-          <time>Wed 6 May</time>
-          <h3>Oswaldtwistle</h3>
-          <p class="ev-sub">May Street-O</p>
-          <span class="level level-local">Local</span>
-        </a>
-      </li>
-      <li>
-        <a class="ev-card" href="https://www.pfo.org.uk/events/brun-valley-regional-yb-2026-05-16">
-          <span class="arrow-mono">→</span>
-          <time>Sat 16 May</time>
-          <h3>Brun Valley</h3>
-          <p class="ev-sub">Regional &amp; YB · Burnley</p>
-          <span class="level level-regional">Regional</span>
-        </a>
-      </li>
-      <li>
-        <a class="ev-card" href="https://www.pfo.org.uk/events/barrowford-2026-06-03">
-          <span class="arrow-mono">→</span>
-          <time>Wed 3 Jun</time>
-          <h3>Barrowford</h3>
-          <p class="ev-sub">Snook-O</p>
-          <span class="level level-local">Local</span>
-        </a>
-      </li>
-      <li>
-        <a class="ev-card" href="https://www.pfo.org.uk/events/blackburn-2026-06-10">
-          <span class="arrow-mono">→</span>
-          <time>Wed 10 Jun</time>
-          <h3>Blackburn</h3>
-          <p class="ev-sub">Snook-O</p>
-          <span class="level level-local">Local</span>
-        </a>
-      </li>
+      {alsoComingUp.map(event => (
+        <li>
+          <a class="ev-card" href={`/events/${event.id}`}>
+            <span class="arrow-mono">→</span>
+            <time datetime={event.data.date.toISOString()}>{fmtCardDate(event.data.date)}</time>
+            <h3>{event.data.title}</h3>
+            <p class="ev-sub">{event.data.summary}</p>
+            <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
+          </a>
+        </li>
+      ))}
     </ul>
   </section>
 

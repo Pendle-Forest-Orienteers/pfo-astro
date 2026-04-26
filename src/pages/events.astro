@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// ─────── Data: split events into upcoming and past
+const now = new Date();
+const allEvents = await getCollection('events');
+
+const upcoming = allEvents
+  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const past = allEvents
+  .filter(e => e.data.entryCloseDate < now)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Group past events by year
+const pastByYear = past.reduce((acc, event) => {
+  const year = event.data.date.getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(event);
+  return acc;
+}, {} as Record<number, typeof past>);
+const pastYears = Object.keys(pastByYear).map(Number).sort((a, b) => b - a);
+
+// ─────── Date formatters
+const fmtRowDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
+  weekday: 'short', day: 'numeric', month: 'short'
+}).format(d).replace(',', '');
+
+const fmtDay = (d: Date) => new Intl.DateTimeFormat('en-GB', { day: 'numeric' }).format(d);
+const fmtMonth = (d: Date) => new Intl.DateTimeFormat('en-GB', { month: 'short' }).format(d);
+const fmtWeekday = (d: Date) => new Intl.DateTimeFormat('en-GB', { weekday: 'short' }).format(d);
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+---
+<Layout
+  title="Events — Pendle Forest Orienteers"
+  description="Upcoming fixtures and past results from Pendle Forest Orienteers — orienteering events across East Lancashire."
+>
+
+<main id="main">
+
+  <!-- ─────────────────────────── Page hero -->
+  <section class="page-hero">
+    <div class="page-hero-wrap">
+      <p class="eyebrow rise d-1">Events</p>
+      <h1 class="rise d-2">Upcoming fixtures and past results.</h1>
+      <p class="page-lede rise d-3">PFO runs around 12–15 events a year — local midweek street events, weekend regionals on the fells, and the headline Brun Valley fixture in May. Online entry via SI Entries; turn-up-on-the-day welcome where space allows.</p>
+      <nav class="anchor-nav rise d-4" aria-label="Skip to section">
+        <a href="#upcoming">Upcoming ({upcoming.length})</a>
+        <span aria-hidden="true">·</span>
+        <a href="#past">Past results ({past.length})</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── Upcoming events -->
+  <section id="upcoming" class="event-section">
+    <div class="sec-head">
+      <p class="eyebrow">Upcoming</p>
+      <span class="sec-count">{upcoming.length} fixture{upcoming.length === 1 ? '' : 's'}</span>
+    </div>
+    {upcoming.length === 0 ? (
+      <p class="empty">No upcoming events scheduled. Check back soon, or follow us on Facebook for early notice.</p>
+    ) : (
+      <ul class="event-list">
+        {upcoming.map(event => (
+          <li>
+            <a class="ev-row" href={`/events/${event.id}`}>
+              <time class="ev-row-date" datetime={event.data.date.toISOString()}>
+                <span class="ev-row-day">{fmtDay(event.data.date)}</span>
+                <span class="ev-row-month">{fmtMonth(event.data.date)}</span>
+                <span class="ev-row-weekday">{fmtWeekday(event.data.date)}</span>
+              </time>
+              <div class="ev-row-body">
+                <h3>{event.data.title}</h3>
+                <p class="ev-row-meta">
+                  <span>{event.data.format}</span>
+                  {event.data.location && <><span aria-hidden="true">·</span><span>{event.data.location}</span></>}
+                  {event.data.startTime && <><span aria-hidden="true">·</span><span>{event.data.startTime}</span></>}
+                  {event.data.entryFee && <><span aria-hidden="true">·</span><span>{event.data.entryFee.split(/[(.]/)[0].trim()}</span></>}
+                </p>
+              </div>
+              <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
+              <span class="ev-row-action" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <!-- ─────────────────────────── Past events / results -->
+  <section id="past" class="event-section past">
+    <div class="sec-head">
+      <p class="eyebrow">Past results</p>
+      <span class="sec-count">{past.length} event{past.length === 1 ? '' : 's'}</span>
+    </div>
+    {past.length === 0 ? (
+      <p class="empty">No past events to show yet.</p>
+    ) : (
+      pastYears.map(year => (
+        <div class="year-group">
+          <h2 class="year-heading">{year}</h2>
+          <ul class="event-list">
+            {pastByYear[year].map(event => (
+              <li>
+                <a class="ev-row past-row" href={`/events/${event.id}`}>
+                  <time class="ev-row-date" datetime={event.data.date.toISOString()}>
+                    <span class="ev-row-day">{fmtDay(event.data.date)}</span>
+                    <span class="ev-row-month">{fmtMonth(event.data.date)}</span>
+                    <span class="ev-row-weekday">{fmtWeekday(event.data.date)}</span>
+                  </time>
+                  <div class="ev-row-body">
+                    <h3>{event.data.title}</h3>
+                    <p class="ev-row-meta">
+                      <span>{event.data.format}</span>
+                      {event.data.location && <><span aria-hidden="true">·</span><span>{event.data.location}</span></>}
+                      {event.data.results && event.data.results.length > 0 && (
+                        <><span aria-hidden="true">·</span><span class="has-results">Results available</span></>
+                      )}
+                    </p>
+                  </div>
+                  <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
+                  <span class="ev-row-action" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    )}
+  </section>
+
+</main>
+
+</Layout>
+
+<style>
+  /* ─────────────────────────── Page hero (smaller than homepage hero) */
+  .page-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(40px, 5vw, 80px) var(--pad-x) clamp(36px, 4vw, 60px);
+  }
+  .page-hero-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .page-hero .eyebrow {
+    color: var(--gold-muted);
+    margin-bottom: 18px;
+  }
+  .page-hero .eyebrow::before { background: var(--plum); }
+  .page-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    margin: 0 0 20px 0;
+    color: var(--ink);
+    max-width: 22ch;
+  }
+  .page-lede {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0 0 24px 0;
+  }
+  .anchor-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .anchor-nav a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color .18s, border-color .18s;
+  }
+  .anchor-nav a:hover { color: var(--plum); border-color: var(--plum); }
+  .anchor-nav span { color: var(--ink-mute); }
+
+  /* ─────────────────────────── Section heads */
+  .event-section {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: clamp(40px, 5vw, 64px) var(--pad-x);
+  }
+  .event-section.past {
+    background: var(--paper-2);
+    max-width: none;
+    padding-left: 0; padding-right: 0;
+  }
+  .event-section.past .sec-head,
+  .event-section.past .year-group {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+    gap: 16px;
+  }
+  .sec-count {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .empty {
+    color: var(--ink-soft);
+    font-size: 15px;
+    padding: 24px 0;
+  }
+
+  /* ─────────────────────────── Year groups (past only) */
+  .year-group { margin-bottom: 40px; }
+  .year-group:last-child { margin-bottom: 0; }
+  .year-heading {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    color: var(--navy);
+    margin: 0 0 12px 0;
+  }
+
+  /* ─────────────────────────── Event list */
+  .event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .event-list li { border-bottom: 1px solid var(--rule); }
+
+  .ev-row {
+    display: grid;
+    grid-template-columns: 84px 1fr auto auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 6px;
+    color: var(--ink);
+    transition: background .18s ease, padding-left .18s ease;
+  }
+  .ev-row:hover {
+    background: var(--paper);
+    padding-left: 14px;
+  }
+  .past-row:hover { background: var(--paper-3); }
+
+  .ev-row-date {
+    display: flex; flex-direction: column; align-items: flex-start;
+    line-height: 1;
+    border-right: 1px solid var(--rule);
+    padding-right: 14px;
+  }
+  .ev-row-day {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--navy);
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .ev-row-month {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    margin-top: 6px;
+  }
+  .ev-row-weekday {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 2px;
+  }
+
+  .ev-row-body { min-width: 0; }
+  .ev-row-body h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 36, "SOFT" 20;
+    margin: 0 0 4px 0;
+    color: var(--ink);
+  }
+  .ev-row:hover .ev-row-body h3 { color: var(--navy); }
+  .ev-row-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .ev-row-meta span[aria-hidden="true"] { color: var(--ink-mute); }
+  .ev-row-meta .has-results { color: var(--plum); font-weight: 500; }
+
+  .ev-row-action {
+    font-family: var(--ff-mono);
+    font-size: 18px;
+    color: var(--ink-mute);
+    transition: color .18s ease, transform .18s ease;
+  }
+  .ev-row:hover .ev-row-action {
+    color: var(--gold-muted);
+    transform: translateX(4px);
+  }
+
+  /* ─────────────────────────── Responsive */
+  @media (max-width: 720px) {
+    .ev-row {
+      grid-template-columns: 60px 1fr auto;
+      gap: 14px;
+      padding: 16px 4px;
+    }
+    .ev-row:hover { padding-left: 8px; }
+    .ev-row-action { display: none; }
+    .ev-row-day { font-size: 24px; }
+    .ev-row-body h3 { font-size: 18px; }
+    .ev-row-meta { font-size: 13px; gap: 0 8px; }
+    .ev-row-date { padding-right: 10px; }
+  }
+
+  @media (max-width: 520px) {
+    .ev-row { grid-template-columns: 56px 1fr; }
+    .ev-row .level { display: none; }
+    .ev-row-meta {
+      display: flex; flex-wrap: wrap;
+    }
+  }
+</style>
