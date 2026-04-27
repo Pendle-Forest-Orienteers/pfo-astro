@@ -47,11 +47,89 @@ const fileTypeLabel = (t: string) => {
     case 'html': default: return 'View online';
   }
 };
+
+// ─────── Schema.org Event JSON-LD
+// Google reads this and surfaces the event in event-rich-result cards.
+// https://developers.google.com/search/docs/appearance/structured-data/event
+const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+
+// Combine event date with start time, if provided. Otherwise use date at 00:00.
+function combineDateAndTime(date: Date, displayTime?: string): string {
+  if (!displayTime) return date.toISOString();
+  // Parse "7:00pm" / "10:30am" into 24h and apply to the date
+  const m = displayTime.trim().toLowerCase().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/);
+  if (!m) return date.toISOString();
+  let hours = parseInt(m[1], 10);
+  const mins = m[2] ? parseInt(m[2], 10) : 0;
+  const meridiem = m[3];
+  if (meridiem === 'pm' && hours < 12) hours += 12;
+  if (meridiem === 'am' && hours === 12) hours = 0;
+  const d = new Date(date);
+  d.setHours(hours, mins, 0, 0);
+  return d.toISOString();
+}
+
+const startIso = combineDateAndTime(event.data.date, event.data.startTime);
+
+const eventJsonLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  name: event.data.title,
+  description: event.data.description ?? event.data.summary,
+  startDate: startIso,
+  eventStatus: event.data.cancelled
+    ? "https://schema.org/EventCancelled"
+    : "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  url: canonical,
+  organizer: {
+    "@type": "SportsOrganization",
+    name: "Pendle Forest Orienteers",
+    url: siteUrl.toString(),
+  },
+  sport: "Orienteering",
+  location: {
+    "@type": "Place",
+    name: event.data.venue ?? event.data.location,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: event.data.location,
+      ...(event.data.postcode ? { postalCode: event.data.postcode } : {}),
+      addressRegion: "Lancashire",
+      addressCountry: "GB",
+    },
+    ...(coords ? {
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: coords.lat,
+        longitude: coords.lng,
+      }
+    } : {}),
+  },
+};
+
+if (event.data.entryFee && event.data.siEntriesUrl) {
+  eventJsonLd.offers = {
+    "@type": "Offer",
+    price: event.data.entryFee,
+    priceCurrency: "GBP",
+    availability: "https://schema.org/InStock",
+    url: event.data.siEntriesUrl,
+    validThrough: event.data.entryCloseDate.toISOString(),
+  };
+}
 ---
 <Layout
   title={`${event.data.title} — ${fmtMonth(event.data.date)} ${fmtYear(event.data.date)} — PFO`}
   description={event.data.description ?? event.data.summary}
+  ogType="article"
+  publishedTime={event.data.date.toISOString()}
 >
+
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify(eventJsonLd)}></script>
+</Fragment>
 
 <main id="main">
 

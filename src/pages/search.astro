@@ -4,7 +4,19 @@ import Layout from '../layouts/Layout.astro';
 <Layout
   title="Search — Pendle Forest Orienteers"
   description="Search PFO events, news, maps and information pages."
+  noindex={true}
 >
+
+<Fragment slot="head">
+  <!-- Pagefind UI assets. The /pagefind/ directory is generated AFTER
+       `astro build` runs (by the postbuild `pagefind --site dist` step), so
+       these 404 in dev mode — that's expected. They resolve correctly once
+       the site is built and previewed/deployed.
+       `is:inline` keeps the script out of Vite's bundler so it isn't
+       resolved at build time. -->
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+</Fragment>
 
 <main id="main">
 
@@ -12,26 +24,23 @@ import Layout from '../layouts/Layout.astro';
     <div class="page-hero-wrap">
       <p class="eyebrow rise d-1">Search</p>
       <h1 class="rise d-2">Find what you're looking for.</h1>
-      <p class="page-lede rise d-3">Search across all events, news, maps and information pages on the PFO site.</p>
+      <p class="page-lede rise d-3">
+        Search across all events, news, maps and information pages on the PFO site.
+        Try a venue name, event format, or anything you remember.
+      </p>
     </div>
   </section>
 
   <section class="search-section">
     <div class="search-wrap">
-      <form class="search-form" action="https://www.google.com/search" method="get" target="_blank">
-        <label for="q" class="visually-hidden">Search PFO</label>
-        <input
-          type="search"
-          id="q"
-          name="q"
-          placeholder="e.g. Hurstwood, regional, snook-O"
-          autofocus
-        >
-        <input type="hidden" name="as_sitesearch" value={Astro.site?.host ?? "pfo.org.uk"}>
-        <button type="submit">Search →</button>
-      </form>
+      <!-- Pagefind injects an input + live results into this container -->
+      <div id="search"></div>
 
-      <p class="search-help">Results open in a new tab using Google site search. The committee will replace this with on-site search before launch.</p>
+      <noscript>
+        <p class="search-help">
+          On-site search needs JavaScript. Use the quick links below, or open the site map at the foot of any page.
+        </p>
+      </noscript>
 
       <div class="quick-links">
         <p class="eyebrow">Or jump straight to</p>
@@ -48,6 +57,29 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Pagefind UI is an IIFE bundle that exposes a global `PagefindUI`
+       constructor. `is:inline` keeps Astro/Vite from rewriting the script. -->
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (typeof window.PagefindUI === 'function') {
+        new window.PagefindUI({
+          element: '#search',
+          showImages: false,
+          showSubResults: true,
+          resetStyles: false,
+          placeholder: 'Try a venue name, event format, or year…'
+        });
+      } else {
+        var el = document.getElementById('search');
+        if (el) {
+          el.innerHTML =
+            '<p class="search-help">Search will be available once the site is built. ' +
+            'For now, use the quick links below.</p>';
+        }
+      }
+    });
+  </script>
 
 </main>
 
@@ -93,38 +125,48 @@ import Layout from '../layouts/Layout.astro';
   .search-section { padding: clamp(40px, 5vw, 64px) var(--pad-x); }
   .search-wrap { max-width: 720px; margin: 0 auto; }
 
-  .search-form {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
+  /* ── Pagefind UI overrides — keep it visually consistent with the rest of the site ── */
+  #search {
+    /* Pagefind reads CSS custom properties for colours; map ours onto theirs. */
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--ink);
+    --pagefind-ui-text: var(--ink);
+    --pagefind-ui-background: var(--paper);
+    --pagefind-ui-border: var(--rule-2);
+    --pagefind-ui-tag: var(--paper-2);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0;
+    --pagefind-ui-image-border-radius: 0;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: var(--ff-body);
+
     margin-bottom: 14px;
   }
-  .search-form input[type="search"] {
-    font-family: var(--ff-body);
+  /* Tighten the search input styling. Left padding leaves room for
+     Pagefind's magnifying-glass icon; right padding leaves room for the
+     "Clear" button when there's a query. */
+  #search :global(.pagefind-ui__search-input) {
+    padding: 14px 56px 14px 52px;
     font-size: 18px;
-    padding: 16px 18px;
     background: var(--paper);
-    border: 1px solid var(--rule-2);
-    color: var(--ink);
-    width: 100%;
   }
-  .search-form input[type="search"]:focus {
+  /* Slight nudge so the magnifying-glass icon sits cleanly inside the field */
+  #search :global(.pagefind-ui__search-clear) { right: 14px; }
+  #search :global(.pagefind-ui__search-input:focus) {
     outline: 2px solid var(--gold);
     outline-offset: -2px;
     border-color: var(--ink);
   }
-  .search-form button {
-    background: var(--gold);
-    color: var(--ink);
-    border: 0;
-    font-family: var(--ff-body);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0 24px;
-    cursor: pointer;
-    transition: background .18s ease;
+  #search :global(.pagefind-ui__result) {
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 0;
   }
-  .search-form button:hover { background: var(--gold-dark); color: var(--paper); }
+  #search :global(.pagefind-ui__result-title) {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    color: var(--navy);
+  }
+  #search :global(.pagefind-ui__result-title a:hover) { color: var(--plum); }
 
   .search-help {
     font-size: 13px;
@@ -152,9 +194,4 @@ import Layout from '../layouts/Layout.astro';
     transition: color .18s, border-color .18s;
   }
   .quick-links a:hover { color: var(--plum); border-bottom-color: var(--plum); }
-
-  @media (max-width: 600px) {
-    .search-form { grid-template-columns: 1fr; }
-    .search-form button { padding: 14px; }
-  }
 </style>

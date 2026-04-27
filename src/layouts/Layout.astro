@@ -5,12 +5,28 @@ import Footer from '../components/Footer.astro';
 export interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  /** Optional ISO timestamp for og:article:published_time / Schema.org dates */
+  publishedTime?: string;
+  /** Add `noindex,follow` for unpublished or draft pages */
+  noindex?: boolean;
 }
 
 const {
   title = "Pendle Forest Orienteers — orienteering across East Lancashire",
-  description = "A small orienteering club covering the moors, woodland and mill towns of East Lancashire. 12–15 events a year. Newcomers always welcome."
+  description = "A small orienteering club covering the moors, woodland and mill towns of East Lancashire. 12–15 events a year. Newcomers always welcome.",
+  ogImage = "/assets/og-default.jpg",
+  ogType = "website",
+  publishedTime,
+  noindex = false,
 } = Astro.props;
+
+// Canonical URL — built from Astro.site (configured in astro.config.mjs) plus the current path.
+// Falls back gracefully in dev where Astro.site may be undefined.
+const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageAbs = new URL(ogImage, siteUrl).toString();
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -20,6 +36,27 @@ const {
 <title>{title}</title>
 <meta name="description" content={description}>
 <meta name="theme-color" content="#2c598c">
+{noindex && <meta name="robots" content="noindex,follow">}
+<link rel="canonical" href={canonical}>
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content={ogType}>
+<meta property="og:site_name" content="Pendle Forest Orienteers">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content={canonical}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={ogImageAbs}>
+{publishedTime && <meta property="article:published_time" content={publishedTime}>}
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={ogImageAbs}>
+
+<!-- Per-page injectables: JSON-LD, extra <link rel="alternate">, etc. -->
+<slot name="head" />
 
 <!-- Favicon: PFO club logo -->
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">

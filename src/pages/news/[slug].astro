@@ -29,11 +29,48 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
 const fmtShort = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric'
 }).format(d);
+
+// ─────── Schema.org Article JSON-LD
+const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const heroImageAbs = item.data.heroImage
+  ? new URL(item.data.heroImage, siteUrl).toString()
+  : new URL("/assets/og-default.jpg", siteUrl).toString();
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: item.data.title,
+  description: item.data.summary,
+  image: [heroImageAbs],
+  datePublished: item.data.date.toISOString(),
+  dateModified: item.data.date.toISOString(),
+  url: canonical,
+  author: item.data.author
+    ? { "@type": "Person", name: item.data.author }
+    : { "@type": "Organization", name: "Pendle Forest Orienteers" },
+  publisher: {
+    "@type": "Organization",
+    name: "Pendle Forest Orienteers",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/assets/logo.svg", siteUrl).toString(),
+    },
+  },
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+};
 ---
 <Layout
   title={`${item.data.title} — PFO News`}
   description={item.data.summary}
+  ogType="article"
+  {...(item.data.heroImage ? { ogImage: item.data.heroImage } : {})}
+  publishedTime={item.data.date.toISOString()}
 >
+
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)}></script>
+</Fragment>
 
 <main id="main">
 

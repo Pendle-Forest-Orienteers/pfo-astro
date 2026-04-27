@@ -8,4 +8,4 @@ PFO maintains a number of Permanent Orienteering Courses throughout East Lancash
 
 Each course uses fixed posts in a local park or wood with orienteering kite markers attached. Pick up the map, try it at your own pace, and tick off the controls.
 
-A full list of permanent courses, with links to maps you can print or load on your phone, lives on the [main info page](/info/permanent-orienteering-courses).
+A full list of permanent courses, with links to maps you can print or load on your phone, lives on the [maps library](/maps).

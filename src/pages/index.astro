@@ -33,11 +33,42 @@ const fmtNewsCaption = (d) => new Intl.DateTimeFormat('en-GB', {
 }).format(d);
 
 const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// ─────── Schema.org SportsOrganization JSON-LD for the homepage.
+// This is what Google uses to build the club's Knowledge Panel.
+const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsOrganization",
+  name: "Pendle Forest Orienteers",
+  alternateName: "PFO",
+  url: siteUrl.toString(),
+  logo: new URL("/assets/logo.svg", siteUrl).toString(),
+  sport: "Orienteering",
+  description: "A small orienteering club covering the moors, woodland and mill towns of East Lancashire.",
+  areaServed: {
+    "@type": "Place",
+    name: "East Lancashire",
+  },
+  memberOf: {
+    "@type": "SportsOrganization",
+    name: "British Orienteering",
+    url: "https://www.britishorienteering.org.uk/",
+  },
+  sameAs: [
+    "https://www.facebook.com/PendleForestOrienteers",
+    "https://www.instagram.com/pendleforestorienteers/",
+  ],
+};
 ---
 <Layout
   title="Pendle Forest Orienteers — orienteering across East Lancashire"
   description="A small orienteering club covering the moors, woodland and mill towns of East Lancashire. 12–15 events a year. Newcomers always welcome."
 >
+
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)}></script>
+</Fragment>
 
 <main id="main">
 
