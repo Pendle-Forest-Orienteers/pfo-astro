@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Habergham · February Street-O (2/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/habergham-2025-02-26"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-02-26-habergham/index.html"
     type: "html"
 ---
 

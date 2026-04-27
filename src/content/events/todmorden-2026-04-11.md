@@ -8,7 +8,7 @@ level: "local"
 summary: "Local · Todmorden"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/todmorden-2026-04-11"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-04-11-todmorden/index.html"
     type: "html"
 ---
 

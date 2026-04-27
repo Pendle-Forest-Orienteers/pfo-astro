@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Briercliffe · March Street-O (3/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/briercliffe-2024-03-27"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-03-27-briercliffe/index.html"
     type: "html"
 ---
 

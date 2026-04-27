@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Blackburn · September Street-O (7/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/blackburn-2025-09-10"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-09-10-blackburn/index.html"
     type: "html"
 ---
 

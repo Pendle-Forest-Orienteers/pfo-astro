@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Corporation Park · Spring Series, event (3/4)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/corporation-park-2024-03-03"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-03-03-corporation-park/index.html"
     type: "html"
 ---
 

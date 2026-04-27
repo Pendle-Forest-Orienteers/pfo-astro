@@ -8,7 +8,7 @@ level: "local"
 summary: "Sprint · Gawthorpe Hall -"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/gawthorpe-hall-double-sprint-2025-09-17"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-09-17-gawthorpe-hall-double-sprint/index.html"
     type: "html"
 ---
 

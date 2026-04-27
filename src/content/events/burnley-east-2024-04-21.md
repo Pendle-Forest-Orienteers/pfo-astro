@@ -8,7 +8,7 @@ level: "regional"
 summary: "Urban · Burnley East · NW Urban League"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/burnley-east-2024-04-21"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-04-21-burnley-east/index.html"
     type: "html"
 ---
 

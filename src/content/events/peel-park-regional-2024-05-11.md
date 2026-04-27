@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Peel Park"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/peel-park-regional-2024-05-11"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-05-11-peel-park-regional/index.html"
     type: "html"
 ---
 

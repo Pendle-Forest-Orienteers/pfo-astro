@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Helmshore · January Street-O (1/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/helmshore-2025-01-22"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-01-22-helmshore/index.html"
     type: "html"
 ---
 

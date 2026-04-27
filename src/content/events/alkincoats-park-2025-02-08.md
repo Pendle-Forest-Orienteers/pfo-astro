@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Alkincoats Park · Spring Series, event (1/4)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/alkincoats-park-2025-02-08"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-02-08-alkincoats-park/index.html"
     type: "html"
 ---
 

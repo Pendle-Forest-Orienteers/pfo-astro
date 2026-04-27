@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · River Darwen"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/river-darwen-regional-2025-11-01"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-11-01-river-darwen-regional/index.html"
     type: "html"
 ---
 

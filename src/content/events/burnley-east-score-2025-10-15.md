@@ -8,7 +8,7 @@ level: "local"
 summary: "Score · Burnley East -"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/burnley-east-score-2025-10-15"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-10-15-burnley-east-score/index.html"
     type: "html"
 ---
 

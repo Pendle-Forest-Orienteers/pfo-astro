@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Sunnyhurst Wood"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/sunnyhurst-wood-2026-02-07"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
     type: "html"
 ---
 

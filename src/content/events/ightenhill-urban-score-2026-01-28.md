@@ -8,7 +8,7 @@ level: "local"
 summary: "Urban Score · Ightenhill  -"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/ightenhill-urban-score-2026-01-28"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-01-28-ightenhill-urban-score/index.html"
     type: "html"
 ---
 

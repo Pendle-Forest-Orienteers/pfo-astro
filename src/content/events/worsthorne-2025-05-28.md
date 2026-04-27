@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Worsthorne · May Street-O (5/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/worsthorne-2025-05-28"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-05-28-worsthorne/index.html"
     type: "html"
 ---
 

@@ -9,7 +9,7 @@ summary: "Local · Bacup"
 routeGadgetUrl: "https://www.pfo.org.uk/events/lee-quarry-2026-03-29"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/lee-quarry-2026-03-29"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-03-29-lee-quarry/index.html"
     type: "html"
 ---
 

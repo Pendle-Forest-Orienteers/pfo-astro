@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Queens Park · June Series, event (3/3)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/queens-park-2025-06-18"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-06-18-queens-park/index.html"
     type: "html"
 ---
 

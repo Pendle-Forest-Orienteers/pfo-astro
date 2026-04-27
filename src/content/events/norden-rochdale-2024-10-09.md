@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Norden, Rochdale · October Street-O (8/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/norden-rochdale-2024-10-09"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-10-09-norden-rochdale/index.html"
     type: "html"
 ---
 

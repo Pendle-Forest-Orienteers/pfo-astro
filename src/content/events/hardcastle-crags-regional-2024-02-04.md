@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Hardcastle Crags"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/hardcastle-crags-regional-2024-02-04"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-02-04-hardcastle-crags-regional/index.html"
     type: "html"
 ---
 

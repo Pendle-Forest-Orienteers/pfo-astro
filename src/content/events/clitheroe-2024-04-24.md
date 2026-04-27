@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Clitheroe · April Street-O (4/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/clitheroe-2024-04-24"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-04-24-clitheroe/index.html"
     type: "html"
 ---
 

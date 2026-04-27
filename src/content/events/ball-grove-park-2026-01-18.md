@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Ball Grove Park"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/ball-grove-park-2026-01-18"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-01-18-ball-grove-park/index.html"
     type: "html"
 ---
 

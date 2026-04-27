@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Quid Games"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/quid-games-2025-01-18"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-01-18-quid-games/index.html"
     type: "html"
 ---
 

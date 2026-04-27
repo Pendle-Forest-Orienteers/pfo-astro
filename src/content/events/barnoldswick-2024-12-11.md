@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Barnoldswick · December Street-O (10/10 Finale)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/barnoldswick-2024-12-11"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-12-11-barnoldswick/index.html"
     type: "html"
 ---
 

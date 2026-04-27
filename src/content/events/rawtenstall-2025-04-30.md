@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Rawtenstall · April Street-O (4/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/rawtenstall-2025-04-30"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-04-30-rawtenstall/index.html"
     type: "html"
 ---
 

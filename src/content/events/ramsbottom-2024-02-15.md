@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Ramsbottom · February Street-O (2/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/ramsbottom-2024-02-15"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-02-15-ramsbottom/index.html"
     type: "html"
 ---
 

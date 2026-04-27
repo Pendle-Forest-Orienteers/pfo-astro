@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Rawtenstall · October Street-O (8/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/rawtenstall-2025-10-08"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-10-08-rawtenstall/index.html"
     type: "html"
 ---
 

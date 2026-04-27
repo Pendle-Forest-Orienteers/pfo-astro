@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Letcliffe Park · June Series, event (1/4)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/letcliffe-park-2024-06-05"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-06-05-letcliffe-park/index.html"
     type: "html"
 ---
 

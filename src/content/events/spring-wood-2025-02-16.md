@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Spring Wood · Spring Series, event (2/4)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/spring-wood-2025-02-16"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-02-16-spring-wood/index.html"
     type: "html"
 ---
 

@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Whitehall Park · June Series, event (4/4) FINALE"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/whitehall-park-2024-06-26"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-06-26-whitehall-park/index.html"
     type: "html"
 ---
 

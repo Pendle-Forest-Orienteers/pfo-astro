@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Clitheroe · March Street-O (3/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/clitheroe-2025-03-26"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-03-26-clitheroe/index.html"
     type: "html"
 ---
 

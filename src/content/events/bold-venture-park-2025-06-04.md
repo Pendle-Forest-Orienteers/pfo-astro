@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Bold Venture Park · June Series, event (1/3)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/bold-venture-park-2025-06-04"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-06-04-bold-venture-park/index.html"
     type: "html"
 ---
 

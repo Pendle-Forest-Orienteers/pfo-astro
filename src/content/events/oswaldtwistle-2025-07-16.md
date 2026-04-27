@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Oswaldtwistle · July Street-O (6/10)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/oswaldtwistle-2025-07-16"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-07-16-oswaldtwistle/index.html"
     type: "html"
 ---
 

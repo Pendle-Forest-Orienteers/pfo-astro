@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · Tockholes · NW Night League"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/tockholes-2024-12-07"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-12-07-tockholes/index.html"
     type: "html"
 ---
 

@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · Towneley Park"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/towneley-park-night-o-2026-02-25"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-02-25-towneley-park-night-o/index.html"
     type: "html"
 ---
 

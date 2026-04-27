@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Barrowford · March Street-O (1/6)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/barrowford-2026-03-18"
+    url: "https://www.pfo.org.uk/lts-archive/2026/2026-03-18-barrowford/index.html"
     type: "html"
 ---
 

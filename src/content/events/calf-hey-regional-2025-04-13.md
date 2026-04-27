@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Calf Hey · Spring Series, event 3/4"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/calf-hey-regional-2025-04-13"
+    url: "https://www.pfo.org.uk/lts-archive/2025/2025-04-13-calf-hey-regional/index.html"
     type: "html"
 ---
 

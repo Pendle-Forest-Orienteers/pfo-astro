@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Queens Park · June Series, event (2/4)"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/queens-park-2024-06-12"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-06-12-queens-park/index.html"
     type: "html"
 ---
 

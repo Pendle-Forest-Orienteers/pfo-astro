@@ -8,7 +8,7 @@ level: "major"
 summary: "Standard · Holcombe Moor · CompassSport Cup &amp; Trophy Final"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/holcombe-moor-2024-10-20"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-10-20-holcombe-moor/index.html"
     type: "html"
 ---
 

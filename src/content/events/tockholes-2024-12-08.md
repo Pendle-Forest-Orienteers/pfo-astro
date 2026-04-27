@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Tockholes · Regional"
 results:
   - label: "Full results"
-    url: "https://www.pfo.org.uk/events/tockholes-2024-12-08"
+    url: "https://www.pfo.org.uk/lts-archive/2024/2024-12-08-tockholes/index.html"
     type: "html"
 ---
 
