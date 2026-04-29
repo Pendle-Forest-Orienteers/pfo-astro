@@ -1,19 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Committee data — single source of truth. The Decap CMS in Phase 7 will let
-// the committee edit this list directly. For now it's a hand-maintained array.
+// Committee data — single source of truth.
+//
+// Each member has an `email` field used for the per-person mailto button.
+// Role-based aliases (chair@, secretary@, treasurer@ etc.) are placeholders —
+// replace with the committee member's real personal address when known.
+//
+// Setting `email` to null hides the email button for that person; they can
+// still be reached via the general info@ address shown at the top of the page.
+const CLUB_EMAIL = "info@pfo.org.uk";
+
 const committee = [
-  { name: "Hannah Dabinett", roles: ["Chair", "Equipment Officer"], photo: "/images/_thumb/HD-PFO.jpg", contactId: "11921" },
-  { name: "Helen Ellis", roles: ["Treasurer"], photo: "/images/contacts/_thumb/Helen_Ellis.jpg", contactId: "293" },
-  { name: "Andy Ellis", roles: ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"], photo: "/images/contacts/_thumb/Andy-Halifax-urban-3-2.png", contactId: "295" },
-  { name: "Cath Wilson", roles: ["Lead Coach", "CompassSport coordinator"], photo: null, contactId: "9367" },
-  { name: "Judith Wood", roles: ["Club Event Controller", "Permissions Officer"], photo: "/images/contacts/_thumb/Judith_Wood.jpg", contactId: null },
-  { name: "Kay Hawke", roles: ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"], photo: "/images/contacts/_thumb/Kay-Hawke.jpg", contactId: "5156" },
-  { name: "Emma Taylor", roles: ["Membership Secretary"], photo: "/images/contacts/_thumb/Emma_Taylor.jpg", contactId: "5158" },
-  { name: "Colin Woolford", roles: ["Mapping Co-ordinator"], photo: null, contactId: null },
-  { name: "Helen Smethurst", roles: ["Equipment Officer"], photo: null, contactId: null },
-  { name: "Daniel Allen", roles: ["Permissions Officer"], photo: "/images/contacts/_thumb/Danny_Allen2.jpg", contactId: "300" },
+  { name: "Hannah Dabinett",  roles: ["Chair", "Equipment Officer"], photo: "/images/_thumb/HD-PFO.jpg",                        email: "chair@pfo.org.uk" },
+  { name: "Helen Ellis",      roles: ["Treasurer"],                  photo: "/images/contacts/_thumb/Helen_Ellis.jpg",          email: "treasurer@pfo.org.uk" },
+  { name: "Andy Ellis",       roles: ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"], photo: "/images/contacts/_thumb/Andy-Halifax-urban-3-2.png", email: "secretary@pfo.org.uk" },
+  { name: "Cath Wilson",      roles: ["Lead Coach", "CompassSport coordinator"],   photo: null, email: "coach@pfo.org.uk" },
+  { name: "Judith Wood",      roles: ["Club Event Controller", "Permissions Officer"], photo: "/images/contacts/_thumb/Judith_Wood.jpg", email: "controller@pfo.org.uk" },
+  { name: "Kay Hawke",        roles: ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"], photo: "/images/contacts/_thumb/Kay-Hawke.jpg", email: "kay.hawke@yahoo.co.uk" },
+  { name: "Emma Taylor",      roles: ["Membership Secretary"],       photo: "/images/contacts/_thumb/Emma_Taylor.jpg",          email: "membership@pfo.org.uk" },
+  { name: "Colin Woolford",   roles: ["Mapping Co-ordinator"],       photo: null, email: "mapping@pfo.org.uk" },
+  { name: "Helen Smethurst",  roles: ["Equipment Officer"],          photo: null, email: "equipment@pfo.org.uk" },
+  { name: "Daniel Allen",     roles: ["Permissions Officer"],        photo: "/images/contacts/_thumb/Danny_Allen2.jpg",         email: "permissions@pfo.org.uk" },
 ];
 
 const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase();
@@ -30,6 +38,41 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
       <p class="eyebrow rise d-1">Contacts</p>
       <h1 class="rise d-2">Who does what at PFO.</h1>
       <p class="page-lede rise d-3">PFO is run entirely by volunteers — every committee member below is doing this in their spare time. Pick the right person for your question and they'll get back to you when they can.</p>
+    </div>
+  </section>
+
+  <section class="contact-club">
+    <div class="contact-club-wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Not sure who to ask?</h2>
+      <p>Email the club at <a class="club-email" href={`mailto:${CLUB_EMAIL}`}>{CLUB_EMAIL}</a> and the right person on the committee will pick it up.</p>
+      <ul class="club-channels">
+        <li>
+          <a href={`mailto:${CLUB_EMAIL}`} class="club-channel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="1.5"></rect>
+              <polyline points="3,7 12,13 21,7"></polyline>
+            </svg>
+            <span><strong>Email the club</strong><br>{CLUB_EMAIL}</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/pendleorienteer/" rel="noopener" class="club-channel">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.2.4-2 2-2h2V2h-3c-2.8 0-4.5 1.6-4.5 4.5V10H6v4h3.5v8H13z"></path></svg>
+            <span><strong>Facebook</strong><br>@pendleorienteer</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/pendleforestorienteerers/" rel="noopener" class="club-channel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+            <span><strong>Instagram</strong><br>@pendleforestorienteerers</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -64,10 +107,10 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
 
   <section class="info-block alt">
     <div class="info-wrap">
-      <p class="eyebrow">General questions</p>
-      <h2>Not sure who to ask?</h2>
-      <p>For anything that doesn't fit a specific role above, drop a message to the <strong>Secretary, Andy Ellis</strong>. For event-day enquiries close to a fixture, the listed event organiser on the relevant <a href="/events">event page</a> is your fastest route.</p>
-      <p>Membership-specific questions go to <strong>Emma Taylor</strong> via the message form on her card. Press, photography, or social-media requests go to <strong>Kay Hawke</strong>.</p>
+      <p class="eyebrow">Tips</p>
+      <h2>Picking the right person.</h2>
+      <p>For event-day enquiries close to a fixture, the listed event organiser on the relevant <a href="/events">event page</a> is your fastest route.</p>
+      <p>Membership-specific questions go to <strong>Emma Taylor</strong>. Press, photography, or social-media requests go to <strong>Kay Hawke</strong>. Anything else, the Secretary <strong>Andy Ellis</strong> or the general club inbox above will reach the right person.</p>
     </div>
   </section>
 
@@ -102,6 +145,77 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
     max-width: 60ch;
     margin: 0;
   }
+
+  /* Contact the club — sits between the page hero and the committee grid */
+  .contact-club {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(32px, 4vw, 56px) var(--pad-x);
+  }
+  .contact-club-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .contact-club .eyebrow {
+    color: var(--gold-muted);
+    margin-bottom: 14px;
+  }
+  .contact-club .eyebrow::before { background: var(--plum); }
+  .contact-club h2 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 48, "SOFT" 20;
+    margin: 0 0 12px 0;
+    color: var(--ink);
+  }
+  .contact-club > .contact-club-wrap > p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin: 0 0 24px 0;
+    max-width: 60ch;
+  }
+  .contact-club .club-email {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    font-weight: 500;
+  }
+  .contact-club .club-email:hover { color: var(--plum); }
+
+  .club-channels {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .club-channel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--paper-2);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    transition: background .18s ease, border-color .18s ease, transform .18s ease;
+  }
+  .club-channel:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    color: var(--ink);
+  }
+  .club-channel svg { width: 22px; height: 22px; flex: 0 0 22px; color: var(--navy); }
+  .club-channel:hover svg { color: var(--ink); }
+  .club-channel strong { font-weight: 500; display: block; font-size: 14px; }
+  .club-channel span { font-family: var(--ff-mono); font-size: 12px; line-height: 1.4; color: var(--ink-soft); }
+  .club-channel:hover span { color: var(--ink); }
 
   .contacts-section { padding: clamp(40px, 5vw, 64px) var(--pad-x); }
   .contacts-wrap { max-width: var(--max-w); margin: 0 auto; }
