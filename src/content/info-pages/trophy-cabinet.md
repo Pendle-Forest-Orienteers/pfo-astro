@@ -31,8 +31,8 @@ Current Holder - Chris Goddard
 
         click/tap photos for a larger version
 
-                [](https://www.pfo.org.uk/images/Trophies/PFO-Liver.jpg)
+                [](/images/Trophies/PFO-Liver.jpg)
                 PFO Club Champion
 
-                [](https://www.pfo.org.uk/images/Trophies/Broom-v2.jpg)
+                [](/images/Trophies/Broom-v2.jpg)
                 The Broom

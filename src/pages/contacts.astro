@@ -4,16 +4,16 @@ import Layout from '../layouts/Layout.astro';
 // Committee data — single source of truth. The Decap CMS in Phase 7 will let
 // the committee edit this list directly. For now it's a hand-maintained array.
 const committee = [
-  { name: "Hannah Dabinett", roles: ["Chair", "Equipment Officer"], photo: "https://www.pfo.org.uk/images/_thumb/HD-PFO.jpg", contactId: "11921" },
-  { name: "Helen Ellis", roles: ["Treasurer"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Helen_Ellis.jpg", contactId: "293" },
-  { name: "Andy Ellis", roles: ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Andy-Halifax-urban-3-2.png", contactId: "295" },
+  { name: "Hannah Dabinett", roles: ["Chair", "Equipment Officer"], photo: "/images/_thumb/HD-PFO.jpg", contactId: "11921" },
+  { name: "Helen Ellis", roles: ["Treasurer"], photo: "/images/contacts/_thumb/Helen_Ellis.jpg", contactId: "293" },
+  { name: "Andy Ellis", roles: ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"], photo: "/images/contacts/_thumb/Andy-Halifax-urban-3-2.png", contactId: "295" },
   { name: "Cath Wilson", roles: ["Lead Coach", "CompassSport coordinator"], photo: null, contactId: "9367" },
-  { name: "Judith Wood", roles: ["Club Event Controller", "Permissions Officer"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Judith_Wood.jpg", contactId: null },
-  { name: "Kay Hawke", roles: ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Kay-Hawke.jpg", contactId: "5156" },
-  { name: "Emma Taylor", roles: ["Membership Secretary"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Emma_Taylor.jpg", contactId: "5158" },
+  { name: "Judith Wood", roles: ["Club Event Controller", "Permissions Officer"], photo: "/images/contacts/_thumb/Judith_Wood.jpg", contactId: null },
+  { name: "Kay Hawke", roles: ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"], photo: "/images/contacts/_thumb/Kay-Hawke.jpg", contactId: "5156" },
+  { name: "Emma Taylor", roles: ["Membership Secretary"], photo: "/images/contacts/_thumb/Emma_Taylor.jpg", contactId: "5158" },
   { name: "Colin Woolford", roles: ["Mapping Co-ordinator"], photo: null, contactId: null },
   { name: "Helen Smethurst", roles: ["Equipment Officer"], photo: null, contactId: null },
-  { name: "Daniel Allen", roles: ["Permissions Officer"], photo: "https://www.pfo.org.uk/images/contacts/_thumb/Danny_Allen2.jpg", contactId: "300" },
+  { name: "Daniel Allen", roles: ["Permissions Officer"], photo: "/images/contacts/_thumb/Danny_Allen2.jpg", contactId: "300" },
 ];
 
 const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase();
@@ -50,9 +50,9 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
               <ul class="contact-roles">
                 {person.roles.map(role => <li>{role}</li>)}
               </ul>
-              {person.contactId && (
-                <a class="contact-button" href={`https://www.pfo.org.uk/contact-form?id=${person.contactId}`} rel="noopener">
-                  Send a message →
+              {person.email && (
+                <a class="contact-button" href={`mailto:${person.email}`}>
+                  Email {person.name.split(' ')[0]} →
                 </a>
               )}
             </div>

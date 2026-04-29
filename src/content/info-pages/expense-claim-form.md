@@ -10,6 +10,6 @@ Attached are Excel and PDF copies of the PFO expense claim form.
 
     Any completed forms should be sent to
 
-[Excel form](https://www.pfo.org.uk/documents/PFO-Expense-Form.xlsx)
+[Excel form](/documents/PFO-Expense-Form.xlsx)
 
-[PDF form](https://www.pfo.org.uk/documents/PFO-Expense-Form.pdf)
+[PDF form](/documents/PFO-Expense-Form.pdf)

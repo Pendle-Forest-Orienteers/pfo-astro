@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Towneley Park · Spring Series, event (1/4)"
 results:
   - label: "Results and splits"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-01-27-towneley-park/index.html"
+    url: "/results-archive/2024/2024-01-27-towneley-park/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#208"

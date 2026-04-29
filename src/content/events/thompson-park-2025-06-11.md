@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Thompson Park · June Series, event (2/3)"
 results:
   - label: "Results and scores"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-06-11-thompson-park/index.html"
+    url: "/results-archive/2025/2025-06-11-thompson-park/index.html"
     type: "html"
 coords:
   lat: 53.7975

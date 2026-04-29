@@ -5,6 +5,6 @@ summary: "Yet again we had wonderful weather for the 4th in our introduction to 
 draft: false
 ---
 
-Yet again we had wonderful weather for the 4th in our introduction to orienteering session in Towneley Park, Burnley. This was the last week of the series, but we will endeavour to do something similar later in the year. Results are available here .
+Danny has created the Gawthorpe Hall POC's in the 'GPS Orienteering' app.
 
-[Read the original article on the existing PFO site](https://www.pfo.org.uk/news/gps-orienteering-app-for-gawthorpe-hall) for any embedded images or formatting.
+    Further details of how to access the maps / courses etc are [here](/information/gawthorpe-hall-permanent-orienteering-course)

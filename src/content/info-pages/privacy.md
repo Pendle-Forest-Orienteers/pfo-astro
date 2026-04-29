@@ -55,7 +55,7 @@ We may share your Membership Data with partners such as Fabian4 and SI Entries, 
 
 ## Privacy policy
 
-All of the personal data we collect from you will be collected, stored and processed in accordance with the terms of [British Orienteering's privacy policy](https://www.britishorienteering.org.uk/document/e8d40ed3418ce3e1b50af592984ba3a0/British%20Orienteering%20Privacy%20Policy%2013%20March%202018.pdf) and [PFO's privacy policy](https://www.pfo.org.uk/documents/PFO-Privacy-Policy-Draft-V3.docx).
+All of the personal data we collect from you will be collected, stored and processed in accordance with the terms of [British Orienteering's privacy policy](https://www.britishorienteering.org.uk/document/e8d40ed3418ce3e1b50af592984ba3a0/British%20Orienteering%20Privacy%20Policy%2013%20March%202018.pdf) and [PFO's privacy policy](/documents/PFO-Privacy-Policy-Draft-V3.docx).
 
 ## Complaints
 

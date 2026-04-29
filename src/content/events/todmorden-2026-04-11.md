@@ -8,7 +8,7 @@ level: "local"
 summary: "Local · Todmorden"
 results:
   - label: "Course Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2026/2026-04-11-todmorden/index.html"
+    url: "/results-archive/2026/2026-04-11-todmorden/index.html"
     type: "html"
   - label: "Routegadget for &#039;A&#039; and Yellow courses"
     url: "https://www.pfo.routegadget.co.uk/rg2/#231"
@@ -17,7 +17,7 @@ results:
     url: "https://www.pfo.routegadget.co.uk/rg2/#232"
     type: "html"
   - label: "Combined results (amended)"
-    url: "https://www.pfo.org.uk/results-archive/2026/2026-04-11-todmorden/Combined-Results-final-corrected.pdf"
+    url: "/results-archive/2026/2026-04-11-todmorden/Combined-Results-final-corrected.pdf"
     type: "pdf"
 coords:
   lat: 53.71892

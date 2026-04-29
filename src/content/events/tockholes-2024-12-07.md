@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · Tockholes · NW Night League"
 results:
   - label: "Results and splits"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-12-07-tockholes/index.html"
+    url: "/results-archive/2024/2024-12-07-tockholes/index.html"
     type: "html"
   - label: "Winsplits Online"
     url: "http://obasen.orientering.se/winsplits/online/en/show_event.asp?id=101958"

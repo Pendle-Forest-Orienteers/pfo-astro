@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Spring Wood · Spring Series, event (2/4)"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-02-16-spring-wood/index.html"
+    url: "/results-archive/2025/2025-02-16-spring-wood/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#222"

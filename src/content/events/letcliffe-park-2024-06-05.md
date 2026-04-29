@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Letcliffe Park · June Series, event (1/4)"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-06-05-letcliffe-park/index.html"
+    url: "/results-archive/2024/2024-06-05-letcliffe-park/index.html"
     type: "html"
 coords:
   lat: 53.91275

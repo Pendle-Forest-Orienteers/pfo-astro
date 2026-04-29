@@ -5,6 +5,11 @@ summary: "We still have some PFO orienteering shirts available."
 draft: false
 ---
 
-We still have some PFO orienteering shirts available.
+List of CAPRICORN Events 1980 to 2019
 
-[Read the original article on the existing PFO site](https://www.pfo.org.uk/news/capricorn-history) for any embedded images or formatting.
+    Can anyone help fill in the blanks in the list of CAPRICORN events?
+
+- Did you compete? - Did you win? - Do you remember the location?
+ If you can add any information, including planners or controllers, please e-mail me at
+
+[Previous winners listing](/documents/CAPRICORN_Past_winners.pdf).

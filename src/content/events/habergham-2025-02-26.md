@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Habergham · February Street-O (2/10)"
 results:
   - label: "Results"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-02-26-habergham/Habergham-StreetO-results.pdf"
+    url: "/results-archive/2025/2025-02-26-habergham/Habergham-StreetO-results.pdf"
     type: "pdf"
 coords:
   lat: 53.79009

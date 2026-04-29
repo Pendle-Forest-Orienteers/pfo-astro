@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Barnoldswick · December Street-O (10/10 Finale)"
 results:
   - label: "Results"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-12-11-barnoldswick/Barnoldswick-StreetO-results.pdf"
+    url: "/results-archive/2024/2024-12-11-barnoldswick/Barnoldswick-StreetO-results.pdf"
     type: "pdf"
 coords:
   lat: 53.91669

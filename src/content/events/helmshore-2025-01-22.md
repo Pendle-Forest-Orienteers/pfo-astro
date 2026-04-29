@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Helmshore · January Street-O (1/10)"
 results:
   - label: "Points, Results and planners comments"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-01-22-helmshore/2025-01-22-Helmshore-StreetO-Results.pdf"
+    url: "/results-archive/2025/2025-01-22-helmshore/2025-01-22-Helmshore-StreetO-Results.pdf"
     type: "pdf"
   - label: "SROC Routegadget"
     url: "https://www.sroc.routegadget.co.uk/rg2/"
@@ -86,7 +86,7 @@ If the event needs to be cancelled the [PFO Event Cancellation Policy](/informat
 
 The event centre at The Loom Café and Bar has the usual toilets, drinks and bar snacks.
 
-The main food offering is Pizza, pre-order preferred. [The Loom Pizza Menu 2024](https://www.pfo.org.uk/images/The-Loom-Pizza-Menu-2024.jpg)
+The main food offering is Pizza, pre-order preferred. [The Loom Pizza Menu 2024](/images/The-Loom-Pizza-Menu-2024.jpg)
 
 Please indicate on pre-entry quantities required, or email organiser with preference before 21st Jan.
 

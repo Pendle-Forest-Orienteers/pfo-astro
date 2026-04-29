@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Ramsbottom · February Street-O (2/10)"
 results:
   - label: "Results and points"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-02-15-ramsbottom/Ramsbottom-Results.xlsx"
+    url: "/results-archive/2024/2024-02-15-ramsbottom/Ramsbottom-Results.xlsx"
     type: "xlsx"
 coords:
   lat: 53.64702

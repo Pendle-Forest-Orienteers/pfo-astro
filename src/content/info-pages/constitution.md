@@ -8,4 +8,4 @@ lastReviewed: 2023-01-18
 
 Pendle Forest Orienteers' Constitution is regularly reviewed by the committee.
 
-The current Constitution document can be found [here](https://www.pfo.org.uk/documents/POC/Roddlesworth/PFO-Constitution-002.pdf).
+The current Constitution document can be found [here](/documents/POC/Roddlesworth/PFO-Constitution-002.pdf).

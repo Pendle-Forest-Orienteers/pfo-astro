@@ -8,10 +8,10 @@ level: "local"
 summary: "Street-O · Rawtenstall · October Street-O (8/10)"
 results:
   - label: "Time based results"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-10-08-rawtenstall/index.html"
+    url: "/results-archive/2025/2025-10-08-rawtenstall/index.html"
     type: "html"
   - label: "Final Results"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-10-08-rawtenstall/Rawtenstall-East-results.pdf"
+    url: "/results-archive/2025/2025-10-08-rawtenstall/Rawtenstall-East-results.pdf"
     type: "pdf"
 coords:
   lat: 53.70144

@@ -24,7 +24,7 @@ Once you have completed your run, your results will get automatically uploaded t
 
 More details can be found via the MapRun Orienteering course link on this page.
 
-[Here is a brief overview of using MapRun](https://www.pfo.org.uk/documents/Maprun20updated.docx).
+[Here is a brief overview of using MapRun](/documents/Maprun20updated.docx).
 
 ## Lamp-post Orienteering
 

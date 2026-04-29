@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Whitehall Park · June Series, event (4/4) FINALE"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-06-26-whitehall-park/index.html"
+    url: "/results-archive/2024/2024-06-26-whitehall-park/index.html"
     type: "html"
 coords:
   lat: 53.68004

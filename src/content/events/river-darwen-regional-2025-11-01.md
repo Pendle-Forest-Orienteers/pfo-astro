@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · River Darwen"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-01-river-darwen-regional/index.html"
+    url: "/results-archive/2025/2025-11-01-river-darwen-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#224"
@@ -97,7 +97,7 @@ Please note that **late payment (departing prior to payment) may result in a sub
 
 🚫 **Important:** Scanning** the QR code **displayed in the car park, will charge the **full day rate **instead of the discounted event rate!
 
-Please note, the entrance/exit route is via a one way system in a residential area. The entry/exit routes are shown [here](https://www.pfo.org.uk/images/WebPagePopUps/EwoodParking.png).
+Please note, the entrance/exit route is via a one way system in a residential area. The entry/exit routes are shown [here](/images/WebPagePopUps/EwoodParking.png).
 
 **PostCode:** BB2 4JA (nearest location)
 

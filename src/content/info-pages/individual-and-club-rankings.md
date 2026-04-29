@@ -13,7 +13,7 @@ There are a series of links below to the main ones.
 ## PFO Champions League 2024
 Current league positions at start of 2025 with one event remaining.
 
-[PFO Champions](https://www.pfo.org.uk/documents/PFO-Champions-08092024.xlsx)
+[PFO Champions](/documents/PFO-Champions-08092024.xlsx)
 
 ## UK Orienteering League
 [UK Orienteering League](https://www.ukorienteeringleague.org.uk/)

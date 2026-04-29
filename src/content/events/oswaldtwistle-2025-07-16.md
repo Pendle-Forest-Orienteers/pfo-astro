@@ -6,10 +6,6 @@ location: "Oswaldtwistle"
 format: "Street-O"
 level: "local"
 summary: "Street-O · Oswaldtwistle · July Street-O (6/10)"
-results:
-  - label: "Full results"
-    url: "https://www.pfo.org.uk/events/oswaldtwistle-2025-07-16"
-    type: "html"
 coords:
   lat: 53.74121
   lng: -2.4021

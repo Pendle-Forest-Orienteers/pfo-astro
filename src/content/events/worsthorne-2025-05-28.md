@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Worsthorne · May Street-O (5/10)"
 results:
   - label: "Results and points"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-05-28-worsthorne/Whorne-1.pdf"
+    url: "/results-archive/2025/2025-05-28-worsthorne/Whorne-1.pdf"
     type: "pdf"
 coords:
   lat: 53.78761

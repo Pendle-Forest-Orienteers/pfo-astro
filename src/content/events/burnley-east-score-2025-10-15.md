@@ -8,7 +8,7 @@ level: "local"
 summary: "Score · Burnley East -"
 results:
   - label: "Final Scores"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-10-15-burnley-east-score/index.html"
+    url: "/results-archive/2025/2025-10-15-burnley-east-score/index.html"
     type: "html"
 coords:
   lat: 53.78516

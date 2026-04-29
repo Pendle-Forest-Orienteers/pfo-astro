@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Clitheroe · March Street-O (3/10)"
 results:
   - label: "Results"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-03-26-clitheroe/Clitheroe-Results-Final.pdf"
+    url: "/results-archive/2025/2025-03-26-clitheroe/Clitheroe-Results-Final.pdf"
     type: "pdf"
 coords:
   lat: 53.87165
