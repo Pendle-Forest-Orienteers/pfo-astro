@@ -37,6 +37,12 @@ const mapsLink = coords
 const osmLink = coords
   ? `https://www.openstreetmap.org/?mlat=${coords.lat}&mlon=${coords.lng}&zoom=14`
   : null;
+const streetmapLink = coords
+  ? `https://www.streetmap.co.uk/loc/${coords.lat},${coords.lng}`
+  : null;
+const bingLink = coords
+  ? `https://www.bing.com/maps/?v=2&lvl=14&style=s&cp=${coords.lat}~${coords.lng}&q=${coords.lat},${coords.lng}`
+  : null;
 
 // ─────── File-type label / icon
 const fileTypeLabel = (t: string) => {
@@ -285,8 +291,10 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
             )}
             {coords && (
               <ul class="map-links">
-                <li><a href={mapsLink} rel="noopener">Google Maps →</a></li>
-                <li><a href={osmLink} rel="noopener">OpenStreetMap →</a></li>
+                <li><a href={mapsLink} rel="noopener" target="_blank">Google Maps →</a></li>
+                <li><a href={osmLink} rel="noopener" target="_blank">OpenStreetMap →</a></li>
+                <li><a href={streetmapLink} rel="noopener" target="_blank">Streetmap (OS 50k) →</a></li>
+                <li><a href={bingLink} rel="noopener" target="_blank">Bing Maps (OS) →</a></li>
               </ul>
             )}
           </div>
