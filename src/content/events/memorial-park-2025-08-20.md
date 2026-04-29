@@ -8,7 +8,7 @@ level: "local"
 summary: "Snook-O · Memorial Park · Summer Snook-O"
 results:
   - label: "Results and points"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-08-20-memorial-park/index.html"
+    url: "/results-archive/2025/2025-08-20-memorial-park/index.html"
     type: "html"
 ---
 

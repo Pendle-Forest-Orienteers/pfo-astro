@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · River Darwen"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-01-river-darwen-regional/index.html"
+    url: "/results-archive/2025/2025-11-01-river-darwen-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#224"

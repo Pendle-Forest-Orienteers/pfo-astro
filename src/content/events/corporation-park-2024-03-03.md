@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Corporation Park · Spring Series, event (3/4)"
 results:
   - label: "Combined and event results"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-03-03-corporation-park/index.html"
+    url: "/results-archive/2024/2024-03-03-corporation-park/index.html"
     type: "html"
   - label: "Routegadget for Event A"
     url: "https://www.pfo.routegadget.co.uk/rg2/#210"

@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Norden, Rochdale · October Street-O (8/10)"
 results:
   - label: "Results and scores"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-10-09-norden-rochdale/Norden-results.pdf"
+    url: "/results-archive/2024/2024-10-09-norden-rochdale/Norden-results.pdf"
     type: "pdf"
 ---
 

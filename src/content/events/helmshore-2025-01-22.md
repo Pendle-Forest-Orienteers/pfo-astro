@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Helmshore · January Street-O (1/10)"
 results:
   - label: "Points, Results and planners comments"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-01-22-helmshore/2025-01-22-Helmshore-StreetO-Results.pdf"
+    url: "/results-archive/2025/2025-01-22-helmshore/2025-01-22-Helmshore-StreetO-Results.pdf"
     type: "pdf"
   - label: "SROC Routegadget"
     url: "https://www.sroc.routegadget.co.uk/rg2/"

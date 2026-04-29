@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Clitheroe · April Street-O (4/10)"
 results:
   - label: "Results (updated)"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-04-24-clitheroe/Clitheroe-results-points-based-v2.pdf"
+    url: "/results-archive/2024/2024-04-24-clitheroe/Clitheroe-results-points-based-v2.pdf"
     type: "pdf"
 ---
 

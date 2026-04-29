@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Sunnyhurst Wood"
 results:
   - label: "Results and splits"
-    url: "https://www.pfo.org.uk/results-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
+    url: "/results-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#228"

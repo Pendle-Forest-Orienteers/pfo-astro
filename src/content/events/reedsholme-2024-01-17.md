@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Reedsholme · January Street-O (1/10)"
 results:
   - label: "Results and points"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-01-31-reedsholme/Reedsholme-results.pdf"
+    url: "/results-archive/2024/2024-01-31-reedsholme/Reedsholme-results.pdf"
     type: "pdf"
 ---
 

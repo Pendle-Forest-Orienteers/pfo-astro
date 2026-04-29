@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Peel Park"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-05-11-peel-park-regional/index.html"
+    url: "/results-archive/2024/2024-05-11-peel-park-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#214"

@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Calf Hey · Spring Series, event 3/4"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-04-13-calf-hey-regional/index.html"
+    url: "/results-archive/2025/2025-04-13-calf-hey-regional/index.html"
     type: "html"
   - label: "Winsplits"
     url: "https://obasen.orientering.se/winsplits/online/en/show_event.asp?id=103946"

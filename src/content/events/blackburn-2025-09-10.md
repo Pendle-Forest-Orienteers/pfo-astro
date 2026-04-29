@@ -8,10 +8,10 @@ level: "local"
 summary: "Street-O · Blackburn · September Street-O (7/10)"
 results:
   - label: "Simple time based results"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-09-10-blackburn/index.html"
+    url: "/results-archive/2025/2025-09-10-blackburn/index.html"
     type: "html"
   - label: "Scores"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-09-10-blackburn/Rawtenstall-StreetO-results.pdf"
+    url: "/results-archive/2025/2025-09-10-blackburn/Rawtenstall-StreetO-results.pdf"
     type: "pdf"
 ---
 

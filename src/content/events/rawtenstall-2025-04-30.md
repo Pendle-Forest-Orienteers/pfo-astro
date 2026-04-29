@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Rawtenstall · April Street-O (4/10)"
 results:
   - label: "Results and scores"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-04-30-rawtenstall/Rawtenstall-StreetO-results.pdf"
+    url: "/results-archive/2025/2025-04-30-rawtenstall/Rawtenstall-StreetO-results.pdf"
     type: "pdf"
 ---
 

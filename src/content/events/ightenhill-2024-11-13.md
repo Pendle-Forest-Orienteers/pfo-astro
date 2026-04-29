@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Ightenhill · November Street-O (9/10)"
 results:
   - label: "StreetO results"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-11-13-ightenhill/Ightenhill-StreetO-results.pdf"
+    url: "/results-archive/2024/2024-11-13-ightenhill/Ightenhill-StreetO-results.pdf"
     type: "pdf"
 ---
 
