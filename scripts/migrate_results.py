@@ -53,8 +53,52 @@ def fetch(url: str) -> str:
         return r.read().decode("utf-8", errors="replace")
 
 
+def _strip_inline_tags(cell: str) -> str:
+    """Convert inline HTML inside a single table cell to plain Markdown text."""
+    cell = re.sub(r"<br\s*/?>", " ", cell, flags=re.I)
+    cell = re.sub(r"<strong>(.*?)</strong>", r"**\1**", cell, flags=re.S | re.I)
+    cell = re.sub(r"<b>(.*?)</b>",           r"**\1**", cell, flags=re.S | re.I)
+    cell = re.sub(r"<em>(.*?)</em>",         r"*\1*",   cell, flags=re.S | re.I)
+    cell = re.sub(r"<i>(.*?)</i>",           r"*\1*",   cell, flags=re.S | re.I)
+    cell = re.sub(
+        r'<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>',
+        lambda m: f"[{re.sub(r'<[^>]+>', '', m.group(2)).strip()}]({m.group(1)})",
+        cell, flags=re.S | re.I,
+    )
+    cell = re.sub(r"<[^>]+>", "", cell)            # strip any remaining tags
+    cell = htmllib.unescape(cell)
+    cell = re.sub(r"\s+", " ", cell).strip()       # collapse whitespace inside the cell
+    return cell.replace("|", "\\|")                # escape pipes so they don't break the table
+
+
+def html_table_to_md(table_html: str) -> str:
+    """Convert an HTML <table> into a GFM Markdown table."""
+    rows = []
+    for row_match in re.finditer(r"<tr\b[^>]*>(.*?)</tr>", table_html, re.S | re.I):
+        row_html = row_match.group(1)
+        cells = []
+        for cell_match in re.finditer(r"<(t[hd])\b[^>]*>(.*?)</\1>", row_html, re.S | re.I):
+            cells.append(_strip_inline_tags(cell_match.group(2)))
+        if cells:
+            rows.append(cells)
+    if not rows:
+        return ""
+    # Pad ragged rows to match the widest one
+    width = max(len(r) for r in rows)
+    rows = [r + [""] * (width - len(r)) for r in rows]
+    # Use the first row as header (Craft CMS pricing tables follow this convention).
+    # If the first row is empty-ish, use a generic header so the table still renders.
+    if all(c == "" for c in rows[0]):
+        rows[0] = [f"Col {i+1}" for i in range(width)]
+    out = ["| " + " | ".join(rows[0]) + " |",
+           "| " + " | ".join(["---"] * width) + " |"]
+    for r in rows[1:]:
+        out.append("| " + " | ".join(r) + " |")
+    return "\n".join(out)
+
+
 def html_to_md(s: str) -> str:
-    """Quick-and-dirty HTML → Markdown."""
+    """Quick-and-dirty HTML → Markdown, with proper table handling."""
     # strip <noscript>, <script>, <style>
     s = re.sub(r"<noscript[^>]*>.*?</noscript>", "", s, flags=re.S | re.I)
     s = re.sub(r"<script[^>]*>.*?</script>", "", s, flags=re.S | re.I)
@@ -64,6 +108,13 @@ def html_to_md(s: str) -> str:
     # divs we don't want
     s = re.sub(r'<div[^>]*class="[^"]*insertedImage[^"]*"[^>]*>.*?</div>', "", s, flags=re.S | re.I)
     s = re.sub(r'<div[^>]*class="[^"]*meta[^"]*"[^>]*>.*?</div>', "", s, flags=re.S | re.I)
+    # ── tables: convert to GFM Markdown tables BEFORE other rules so the
+    #    inline-tag rules don't shred the row structure
+    s = re.sub(
+        r"<table\b[^>]*>(.*?)</table>",
+        lambda m: "\n\n" + html_table_to_md(m.group(1)) + "\n\n",
+        s, flags=re.S | re.I,
+    )
     # br → newline
     s = re.sub(r"<br\s*/?>", "\n", s, flags=re.I)
     # bold / italic / underline
@@ -86,6 +137,10 @@ def html_to_md(s: str) -> str:
     s = re.sub(r"<p[^>]*>", "", s, flags=re.I)
     # lower-level headings inside a section
     s = re.sub(r"<h4[^>]*>(.*?)</h4>", r"\n\n### \1\n", s, flags=re.S | re.I)
+    # Repair adjacent **bold** runs that the source HTML smushed together
+    # (e.g. "**Course:****Length:****Climb:**" → "**Course:** **Length:** **Climb:**")
+    s = re.sub(r"\*\*([^*\n]+?)\*\*\*\*([^*\n]+?)\*\*", r"**\1** **\2**", s)
+    s = re.sub(r"\*\*([^*\n]+?)\*\*\*\*([^*\n]+?)\*\*", r"**\1** **\2**", s)  # second pass
     # strip anything left
     s = re.sub(r"<[^>]+>", "", s)
     # entities
@@ -154,7 +209,7 @@ FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n?(.*)$", re.S)
 DATE_IN_SLUG_RE = re.compile(r"-(\d{4}-\d{2}-\d{2})$")
 
 
-def migrate_one(slug: str, force: bool, today: str) -> str:
+def migrate_one(slug: str, force: bool, today: str, include_future: bool = False) -> str:
     path = os.path.join(EVENTS_DIR, slug + ".md")
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
@@ -171,7 +226,7 @@ def migrate_one(slug: str, force: bool, today: str) -> str:
     if not m:
         return "skip (no date in slug)"
     date = m.group(1)
-    if date >= today:
+    if date >= today and not include_future:
         return "skip (future event)"
 
     url = BASE_URL + slug
@@ -222,6 +277,8 @@ def main():
     parser.add_argument("--force", action="store_true", help="re-migrate already-migrated events")
     parser.add_argument("--only", help="migrate just one slug (filename without .md)")
     parser.add_argument("--delay", type=float, default=0.6, help="seconds between fetches")
+    parser.add_argument("--include-future", action="store_true",
+                        help="also migrate events whose date is today or later")
     args = parser.parse_args()
 
     today = dt.date.today().isoformat()
@@ -237,7 +294,7 @@ def main():
 
     ok = skip = err = 0
     for slug in slugs:
-        result = migrate_one(slug, args.force, today)
+        result = migrate_one(slug, args.force, today, include_future=args.include_future)
         prefix = "  "
         if result.startswith("OK"):
             ok += 1
