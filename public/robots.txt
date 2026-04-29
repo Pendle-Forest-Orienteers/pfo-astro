@@ -1,5 +1,3 @@
+# Don't allow web crawlers to index Craft CMS
 User-agent: *
-Allow: /
 Disallow: /admin/
-
-Sitemap: https://pfo.org.uk/sitemap-index.xml

@@ -7,11 +7,85 @@ format: "Night-O"
 level: "regional"
 summary: "Night-O · Hurstwood North · PFO Night &amp; Day"
 results:
-  - label: "Full results"
-    url: "https://www.pfo.org.uk/lts-archive/2025/2025-11-30-hurstwood-north-regional/index.html"
+  - label: "Results and splits"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-30-hurstwood-north-regional/index.html"
+    type: "html"
+  - label: "Routegadget"
+    url: "https://www.pfo.routegadget.co.uk/rg2/#225"
+    type: "html"
+  - label: "Winsplits"
+    url: "//obasen.orientering.se/winsplits/online/en/default.asp?page=classes&amp;databaseId=109518"
     type: "html"
 ---
 
-Hurstwood North Regional — held on 2025-11-30.
+<!-- migrated -->
 
-Full event report and results are linked above.
+## Map and terrain
+
+**Map notes:**
+
+The area benefitted from being remapped for the Senior Home Internationals in 2018 and recent updates have been added for this event. The contour detail is accurate and can be used reliably. Green screen is used to differentiate between runnable tussock and tussocks with long grass which impede progress. Small crags marked on the map includes some small sections of what look like man made retaining walls. For clarity, only the most significant areas of rock piles are marked on the map. The area is a popular choice for mountain bikers and as a results new paths they create may not be accurately represented. There will be taped sections on the yellow course to help navigate away from the busy busiest area used by mountain bikers. Supervision of younger children is strongly recommended.
+
+**Terrain notes:**
+Hurstwood North is the area used for the SHI and National events in 2018 and offers quality orienteering. The area is predominantly open moorland containing two large reservoirs, Hurstwood and Cant Clough. Some mature coniferous forest and more recently planted broad leafed trees provide variety. Of note are the sections of open terrain where well vegetated mounds and depressions are a major feature; a legacy of the reservoir construction in the late 1800s and early 1900s. These features could be likened to sand dunes in the technical challenge they pose. There are a number of well-defined tracks, however in more technical areas distinct paths are in short supply. The area sits at an altitude of around 250 to 300 metres above sea level.Despite much of the terrain's technical nature it has provided fast running on previous events. As a consequence course lengths are at the upper end of the range. On the highest ground, which most courses avoid, expect tussocks.
+
+## Course information
+
+**Courses: (Provisional)**
+
+**Course****Length****Climb****Course Notes:
+Map Notes:****Brown**8.5 km340 m24 controls, TD5, A3 map, 1:7,500
+**Short Brown**6.8 km275 m22 controls, TD5, A3 map, 1:7,500
+**Blue**5.8 km215 m21 controls, TD5, A3 map, 1:7,500
+**Short Blue**4.9 km185 m17 controls, TD5, A3 map, 1:7,500**Green**4.1 km135m16 controls, TD5, A4 map, 1:7,500**Short Green**3.5 km80m13 controls, TD5, A4 map, 1:7,500**Light Green**3.7 km100m13 controls, TD4, A4 map, 1:7500
+**Orange**2.8 km65m15 controls, TD3, A4 map, 1:7,500**Yellow**2.2 km25m12 controls, TD2, A4 map, 1:7500**
+**
+
+**Start & ****Finish: **
+
+**Start **is 1 km from parking /event centre with 45 m of climb. Allow 15 to 20 minutes walking time.
+
+**Finish** is 700 m from parking.
+
+## Registration and start times
+
+**Start times** from 10:30 till 12:00. When entering, choose your 15 minute start block.
+
+**Courses close** at 14:30.
+
+Please choose an early start time if you anticipate being out for a long time.
+
+## Directions and parking
+
+**Event centre:** In the parking field. The information/download tent, portable toilets and a coffee van will all be sited in the parking field.
+
+**Parking: **On a slightly sloping field, well drained and maintained, off Hurstwood Lane, Hurstwood. There will be a charge of £2 per car, which will be paid to the farmer for use of his field and collected at the gate. Please park as directed by Marshalls. Campervans will be directed to an area of grassed over firm standing at the top end of the field.
+
+**Satnav: ****BB10 3LF **is nearest postcode.
+What3Words: **///just.twin.extra**
+
+## Entry details
+
+On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?event_id=16559)**. No EOD.
+
+Standard pricing will apply up to midnight Wednesday 26th November. Entry will remain open after this, **subject to map availability**, until midnight Friday 28th November, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
+
+**Entry fees ****for BOF-members:**
+
+Senior (26+)Young Adult (21-25)Junior (U21)Up to 26/11/2025£9.00£6.50£4.00From 27/11/2025£11.00£7.50£5.00**Entry fees for non-members:**
+
+Senior (26+)Young Adult (21-25)Junior (U21)Up to 29/10/2025£11.00£8.00£5.00From 30/10/2025£13.00£9.00£6.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
+
+## Facilities
+
+There will be portable toilets at the event centre.
+
+## Dog restrictions
+
+This is sheep country - **no dogs** permitted on courses.
+
+## Contacts and officials
+
+**Planner:** Peter Stobbs PFO.
+**Controller:** Judith Wood PFO
+**Organisers:** Helen Smethurst PFO & Ginny Anderson PFO

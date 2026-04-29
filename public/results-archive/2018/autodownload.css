@@ -1,0 +1,107 @@
+html { margin:0; padding:10px; }
+body { margin:0; padding:0; color:#000000; background-color:#FFFFFF; font-size:0.83em; font-family:Arial,Helvetica,Sans-serif; }
+
+
+h1,
+h2 { color:#000000; font-size:1.37em; margin-top:0; font-weight:normal; }
+h3 { color:#000000; font-size:1.13em; margin-top:0; }
+h4 { color:#000000; font-size:1.13em; }
+h5 { color:#000000; font-size:1.0em; }
+h6 { color:#000000; font-size:0.9em; }
+
+p { padding:0; margin:0 0 16px; }
+
+
+
+a, a:visited { color:#B10000; text-decoration:underline; }
+a:hover { color:#E32121; text-decoration:underline; }
+
+.clear { clear:both; height:0; overflow:hidden; }
+.centre { text-align:center; }
+.justify { text-align:justify; }
+.left { text-align:left; }
+.right { text-align:right; }
+
+/* ----------------------
+   Themes
+---------------------- */
+
+#theme-blank-photo { background:url("http://www.sportident.co.uk/autodownload/style/blank-photo.jpg") left top repeat-x; height:32px; }
+#theme-blank-corner { color:#454545; font-size:1.23em; font-weight:bold; text-align:right; background:url("http://www.sportident.co.uk/autodownload/style/blank.gif") right top no-repeat; height:90px; }
+
+
+
+/* ----------------------
+   Header & Footer
+---------------------- */
+
+#header { height:112px; margin-bottom:5px; }
+#header #header-left { width:197px; float:left; position:relative; }
+#header #header-left h1 { margin:0; padding:0; }
+#header #header-left h1 a { width:197px; height:112px; background:url("http://www.sportident.co.uk/autodownload/style/autodownload.gif") left top no-repeat; overflow:hidden; display:block; }
+#header #header-left h1 a span { display:none; }
+#header #header-right { width:100%; height:112px; float:left; margin-left:-197px; background:url("http://www.sportident.co.uk/autodownload/style/autodownload-header.gif") 197px top repeat-x; }
+#header #title { margin-left:200px; margin-top:63px; height:20px; float: left; }
+
+#footer { background:url("http://www.sportident.co.uk/autodownload/style/footer-back.gif") left 5px repeat-x; font-weight:bold; color:#FFF; }
+#footer-left { width:44%; float:left; min-height:33px; background:url("http://www.sportident.co.uk/autodownload/style/footer-left.gif") left 5px no-repeat; }
+#footer-left .padding { padding:14px 0 0 10px; }
+#footer-right { width:55%; float:right; min-height:33px; background:url("http://www.sportident.co.uk/autodownload/style/footer-right.gif") right 5px no-repeat; }
+#footer-right .padding { text-align:right; padding:14px 10px 0 0; }
+
+#footer-left a, #footer-left a:visited { color:#FFFFFF; text-decoration:underline; }
+#footer-left a:hover { color:#FFFFFF; text-decoration:underline; }
+
+/* ----------------------
+   Main
+---------------------- */
+
+#main {border:1px solid #B30202;padding:2px;}
+#main_wide {border:0;}
+
+/* ----------------------
+   Course
+---------------------- */
+
+.course {margin-bottom:15px;}
+.course-title { padding:9px 11px 8px 11px; margin-bottom:5px; background:#B30202 url("http://www.sportident.co.uk/autodownload/style/content-submenu.gif") left top repeat-x; }
+.course-title h2 { font-size:1.23em; font-weight:bold; margin:0; padding:0; color:#FFFFFF; }
+.course-info {margin:5px;}
+
+/* ----------------------
+   Content
+---------------------- */
+
+.excluded { font-style:italic; }
+.penalty { font-style:italic; }
+
+/* ----------------------
+   Data Tables
+---------------------- */
+
+table.data { border:1px solid #D9D9D9; margin:5px;}
+table.data th, table.data td { margin:0; padding: 2px 5px; }
+table.data th.right { text-align:right; }
+table.data th.centre { text-align:center; }
+table.data tr.alt { background-color:#E8E8E8; }
+table.data tr:hover td { background-color:#D9D9D9; }
+table.data th { background:#EDEDED url("http://www.sportident.co.uk/autodownload/style/rowstrong.gif") left top repeat-x; border-bottom:1px solid #D9D9D9; font-weight:bold; vertical-align:top; text-align:left; padding:6px; }
+table.data td { vertical-align:top; white-space:nowrap; }
+table.data td.wrap { vertical-align:top; white-space:normal; }
+
+
+table.data th.evttitle {width:95px; }
+
+
+/* ----------------------
+   IE Hacks
+-----------------------*/
+
+* html #header { margin-bottom:-5px; }
+* html #header #header-right #title { margin-left:103px; margin-top:63px; height:20px; float: left; }
+* html #header #header-right #title h1 {padding:0; margin:0; }
+
+* html #footer #footer-left .padding { padding:13px 0 0 6px; }
+* html #footer #footer-right .padding { text-align:right; padding:13px 10px 0 0; }
+* html #footer #footer-left, * html #footer #footer-right { background:url("http://www.sportident.co.uk/autodownload/style/footer-back.gif") left 5px repeat-x; height:33px; }
+

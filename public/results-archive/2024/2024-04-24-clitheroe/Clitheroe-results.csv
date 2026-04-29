@@ -1,0 +1,53 @@
+RaceNumber,CardNumbers,MembershipNumbers,Name,Category,Club,Country,CourseClass,StartTime,FinishTime,RaceTime,NonCompetitive,Position,Status,Handicap,PenaltyScore,ManualScoreAdjust,FinalScore,HandicapTime,HandicapScore,AwardLevel,EntrySystemIDs,Eligibility,JourneyTime,ExcludedExcess,BehindTime,GenderDOB,NotUsed,NotUsed,NotUsed,NotUsed,NumSplits
+,8047299,104967,Helen Hyde,W55,PFO,,60 Minute Score,18:52:46,19:37:43,00:44:57,N,1,,,0,,0,,,,,,,,,,,,,,0
+,2020465,,Kathryn Taylor-Bates,W35,,,60 Minute Score,18:49:06,19:36:42,00:47:36,N,2,,,0,,0,,,,833722,,,,,,,,,,0
+,2020470,~,Beth Yewlett / Samuel Yewlett,,~,,60 Minute Score,18:03:27,18:52:47,00:49:20,N,3,,,0,,0,,,,929644~929645,,,,,,,,,,0
+,2020480,~,Julie Carman / Gabriella Cole,,,,60 Minute Score,18:17:33,19:08:53,00:51:20,N,4,,,0,,0,,,,402136~934330,,,,,,,,,,0
+,4610589,,Andy Ellis,M60,PFO,,60 Minute Score,18:07:02,19:01:03,00:54:01,N,5,,,0,,0,,,,,,,,,,,,,,0
+,2020466,,Fiona Glen,W45,,,60 Minute Score,18:00:00,18:54:13,00:54:13,N,6,,,0,,0,,,,104559,,,,,,,,,,0
+,2300916,~,Patricia Beesley / Julie Bithell,,~,,60 Minute Score,18:41:01,19:35:17,00:54:16,N,7,,,0,,0,,,,707823~708022,,,,,,,,,,0
+,2300915,~,Lee Yewlett / Jessica Yewlett,,~,,60 Minute Score,18:03:41,18:58:00,00:54:19,N,8,,,0,,0,,,,774547~929643,,,,,,,,,,0
+,2300924,~,Vicki Greenwood / Yvonne Macnamara,,~,,60 Minute Score,18:31:19,19:25:53,00:54:34,N,9,,,0,,0,,,,753435~933874,,,,,,,,,,0
+,8030572,657072,Helen Ellis,W50,PFO,,60 Minute Score,19:04:09,19:59:14,00:55:05,N,10,,,0,,0,,,,361968,,,,,,,,,,0
+,2020475,~,Elizabeth Murphy / Anne Mackay,,~,,60 Minute Score,18:31:16,19:26:33,00:55:17,N,11,,,0,,0,,,,753432~776631,,,,,,,,,,0
+,8145303,199939,Simon Sarginson,M60,PFO,,60 Minute Score,18:35:43,19:31:10,00:55:27,N,12,,,0,,0,,,,402785,,,,,,,,,,0
+,2300923,184094~,Simon Lakin / Karen Seed,,PFO~,,60 Minute Score,18:04:59,19:00:51,00:55:52,N,13,,,0,,0,,,,699664~326890,,,,,,,,,,0
+,8237692,125979,Garry Alexander,M60,PFO,,60 Minute Score,18:58:43,19:54:46,00:56:03,N,14,,,0,,0,,,,406545,,,,,,,,,,0
+,235737,410601,Dawn Figg,W55,PFO,,60 Minute Score,18:34:10,19:30:41,00:56:31,N,15,,,0,,0,,,,31661,,,,,,,,,,0
+,8667588,114612,Karen Quickfall,W60,SROC,,60 Minute Score,18:40:25,19:37:09,00:56:44,N,16,,,0,,0,,,,391078,,,,,,,,,,0
+,2300911,~,Kate Griffiths / Janice Davies,,~,,60 Minute Score,18:32:18,19:29:03,00:56:45,N,17,,,0,,0,,,,774333~371272,,,,,,,,,,0
+,2020460,~,Rachel Rodgers / Clare Laithwaite,,~,,60 Minute Score,18:07:06,19:04:09,00:57:03,N,18,,,0,,0,,,,928480~839900,,,,,,,,,,0
+,2300918,~,Sarah Nickson / Ellie Kemp,,~,,60 Minute Score,18:41:36,19:38:39,00:57:03,N,18,,,0,,0,,,,923046~933993,,,,,,,,,,0
+,2300917,~~,Robin Scappaticci / Evan Preston / Juliet Preston,,~~,,60 Minute Score,18:48:50,19:45:55,00:57:05,N,20,,,0,,0,,,,933914~933916~933917,,,,,,,,,,0
+,2300921,~~,Sharon Wilson / Paul Harrison / Marianne Moore,,~~,,60 Minute Score,18:32:41,19:29:53,00:57:12,N,21,,,0,,0,,,,824353~933981~933962,,,,,,,,,,0
+,2020467,~,Alexandra Murphy / Phillip Murphy,,~,,60 Minute Score,18:21:42,19:19:17,00:57:35,N,22,,,0,,0,,,,891439~457795,,,,,,,,,,0
+,2020463,~~,Katie Skelton / S & R Skelton Mcleod,,~~,,60 Minute Score,18:17:25,19:15:04,00:57:39,N,23,,,0,,0,,,,631781~856426~935123,,,,,,,,,,0
+,2022728,867660,Maggie Ridehalgh,W70,PFO,,60 Minute Score,18:41:04,19:39:16,00:58:12,N,24,,,0,,0,,,,691632,,,,,,,,,,0
+,2022714,166048,Ginny Anderson,W65,PFO,,60 Minute Score,18:38:46,19:37:12,00:58:26,N,25,,,0,,0,,,,691620,,,,,,,,,,0
+,2020471,~~,Chris Donald / Joely Donald / Annie Donald,,~~,,60 Minute Score,18:40:27,19:38:55,00:58:28,N,26,,,0,,0,,,,370537~934572~934573,,,,,,,,,,0
+,2020478,~,Graeme Courtney / Lee Cramp,,~,,60 Minute Score,18:13:38,19:12:16,00:58:38,N,27,,,0,,0,,,,210487~574657,,,,,,,,,,0
+,8294798,148764,Mark Villiers,M45,PFO,,60 Minute Score,18:22:15,19:20:57,00:58:42,N,28,,,0,,0,,,,413267,,,,,,,,,,0
+,2020469,~,Andy Lamb / Pip Larter,,PFO~PFO,,60 Minute Score,18:36:26,19:35:13,00:58:47,N,29,,,0,,0,,,,642225~707804,,,,,,,,,,0
+,8630882,453673,Judith Wood,W60,PFO,,60 Minute Score,18:21:09,19:20:08,00:58:59,N,30,,,0,,0,,,,160004,,,,,,,,,,0
+,8505648,~,Lucy Parker / Dave Woods,,PFO~PFO,,60 Minute Score,18:35:05,19:34:22,00:59:17,N,31,,,0,,0,,,,509251~670088,,,,,,,,,,0
+,2300912,~~,Laura Whitwell / Anne Clark / Nigel Bullock,,~~,,60 Minute Score,18:38:04,19:37:28,00:59:24,N,32,,,0,,0,,,,816234~835241~821890,,,,,,,,,,0
+,2300925,,Ian Hydes,M35,,,60 Minute Score,18:29:18,19:28:45,00:59:27,N,33,,,0,,0,,,,222200,,,,,,,,,,0
+,8072540,117314,Kay Hawke,W40,PFO,,60 Minute Score,19:05:01,20:04:30,00:59:29,N,34,,,0,,0,,,,474531,,,,,,,,,,0
+,2300927,,Joanne Motley,W40,,,60 Minute Score,18:50:43,19:50:15,00:59:32,N,35,,,0,,0,,,,577071,,,,,,,,,,0
+,8041274,349291,Steve Wilson,M50,PFO,,60 Minute Score,18:25:03,19:24:41,00:59:38,N,36,,,0,,0,,,,22420,,,,,,,,,,0
+,8047279,555895,Mick Hyde,M60,PFO,,60 Minute Score,18:12:40,19:12:19,00:59:39,N,37,,,0,,0,,,,562774,,,,,,,,,,0
+,2020472,~,Christina Davy / Maxine Betts,,~,,60 Minute Score,18:38:07,19:37:47,00:59:40,N,38,,,0,,0,,,,816398~932785,,,,,,,,,,0
+,2020468,~,Andrew McEvoy / Deborah McEvoy,,~,,60 Minute Score,18:03:35,19:03:18,00:59:43,N,39,,,0,,0,,,,774660~774662,,,,,,,,,,0
+,2020474,~,Dennis Beard / Rachel Beard,,~,,60 Minute Score,18:38:06,19:37:49,00:59:43,N,39,,,0,,0,,,,927987~829018,,,,,,,,,,0
+,2020473,~~,Craig Nicholls / Emily Nicholls / Brian Mcgoldrick,,~~,,60 Minute Score,18:36:51,19:36:36,00:59:45,N,41,,,0,,0,,,,703019~703021~927555,,,,,,,,,,0
+,2020479,~~,James McCrea / Sarah McCrea / Emma McCrea,,~~,,60 Minute Score,18:04:06,19:04:00,00:59:54,N,42,,,0,,0,,,,934487~934494~934495,,,,,,,,,,0
+,8261384,111392~111391,George Crawford-Smith / Wendy Crawford-Smith,,PFO~PFO,,60 Minute Score,18:40:48,19:40:43,00:59:55,N,43,,,0,,0,,,,6259~678821,,,,,,,,,,0
+,2020476,104996~~,Fiona MacNab / Fiona Middleton / Bronte Pye,,PFO~~,,60 Minute Score,18:06:23,19:06:40,01:00:17,N,44,,,6,,-6,,,,834711~856130~932887,,,,,,,,,,0
+,2120471,162719,Richard Edwards,M60,PFO,,60 Minute Score,18:08:52,19:09:47,01:00:55,N,45,,,19,,-19,,,,678028,,,,,,,,,,0
+,8008106,206097,Emma Taylor,W35,PFO,,60 Minute Score,19:08:46,20:09:58,01:01:12,N,46,,,24,,-24,,,,474530,,,,,,,,,,0
+,1721956,140612,David Bliss,M65,PFO,,60 Minute Score,18:32:56,19:35:00,01:02:04,N,47,,,42,,-42,,,,626470,,,,,,,,,,0
+,2020464,,Diane Haggar,W60,,,60 Minute Score,18:19:14,19:22:37,01:03:23,N,48,,,68,,-68,,,,804198,,,,,,,,,,0
+,8630892,375931,Stephen Round,M70,SELOC,,60 Minute Score,18:44:47,19:49:09,01:04:22,N,49,,,88,,-88,,,,33890,,,,,,,,,,0
+,8237774,706348,Deborah Alexander,W55,PFO,,60 Minute Score,18:58:08,20:04:51,01:06:43,N,50,,,135,,-135,,,,702104,,,,,,,,,,0
+,2300930,,Nicky Spence,W50,,,75 minute Score,18:07:10,18:53:34,00:46:24,N,1,,,0,,0,,,,845252,,,,,,,,,,0
+,1404021,410121,Paul Turner,M65,SELOC,,75 minute Score,18:30:40,19:49:38,01:18:58,N,2,,,80,,-80,,,,57643,,,,,,,,,,0

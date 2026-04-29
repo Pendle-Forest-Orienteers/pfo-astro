@@ -57,6 +57,8 @@ collections:
         fields:
           - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
           - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }
+      - { name: "what3words", label: "what3words", widget: "string", required: false, hint: "Three-word location for parking / event centre, e.g. 'typically.capacity.skips' (no leading slashes)" }
+      - { name: "gridRef", label: "OS grid reference", widget: "string", required: false, hint: "e.g. 'SD848335'" }
       - name: "format"
         label: "Format"
         widget: "select"
@@ -84,6 +86,22 @@ collections:
         default: "local"
       - { name: "duration", label: "Duration (minutes)", widget: "number", required: false, value_type: "int", min: 0 }
       - { name: "series", label: "Series name", widget: "string", required: false, hint: "Optional series this event belongs to, e.g. 'May Street-O'" }
+      - { name: "bofEventNumber", label: "BOF event number", widget: "number", required: false, value_type: "int", min: 0, hint: "British Orienteering event ID, e.g. 87374" }
+      - name: "dogsAllowed"
+        label: "Dog policy"
+        widget: "select"
+        required: false
+        options:
+          - { label: "(not specified)", value: "" }
+          - { label: "Dogs welcome",          value: "yes" }
+          - { label: "Dogs on lead only",     value: "on-lead" }
+          - { label: "Dogs not permitted",    value: "no" }
+          - { label: "Not recommended (e.g. urban / Street-O)", value: "not-recommended" }
+      - { name: "dogNotes", label: "Dog policy — extra notes", widget: "text", required: false, hint: "Optional explanation, e.g. 'Taking dogs on urban courses is not recommended due to the traffic hazard.' Renders next to the dropdown answer." }
+      # ─── Officials (optional)
+      - { name: "planner",          label: "Planner",          widget: "string", required: false, hint: "e.g. 'Richard Edwards (PFO)'" }
+      - { name: "controller",       label: "Controller",       widget: "string", required: false, hint: "Required for regional+ events. e.g. 'Steve Wilson (PFO)'" }
+      - { name: "seriesOrganiser",  label: "Series organiser", widget: "string", required: false, hint: "e.g. 'Kay Hawke (PFO)'" }
       - { name: "entryFee", label: "Entry fee", widget: "string", required: false, hint: "Free-text, e.g. 'From £6' or '£6 / £8 pair / £9 trio'" }
       - { name: "capacity", label: "Entry cap", widget: "number", required: false, value_type: "int", min: 0 }
       - { name: "siEntriesUrl", label: "SI Entries URL", widget: "string", required: false, hint: "Direct link to the entry form for this event on sientries.co.uk" }

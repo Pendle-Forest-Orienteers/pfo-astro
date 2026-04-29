@@ -29,12 +29,30 @@ const events = defineCollection({
       lat: z.number(),
       lng: z.number(),
     }).optional(),
+    what3words: z.string().optional(),      // e.g. "typically.capacity.skips" — common on UK
+                                            // orienteering events for the event-centre/parking
+    gridRef: z.string().optional(),         // OS grid ref, e.g. "SD848335"
 
     // ─────── What
     format: z.string(),                     // "Urban Score", "Street-O", "Snook-O", "Standard"
     level: z.enum(['local', 'regional', 'national', 'major']),
     duration: z.number().optional(),        // minutes
     series: z.string().optional(),          // e.g. "May Street-O", "June Series 2/3"
+    bofEventNumber: z.number().optional(),  // British Orienteering event ID, e.g. 87374
+    dogsAllowed: z.enum([
+      'yes',                                // explicitly welcomed
+      'on-lead',                            // permitted on lead only
+      'no',                                 // not permitted
+      'not-recommended',                    // discouraged (e.g. urban / Street-O)
+    ]).optional(),
+    dogNotes: z.string().optional(),        // free-text expansion shown next to the
+                                            // dropdown answer, e.g. "not recommended on urban
+                                            // courses due to traffic hazard"
+
+    // ─────── Officials
+    planner: z.string().optional(),         // e.g. "Richard Edwards (PFO)"
+    controller: z.string().optional(),      // present on regional+ events
+    seriesOrganiser: z.string().optional(), // e.g. "Kay Hawke (PFO)"
 
     // ─────── How much
     entryFee: z.string().optional(),        // free-text, e.g. "From £6" or "£6 / £8 pair"

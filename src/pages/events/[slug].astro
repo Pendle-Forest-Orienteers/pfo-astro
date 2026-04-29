@@ -180,6 +180,23 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
                 <dd>{event.data.capacity} entrants</dd>
               </div>
             )}
+            {event.data.dogsAllowed && (
+              <div>
+                <dt>Dogs</dt>
+                <dd>
+                  {event.data.dogsAllowed === 'yes' && 'Welcome'}
+                  {event.data.dogsAllowed === 'on-lead' && 'On lead only'}
+                  {event.data.dogsAllowed === 'no' && 'Not permitted'}
+                  {event.data.dogsAllowed === 'not-recommended' && 'Not recommended'}
+                </dd>
+              </div>
+            )}
+            {event.data.bofEventNumber && (
+              <div>
+                <dt>BOF event no.</dt>
+                <dd class="mono">{event.data.bofEventNumber}</dd>
+              </div>
+            )}
             {event.data.venue && (
               <div class="full">
                 <dt>Venue</dt>
@@ -243,15 +260,68 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
       </article>
 
       <aside class="ev-meta">
-        {coords && (
+        {(coords || event.data.what3words || event.data.gridRef || event.data.postcode) && (
           <div class="meta-block">
             <p class="meta-label">Location</p>
-            <p class="meta-coord mono">{coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}</p>
-            {event.data.postcode && <p class="meta-postcode mono">{event.data.postcode}</p>}
-            <ul class="map-links">
-              <li><a href={mapsLink} rel="noopener">Google Maps →</a></li>
-              <li><a href={osmLink} rel="noopener">OpenStreetMap →</a></li>
-            </ul>
+            {coords && (
+              <p class="meta-coord mono">{coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}</p>
+            )}
+            {event.data.gridRef && (
+              <p class="meta-postcode mono">OS {event.data.gridRef}</p>
+            )}
+            {event.data.postcode && (
+              <p class="meta-postcode mono">{event.data.postcode}</p>
+            )}
+            {event.data.what3words && (
+              <p class="meta-postcode">
+                <a
+                  class="w3w"
+                  href={`https://what3words.com/${event.data.what3words}`}
+                  rel="noopener"
+                >
+                  ///<span class="mono">{event.data.what3words}</span>
+                </a>
+              </p>
+            )}
+            {coords && (
+              <ul class="map-links">
+                <li><a href={mapsLink} rel="noopener">Google Maps →</a></li>
+                <li><a href={osmLink} rel="noopener">OpenStreetMap →</a></li>
+              </ul>
+            )}
+          </div>
+        )}
+
+        {(event.data.planner || event.data.controller || event.data.seriesOrganiser) && (
+          <div class="meta-block">
+            <p class="meta-label">Officials</p>
+            <dl class="officials">
+              {event.data.planner && (
+                <>
+                  <dt>Planner</dt>
+                  <dd>{event.data.planner}</dd>
+                </>
+              )}
+              {event.data.controller && (
+                <>
+                  <dt>Controller</dt>
+                  <dd>{event.data.controller}</dd>
+                </>
+              )}
+              {event.data.seriesOrganiser && (
+                <>
+                  <dt>Series organiser</dt>
+                  <dd>{event.data.seriesOrganiser}</dd>
+                </>
+              )}
+            </dl>
+          </div>
+        )}
+
+        {event.data.dogNotes && (
+          <div class="meta-block">
+            <p class="meta-label">Dogs</p>
+            <p class="meta-note">{event.data.dogNotes}</p>
           </div>
         )}
 
@@ -552,6 +622,39 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     padding-bottom: 1px;
   }
   .map-links a:hover { color: var(--plum); border-color: var(--plum); }
+
+  /* what3words link in the location meta block */
+  .w3w {
+    font-size: 13px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-2);
+    padding-bottom: 1px;
+    transition: color .18s ease, border-color .18s ease;
+  }
+  .w3w:hover { color: var(--plum); border-color: var(--plum); }
+
+  /* Officials block — small dl in the meta sidebar */
+  .officials {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 12px;
+  }
+  .officials dt {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    align-self: baseline;
+  }
+  .officials dd {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
 
   /* ─────────────────────────── Results */
   .ev-results {

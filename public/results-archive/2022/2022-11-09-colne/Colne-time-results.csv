@@ -1,0 +1,44 @@
+RaceNumber,CardNumbers,MembershipNumbers,Name,Category,Club,Country,CourseClass,StartTime,FinishTime,RaceTime,NonCompetitive,Position,Status,Handicap,PenaltyScore,ManualScoreAdjust,FinalScore,HandicapTime,HandicapScore,AwardLevel,SiEntriesIDs,Eligibility,JourneyTime,ExcludedExcess,BehindTime,GenderDOB,NotUsed,NotUsed,NotUsed,NotUsed,NumSplits
+,2009510,~~,Clare Mead / Lynne Hawthornthwaite / Sharon Webber,,~~,,60 Minute Score,18:17:05,19:08:12,00:51:07,N,1,,,0,,0,,,,729701~515531~648638,,,,,,,,,,0
+,8170360,474285,Andy Ellis,M60,PFO,,60 Minute Score,18:09:20,19:03:56,00:54:36,N,2,,,0,,0,,,,356304,,,,,,,,,,0
+,2300930,764200,Catherine Thornber,W55,,,60 Minute Score,18:04:51,18:59:27,00:54:36,N,2,,,0,,0,,,,764200,,,,,,,,,,0
+,2300924,~,Vikki Greenwood / Anne MacKay,,~,,60 Minute Score,18:05:13,19:00:00,00:54:47,N,4,,,0,,0,,,,812231~815823,,,,,,,,,,0
+,2009511,~,David Greenwood / Gillian Greenwood,,~,,60 Minute Score,18:38:21,19:34:17,00:55:56,N,5,,,0,,0,,,,597314~639261,,,,,,,,,,0
+,8667588,114612,Karen Quickfall,W55,SROC,,60 Minute Score,18:29:48,19:26:15,00:56:27,N,6,,,0,,0,,,,391078,,,,,,,,,,0
+,2009512,~,Elaine Corcoran / Stuart Hayton,,~,,60 Minute Score,18:33:49,19:30:35,00:56:46,N,7,,,0,,0,,,,424128~166949,,,,,,,,,,0
+,2009509,,Joanne Webber / Kristan Webber,,,,60 Minute Score,18:00:34,18:57:42,00:57:08,N,8,,,0,,0,,,,,,,,,,,,,,0
+,2006698,~,Julie Carman / John Carman,,,,60 Minute Score,18:07:55,19:05:16,00:57:21,N,9,,,0,,0,,,,402136~420104,,,,,,,,,,0
+,2006695,~,Joanne Motley / Alistair Motley,,~,,60 Minute Score,18:31:40,19:29:08,00:57:28,N,10,,,0,,0,,,,577071~753979,,,,,,,,,,0
+,2300912,~~,Laura Whitwell / Mo O’Ryan / Christina Davy,,~~,,60 Minute Score,18:42:18,19:39:52,00:57:34,N,11,,,0,,0,,,,816234~816397~816398,,,,,,,,,,0
+,8261384,111392~111391,George Crawford-Smith / Wendy Crawford-Smith,,PFO~PFO,,60 Minute Score,18:15:43,19:13:24,00:57:41,N,12,,,0,,0,,,,6259~678821,,,,,,,,,,0
+,7111111,455482,Hazel Hindle,W55,MDOC,,60 Minute Score,18:42:58,19:40:55,00:57:57,N,13,,,0,,0,,,,56209,,,,,,,,,,0
+,8047279,555895,Mick Hyde,M60,PFO,,60 Minute Score,18:27:49,19:25:47,00:57:58,N,14,,,0,,0,,,,562774,,,,,,,,,,0
+,2300925,,Ian Law,M70,,,60 Minute Score,18:18:50,19:16:50,00:58:00,N,15,,,0,,0,,,,749406,,,,,,,,,,0
+,2300916,~,Liz Allison / Matthew Allison,,~,,60 Minute Score,18:26:01,19:24:20,00:58:19,N,16,,,0,,0,,,,376464~434524,,,,,,,,,,0
+,2009513,~,Elizabeth Murphy / Phillip Murphy,,~,,60 Minute Score,18:06:30,19:04:52,00:58:22,N,17,,,0,,0,,,,753432~457795,,,,,,,,,,0
+,8214511,,Lucy Parker / Samantha Barnes,,~,,60 Minute Score,18:10:30,19:09:01,00:58:31,N,18,,,0,,0,,,,509251~681148,,,,,,,,,,0
+,2006692,~,Graeme Courtney / Lee Cramp,,~,,60 Minute Score,18:09:36,19:08:15,00:58:39,N,19,,,0,,0,,,,210487~574657,,,,,,,,,,0
+,2006691,~,Emma-Jane Macdonald / Adele Waddington,,,,60 Minute Score,18:01:47,19:00:27,00:58:40,N,20,,,0,,0,,,,815004~815387,,,,,,,,,,0
+,2300923,~,Richard Stevenson / Deborah Stevenson,,~,,60 Minute Score,18:15:56,19:14:37,00:58:41,N,21,,,0,,0,,,,361164~753848,,,,,,,,,,0
+,8406371,406371,Richard Henderson,M60,BL,,60 Minute Score,18:17:19,19:16:20,00:59:01,N,22,,,0,,0,,,,23039,,,,,,,,,,0
+,8030572,657072,Helen Ellis,W50,PFO,,60 Minute Score,18:28:31,19:27:51,00:59:20,N,23,,,0,,0,,,,361968,,,,,,,,,,0
+,2300918,~,Patricia Beesley / Julie Bithell,,~,,60 Minute Score,18:10:54,19:10:16,00:59:22,N,24,,,0,,0,,,,707823~708022,,,,,,,,,,0
+,2300914,~~,Linda Ensby / Edward Lee / Graham Denney,,~~,,60 Minute Score,18:09:27,19:09:07,00:59:40,N,25,,,0,,0,,,,707909~707914~707913,,,,,,,,,,0
+,8630882,453673,Judith Wood,W60,PFO,,60 Minute Score,18:13:19,19:13:08,00:59:49,N,26,,,0,,0,,,,160004,,,,,,,,,,0
+,260258,~427831,Darcey Abraham / John Embrey,,~SROC,,60 Minute Score,18:09:11,19:09:03,00:59:52,N,27,,,0,,0,,,,806649~26958,,,,,,,,,,0
+,7111112,455481,Trevor Hindle,M55,MDOC,,60 Minute Score,18:46:14,19:47:10,01:00:56,N,28,,,19,,-19,,,,56203,,,,,,,,,,0
+,8214531,161312,Catherine Hignett,W65,PFO,,60 Minute Score,17:51:02,18:52:50,01:01:48,N,29,,,36,,-36,,,,275468,,,,,,,,,,0
+,8047299,104967,Helen Hyde,W55,PFO,,60 Minute Score,18:28:13,19:32:08,01:03:55,N,30,,,79,,-79,,,,562779,,,,,,,,,,0
+,2006693,~,Ilyas Patel / Ricky Milne,,~,,60 Minute Score,18:07:21,19:11:24,01:04:03,N,31,,,81,,-81,,,,731339~374958,,,,,,,,,,0
+,1407572,200578~,Peter Stobbs / Isla Smith,,PFO~,,60 Minute Score,18:12:46,19:17:07,01:04:21,N,32,,,87,,-87,,,,28565~744787,,,,,,,,,,0
+,2300915,~,Linda Zagorski / Jamie Duxbury,,SKP~,,75 minute Score,18:03:43,18:57:18,00:53:35,N,1,,,0,,0,,,,693272~748234,,,,,,,,,,0
+,8008106,206097,Emma Taylor,W21,PFO,,75 minute Score,18:54:27,20:03:18,01:08:51,N,2,,,0,,0,,,,474530,,,,,,,,,,0
+,2006694,~,Jayne Ashe / Adrian Lamb,,~,,75 minute Score,18:13:29,19:25:03,01:11:34,N,3,,,0,,0,,,,750249~816150,,,,,,,,,,0
+,2300911,~,Karen Windle / Maxine Betts,,~,,75 minute Score,18:32:13,19:46:23,01:14:10,N,4,,,0,,0,,,,525114~645867,,,,,,,,,,0
+,8214543,818353,Allan Hodkinson,M45,PFO,,75 minute Score,18:35:50,19:50:08,01:14:18,N,5,,,0,,0,,,,24518,,,,,,,,,,0
+,2300927,,Molly Ralphson,W45,,,75 minute Score,18:42:32,19:56:57,01:14:25,N,6,,,0,,0,,,,28575,,,,,,,,,,0
+,1404021,410121,Paul Turner,M60,SELOC,,75 minute Score,18:47:10,20:01:53,01:14:43,N,7,,,0,,0,,,,57643,,,,,,,,,,0
+,2300917,~,Luke James / Paul Roberts,,~,,75 minute Score,18:14:50,19:30:07,01:15:17,N,8,,,6,,-6,,,,703925~554030,,,,,,,,,,0
+,8210162,177041,Mark Seddon,M60,SELOC,,75 minute Score,18:45:43,20:01:03,01:15:20,N,9,,,7,,-7,,,,11575,,,,,,,,,,0
+,8041274,349291,Steve Wilson,M45,PFO,,75 minute Score,19:01:05,20:16:50,01:15:45,N,10,,,15,,-15,,,,22420,,,,,,,,,,0
+,1060182,,Andy Ford,M40,,,75 minute Score,18:25:03,19:42:32,01:17:29,N,11,,,50,,-50,,,,202214,,,,,,,,,,0
