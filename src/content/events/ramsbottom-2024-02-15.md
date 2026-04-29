@@ -10,6 +10,13 @@ results:
   - label: "Results and points"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-02-15-ramsbottom/Ramsbottom-Results.xlsx"
     type: "xlsx"
+coords:
+  lat: 53.64702
+  lng: -2.31742
+postcode: "BL0 9FN OP"
+gridRef: "SD791167"
+bofEventNumber: 84168
+dogsAllowed: "not-recommended"
 ---
 
 <!-- migrated -->

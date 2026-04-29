@@ -10,6 +10,14 @@ results:
   - label: "Results"
     url: "https://www.pfo.org.uk/results-archive/2026/2026-01-28-ightenhill-urban-score/index.html"
     type: "html"
+coords:
+  lat: 53.7959
+  lng: -2.27399
+postcode: "BB12 6SZ O"
+what3words: "guards.chair.apply"
+bofEventNumber: 87370
+dogsAllowed: "not-recommended"
+planner: "Emma Taylor PFO"
 ---
 
 <!-- migrated -->

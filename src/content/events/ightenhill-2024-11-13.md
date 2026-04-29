@@ -10,6 +10,14 @@ results:
   - label: "StreetO results"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-11-13-ightenhill/Ightenhill-StreetO-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.796
+  lng: -2.27405
+postcode: "BB12 6SZ O"
+what3words: "slip.piano.points"
+bofEventNumber: 85242
+dogsAllowed: "not-recommended"
+planner: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

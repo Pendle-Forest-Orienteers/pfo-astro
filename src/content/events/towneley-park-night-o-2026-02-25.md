@@ -13,6 +13,15 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#229"
     type: "html"
+coords:
+  lat: 53.77845
+  lng: -2.21731
+postcode: "BB11 3ER O"
+what3words: "thick.sling.half"
+bofEventNumber: 87370
+dogsAllowed: "on-lead"
+planner: "Colin Woolford PFO"
+seriesOrganiser: "Helen Ashton PFO"
 ---
 
 <!-- migrated -->

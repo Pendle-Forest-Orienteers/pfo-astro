@@ -13,6 +13,12 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#222"
     type: "html"
+coords:
+  lat: 53.82016
+  lng: -2.39502
+gridRef: "SD740360"
+what3words: "valley.caramel.quicksand"
+dogsAllowed: "yes"
 ---
 
 <!-- migrated -->

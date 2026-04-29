@@ -25,6 +25,14 @@ results:
   - label: "Routegadget for course 7"
     url: "https://www.pfo.routegadget.co.uk/rg2/#213"
     type: "html"
+coords:
+  lat: 53.78311
+  lng: -2.22611
+what3words: "plans.smashes.gives"
+dogsAllowed: "no"
+planner: "Dawn Figg PFO"
+controller: "David Rose BOF"
+seriesOrganiser: "Ben Carter PFO"
 ---
 
 <!-- migrated -->

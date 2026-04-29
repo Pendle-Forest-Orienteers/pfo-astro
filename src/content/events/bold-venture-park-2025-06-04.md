@@ -10,6 +10,15 @@ results:
   - label: "Scores and points matrix"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-06-04-bold-venture-park/index.html"
     type: "html"
+coords:
+  lat: 53.6927
+  lng: -2.47195
+postcode: "BB3 2SN OP"
+gridRef: "SD689219"
+what3words: "dots.plots.books"
+bofEventNumber: 86277
+planner: "Katy Thompson PFO"
+seriesOrganiser: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

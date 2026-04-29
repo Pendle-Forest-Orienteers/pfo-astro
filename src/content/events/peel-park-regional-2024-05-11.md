@@ -13,6 +13,14 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#214"
     type: "html"
+coords:
+  lat: 53.75903
+  lng: -2.3512
+postcode: "BB5 6HF OP"
+gridRef: "SD769291"
+what3words: "warns.table.wider"
+bofEventNumber: 83633
+dogsAllowed: "no"
 ---
 
 <!-- migrated -->

@@ -10,6 +10,14 @@ results:
   - label: "Results"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-06-19-marsden-park/index.html"
     type: "html"
+coords:
+  lat: 53.83913
+  lng: -2.19292
+postcode: "BB9 8BN OP"
+what3words: "duet.radiating.assist"
+bofEventNumber: 84176
+planner: "Ginny Anderson PFO"
+seriesOrganiser: "George Crawford-Smith PFO"
 ---
 
 <!-- migrated -->

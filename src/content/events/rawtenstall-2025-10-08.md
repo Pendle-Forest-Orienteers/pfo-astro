@@ -13,6 +13,13 @@ results:
   - label: "Final Results"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-10-08-rawtenstall/Rawtenstall-East-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.70144
+  lng: -2.26852
+what3words: "theme.jungle.elite"
+bofEventNumber: 86283
+dogsAllowed: "not-recommended"
+planner: "Andy Ellis PFO"
 ---
 
 <!-- migrated -->

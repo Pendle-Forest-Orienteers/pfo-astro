@@ -13,6 +13,14 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#228"
     type: "html"
+coords:
+  lat: 53.70287
+  lng: -2.48436
+postcode: "BB3 1JA OP"
+gridRef: "SD680230"
+what3words: "belts.fuels.rushed"
+planner: "Katy Thompson PFO"
+seriesOrganiser: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

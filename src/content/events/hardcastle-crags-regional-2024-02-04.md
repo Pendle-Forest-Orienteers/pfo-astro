@@ -13,6 +13,13 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#209"
     type: "html"
+coords:
+  lat: 53.76434
+  lng: -2.04823
+postcode: "HX7 7AZ OP"
+gridRef: "SD969297"
+what3words: "debate.starfish.partly"
+dogsAllowed: "no"
 ---
 
 <!-- migrated -->

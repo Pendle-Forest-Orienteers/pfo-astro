@@ -13,6 +13,13 @@ results:
   - label: "Scores"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-09-10-blackburn/Rawtenstall-StreetO-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.74924
+  lng: -2.48554
+what3words: "high.lifts.defeat"
+bofEventNumber: 86282
+dogsAllowed: "not-recommended"
+planner: "Sam Barnes PFO"
 ---
 
 <!-- migrated -->

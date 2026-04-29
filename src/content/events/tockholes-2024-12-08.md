@@ -19,6 +19,14 @@ results:
   - label: "Photos from today&#039;s event"
     url: "https://photos.app.goo.gl/e7Q9FcFob8Y4hP326"
     type: "html"
+coords:
+  lat: 53.68658
+  lng: -2.50909
+what3words: "reveal.aquatics.buckling"
+dogsAllowed: "no"
+planner: "Stephen Horrocks PFO"
+controller: "Andy Quickfall SROC"
+seriesOrganiser: "George Crawford-Smith"
 ---
 
 <!-- migrated -->

@@ -10,6 +10,14 @@ results:
   - label: "Results and points"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-08-20-memorial-park/index.html"
     type: "html"
+coords:
+  lat: 53.79962
+  lng: -2.32025
+postcode: "BB12 8LA O"
+gridRef: "SD789337"
+bofEventNumber: 86934
+planner: "George Crawford-Smith PFO"
+seriesOrganiser: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

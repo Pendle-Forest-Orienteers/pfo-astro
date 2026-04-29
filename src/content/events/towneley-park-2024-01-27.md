@@ -13,6 +13,13 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#208"
     type: "html"
+coords:
+  lat: 53.77811
+  lng: -2.21748
+postcode: "BB11 3RQ O"
+gridRef: "SD857313"
+what3words: "paying.souk.zone"
+dogsAllowed: "no"
 ---
 
 <!-- migrated -->

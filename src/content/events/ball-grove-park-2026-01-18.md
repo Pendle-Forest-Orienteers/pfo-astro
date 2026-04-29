@@ -13,6 +13,13 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#227"
     type: "html"
+coords:
+  lat: 53.8593
+  lng: -2.1399
+postcode: "BB8 7HZ OP"
+what3words: "arena.outsmart.paper"
+planner: "George Crawford-Smith PFO"
+seriesOrganiser: "Ginny Anderson PFO"
 ---
 
 <!-- migrated -->

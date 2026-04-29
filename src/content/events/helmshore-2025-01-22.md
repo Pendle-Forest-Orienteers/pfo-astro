@@ -13,6 +13,14 @@ results:
   - label: "SROC Routegadget"
     url: "https://www.sroc.routegadget.co.uk/rg2/"
     type: "html"
+coords:
+  lat: 53.68822
+  lng: -2.3373
+postcode: "BB4 4NP OP"
+what3words: "evidence.hacksaw.trend"
+bofEventNumber: 86068
+dogsAllowed: "not-recommended"
+planner: "Steve Wilson PFO"
 ---
 
 <!-- migrated -->

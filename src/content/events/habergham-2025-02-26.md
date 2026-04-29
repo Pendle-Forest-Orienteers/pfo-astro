@@ -10,6 +10,14 @@ results:
   - label: "Results"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-02-26-habergham/Habergham-StreetO-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.79009
+  lng: -2.28519
+postcode: "BB12 6HH O"
+what3words: "reader.shunts.cats"
+bofEventNumber: 86069
+dogsAllowed: "not-recommended"
+planner: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

@@ -10,6 +10,14 @@ results:
   - label: "Results and scores"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-10-09-norden-rochdale/Norden-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.62737
+  lng: -2.20823
+postcode: "OL12 7SD O"
+gridRef: "SD863145"
+what3words: "dating.pushed.doing"
+bofEventNumber: 85241
+dogsAllowed: "not-recommended"
 ---
 
 <!-- migrated -->

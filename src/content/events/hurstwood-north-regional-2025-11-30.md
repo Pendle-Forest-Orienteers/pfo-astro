@@ -16,6 +16,13 @@ results:
   - label: "Winsplits"
     url: "//obasen.orientering.se/winsplits/online/en/default.asp?page=classes&amp;databaseId=109518"
     type: "html"
+coords:
+  lat: 53.78131
+  lng: -2.18551
+what3words: "just.twin.extra"
+bofEventNumber: 86914
+dogsAllowed: "no"
+controller: "Judith Wood PFO"
 ---
 
 <!-- migrated -->

@@ -16,6 +16,15 @@ results:
   - label: "winsplits"
     url: "//obasen.orientering.se/winsplits/online/en/show_event.asp?id=109519"
     type: "html"
+coords:
+  lat: 53.77716
+  lng: -2.17879
+postcode: "BB10 3LG O"
+gridRef: "SD883312"
+what3words: "along.former.layers"
+dogsAllowed: "no"
+planner: "Greg May PFO"
+controller: "Judith Wood PFO"
 ---
 
 <!-- migrated -->

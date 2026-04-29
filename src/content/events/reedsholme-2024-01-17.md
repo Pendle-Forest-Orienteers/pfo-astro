@@ -10,6 +10,12 @@ results:
   - label: "Results and points"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-01-31-reedsholme/Reedsholme-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.70446
+  lng: -2.2845
+postcode: "BB4 7QX OP"
+bofEventNumber: 84167
+dogsAllowed: "not-recommended"
 ---
 
 <!-- migrated -->

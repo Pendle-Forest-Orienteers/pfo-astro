@@ -10,6 +10,12 @@ results:
   - label: "Full results"
     url: "https://www.pfo.org.uk/events/oswaldtwistle-2025-07-16"
     type: "html"
+coords:
+  lat: 53.74121
+  lng: -2.4021
+bofEventNumber: 86988
+dogsAllowed: "not-recommended"
+planner: "Richard Edwards PFO"
 ---
 
 <!-- migrated -->

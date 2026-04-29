@@ -14,6 +14,14 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#230"
     type: "html"
+coords:
+  lat: 53.68849
+  lng: -2.20628
+postcode: "OL13 0DD O"
+gridRef: "SD860206"
+dogsAllowed: "no"
+planner: "Danny Allen PFO"
+seriesOrganiser: "Hannah Dabinett PFO"
 ---
 
 <!-- migrated -->

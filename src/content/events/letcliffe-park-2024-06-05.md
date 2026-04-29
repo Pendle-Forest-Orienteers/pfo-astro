@@ -10,6 +10,14 @@ results:
   - label: "Results and Splits"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-06-05-letcliffe-park/index.html"
     type: "html"
+coords:
+  lat: 53.91275
+  lng: -2.18737
+postcode: "TBA OPEN A"
+what3words: "send.nooks.duke"
+bofEventNumber: 84172
+dogsAllowed: "on-lead"
+seriesOrganiser: "George Crawford-Smith PFO"
 ---
 
 <!-- migrated -->

@@ -10,6 +10,14 @@ results:
   - label: "Combined event results"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-09-17-gawthorpe-hall-double-sprint/index.html"
     type: "html"
+coords:
+  lat: 53.80345
+  lng: -2.2936
+what3words: "crowbar.universes.stole"
+bofEventNumber: 86912
+dogsAllowed: "no"
+planner: "Colin Woolford PFO"
+seriesOrganiser: "Ginny Anderson PFO"
 ---
 
 <!-- migrated -->

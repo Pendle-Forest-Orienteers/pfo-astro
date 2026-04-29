@@ -16,6 +16,14 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#218"
     type: "html"
+coords:
+  lat: 53.68932
+  lng: -2.50883
+postcode: "BB3 0PA OP"
+what3words: "cried.tungsten.surfaces"
+dogsAllowed: "no"
+planner: "Stephen Horrocks PFO"
+seriesOrganiser: "George Crawford-Smith PFO"
 ---
 
 <!-- migrated -->

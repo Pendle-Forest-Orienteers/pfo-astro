@@ -10,6 +10,7 @@ results:
   - label: "Results:  Splits and Scores"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-01-18-quid-games/index.html"
     type: "html"
+postcode: "BD23 3AE D"
 ---
 
 <!-- migrated -->

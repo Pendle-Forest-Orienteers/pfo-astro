@@ -10,6 +10,14 @@ results:
   - label: "Results and Splits"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-06-26-whitehall-park/index.html"
     type: "html"
+coords:
+  lat: 53.68004
+  lng: -2.46228
+postcode: "BB3 2LJ OP"
+gridRef: "SD695204"
+what3words: "long.lifted.native"
+bofEventNumber: 84179
+seriesOrganiser: "George Crawford-Smith PFO"
 ---
 
 <!-- migrated -->

@@ -19,6 +19,14 @@ results:
   - label: "Combined results (amended)"
     url: "https://www.pfo.org.uk/results-archive/2026/2026-04-11-todmorden/Combined-Results-final-corrected.pdf"
     type: "pdf"
+coords:
+  lat: 53.71892
+  lng: -2.10554
+what3words: "stewing.easy.clerk"
+bofEventNumber: 87372
+dogsAllowed: "no"
+planner: "Ben Carter (PFO)"
+seriesOrganiser: "Ginny Anderson (PFO)"
 ---
 
 <!-- migrated -->

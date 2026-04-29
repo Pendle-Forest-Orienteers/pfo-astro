@@ -162,6 +162,100 @@ def extract_section(main_html: str, heading_text: str, level: str) -> str:
     return m.group(1) if m else ""
 
 
+def _strip_html(s: str) -> str:
+    """Remove HTML tags and decode entities, collapse whitespace."""
+    s = re.sub(r"<[^>]+>", " ", s)
+    s = htmllib.unescape(s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def extract_location_facts(main_html: str) -> dict:
+    """Pull lat/lng, postcode, OS grid ref, W3W, BOF# and officials out of
+    the source page and return a dict keyed by frontmatter field name.
+    Values are returned only when found; missing keys are absent from the dict.
+    """
+    out: dict = {}
+
+    # Find the Location Info section <h2>Location Info</h2> ... up to next <h2>
+    loc_match = re.search(
+        r'<h2[^>]*>\s*Location\s*Info\s*</h2>(.*?)(?=<h2|<main|</main|$)',
+        main_html, re.S | re.I,
+    )
+    if loc_match:
+        loc_text = _strip_html(loc_match.group(1))
+
+        m = re.search(r'Lat\s*,?\s*Lng\s*:\s*(-?\d{1,3}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)', loc_text, re.I)
+        if m:
+            out["lat"] = float(m.group(1))
+            out["lng"] = float(m.group(2))
+
+        m = re.search(r'OS\s*Grid\s*Ref\s*:\s*([A-Z]{2}\s?\d{4,10})', loc_text, re.I)
+        if m:
+            out["gridRef"] = re.sub(r'\s+', '', m.group(1)).upper()
+
+        m = re.search(r'Postcode\s*:\s*([A-Z0-9 ]{4,10})', loc_text, re.I)
+        if m:
+            out["postcode"] = re.sub(r'\s+', ' ', m.group(1)).strip().upper()
+
+    # W3W lives inside the Directions / Parking section.
+    parking_match = re.search(
+        r'<h3[^>]*>\s*Directions\s*/\s*Parking\s*</h3>(.*?)(?=<h[23]|$)',
+        main_html, re.S | re.I,
+    )
+    if parking_match:
+        parking_text = _strip_html(parking_match.group(1))
+        # Match `///word.word.word` (the canonical w3w format) — first occurrence
+        m = re.search(r'(?:W3W\s*:\s*)?///\s*([a-z]+\.[a-z]+\.[a-z]+)', parking_text, re.I)
+        if m:
+            out["what3words"] = m.group(1).lower()
+
+    # BOF event number lives in <h3>Miscellaneous</h3>.
+    misc_match = re.search(
+        r'<h3[^>]*>\s*Miscellaneous\s*</h3>(.*?)(?=<h[23]|$)',
+        main_html, re.S | re.I,
+    )
+    if misc_match:
+        misc_text = _strip_html(misc_match.group(1))
+        m = re.search(r'BOF\s*event\s*number\s*[:\s]*(\d{3,7})', misc_text, re.I)
+        if m:
+            out["bofEventNumber"] = int(m.group(1))
+
+    # Planner / Series organiser / Controller in <h3>Contacts / Officials</h3>.
+    officials_match = re.search(
+        r'<h3[^>]*>\s*Contacts\s*/\s*Officials\s*</h3>(.*?)(?=<h[23]|$)',
+        main_html, re.S | re.I,
+    )
+    if officials_match:
+        officials_text = _strip_html(officials_match.group(1))
+        m = re.search(r'Planner\s*[:\-]\s*([^.\n]+?)(?=\s*(?:Controller|Organiser|Series|$))',
+                      officials_text, re.I)
+        if m: out["planner"] = m.group(1).strip(' -.,')
+        m = re.search(r'Controller\s*[:\-]\s*([^.\n]+?)(?=\s*(?:Planner|Organiser|Series|$))',
+                      officials_text, re.I)
+        if m: out["controller"] = m.group(1).strip(' -.,')
+        m = re.search(r'(?:Series\s*(?:co-?ordinator|organiser)|Organiser)\s*[:\-]\s*([^.\n]+?)(?=\s*(?:Planner|Controller|$))',
+                      officials_text, re.I)
+        if m: out["seriesOrganiser"] = m.group(1).strip(' -.,')
+
+    # Dog policy in <h3>Dog restrictions</h3>.
+    dog_match = re.search(
+        r'<h3[^>]*>\s*Dog\s*restrictions\s*</h3>(.*?)(?=<h[23]|$)',
+        main_html, re.S | re.I,
+    )
+    if dog_match:
+        dog_text = _strip_html(dog_match.group(1)).lower()
+        if 'not permitted' in dog_text or 'not allowed' in dog_text or 'no dogs' in dog_text:
+            out["dogsAllowed"] = "no"
+        elif 'on lead' in dog_text or 'on a lead' in dog_text:
+            out["dogsAllowed"] = "on-lead"
+        elif 'not recommended' in dog_text or 'discouraged' in dog_text:
+            out["dogsAllowed"] = "not-recommended"
+        elif 'welcome' in dog_text or 'allowed' in dog_text:
+            out["dogsAllowed"] = "yes"
+
+    return out
+
+
 def extract_results_links(main_html: str):
     """Return list of dicts [{label, url, type}] from <ul class='results'>."""
     m = re.search(
@@ -207,6 +301,38 @@ def serialise_results(results) -> str:
 RESULTS_BLOCK_RE = re.compile(r"^results:\n(?:[ ]+.+\n)+", re.M)
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n?(.*)$", re.S)
 DATE_IN_SLUG_RE = re.compile(r"-(\d{4}-\d{2}-\d{2})$")
+
+
+def _yaml_quote(s: str) -> str:
+    """Quote a string for YAML, escaping any embedded double-quotes."""
+    return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"') + '"'
+
+
+def upsert_frontmatter_fields(fm: str, fields: dict) -> str:
+    """Add or replace simple top-level YAML fields. Skip fields already
+    present (don't overwrite manually-edited values). `coords` is a nested
+    object so it's handled separately."""
+    out = fm.rstrip() + "\n"
+    has = lambda key: re.search(rf"^{re.escape(key)}\s*:", out, re.M) is not None
+
+    # coords is a nested object: lat / lng
+    if ("lat" in fields and "lng" in fields) and not has("coords"):
+        out += f"coords:\n  lat: {fields['lat']}\n  lng: {fields['lng']}\n"
+
+    # Scalar fields
+    scalar_keys = ("postcode", "gridRef", "what3words",
+                   "bofEventNumber", "dogsAllowed",
+                   "planner", "controller", "seriesOrganiser")
+    for key in scalar_keys:
+        if key not in fields or has(key):
+            continue
+        v = fields[key]
+        if isinstance(v, (int, float, bool)):
+            out += f"{key}: {v}\n"
+        else:
+            out += f"{key}: {_yaml_quote(v)}\n"
+
+    return out
 
 
 def migrate_one(slug: str, force: bool, today: str, include_future: bool = False) -> str:
@@ -265,6 +391,14 @@ def migrate_one(slug: str, force: bool, today: str, include_future: bool = False
             new_frontmatter = RESULTS_BLOCK_RE.sub(results_block, new_frontmatter, count=1)
         else:
             new_frontmatter = new_frontmatter.rstrip() + "\n" + results_block
+
+    # Pull location facts (lat/lng, postcode, OS grid ref, w3w, BOF#, officials,
+    # dog policy) from the source HTML and merge into the frontmatter, ONLY
+    # adding fields that aren't already set. This won't overwrite anything the
+    # committee has hand-edited via the CMS.
+    location_facts = extract_location_facts(main_html)
+    if location_facts:
+        new_frontmatter = upsert_frontmatter_fields(new_frontmatter, location_facts)
 
     new_md = f"---\n{new_frontmatter}---\n\n<!-- migrated -->\n\n{new_body}"
     with open(path, "w", encoding="utf-8") as f:

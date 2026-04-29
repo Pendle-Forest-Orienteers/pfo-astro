@@ -10,6 +10,15 @@ results:
   - label: "Results and scores"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-06-18-queens-park/index.html"
     type: "html"
+coords:
+  lat: 53.73914
+  lng: -2.45799
+postcode: "BB1 1QR OP"
+gridRef: "SD699272"
+what3words: "leap.guises.fines"
+bofEventNumber: 86279
+planner: "Ginny Anderson PFO"
+seriesOrganiser: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

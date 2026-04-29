@@ -13,6 +13,12 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#221"
     type: "html"
+coords:
+  lat: 53.86165
+  lng: -2.18413
+gridRef: "SD879406"
+what3words: "couriers.influence.drips"
+dogsAllowed: "yes"
 ---
 
 <!-- migrated -->

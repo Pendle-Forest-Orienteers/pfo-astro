@@ -10,6 +10,16 @@ results:
   - label: "Results and scores"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-06-11-thompson-park/index.html"
     type: "html"
+coords:
+  lat: 53.7975
+  lng: -2.23153
+postcode: "BB10 3EF O"
+gridRef: "SD848335"
+what3words: "chill.agrees.owls"
+bofEventNumber: 86278
+dogsAllowed: "no"
+planner: "Hannah Dabinett PFO"
+seriesOrganiser: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

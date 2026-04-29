@@ -10,6 +10,14 @@ results:
   - label: "Results and points"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-05-28-worsthorne/Whorne-1.pdf"
     type: "pdf"
+coords:
+  lat: 53.78761
+  lng: -2.20966
+postcode: "BB103JS OP"
+what3words: "total.alert.locals"
+bofEventNumber: 86072
+dogsAllowed: "not-recommended"
+planner: "Emma Taylor PFO / Kay Hawke PFO"
 ---
 
 <!-- migrated -->

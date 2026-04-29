@@ -10,6 +10,14 @@ results:
   - label: "Final scores"
     url: "https://www.pfo.org.uk/results-archive/2026/2026-03-18-barrowford/Final-Results.pdf"
     type: "pdf"
+coords:
+  lat: 53.84309
+  lng: -2.22067
+postcode: "BB9 7TZ OP"
+what3words: "fame.slopes.thank"
+bofEventNumber: 87373
+dogsAllowed: "not-recommended"
+planner: "Pip Larter PFO"
 ---
 
 <!-- migrated -->

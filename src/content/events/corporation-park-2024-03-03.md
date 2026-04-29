@@ -16,6 +16,13 @@ results:
   - label: "Routegadget for Event B (select course A)"
     url: "https://www.pfo.routegadget.co.uk/rg2/#211"
     type: "html"
+coords:
+  lat: 53.75439
+  lng: -2.49761
+postcode: "BB2 6DG OP"
+gridRef: "SD673288"
+what3words: "melt.cotton.dust"
+dogsAllowed: "no"
 ---
 
 <!-- migrated -->

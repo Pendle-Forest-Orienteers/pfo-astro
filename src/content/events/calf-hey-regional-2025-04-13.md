@@ -16,6 +16,12 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#223"
     type: "html"
+coords:
+  lat: 53.70391
+  lng: -2.37836
+what3words: "soggy.parsnips.fountain"
+bofEventNumber: 86066
+dogsAllowed: "no"
 ---
 
 <!-- migrated -->

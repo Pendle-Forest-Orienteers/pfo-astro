@@ -10,6 +10,14 @@ results:
   - label: "Results and scores"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-04-30-rawtenstall/Rawtenstall-StreetO-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.7015
+  lng: -2.2851
+postcode: "BB4 7UW OP"
+what3words: "boss.books.whips"
+bofEventNumber: 86071
+dogsAllowed: "not-recommended"
+planner: "Judith Wood PFO"
 ---
 
 <!-- migrated -->

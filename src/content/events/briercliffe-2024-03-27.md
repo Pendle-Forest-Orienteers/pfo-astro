@@ -10,6 +10,14 @@ results:
   - label: "Scores and results"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-03-27-briercliffe/Briercliffe-Scores.pdf"
     type: "pdf"
+coords:
+  lat: 53.81278
+  lng: -2.20597
+gridRef: "SD865351"
+what3words: "oasis.online.twin"
+bofEventNumber: 84169
+dogsAllowed: "not-recommended"
+planner: "Kay Hawke PFO"
 ---
 
 <!-- migrated -->

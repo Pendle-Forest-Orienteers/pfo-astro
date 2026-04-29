@@ -10,6 +10,15 @@ results:
   - label: "Results and Splits"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-06-12-queens-park/index.html"
     type: "html"
+coords:
+  lat: 53.79705
+  lng: -2.23174
+postcode: "BB10 3LB O"
+what3words: "forks.forced.grid"
+bofEventNumber: 84173
+dogsAllowed: "no"
+planner: "Kay Hawke PFO"
+seriesOrganiser: "George Crawford-Smith PFO"
 ---
 
 <!-- migrated -->

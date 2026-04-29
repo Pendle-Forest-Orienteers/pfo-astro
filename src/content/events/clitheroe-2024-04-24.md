@@ -10,6 +10,14 @@ results:
   - label: "Results (updated)"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-04-24-clitheroe/Clitheroe-results-points-based-v2.pdf"
     type: "pdf"
+coords:
+  lat: 53.87182
+  lng: -2.39354
+postcode: "BB72JN OPE"
+what3words: "owned.switch.snowmen"
+bofEventNumber: 84170
+dogsAllowed: "not-recommended"
+planner: "Allan Hodkinson PFO"
 ---
 
 <!-- migrated -->

@@ -10,6 +10,12 @@ results:
   - label: "Final Scores"
     url: "https://www.pfo.org.uk/results-archive/2025/2025-10-15-burnley-east-score/index.html"
     type: "html"
+coords:
+  lat: 53.78516
+  lng: -2.21649
+what3words: "total.alert.locals"
+bofEventNumber: 86913
+dogsAllowed: "not-recommended"
 ---
 
 <!-- migrated -->

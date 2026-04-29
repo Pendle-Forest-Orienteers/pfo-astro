@@ -10,6 +10,12 @@ results:
   - label: "Results"
     url: "https://www.pfo.org.uk/results-archive/2024/2024-12-11-barnoldswick/Barnoldswick-StreetO-results.pdf"
     type: "pdf"
+coords:
+  lat: 53.91669
+  lng: -2.18623
+what3words: "shock.signs.branch"
+bofEventNumber: 85243
+dogsAllowed: "not-recommended"
 ---
 
 <!-- migrated -->

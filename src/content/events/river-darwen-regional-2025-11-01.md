@@ -13,6 +13,14 @@ results:
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#224"
     type: "html"
+coords:
+  lat: 53.7296
+  lng: -2.48838
+postcode: "BB2 4JA"
+what3words: "start.donor.under"
+bofEventNumber: 86914
+controller: "Judith Wood PFO"
+seriesOrganiser: "Hannah Dabinett PFO"
 ---
 
 <!-- migrated -->
