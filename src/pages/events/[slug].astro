@@ -266,39 +266,42 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
       </article>
 
       <aside class="ev-meta">
-        {(coords || event.data.what3words || event.data.gridRef || event.data.postcode) && (
-          <div class="meta-block">
-            <p class="meta-label">Location</p>
-            {coords && (
-              <p class="meta-coord mono">{coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}</p>
-            )}
-            {event.data.gridRef && (
-              <p class="meta-postcode mono">OS {event.data.gridRef}</p>
-            )}
-            {event.data.postcode && (
-              <p class="meta-postcode mono">{event.data.postcode}</p>
-            )}
-            {event.data.what3words && (
-              <p class="meta-postcode">
-                <a
-                  class="w3w"
-                  href={`https://what3words.com/${event.data.what3words}`}
-                  rel="noopener"
-                >
-                  ///<span class="mono">{event.data.what3words}</span>
-                </a>
-              </p>
-            )}
-            {coords && (
-              <ul class="map-links">
-                <li><a href={mapsLink} rel="noopener" target="_blank">Google Maps →</a></li>
-                <li><a href={osmLink} rel="noopener" target="_blank">OpenStreetMap →</a></li>
-                <li><a href={streetmapLink} rel="noopener" target="_blank">Streetmap (OS 50k) →</a></li>
-                <li><a href={bingLink} rel="noopener" target="_blank">Bing Maps (OS) →</a></li>
-              </ul>
-            )}
-          </div>
-        )}
+        <div class="meta-block">
+          <p class="meta-label">Location</p>
+          <p class="meta-place">{event.data.location}</p>
+          {coords && (
+            <p class="meta-coord mono">{coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}</p>
+          )}
+          {event.data.gridRef && (
+            <p class="meta-postcode mono">OS {event.data.gridRef}</p>
+          )}
+          {event.data.postcode && (
+            <p class="meta-postcode mono">{event.data.postcode}</p>
+          )}
+          {event.data.what3words && (
+            <p class="meta-postcode">
+              <a
+                class="w3w"
+                href={`https://what3words.com/${event.data.what3words}`}
+                rel="noopener"
+                target="_blank"
+              >
+                ///<span class="mono">{event.data.what3words}</span>
+              </a>
+            </p>
+          )}
+          {coords && (
+            <ul class="map-links">
+              <li><a href={mapsLink} rel="noopener" target="_blank">Google Maps →</a></li>
+              <li><a href={osmLink} rel="noopener" target="_blank">OpenStreetMap →</a></li>
+              <li><a href={streetmapLink} rel="noopener" target="_blank">Streetmap (OS 50k) →</a></li>
+              <li><a href={bingLink} rel="noopener" target="_blank">Bing Maps (OS) →</a></li>
+            </ul>
+          )}
+          {!coords && (
+            <p class="meta-note">Coordinates and map links will appear here once the committee adds them.</p>
+          )}
+        </div>
 
         {(event.data.planner || event.data.controller || event.data.seriesOrganiser) && (
           <div class="meta-block">
@@ -606,6 +609,12 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     font-size: 14px;
     color: var(--ink);
     margin: 0 0 4px 0;
+  }
+  .meta-place {
+    font-size: 14px;
+    color: var(--ink);
+    margin: 0 0 6px 0;
+    font-weight: 500;
   }
   .meta-note {
     font-size: 13px;
