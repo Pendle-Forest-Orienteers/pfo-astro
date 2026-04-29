@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# scraper artefacts (raw HTML pulled for migration; may contain external API keys)
+*-sample.html
+scraper-sample.html

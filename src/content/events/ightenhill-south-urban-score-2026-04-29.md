@@ -9,9 +9,15 @@ postcode: "BB12 6SZ"
 coords:
   lat: 53.79590
   lng: -2.27399
+what3words: "guards.chair.apply"
 format: "Urban Score"
 level: "local"
 duration: 45
+bofEventNumber: 88494
+dogsAllowed: "not-recommended"
+dogNotes: "Taking dogs on urban courses is not recommended due to the traffic hazard."
+planner: "Emma Taylor (PFO)"
+seriesOrganiser: "Kay Hawke (PFO) — kay.hawke@yahoo.co.uk"
 entryFee: "From £6 (£8 pair, £9 trio). Dibber hire £1."
 capacity: 80
 siEntriesUrl: "https://www.sientries.co.uk/event.php?event_id=17463"
