@@ -70,6 +70,10 @@ function scrapeBoNewsArchive(html: string): BoNewsItem[] {
 
 async function fetchBoNews(): Promise<BoNewsItem[]> {
   const rssCandidates = [
+    // British Orienteering's actual RSS feed — discovered via the
+    // <link rel="alternate" type="application/rss+xml"> on /news_archive.
+    'https://www.britishorienteering.org.uk/newsrss.php',
+    // Fallbacks just in case the path ever changes
     'https://www.britishorienteering.org.uk/feed/',
     'https://www.britishorienteering.org.uk/news/feed/',
     'https://www.britishorienteering.org.uk/?feed=rss2',
