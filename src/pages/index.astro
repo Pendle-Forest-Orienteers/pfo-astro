@@ -2,6 +2,104 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+// ─────── British Orienteering news — fetched at build time
+// Runs every time Netlify rebuilds (every git push and every nightly cron
+// trigger). If the live fetch fails for any reason, falls back to the
+// hardcoded list below so the section never renders empty.
+//
+// To keep the headlines fresh without committee action, set up a scheduled
+// build trigger in Netlify:
+//   1. Site settings → Build & deploy → Build hooks → "Add build hook"
+//   2. Copy the URL it generates
+//   3. In a free service like https://cron-job.org, schedule a daily POST
+//      to that URL — anything from once a day to once a week is fine.
+type BoNewsItem = { title: string; url: string; date: Date };
+
+const fallbackBoNews: BoNewsItem[] = [
+  { title: "British Orienteering announces date for Annual General Meeting 2026",
+    url: "https://www.britishorienteering.org.uk/news_archive/6783/british_orienteering_announces_date_for_annual_general_meeting_2026",
+    date: new Date("2026-04-14") },
+  { title: "British Middle Championships 2026 — Results",
+    url: "https://www.britishorienteering.org.uk/news_archive/6775/british_middle_championships_2026_results",
+    date: new Date("2026-04-07") },
+  { title: "JEC 2026: GB Team Announcement",
+    url: "https://www.britishorienteering.org.uk/news_archive/6778/jec_2026_gb_team_announcement",
+    date: new Date("2026-03-28") },
+  { title: "EYOC 2026: GB Team Announcement",
+    url: "https://www.britishorienteering.org.uk/news_archive/6777/eyoc_2026_gb_team_announcement",
+    date: new Date("2026-03-22") },
+];
+
+function parseRssFeed(xml: string): BoNewsItem[] {
+  const out: BoNewsItem[] = [];
+  for (const m of xml.matchAll(/<item\b[\s\S]*?<\/item>/g)) {
+    const block = m[0];
+    const titleMatch = block.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/);
+    const linkMatch  = block.match(/<link>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/link>/);
+    const dateMatch  = block.match(/<pubDate>([^<]+)<\/pubDate>/);
+    if (titleMatch && linkMatch && dateMatch) {
+      const date = new Date(dateMatch[1]);
+      if (!Number.isNaN(date.getTime())) {
+        out.push({
+          title: titleMatch[1].trim(),
+          url: linkMatch[1].trim(),
+          date,
+        });
+      }
+    }
+  }
+  return out;
+}
+
+function scrapeBoNewsArchive(html: string): BoNewsItem[] {
+  // BO's WordPress news archive renders a list of /news_archive/<id>/<slug>
+  // links. Extract the first few unique entries.
+  const out: BoNewsItem[] = [];
+  const seen = new Set<string>();
+  const linkRe = /href="(https?:\/\/(?:www\.)?britishorienteering\.org\.uk\/news_archive\/\d+\/[^"#]+)"[^>]*>([^<]+)</g;
+  for (const m of html.matchAll(linkRe)) {
+    const url = m[1];
+    const title = m[2].trim();
+    if (seen.has(url) || !title || title.length < 8) continue;
+    seen.add(url);
+    out.push({ title, url, date: new Date() });
+    if (out.length >= 4) break;
+  }
+  return out;
+}
+
+async function fetchBoNews(): Promise<BoNewsItem[]> {
+  const rssCandidates = [
+    'https://www.britishorienteering.org.uk/feed/',
+    'https://www.britishorienteering.org.uk/news/feed/',
+    'https://www.britishorienteering.org.uk/?feed=rss2',
+  ];
+  for (const url of rssCandidates) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(6000) });
+      if (!res.ok) continue;
+      const items = parseRssFeed(await res.text());
+      if (items.length > 0) return items.slice(0, 4);
+    } catch { /* try next */ }
+  }
+  // RSS unavailable — try scraping the news archive page
+  try {
+    const res = await fetch('https://www.britishorienteering.org.uk/news_archive',
+                            { signal: AbortSignal.timeout(6000) });
+    if (res.ok) {
+      const items = scrapeBoNewsArchive(await res.text());
+      if (items.length > 0) return items;
+    }
+  } catch { /* fall through */ }
+  return fallbackBoNews;
+}
+
+const boNews = (await fetchBoNews()).slice(0, 4);
+
+const fmtBoDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric', month: 'short', year: 'numeric'
+}).format(d);
+
 // ─────── Data: upcoming events from the content collection
 const now = new Date();
 const allEvents = await getCollection('events');
@@ -199,26 +297,13 @@ const orgJsonLd = {
       <div class="ws-feed">
         <p class="eyebrow">From the wider sport</p>
         <ul>
-          <li>
-            <time datetime="2026-04-14">14 Apr 2026</time>
-            <h3><a href="https://www.britishorienteering.org.uk/news_archive/6783/british_orienteering_announces_date_for_annual_general_meeting_2026" rel="noopener">British Orienteering announces date for Annual General Meeting 2026</a></h3>
-            <span class="read">Read →</span>
-          </li>
-          <li>
-            <time datetime="2026-04-07">7 Apr 2026</time>
-            <h3><a href="https://www.britishorienteering.org.uk/news_archive/6775/british_middle_championships_2026_results" rel="noopener">British Middle Championships 2026 — Results</a></h3>
-            <span class="read">Read →</span>
-          </li>
-          <li>
-            <time datetime="2026-03-28">28 Mar 2026</time>
-            <h3><a href="https://www.britishorienteering.org.uk/news_archive/6778/jec_2026_gb_team_announcement" rel="noopener">JEC 2026: GB Team Announcement</a></h3>
-            <span class="read">Read →</span>
-          </li>
-          <li>
-            <time datetime="2026-03-22">22 Mar 2026</time>
-            <h3><a href="https://www.britishorienteering.org.uk/news_archive/6777/eyoc_2026_gb_team_announcement" rel="noopener">EYOC 2026: GB Team Announcement</a></h3>
-            <span class="read">Read →</span>
-          </li>
+          {boNews.map(item => (
+            <li>
+              <time datetime={item.date.toISOString().slice(0, 10)}>{fmtBoDate(item.date)}</time>
+              <h3><a href={item.url} rel="noopener">{item.title}</a></h3>
+              <span class="read">Read →</span>
+            </li>
+          ))}
         </ul>
         <p class="ws-footer"><a href="https://www.britishorienteering.org.uk/news_archive" rel="noopener">All BO news →</a></p>
       </div>
