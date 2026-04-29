@@ -9,7 +9,7 @@ summary: "Local · Bacup"
 routeGadgetUrl: "https://www.pfo.org.uk/events/lee-quarry-2026-03-29"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2026/2026-03-29-lee-quarry/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-03-29-lee-quarry/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#230"
@@ -36,15 +36,12 @@ There is also a **locked farm gate** located above the farm. The farmer has aske
 
 Provisional course details.
 
-**Course:****Length:****Climb:****Controls:****Technical difficulty:****Green**4.4 km110 mTBC
-
-TD5: Very difficult.**Red**5.1 km130 mTBCTD3: Moderately difficult, long.**Orange**3.5 km
-
-55 m
-
-TBCTD3: Moderately difficult.**Yellow**2.8 km50 m
-
-TBCTD2: Short and easy.
+| **Course:** | **Length:** | **Climb:** | **Controls:** | **Technical difficulty:** |
+| --- | --- | --- | --- | --- |
+| **Green** | 4.4 km | 110 m | TBC | TD5: Very difficult. |
+| **Red** | 5.1 km | 130 m | TBC | TD3: Moderately difficult, long. |
+| **Orange** | 3.5 km | 55 m | TBC | TD3: Moderately difficult. |
+| **Yellow** | 2.8 km | 50 m | TBC | TD2: Short and easy. |
 
 ## Registration and start times
 
@@ -86,13 +83,21 @@ Entries will close on Saturday 28th March, but entries made on or after 26th Mar
 Your hired dibber can only be picked up at the **Event Centre.**
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 25/03/2026£7.00£5.00£3.00From 26/03/2026£9.00£6.00£4.00
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 25/03/2026 | £7.00 | £5.00 | £3.00 |
+| From 26/03/2026 | £9.00 | £6.00 | £4.00 |
 
 **Entry fees for non-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to25/03/2026£8.00£5.50£3.00From 26/03/2026£10.00£6.50£4.00**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to25/03/2026 | £8.00 | £5.50 | £3.00 |
+| From 26/03/2026 | £10.00 | £6.50 | £4.00 |
+
+**
 **
 
 ## Facilities

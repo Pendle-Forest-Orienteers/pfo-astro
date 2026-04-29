@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Towneley Park · Spring Series, event (1/4)"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2024/2024-01-27-towneley-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-01-27-towneley-park/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#208"
@@ -39,24 +39,13 @@ The map of the eastern part of Towneley Park will be 1:7500 for all courses.
 
 ## Course information
 
-**[](https://www.sientries.co.uk/event.php?elid=Y&event_id=12836)Course:**
-
-**Length:****Climb:****Notes:
-TD = technical difficulty****White**1.3k15m
-
-9 controls
-TD1= Very easy**Yellow**
-
-1.8k40m
-
-8 controls
-TD2 = Easy**Orange**3.4k50m
-
-14 controls
-TD3 = Moderate**Light Green**3.7k80m12 controls
-TD4 = Difficult**Red**6.4k130m18 controls
-TD3 = Moderate
-(Course for runners)
+| **[](https://www.sientries.co.uk/event.php?elid=Y&event_id=12836)Course:** | **Length:** | **Climb:** | **Notes: TD = technical difficulty** |  |
+| --- | --- | --- | --- | --- |
+| **White** | 1.3k | 15m | 9 controls TD1= Very easy |  |
+| **Yellow** | 1.8k | 40m | 8 controls TD2 = Easy |  |
+| **Orange** | 3.4k | 50m | 14 controls TD3 = Moderate |  |
+| **Light Green** | 3.7k | 80m | 12 controls TD4 = Difficult |  |
+| **Red** | 6.4k | 130m | 18 controls TD3 = Moderate (Course for runners) |  |
 
 ## Registration and start times
 
@@ -83,7 +72,7 @@ Entries will close on Friday 26th January at 23:59, but entries made on or after
 Your hired dibber can be picked up at the event **Download** tent.
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members: **Senior (26+) £7.00 (£9.00 on or after 25th January)
+**Entry fees ** **for BOF-members: **Senior (26+) £7.00 (£9.00 on or after 25th January)
 Young Adult £5.00 (21-25) (£6.00 on or after 25th January)
 Junior £3.00 (U21) (£4.00 on or after 25th January)
 

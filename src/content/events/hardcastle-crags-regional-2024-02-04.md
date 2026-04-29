@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Hardcastle Crags"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2024/2024-05-11-peel-park-regional/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-05-11-peel-park-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#209"
@@ -59,7 +59,20 @@ The area comprises the steep sided wooded Pennine valleys encasing Hebden Water 
 
 **Regional Courses: **(Subject to final controlling.)
 
-**Course****Length****Climb****Notes****Brown**8.5k320m30 controls, TD5**Blue**6.3k245m19 controls, TD5**Green**4.0k155m16 controls, TD5**Short Green**2.8k105m13 controls, TD5**Very Short Green**2.0k95m12 controls, TD5**Light Green**3.1k95m11 controls, TD4**Red**4.9k150m14 controls, TD3**Orange**3.0k90m9 controls, TD3**Yellow**2.2k50m8 controls, TD2**White**1.4k20m7 controls, TD1**Control descriptions** will be on the map and also available loose in the start lanes.
+| **Course** | **Length** | **Climb** | **Notes** |
+| --- | --- | --- | --- |
+| **Brown** | 8.5k | 320m | 30 controls, TD5 |
+| **Blue** | 6.3k | 245m | 19 controls, TD5 |
+| **Green** | 4.0k | 155m | 16 controls, TD5 |
+| **Short Green** | 2.8k | 105m | 13 controls, TD5 |
+| **Very Short Green** | 2.0k | 95m | 12 controls, TD5 |
+| **Light Green** | 3.1k | 95m | 11 controls, TD4 |
+| **Red** | 4.9k | 150m | 14 controls, TD3 |
+| **Orange** | 3.0k | 90m | 9 controls, TD3 |
+| **Yellow** | 2.2k | 50m | 8 controls, TD2 |
+| **White** | 1.4k | 20m | 7 controls, TD1 |
+
+**Control descriptions** will be on the map and also available loose in the start lanes.
 
 The **Start/Finish** are adjacent to the Event Centre at Gibson Mill.
 
@@ -93,7 +106,12 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Sunday 28th January. Entry will remain open after this, **subject to map availability**, until midnight Saturday 3rd February, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-BOF Adult (26+)BOF Young Adult (21-25)BOF Junior (20-)Non BOF Adult (26)Non BOF Young Adult (21-25)Non BOF Junior (20-)Up to Sun 28th Jan£12.00£9.00£6.00£14.00£10.50£7.00From Mon 29th Jan£14.00£10.00£7.00£16.00£11.50£8.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers are collected from Download.
+|  | BOF Adult (26+) | BOF Young Adult (21-25) | BOF Junior (20-) | Non BOF Adult (26) | Non BOF Young Adult (21-25) | Non BOF Junior (20-) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Up to Sun 28th Jan | £12.00 | £9.00 | £6.00 | £14.00 | £10.50 | £7.00 |
+| From Mon 29th Jan | £14.00 | £10.00 | £7.00 | £16.00 | £11.50 | £8.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers are collected from Download.
 
 ## Facilities
 

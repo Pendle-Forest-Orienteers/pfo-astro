@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Peel Park"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2024/2024-05-11-peel-park-regional/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-05-11-peel-park-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#214"
@@ -29,12 +29,17 @@ The Peel Park map has been updated for this event to incorporate:
 
 **Regional Courses: **(Subject to final controlling.)
 
-**Course****Length****Climb****Notes:
-Technical Difficulty (TD):****Blue**5.6k
+| **Course** | **Length** | **Climb** | **Notes: Technical Difficulty (TD):** |
+| --- | --- | --- | --- |
+| **Blue** | 5.6k | 235m | Double sided map TD5 |
+| **Green** | 3.2k | 120m | TD5 |
+| **Short Green** | 2.6k | 110m | TD5 |
+| **Light Green** | 2.8k | 110m | TD4 |
+| **Red** | 4.5k | 195m | Double sided map TD3 |
+| **Orange** | 2.5k | 100m | TD3 |
+| **Yellow** | 1.9k | 70m | TD2 |
 
-235mDouble sided map
-TD5**Green**3.2k120mTD5**Short Green**2.6k110mTD5**Light Green**2.8k110mTD4**Red**4.5k195mDouble sided map
-TD3**Orange**2.5k100mTD3**Yellow**1.9k70mTD2**Map Scale:** All course maps will be 1:5000 A4. Blue and Red course maps are double sided, with the new 2024 'flip map' symbol in the control descriptions.
+**Map Scale:** All course maps will be 1:5000 A4. Blue and Red course maps are double sided, with the new 2024 'flip map' symbol in the control descriptions.
 
 **Control descriptions** will be on the map and also available loose in the start lanes.
 
@@ -48,7 +53,7 @@ Courses close at 15:30.
 
 ## Directions and parking
 
-Parking will be at **Accrington Cricket Clu****b** from 11:30.
+Parking will be at **Accrington Cricket Clu** **b** from 11:30.
 Location: Thorneyholme Rd, Accrington BB5 5BD.
  W3W ///warns.table.wider
 
@@ -70,7 +75,12 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Wednesday 8th May. Entry will remain open after this, **subject to map availability**, until midnight Friday 10th May, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-BOF Adult (26+)BOF Young Adult (21-25)BOF Junior (20-)Non BOF Adult (26)Non BOF Young Adult (21-25)Non BOF Junior (20-)Up to Wed 8th May£9.00£6.50£4.00£11.00£8.00£5.00From Thu 9th May£11.00£7.50£5.00£13.00£9.00£6.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Registration/Download en route to the Start.
+|  | BOF Adult (26+) | BOF Young Adult (21-25) | BOF Junior (20-) | Non BOF Adult (26) | Non BOF Young Adult (21-25) | Non BOF Junior (20-) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Up to Wed 8th May | £9.00 | £6.50 | £4.00 | £11.00 | £8.00 | £5.00 |
+| From Thu 9th May | £11.00 | £7.50 | £5.00 | £13.00 | £9.00 | £6.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Registration/Download en route to the Start.
 
 ## Facilities
 

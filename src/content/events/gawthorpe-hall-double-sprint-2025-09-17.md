@@ -8,7 +8,7 @@ level: "local"
 summary: "Sprint · Gawthorpe Hall -"
 results:
   - label: "Combined event results"
-    url: "/results-archive/2025/2025-09-17-gawthorpe-hall-double-sprint/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-09-17-gawthorpe-hall-double-sprint/index.html"
     type: "html"
 ---
 
@@ -28,10 +28,15 @@ At the Hall there is a **Permanent Orienteering Course** (POC) mapped and instal
 
 Details TBC
 
-**Course****Length****Climb****Notes****Sprint 1**tbc - approx 2.7kmtbc**Sprint 2**tbc - approx 2.7kmtbc**
+| **Course** | **Length** | **Climb** | **Notes** |
+| --- | --- | --- | --- |
+| **Sprint 1** | tbc - approx 2.7km | tbc |  |
+| **Sprint 2** | tbc - approx 2.7km | tbc |  |
+
+**
 **
 
-**Start & ****Finish: **Close to registration / assembly.
+**Start & ** **Finish: **Close to registration / assembly.
 
 Stockproof walls and fences must only be crossed at nominated crossing points or at natural breaks.
 
@@ -59,11 +64,21 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Sunday 14th September. Entry will remain open after this, **subject to map availability**, until noon Wednesday 17th September, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 14/09/2025£7.00£5.00£3.00From 15/09/2025 to 17/09/2025£9.00£6.00£4.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 14/09/2025 | £7.00 | £5.00 | £3.00 |
+| From 15/09/2025 to 17/09/2025 | £9.00 | £6.00 | £4.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 14/09/2025£8.00£5.50£3.00From 15/09/2025 to 17/09/2025£10.00£6.50£4.00Pair (+£2.00) and Trio (+£3.00) options added for those who prefer to go round together.
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 14/09/2025 | £8.00 | £5.50 | £3.00 |
+| From 15/09/2025 to 17/09/2025 | £10.00 | £6.50 | £4.00 |
+
+Pair (+£2.00) and Trio (+£3.00) options added for those who prefer to go round together.
 
 Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
 

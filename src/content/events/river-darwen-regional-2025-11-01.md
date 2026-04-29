@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · River Darwen"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2025/2025-11-01-river-darwen-regional/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-01-river-darwen-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#224"
@@ -44,23 +44,21 @@ All courses are printed on double sided A4. Turn your map over at the map-flip c
 
 **Courses:**
 
-**Course****Length****Climb****Notes:****Short Brown**6.4km160m23 controls, TD5,
-Map flip at 17.**Blue**5.9km115m20 controls, TD5,
-Map flip at 12.**Green**4.1km85m15 controls, TD5,Map flip at 4.
-
-**Short Green**3.2km85m13 controls, TD5,Map flip at 5.
-
-**Light Green**3.2km65 m11 controls, TD4,Map flip at 6.
-
-**Red**5.9km115m15 controls, TD3,
-Map flip at 10.**Orange**2.8km55m10 controls, TD3,Map flip at 6.
-
-**Yellow**2.0km40m10 controls, TD2,Map flip at 5.
+| **Course** | **Length** | **Climb** | **Notes:** |
+| --- | --- | --- | --- |
+| **Short Brown** | 6.4km | 160m | 23 controls, TD5, Map flip at 17. |
+| **Blue** | 5.9km | 115m | 20 controls, TD5, Map flip at 12. |
+| **Green** | 4.1km | 85m | 15 controls, TD5,Map flip at 4. |
+| **Short Green** | 3.2km | 85m | 13 controls, TD5,Map flip at 5. |
+| **Light Green** | 3.2km | 65 m | 11 controls, TD4,Map flip at 6. |
+| **Red** | 5.9km | 115m | 15 controls, TD3, Map flip at 10. |
+| **Orange** | 2.8km | 55m | 10 controls, TD3,Map flip at 6. |
+| **Yellow** | 2.0km | 40m | 10 controls, TD2,Map flip at 5. |
 
 **
 **
 
-**Start & ****Finish: **Distances from Event Centre.**
+**Start & ** **Finish: **Distances from Event Centre.**
 **
 
 **Start:** Approximately 150m.
@@ -84,7 +82,7 @@ Please choose an early start time if you anticipate being out for a long time.
 
 **Parking: **Car Park H is a charged car park managed by ANPR.
 
-A **discounted parking rate of £3** (covering up to 10hrs) has been agreed with the football club. Payment must be made **online via a special link ****[here](https://pretix.eu/hoz/blackburn-events/).**
+A **discounted parking rate of £3** (covering up to 10hrs) has been agreed with the football club. Payment must be made **online via a special link ** **[here](https://pretix.eu/hoz/blackburn-events/).**
 
 All drivers must **provide their vehicle registration number** when making payment.
 Please note that **late payment (departing prior to payment) may result in a substantial fine**, as the car park is monitored by **ANPR (Automatic Number Plate Recognition)** cameras.
@@ -103,11 +101,21 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Wednesday 29th October. Entry will remain open after this, **subject to map availability**, until midnight Friday 31st October, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 29/10/2025£9.00£6.50£4.00From 30/10/2025£11.00£7.50£5.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 29/10/2025 | £9.00 | £6.50 | £4.00 |
+| From 30/10/2025 | £11.00 | £7.50 | £5.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 29/10/2025£11.00£8.00£5.00From 30/10/2025£13.00£9.00£6.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 29/10/2025 | £11.00 | £8.00 | £5.00 |
+| From 30/10/2025 | £13.00 | £9.00 | £6.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
 
 ## Facilities
 

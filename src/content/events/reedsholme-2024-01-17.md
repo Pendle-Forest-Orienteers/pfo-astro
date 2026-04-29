@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Reedsholme · January Street-O (1/10)"
 results:
   - label: "Results and points"
-    url: "/results-archive/2024/2024-01-31-reedsholme/Reedsholme-results.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-01-31-reedsholme/Reedsholme-results.pdf"
     type: "pdf"
 ---
 
@@ -26,7 +26,7 @@ Wear suitable studded footwear.
 
 ## Course information
 
-Collect your **clue/****answer sheet** from Download.**
+Collect your **clue/** **answer sheet** from Download.**
 Start & ****Finish: **Nearby.
 
 Each individual or team will be issued with one Dibber (if hired), one clue/answer sheet (both issued pre-Start) and one course map (issued at the Start).
@@ -54,9 +54,13 @@ Entry and dibber hire (£1.00) will be via [**SI Entries**.](https://www.sientri
 Entries will **close at midday on race day**. However, **entries after midnight on the Monday prior to the event** will be limited by map availability.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries. We cannot make changes at the event.
 
-**Lead**
+|  | **Lead** | **Second** | **Third** |
+| --- | --- | --- | --- |
+| **Solo** | £5.00 |  |  |
+| **Pair Team** | £5.00 | £2.00 |  |
+| **Trio Team** | £5.00 | £2.00 | £1.00 |
 
-**Second****Third****Solo**£5.00**Pair Team**£5.00£2.00**Trio Team**£5.00£2.00£1.00**Rules concerning junior entries:**
+**Rules concerning junior entries:**
 
 Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).

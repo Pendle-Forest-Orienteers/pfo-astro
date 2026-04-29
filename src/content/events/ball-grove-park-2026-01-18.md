@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Ball Grove Park"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2026/2026-01-18-ball-grove-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-01-18-ball-grove-park/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#227"
@@ -54,13 +54,15 @@ The competition area lies between the main A6068 (Colne to Cross Hills road) and
 
 Provisional course details.
 
-**Course:****Length:****Climb:****Controls:****Technical difficulty:****Green**3.9k75m24
+| **Course:** | **Length:** | **Climb:** | **Controls:** | **Technical difficulty:** |
+| --- | --- | --- | --- | --- |
+| **Green** | 3.9k | 75m | 24 | TD5: Very difficult. |
+| **Light Green** | 3.3k | 50m | 20 | TD4: Difficult. |
+| **Red** | 4.8k | 80m | 21 | TD3: Moderately difficult, long. |
+| **Orange** | 2.5k | 45m | 15 | TD3: Moderately difficult. |
+| **Yellow** | 1.8k | 40m | 15 | TD2: Short and easy. |
 
-TD5: Very difficult.**Light Green**3.3k50m20TD4: Difficult.**Red**4.8k80m21TD3: Moderately difficult, long.**Orange**2.5k45m
-
-15TD3: Moderately difficult.**Yellow**1.8k40m
-
-15TD2: Short and easy.Long legwear is recommended.
+Long legwear is recommended.
 
 ## Registration and start times
 
@@ -93,13 +95,21 @@ Entries will close on Friday 16th January, but entries made on or after 15th Jan
 Your hired dibber can only be picked up at the **Event Centre.**
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 14/01/2026£7.00£5.00£3.00From 15/01/2026£9.00£6.00£4.00
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 14/01/2026 | £7.00 | £5.00 | £3.00 |
+| From 15/01/2026 | £9.00 | £6.00 | £4.00 |
 
 **Entry fees for non-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 14/01/2026£8.00£5.50£3.00From 15/01/2026£10.00£6.50£4.00**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 14/01/2026 | £8.00 | £5.50 | £3.00 |
+| From 15/01/2026 | £10.00 | £6.50 | £4.00 |
+
+**
 **
 
 ## Facilities

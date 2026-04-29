@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Tockholes · Regional"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2024/2024-12-08-tockholes/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-12-08-tockholes/index.html"
     type: "html"
   - label: "Winsplits Online"
     url: "http://obasen.orientering.se/winsplits/online/en/show_event.asp?id=101957"
@@ -43,19 +43,18 @@ Several high crags and a dangerous ravine are highlighted with the purple **uncr
 
 **Course Offer: **(Provisional.)
 
-**Course:****Length:****Climb:****Controls:****Notes:****Brown**7.9k
+| **Course:** | **Length:** | **Climb:** | **Controls:** | **Notes:** |
+| --- | --- | --- | --- | --- |
+| **Brown** | 7.9k | 250m | 22 | TD5. Map 1:10000 |
+| **Blue** | 6.1k | 150m | 16 | TD5. Map 1:10000 |
+| **Short Blue** | 5.1k | 135m | 15 | TD5. Map 1:10000 |
+| **Green** | 4.4k | 115m | 12 | TD5. Map 1:7500 |
+| **Short Green** | 3.4k | 85m | 12 | TD5. Map 1:7500 |
+| **Light Green** | 3.1k | 80m | 8 | TD4. Map 1:7500 |
+| **Orange** | 2.3k | 70m | 10 | TD3. Map 1:7500 |
+| **Yellow** | 2.3k | 50m | 9 | TD2. Map 1:7500 |
 
-250m
-
-22TD5. Map 1:10000**Blue**6.1k150m16TD5. Map 1:10000**Short Blue**5.1k135m
-
-15TD5. Map 1:10000**Green**4.4k
-
-115m
-
-12TD5. Map 1:7500**Short Green**3.4k
-
-85m12TD5. Map 1:7500**Light Green**3.1k80m8TD4. Map 1:7500**Orange**2.3k70m10TD3. Map 1:7500**Yellow**2.3k50m9TD2. Map 1:7500Distance to the Start is **200**m from parking and the return from the Finish is **600**m.
+Distance to the Start is **200**m from parking and the return from the Finish is **600**m.
 
 **Control descriptions** will be on the map and available as loose descriptions in the start lanes.
 
@@ -83,7 +82,7 @@ We are asking for a donation (£2 suggested) for each vehicle parked. Please hav
 
 ==================
 
-Field parking near to BB3 0PA. However using W3W ///**reveal.aquatics.buckling**** **will take you to the entrance gate of the parking field, which is approximately 500m south of the Tockholes Information Centre/Rambler's Country Cafe and Royal Arms car park, all of which will be open on the day.
+Field parking near to BB3 0PA. However using W3W ///**reveal.aquatics.buckling** ** **will take you to the entrance gate of the parking field, which is approximately 500m south of the Tockholes Information Centre/Rambler's Country Cafe and Royal Arms car park, all of which will be open on the day.
 
 Best approach from north, east and west is via the M65. Exit at J3 and follow the A675** for (7km/4.5mi) past Tockholes Woods on your left to the next minor junction left, signposted Tockholes. Proceed for 2.0km/1.25mi, to the parking field entrance gate, which will be an easy turn on your right. Follow parking marshals directions. Your donation per vehicle (recommended £2) goes to local good causes in Tockholes. The alternative route via J4 through Tockholes Village is steeper, bumpier, twistier and slower - and is not recommended.
 
@@ -99,11 +98,21 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk)**. No EOD.
 
 Standard pricing will apply up to midnight Wednesday 4th December. Entry will remain open after this, **subject to map availability**, until midnight Friday 6th December, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 04/12/2024£9.00£6.50£4.00From 05/12/2024£11.00£7.50£5.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 04/12/2024 | £9.00 | £6.50 | £4.00 |
+| From 05/12/2024 | £11.00 | £7.50 | £5.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 04/12/2024£11.00£8.00£5.00From 05/12/2024£13.00£9.00£6.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download before heading to the Start.
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 04/12/2024 | £11.00 | £8.00 | £5.00 |
+| From 05/12/2024 | £13.00 | £9.00 | £6.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download before heading to the Start.
 
 **£1.00 Discount per person if entering both the day and nights events.**
 

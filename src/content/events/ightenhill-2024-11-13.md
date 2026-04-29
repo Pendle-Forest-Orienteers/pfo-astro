@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Ightenhill · November Street-O (9/10)"
 results:
   - label: "StreetO results"
-    url: "/results-archive/2024/2024-11-13-ightenhill/Ightenhill-StreetO-results.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-11-13-ightenhill/Ightenhill-StreetO-results.pdf"
     type: "pdf"
 ---
 
@@ -26,7 +26,7 @@ Wear suitable studded footwear.
 
 ## Course information
 
-Collect your **clue/****answer sheet** from Download.**
+Collect your **clue/** **answer sheet** from Download.**
 Start:** Nearby TBA.
 **Finish & Download: **Nearby TBA.
 
@@ -55,9 +55,12 @@ Entry and dibber hire (£1.00) will be via **[SiEntries](https://www.sientries.c
 Entries will **close at midday on race day**. However, **entries after midnight on the Monday prior to the event** will be limited by map availability.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries. We cannot make changes at the event.
 
-**Lead**
+|  | **Lead** | **Second** | **Third** |
+| --- | --- | --- | --- |
+| **Solo** | £5.00 |  |  |
+| **Pair Team** | £5.00 | £2.00 |  |
+| **Trio Team** | £5.00 | £2.00 | £1.00 |
 
-**Second****Third****Solo**£5.00**Pair Team**£5.00£2.00**Trio Team**£5.00£2.00£1.00
 **Rules concerning junior entries:**
 
 Age 15 and under must be accompanied by an adult (as a pair or trio).

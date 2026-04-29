@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Marsden Park · June Series, event (3/4)"
 results:
   - label: "Results"
-    url: "/results-archive/2024/2024-06-19-marsden-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-06-19-marsden-park/index.html"
     type: "html"
 ---
 
@@ -42,7 +42,7 @@ Maximum possible score = 115.
 
 ## Directions and parking
 
-**Use post code: ****BB9 8BN****.** At the roundabout turn downhill onto Marsden Hall Rd. It is wide, with parking available on either side.
+**Use post code: ** **BB9 8BN****.** At the roundabout turn downhill onto Marsden Hall Rd. It is wide, with parking available on either side.
 Directions to the Start will be given at parking.
 
 What3Words for Marsden Hall Road: ///**duet.radiating.assist**

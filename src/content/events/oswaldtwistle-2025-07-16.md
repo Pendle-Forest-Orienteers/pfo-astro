@@ -23,7 +23,7 @@ You can choose either a 60 minutes score or a 75 minutes score aimed at faster r
 
 ## Course information
 
-**Start & ****Finish: **Nearby.
+**Start & ** **Finish: **Nearby.
 
 **Timing** (Start/Finish): SI.
 
@@ -55,9 +55,13 @@ Entry and dibber hire (£1.00) will be via [**SI Entries**.](https://www.sientri
 Online entries will **close at midday on race day**. There will be no EOD for this event.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries.
 
-**Lead**
+|  | **Lead** | **Second** | **Third** |
+| --- | --- | --- | --- |
+| **Solo** | £5.00 |  |  |
+| **Pair Team** | £5.00 | £2.00 |  |
+| **Trio Team** | £5.00 | £2.00 | £1.00 |
 
-**Second****Third****Solo**£5.00**Pair Team**£5.00£2.00**Trio Team**£5.00£2.00£1.00**Rules concerning junior entries:**
+**Rules concerning junior entries:**
 
 Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).

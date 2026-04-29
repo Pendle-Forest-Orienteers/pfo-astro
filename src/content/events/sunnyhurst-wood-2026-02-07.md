@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Sunnyhurst Wood"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#228"
@@ -40,15 +40,15 @@ There are some areas of windblown trees, but courses have been planned to avoid 
 
 Provisional course details.
 
-**Course:****Length:****Climb:****Controls:****Technical difficulty:****Green**3.8 km120 m22
+| **Course:** | **Length:** | **Climb:** | **Controls:** | **Technical difficulty:** |
+| --- | --- | --- | --- | --- |
+| **Green** | 3.8 km | 120 m | 22 | TD5: Very difficult. |
+| **Light Green** | 3.2 km | 100 m | 18 | TD4: Difficult. |
+| **Red** | 4.6 km | 130 m | 25 | TD3: Moderately difficult, long. |
+| **Orange** | 2.5 km | 80 m | 16 | TD3: Moderately difficult. |
+| **Yellow** | 2.1 km | 55 m | 13 | TD2: Short and easy. |
 
-TD5: Very difficult.**Light Green**3.2 km100 m18TD4: Difficult.**Red**4.6 km130 m25TD3: Moderately difficult, long.**Orange**2.5 km
-
-80 m
-
-16TD3: Moderately difficult.**Yellow**2.1 km55 m
-
-13TD2: Short and easy.Long legwear is recommended.
+Long legwear is recommended.
 
 ## Registration and start times
 
@@ -79,13 +79,21 @@ Entries will close on Friday 6th February, but entries made on or after 5th Febr
 Your hired dibber can only be picked up at the **Event Centre.**
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 04/02/2026£7.00£5.00£3.00From 05/02/2026£9.00£6.00£4.00
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 04/02/2026 | £7.00 | £5.00 | £3.00 |
+| From 05/02/2026 | £9.00 | £6.00 | £4.00 |
 
 **Entry fees for non-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 04/02/2026£8.00£5.50£3.00From 05/02/2026£10.00£6.50£4.00**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 04/02/2026 | £8.00 | £5.50 | £3.00 |
+| From 05/02/2026 | £10.00 | £6.50 | £4.00 |
+
+**
 **
 
 ## Facilities

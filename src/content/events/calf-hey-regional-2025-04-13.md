@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Calf Hey · Spring Series, event 3/4"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2025/2025-04-13-calf-hey-regional/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-04-13-calf-hey-regional/index.html"
     type: "html"
   - label: "Winsplits"
     url: "https://obasen.orientering.se/winsplits/online/en/show_event.asp?id=103946"
@@ -44,7 +44,7 @@ Calf Hey is a really attractive area with a good mix of terrain including conife
 There are cattle in the field areas to the north and west of the competition area and have freedom to roam most of this area. They have never been a problem in the past. You may see none, but if cattle are encountered, to avoid disturbance, please give them a wide berth. We recommend at least 25m.
 
 **Map notes:
-**1). One large area of woodland has within it a patchwork of fallen trees due to old age and/or windblow. Areas that are easily traversed, though slow, are shown with the wide green pinstripe symbol. Areas that are very slow or impassable are shown with the narrow pinstripe symbol - **best ****avoided!**
+**1). One large area of woodland has within it a patchwork of fallen trees due to old age and/or windblow. Areas that are easily traversed, though slow, are shown with the wide green pinstripe symbol. Areas that are very slow or impassable are shown with the narrow pinstripe symbol - **best ** **avoided!**
 
 2. There are several streams that run is chasms that may be up to 10m deep! Instead of the usual blue line, streams in these areas are marked with a **wide purple line **to indicate the **stream is uncrossable**. Steep terrain on either side must also be avoided. Take great care.
 Only cross streams where they are blue on the map.
@@ -53,10 +53,21 @@ Only cross streams where they are blue on the map.
 
 **Courses:**
 
-**Course****Length****Climb****Notes****Short Brown**6.5 km310 m21 controls, TD5**Blue**5.4 km250 m18 controls, TD5**Green**3.9 km150 m14 controls, TD5**Short Green**3.1 km100 m13 controls, TD5**Light Green**3.2 km160 m12 controls, TD4**Red**4.2 km180 m18 controls, TD3**Orange**2.5 km80 m11 controls, TD3**Yellow**1.7 km60 m11 controls, TD2**
+| **Course** | **Length** | **Climb** | **Notes** |
+| --- | --- | --- | --- |
+| **Short Brown** | 6.5 km | 310 m | 21 controls, TD5 |
+| **Blue** | 5.4 km | 250 m | 18 controls, TD5 |
+| **Green** | 3.9 km | 150 m | 14 controls, TD5 |
+| **Short Green** | 3.1 km | 100 m | 13 controls, TD5 |
+| **Light Green** | 3.2 km | 160 m | 12 controls, TD4 |
+| **Red** | 4.2 km | 180 m | 18 controls, TD3 |
+| **Orange** | 2.5 km | 80 m | 11 controls, TD3 |
+| **Yellow** | 1.7 km | 60 m | 11 controls, TD2 |
+
+**
 **
 
-**Start & ****Finish: **Distance from Event Centre approximately 1km / 10m climb .
+**Start & ** **Finish: **Distance from Event Centre approximately 1km / 10m climb .
 
 You will be crossing a busy main road before and after your run. The crossing will be marshalled. Young children MUST be accompanied.
 
@@ -96,11 +107,21 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Wednesday 9th April. Entry will remain open after this, **subject to map availability**, until midnight Friday 11th April, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 09/04/2025£9.00£6.50£4.00From 10/04/2025£11.00£7.50£5.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 09/04/2025 | £9.00 | £6.50 | £4.00 |
+| From 10/04/2025 | £11.00 | £7.50 | £5.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 09/04/2025£11.00£8.00£5.00From 10/04/2025£13.00£9.00£6.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 09/04/2025 | £11.00 | £8.00 | £5.00 |
+| From 10/04/2025 | £13.00 | £9.00 | £6.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
 
 ## Facilities
 

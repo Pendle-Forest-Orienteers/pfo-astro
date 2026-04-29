@@ -8,16 +8,16 @@ level: "regional"
 summary: "Urban · Burnley East · NW Urban League"
 results:
   - label: "Results by course and age class"
-    url: "/results-archive/2024/2024-04-21-burnley-east/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-04-21-burnley-east/index.html"
     type: "html"
   - label: "Combined results by age class"
-    url: "/results-archive/2024/2024-04-21-burnley-east/index_combined_results.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-04-21-burnley-east/index_combined_results.pdf"
     type: "pdf"
   - label: "Mytholmroyd results"
-    url: "/results-archive/2024/2024-04-21-burnley-east/index_event1_results.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-04-21-burnley-east/index_event1_results.pdf"
     type: "pdf"
   - label: "Burnley East results"
-    url: "/results-archive/2024/2024-04-21-burnley-east/index_event2_results.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-04-21-burnley-east/index_event2_results.pdf"
     type: "pdf"
   - label: "Routegadget for courses 1-5"
     url: "https://www.pfo.routegadget.co.uk/rg2/#212"
@@ -43,50 +43,15 @@ Pairs can enter Course 3 PAIR or Course 4 PAIR in SIEntries- although these will
 
 Competitors can 'Run Down' a course by entering the relevant 'Open' course, but again would not be eligible for NWUL points.
 
-**Course****Age Classes:****Length:****Climb:****Map Notes:****1**
-
-**Men’s Open **(M18, M20, M21, M35)
-
-9 km
-
-140 m1:4000 A3**2**
-
-**Women’s Open **(W18, W20, W21, W35)**, Men’s Vets **(M40+)
-
-7.5 km
-
-110 m1:4000 A3**3**
-
-**Women’s Vets **(W40+)**, Men’s Supervets **(M55+)
-
-6.1 km
-
-80 m1:4000 A3**4**
-
-**Women’s Supervets **(W55+)**, Men’s Ultravets **(M65+)
-
-4.8 km
-
-45 m1:4000 A3**5**
-
-**Women’s Ultravets **(W65+)**, Women’s Hypervets **(W75+)**, Men’s Hypervets **(M75+)
-
-3.9 km
-
-35 m1:4000 A3**6**
-
-**Junior Men and Junior Women **(M/W14-16)
-
-3.3 km
-
-70 m1:4000 A4**7**
-
-**Young Junior Men and Young Junior Women **(M/W12-)
-Course is wholly within public spaces. No roads will be crossed.
-
-2.2 km
-
-25 m1:4000 A4
+| **Course** | **Age Classes:** | **Length:** | **Climb:** | **Map Notes:** |
+| --- | --- | --- | --- | --- |
+| **1** | **Men’s Open **(M18, M20, M21, M35) | 9 km | 140 m | 1:4000 A3 |
+| **2** | **Women’s Open **(W18, W20, W21, W35)**, Men’s Vets **(M40+) | 7.5 km | 110 m | 1:4000 A3 |
+| **3** | **Women’s Vets **(W40+)**, Men’s Supervets **(M55+) | 6.1 km | 80 m | 1:4000 A3 |
+| **4** | **Women’s Supervets **(W55+)**, Men’s Ultravets **(M65+) | 4.8 km | 45 m | 1:4000 A3 |
+| **5** | **Women’s Ultravets **(W65+)**, Women’s Hypervets **(W75+)**, Men’s Hypervets **(M75+) | 3.9 km | 35 m | 1:4000 A3 |
+| **6** | **Junior Men and Junior Women **(M/W14-16) | 3.3 km | 70 m | 1:4000 A4 |
+| **7** | **Young Junior Men and Young Junior Women **(M/W12-) Course is wholly within public spaces. No roads will be crossed. | 2.2 km | 25 m | 1:4000 A4 |
 
 ## Registration and start times
 
@@ -115,13 +80,24 @@ Lowest price entries close at midnight on Sunday 14th April.
 
 **Pricing for BOF Members**
 
-Adult (26+)Young Adult (21-25)Junior (20-)Up to Sunday 14th April£9.00£6.50£4.00From Monday 15th April£11.00£7.50£5.00
+|  | Adult (26+) | Young Adult (21-25) | Junior (20-) |
+| --- | --- | --- | --- |
+| Up to Sunday 14th April | £9.00 | £6.50 | £4.00 |
+| From Monday 15th April | £11.00 | £7.50 | £5.00 |
+
 **Pricing for non-BOF Members**
 
-Adult (26+)Young Adult (21-25)Junior (20-)Up to Sunday 14th April£11.00£8.00£5.00From Monday 15th April£13.00£9.00£6.00
+|  | Adult (26+) | Young Adult (21-25) | Junior (20-) |
+| --- | --- | --- | --- |
+| Up to Sunday 14th April | £11.00 | £8.00 | £5.00 |
+| From Monday 15th April | £13.00 | £9.00 | £6.00 |
+
 **Pricing for Pairs**
 
-Up to Sunday 14th April£16.00From Monday 15th April£18.00
+| Up to Sunday 14th April | £16.00 |
+| --- | --- |
+| From Monday 15th April | £18.00 |
+
 Dibber hire £1.00. But £40 if lost.
 
 Late entries from 15th April onwards will be subject to map availability. Entries close Wednesday 17th April.

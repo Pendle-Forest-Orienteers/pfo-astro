@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Bold Venture Park · June Series, event (1/3)"
 results:
   - label: "Scores and points matrix"
-    url: "/results-archive/2025/2025-06-04-bold-venture-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-06-04-bold-venture-park/index.html"
     type: "html"
 ---
 

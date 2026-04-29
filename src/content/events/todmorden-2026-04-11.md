@@ -8,7 +8,7 @@ level: "local"
 summary: "Local · Todmorden"
 results:
   - label: "Course Results and Splits"
-    url: "/results-archive/2026/2026-04-11-todmorden/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-04-11-todmorden/index.html"
     type: "html"
   - label: "Routegadget for &#039;A&#039; and Yellow courses"
     url: "https://www.pfo.routegadget.co.uk/rg2/#231"
@@ -17,7 +17,7 @@ results:
     url: "https://www.pfo.routegadget.co.uk/rg2/#232"
     type: "html"
   - label: "Combined results (amended)"
-    url: "/results-archive/2026/2026-04-11-todmorden/Combined-Results-final-corrected.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-04-11-todmorden/Combined-Results-final-corrected.pdf"
     type: "pdf"
 ---
 
@@ -39,11 +39,11 @@ The park is steep and runs into woodland on the southern edge.
 
 Provisional course details.
 
-**Course:****Length:****Climb:****Controls:****Sprint 'A'**2.7km50m14
-
-**Sprint 'B'**2.4km100m15**Yellow**1.5km35m
-
-10
+| **Course:** | **Length:** | **Climb:** | **Controls:** |
+| --- | --- | --- | --- |
+| **Sprint 'A'** | 2.7km | 50m | 14 |
+| **Sprint 'B'** | 2.4km | 100m | 15 |
+| **Yellow** | 1.5km | 35m | 10 |
 
 ## Registration and start times
 
@@ -89,13 +89,19 @@ Entries will close on Friday 10th April but entries made on or after 8th April w
 Your hired dibber can only be picked up at the **Event Centre.**
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 08/04/2026£7.00£5.00£3.00From 09/04/2026£9.00£6.00£4.00
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 08/04/2026 | £7.00 | £5.00 | £3.00 |
+| From 09/04/2026 | £9.00 | £6.00 | £4.00 |
 
 **Entry fees for non-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to25/03/2026£8.00£5.50£3.00From 26/03/2026£10.00£6.50£4.00
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to25/03/2026 | £8.00 | £5.50 | £3.00 |
+| From 26/03/2026 | £10.00 | £6.50 | £4.00 |
 
 ## Facilities
 

@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · NWNL Hurstwood North · PFO Night &amp; Day"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2025/2025-11-29-nwnl-hurstwood-north/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-29-nwnl-hurstwood-north/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#226"
@@ -34,10 +34,13 @@ The terrain is a predominantly rough open moorland with complex and intricate co
 
 NWNL standard courses: (Subject to final controlling.)
 
-**Course:****Length:****Climb:****Controls:****Map:****Blue**4.4 km145 m14
+| **Course:** | **Length:** | **Climb:** | **Controls:** | **Map:** |
+| --- | --- | --- | --- | --- |
+| **Blue** | 4.4 km | 145 m | 14 | A4, 1:7,500 |
+| **Green** | 2.8 km | 90 m | 12 | A4, 1:7,500 |
+| **Orange** | 2.6 km | 40 m | 9 | A4, 1:7,500 |
 
-A4, 1:7,500**Green**2.8 km90 m12A4, 1:7,500**Orange**2.6 km40 m9A4, 1:7,500
-**Start & ****Finish: **Start/finish are approximately 700 m from the car park with 40 m of climb.
+**Start & ** **Finish: **Start/finish are approximately 700 m from the car park with 40 m of climb.
 
 **Route to start: **This will be partially taped with tags on trees to the start. Please walk up the main track towards the Hurstwood Reservoir without straying too far off the path (here be dragons...). You will walk past the finish, on the way to the start.
 
@@ -61,7 +64,7 @@ Please choose an early start time if you anticipate being out for a long time.
 
 Take the A646 road from Burnley to Todmorden, turn off at Red Lees Road. The event will be signed from the junction with Salterford Lane towards Hurstwood.
 
-**Satnav: **** BB10 3LG ** is nearest postcode.
+**Satnav: ** ** BB10 3LG ** is nearest postcode.
 What3Words: **///along.former.layers**
 
 ## Entry details
@@ -74,11 +77,21 @@ Entries will close on Friday 28th November, but entries made on or after 27th No
 Your hired dibber can only be picked up at the **Event Centre.**
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 26/10/2025£7.00£5.00£3.00From 27/10/2025£9.00£6.00£4.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 26/10/2025 | £7.00 | £5.00 | £3.00 |
+| From 27/10/2025 | £9.00 | £6.00 | £4.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 26/10/2025£8.00£5.50£3.00From 27/10/2025£10.00£6.50£4.00**
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 26/10/2025 | £8.00 | £5.50 | £3.00 |
+| From 27/10/2025 | £10.00 | £6.50 | £4.00 |
+
+**
 **
 
 ## Facilities

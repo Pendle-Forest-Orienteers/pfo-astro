@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · Tockholes · NW Night League"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2024/2024-12-07-tockholes/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-12-07-tockholes/index.html"
     type: "html"
   - label: "Winsplits Online"
     url: "http://obasen.orientering.se/winsplits/online/en/show_event.asp?id=101958"
@@ -32,17 +32,13 @@ Tockholes has been used for orienteering for more than 50 years! It is excellent
 
 **NWNL standard courses:**
 
-**Course:****Length:****Climb:****Controls:****Map:****Blue**5.0k165m
+| **Course:** | **Length:** | **Climb:** | **Controls:** | **Map:** |
+| --- | --- | --- | --- | --- |
+| **Blue** | 5.0k | 165m | 14 | 1:7500 A4 |
+| **Green** | 3.5k | 105m | 12 | 1:7500 A4 |
+| **Orange** | 1.5k | 75m | 7 | 1:7500 A4 |
 
-141:7500 A4**Green**3.5k105m
-
-121:7500 A4**Orange**1.5k
-
-75m
-
-7
-
-1:7500 A4**Control descriptions** will be on the map and available as loose descriptions in the start lanes.
+**Control descriptions** will be on the map and available as loose descriptions in the start lanes.
 
 **Safety Notes:**
 
@@ -85,11 +81,21 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Wednesday 4th December. Entry will remain open after this, **subject to map availability**, until midnight Friday 6th December, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 04/12/2024£7.00£5.00£3.00From 05/12/2024£9.00£6.00£4.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 04/12/2024 | £7.00 | £5.00 | £3.00 |
+| From 05/12/2024 | £9.00 | £6.00 | £4.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 04/12/2024£8.00£5.50£3.00From 05/12/2024£10.00£6.50£4.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download before heading to the Start.
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 04/12/2024 | £8.00 | £5.50 | £3.00 |
+| From 05/12/2024 | £10.00 | £6.50 | £4.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download before heading to the Start.
 
 **£1.00 Discount per person if entering both the night and day events.**
 

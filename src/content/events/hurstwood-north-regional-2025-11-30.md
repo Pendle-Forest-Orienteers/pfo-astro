@@ -8,7 +8,7 @@ level: "regional"
 summary: "Night-O · Hurstwood North · PFO Night &amp; Day"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2025/2025-11-30-hurstwood-north-regional/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-30-hurstwood-north-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#225"
@@ -33,15 +33,22 @@ Hurstwood North is the area used for the SHI and National events in 2018 and off
 
 **Courses: (Provisional)**
 
-**Course****Length****Climb****Course Notes:
-Map Notes:****Brown**8.5 km340 m24 controls, TD5, A3 map, 1:7,500
-**Short Brown**6.8 km275 m22 controls, TD5, A3 map, 1:7,500
-**Blue**5.8 km215 m21 controls, TD5, A3 map, 1:7,500
-**Short Blue**4.9 km185 m17 controls, TD5, A3 map, 1:7,500**Green**4.1 km135m16 controls, TD5, A4 map, 1:7,500**Short Green**3.5 km80m13 controls, TD5, A4 map, 1:7,500**Light Green**3.7 km100m13 controls, TD4, A4 map, 1:7500
-**Orange**2.8 km65m15 controls, TD3, A4 map, 1:7,500**Yellow**2.2 km25m12 controls, TD2, A4 map, 1:7500**
+| **Course** | **Length** | **Climb** | **Course Notes: Map Notes:** |
+| --- | --- | --- | --- |
+| **Brown** | 8.5 km | 340 m | 24 controls, TD5, A3 map, 1:7,500 |
+| **Short Brown** | 6.8 km | 275 m | 22 controls, TD5, A3 map, 1:7,500 |
+| **Blue** | 5.8 km | 215 m | 21 controls, TD5, A3 map, 1:7,500 |
+| **Short Blue** | 4.9 km | 185 m | 17 controls, TD5, A3 map, 1:7,500 |
+| **Green** | 4.1 km | 135m | 16 controls, TD5, A4 map, 1:7,500 |
+| **Short Green** | 3.5 km | 80m | 13 controls, TD5, A4 map, 1:7,500 |
+| **Light Green** | 3.7 km | 100m | 13 controls, TD4, A4 map, 1:7500 |
+| **Orange** | 2.8 km | 65m | 15 controls, TD3, A4 map, 1:7,500 |
+| **Yellow** | 2.2 km | 25m | 12 controls, TD2, A4 map, 1:7500 |
+
+**
 **
 
-**Start & ****Finish: **
+**Start & ** **Finish: **
 
 **Start **is 1 km from parking /event centre with 45 m of climb. Allow 15 to 20 minutes walking time.
 
@@ -61,7 +68,7 @@ Please choose an early start time if you anticipate being out for a long time.
 
 **Parking: **On a slightly sloping field, well drained and maintained, off Hurstwood Lane, Hurstwood. There will be a charge of £2 per car, which will be paid to the farmer for use of his field and collected at the gate. Please park as directed by Marshalls. Campervans will be directed to an area of grassed over firm standing at the top end of the field.
 
-**Satnav: ****BB10 3LF **is nearest postcode.
+**Satnav: ** **BB10 3LF **is nearest postcode.
 What3Words: **///just.twin.extra**
 
 ## Entry details
@@ -70,11 +77,21 @@ On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?e
 
 Standard pricing will apply up to midnight Wednesday 26th November. Entry will remain open after this, **subject to map availability**, until midnight Friday 28th November, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 26/11/2025£9.00£6.50£4.00From 27/11/2025£11.00£7.50£5.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 26/11/2025 | £9.00 | £6.50 | £4.00 |
+| From 27/11/2025 | £11.00 | £7.50 | £5.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 29/10/2025£11.00£8.00£5.00From 30/10/2025£13.00£9.00£6.00Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 29/10/2025 | £11.00 | £8.00 | £5.00 |
+| From 30/10/2025 | £13.00 | £9.00 | £6.00 |
+
+Dibber hire £1.00 (£40 if lost/broken). Hired dibbers must be collected from Download at the Event Centre before heading to the Start.
 
 ## Facilities
 

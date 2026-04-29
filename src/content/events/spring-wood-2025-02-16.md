@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Spring Wood · Spring Series, event (2/4)"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2025/2025-02-16-spring-wood/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-02-16-spring-wood/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#222"
@@ -25,16 +25,15 @@ Classic woodland with a good variety of terrain, vegetation and old quarry worki
 
 Course offer:
 
-**Course:****Length:****Climb:****Technical
-Difficulty:****Yellow**1.4 km50 m
+| **Course:** | **Length:** | **Climb:** | **Technical Difficulty:** |
+| --- | --- | --- | --- |
+| **Yellow** | 1.4 km | 50 m | TD2: Short and easy. 11 controls. |
+| **Orange** | 3.0 km | 120 m | TD3: Moderately difficult. 18 controls. |
+| **Red** | 5.4 km | 185 m | TD3: Moderately difficult, long. 27 controls. |
+| **Light Green** | 3.5 km | 135 m | TD4: Difficult. 19 controls. |
+| **Green** | 4.1 km | 180 m | TD5: Very difficult. 24 controls |
 
-TD2: Short and easy. 11 controls.**Orange**3.0 km120 m
-
-TD3: Moderately difficult. 18 controls.**Red**5.4 km185 m
-
-TD3: Moderately difficult, long. 27 controls.**Light Green**3.5 km135 m
-
-TD4: Difficult. 19 controls.**Green**4.1 km180 mTD5: Very difficult. 24 controls**Out of Bounds: **All fields adjacent to the competition area are out of bounds.
+**Out of Bounds: **All fields adjacent to the competition area are out of bounds.
 
 **Red: **All events in the Spring Series will offer a long course for both runners and progressing orienteers, mostly on easy terrain at a moderate technical standard.
 
@@ -68,11 +67,19 @@ Entries will close on Saturday 15th February at 12:00 (midday), but entries made
 Your hired dibber can only be picked up at the Event Centre.
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ****for BOF-members:**
+**Entry fees ** **for BOF-members:**
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 12/02/2025£7.00£5.00£3.00From 13/02/2025£9.00£6.00£4.00**Entry fees for non-members:**
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 12/02/2025 | £7.00 | £5.00 | £3.00 |
+| From 13/02/2025 | £9.00 | £6.00 | £4.00 |
 
-Senior (26+)Young Adult (21-25)Junior (U21)Up to 12/02/2025£8.00£5.50£3.00From 13/02/2025£10.00£6.50£4.00
+**Entry fees for non-members:**
+
+|  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
+| --- | --- | --- | --- |
+| Up to 12/02/2025 | £8.00 | £5.50 | £3.00 |
+| From 13/02/2025 | £10.00 | £6.50 | £4.00 |
 
 ## Facilities
 

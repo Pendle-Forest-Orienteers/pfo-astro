@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · Towneley Park"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2026/2026-02-25-towneley-park-night-o/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-02-25-towneley-park-night-o/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#229"
@@ -55,7 +55,12 @@ Entry and dibber hire (£1.00) will be via **[SI Entries](https://www.sientries.
 Online entries will **close at midday on race day**. There will be no EOD for this event.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries.
 
-**Solo**£6.00**Pair Team**£8.00**Trio Team**£9.00**Rules concerning junior entries:**
+| **Solo** | £6.00 |
+| --- | --- |
+| **Pair Team** | £8.00 |
+| **Trio Team** | £9.00 |
+
+**Rules concerning junior entries:**
 
 Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).
