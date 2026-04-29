@@ -1,46 +1,35 @@
 ---
-title: "Anytime orienteering"
-summary: "PFO's permanent courses and MapRun loops you can run at your own pace, any day of the week."
+title: "Anytime Orienteering"
+summary: "Courses you can take part in any time it's convenient — MapRun, lamp-post and permanent courses."
 section: participation
 order: 1
+lastReviewed: 2024-02-22
 ---
 
-Anytime orienteering courses are exactly what they sound like — courses you can take part in whenever it suits you, without entering a formal event.
+**Anytime Orienteering courses are ones where you can take part anytime when it is convenient for yourself.**
 
-PFO maintains two types of anytime courses across East Lancashire.
+Some make use of the **MapRun App** which can be downloaded for either Android or iOS and there are no physical controls on the ground. Others are [Permanent Orienteering](/information/permanent-orienteering-courses) courses in local parks which make use of fixed posts with orienteering markers attached, whilst some others are just based upon a paper map.
 
-## Permanent Orienteering Courses (POCs)
+There will be different ways that you can participate in "Virtual Orienteering" — in some instances each course will be available in different formats. The events will use a variety of different map styles ranging from conventional orienteering maps, OpenOrienteeringMap maps or OS maps.
 
-Physical courses with permanent posts at fixed locations. You print or pick up the map, find the posts in any order, and write down the codes you see.
+## MapRun events
 
-Permanent courses currently exist at:
+These events make use of the MapRun App on a mobile phone. Your phone will beep and vibrate when you get to the control site.
 
-- **Towneley Park, Burnley** — easy/family-friendly
-- **Gawthorpe Hall, Padiham** — National Trust grounds, gentle terrain
-- **Witton Park, Blackburn** — mixed parkland and woodland
-- **Cliviger Gorge** — moorland, more challenging
+Our events can be found in the UK/Lancashire folder on the MapRun server.
 
-Maps and route cards are available to download as PDFs (or, for some sites, from a weatherproof box at the trailhead).
+You can either navigate using the map on your mobile phone or print off a paper map.
 
-## MapRun courses
+Once you have completed your run, your results will get automatically uploaded to a server and you can download your GPS track to then upload into the corresponding RouteGadget event.
 
-MapRun is a free phone app (iOS and Android) that turns your phone into a virtual orienteering control system — there are no physical posts on the ground; the app records when you arrive at each control point using GPS.
+More details can be found via the MapRun Orienteering course link on this page.
 
-PFO has set up MapRun courses at a number of additional venues, including park-based introductory courses suitable for newcomers.
+[Here is a brief overview of using MapRun](https://www.pfo.org.uk/documents/Maprun20updated.docx).
 
-To use MapRun:
+## Lamp-post Orienteering
 
-1. Download the **MapRun** app (Android Play Store / Apple App Store — note: not "MapRun6")
-2. In the app, navigate to UK → Lancashire → Pendle Forest Orienteers
-3. Pick a course
-4. Press start when you reach the start point on the map
+Details of a number of "Lamp-post" orienteering courses can be found [here](/news/lamp-post-orienteering).
 
-Your course details — time, route trace, control timings — are saved on your phone and can be shared on the MapRun web service for comparison with other participants.
+## Permanent Orienteering Courses
 
-## Other formats
-
-We also have a small number of **virtual courses** that can be done from anywhere using Google Street View — useful during bad weather or if you can't get out. These were set up during the 2020 lockdown but remain available.
-
-## Suggesting a course
-
-If there's a park or wooded area near you that you think would make a good permanent course, [get in touch](/contacts) — Colin Woolford (Mapping Co-ordinator) is always interested in expanding the network.
+Details of PFO's Permanent Orienteering Courses (POCs) can be found [here](/information/permanent-orienteering-courses).
