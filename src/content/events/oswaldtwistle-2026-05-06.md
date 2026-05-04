@@ -8,8 +8,89 @@ format: "Street-O"
 level: "local"
 series: "May Street-O"
 summary: "May Street-O"
+coords:
+  lat: 53.74206
+  lng: -2.40648
+what3words: "typically.capacity.skips"
+bofEventNumber: 87374
+dogsAllowed: "not-recommended"
+planner: "Richard Edwards (PFO)"
 ---
 
-A midweek street orienteering event in Oswaldtwistle.
+<!-- migrated -->
 
-Full event details to be confirmed closer to the date. Online entry will open via SI Entries.
+## Map and terrain
+
+Street-O competition is on local streets, main roads, parks, ginnels, semi-rural areas and footpaths.
+You can choose either a 60 minutes score or a 75 minutes score aimed at faster runners.
+
+**MAP SCALE: **The competition map for this event is **1:10,000**, in simplified format.
+
+## Course information
+
+**Start & ** **Finish: **Nearby.
+
+**Timing** (Start/Finish): SI.
+
+Each individual or team will require one Dibber (collect at registration/download if hired), one clue/answer sheet (collect at registration/download) and one course map (issued at the Start). Plus pen/pencil and a watch.
+Example maps and clue sheets of previous events will be available to view at the event centre.
+
+**Scoring: **Controls are numbered 10 to 64. The first digit multiplied by 10 is the score value. Thus there are 10 x 10 points controls, 10 x 20, 10 x 30, 10 x 40, 10 x 50 and 5 x 60. Typically, the higher the score value, the greater the distance and/or difficulty.
+
+**Penalties: **Your course time limit is either 75 minutes or 60 minutes depending on which course you entered.
+Thereafter, 1 penalty point will be deducted for each 3 seconds you are late, equivalent to 20 points deducted per minute late.
+
+## Registration and start times
+
+Starts from 6:00PM to 7:00PM at minute intervals. You can choose your 15 minute start block when you enter the event at SIEntries.
+
+## Directions and parking
+
+**Event centre:** Black Dog, Oswaldtwistle** BB5 3NW**
+
+W3W: ///**typically.capacity.skips**
+
+**Parking: **Nearby on-street parking, e.g.
+Kay Street Car Park: W3W: ///**perky.access.inflamed**
+ Simpson Street: W3W: ///**unwraps.wedding.dumplings**
+Springfield Street: W3W: ///**folks.fabric.twisty**
+
+**
+**
+
+## Entry details
+
+**Entry and dibber hire (£1.00) will be via [SI Entries](https://www.sientries.co.uk/event.php?event_id=17795)**
+
+**[**Note: £40 charge if dibber is lost during hire period.]**
+
+Online entries will **close at midday on race day**. There will be no EOD for this event.
+An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries.
+
+|  | **Lead** | **Second** | **Third** |
+| --- | --- | --- | --- |
+| **Solo** | £5.00 |  |  |
+| **Pair Team** | £5.00 | £2.00 |  |
+| **Trio Team** | £5.00 | £2.00 | £1.00 |
+
+**Rules concerning junior entries:**
+
+Age 15 and under must be accompanied by an adult (as a pair or trio).
+Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).
+Age 18+ may run as an individual.
+
+If the event needs to be cancelled the [PFO Event Cancellation Policy](https://www.pfo.org.uk/info/event-cancellation-refund-policy) will apply.
+
+## Facilities
+
+**Event centre:** Black Dog, Oswaldtwistle** BB5 3NW**
+
+## Dog restrictions
+
+Taking dogs on urban courses is not recommended due to the traffic hazard.
+
+## Contacts and officials
+
+**Series organiser:** Kay Hawke (PFO) -
+
+**Planner: **Richard Edwards (PFO)
