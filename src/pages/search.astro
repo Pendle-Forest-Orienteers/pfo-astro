@@ -16,11 +16,6 @@ import PageHero from '../components/PageHero.astro';
        `is:inline` keeps the script out of Vite's bundler so it isn't
        resolved at build time. -->
   <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-  <!-- Preload the underlying Pagefind library so the browser fetches it
-       in parallel with the page render. By the time the user types their
-       first character the engine has been instantiated, so the first
-       search returns near-instantly. -->
-  <link rel="preload" href="/pagefind/pagefind.js" as="script">
   <script is:inline src="/pagefind/pagefind-ui.js"></script>
 </Fragment>
 
@@ -70,7 +65,6 @@ import PageHero from '../components/PageHero.astro';
           showImages: false,
           showSubResults: true,
           resetStyles: false,
-          debounceTimeoutMs: 400,
           placeholder: 'Try a venue name, event format, or year…'
         });
       } else {

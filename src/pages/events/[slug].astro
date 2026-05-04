@@ -295,18 +295,10 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     </section>
   )}
 
-  <!-- ─────────────────────────── Body content
-       For PAST events, the migrated body (race reports, planner's comments,
-       course tables) is excluded from the Pagefind search index — that
-       content is ~5KB per event ✕ 50+ past events, so dropping it shrinks
-       the index dramatically and speeds up search on every device.
-       The hero (title, location, date, summary, key facts) stays indexed,
-       which covers what people actually search for. Upcoming events keep
-       the body indexed because it often contains entry info / what to
-       bring / parking notes that visitors do search. -->
+  <!-- ─────────────────────────── Body content -->
   <section class="ev-body">
     <div class="ev-body-wrap">
-      <article class="ev-prose" data-pagefind-ignore={isUpcoming ? undefined : "all"}>
+      <article class="ev-prose">
         <Content />
       </article>
 
@@ -321,7 +313,6 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
               data-lat={coords.lat}
               data-lng={coords.lng}
               data-title={event.data.venue ?? event.data.location}
-              data-pagefind-ignore="all"
               aria-label={`Map of ${event.data.venue ?? event.data.location}`}
             ></div>
           )}
