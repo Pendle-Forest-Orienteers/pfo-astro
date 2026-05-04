@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
 
 // ─────── Data: split events into upcoming and past
@@ -41,24 +42,24 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 <main id="main">
 
   <!-- ─────────────────────────── Page hero -->
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Events</p>
-      <h1 class="rise d-2">Upcoming fixtures and past results.</h1>
-      <p class="page-lede rise d-3">PFO runs around 12–15 events a year — local midweek street events, weekend regionals on the fells, and the headline Brun Valley fixture in May. Online entry via SI Entries; turn-up-on-the-day welcome where space allows.</p>
-      <nav class="anchor-nav rise d-4" aria-label="Skip to section">
-        <a href="#upcoming">Upcoming ({upcoming.length})</a>
-        <span aria-hidden="true">·</span>
-        <a href="#past">Past results ({past.length})</a>
-        <span aria-hidden="true">·</span>
-        <a href="/events.ics">📅 Subscribe to calendar</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://www.britishorienteering.org.uk/event_listing" rel="noopener">BOF event listings →</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener">RouteGadget →</a>
-      </nav>
-    </div>
-  </section>
+  <PageHero
+    page="events"
+    eyebrow="Events"
+    heading="Upcoming fixtures and past results."
+    lede="PFO runs around 12–15 events a year — local midweek street events, weekend regionals on the fells, and the headline Brun Valley fixture in May. Online entry via SI Entries; turn-up-on-the-day welcome where space allows."
+  >
+    <nav class="anchor-nav rise d-4" aria-label="Skip to section">
+      <a href="#upcoming">Upcoming ({upcoming.length})</a>
+      <span aria-hidden="true">·</span>
+      <a href="#past">Past results ({past.length})</a>
+      <span aria-hidden="true">·</span>
+      <a href="/events.ics">📅 Subscribe to calendar</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://www.britishorienteering.org.uk/event_listing" rel="noopener">BOF event listings →</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener">RouteGadget →</a>
+    </nav>
+  </PageHero>
 
   <!-- ─────────────────────────── Map view (only renders if there are upcoming events with coords) -->
   {upcoming.some(e => e.data.coords) && (

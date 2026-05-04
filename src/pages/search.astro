@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 <Layout
   title="Search — Pendle Forest Orienteers"
@@ -20,16 +21,12 @@ import Layout from '../layouts/Layout.astro';
 
 <main id="main">
 
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Search</p>
-      <h1 class="rise d-2">Find what you're looking for.</h1>
-      <p class="page-lede rise d-3">
-        Search across all events, news, maps and information pages on the PFO site.
-        Try a venue name, event format, or anything you remember.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    page="search"
+    eyebrow="Search"
+    heading="Find what you're looking for."
+    lede="Search across all events, news, maps and information pages on the PFO site. Try a venue name, event format, or anything you remember."
+  />
 
   <section class="search-section">
     <div class="search-wrap">

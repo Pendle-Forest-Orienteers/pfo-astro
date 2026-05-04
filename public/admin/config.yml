@@ -30,6 +30,89 @@ site_url: https://pfo.org.uk
 # ─────────────────────────────────────────────────────────────────────────────
 collections:
 
+  # ─── SITE SETTINGS ───────────────────────────────────────────────────────
+  # Singletons — shared site-wide config the committee can edit. Currently:
+  # the hero photo for each top-level page.
+  - name: "site-settings"
+    label: "Site settings"
+    description: "Photos and shared text used across the site. Hero photos can be left blank for a plain text-only header."
+    files:
+      - name: "page-heroes"
+        label: "Page hero photos"
+        file: "src/data/page-heroes.json"
+        description: "The big photo at the top of each page. Click 'Browse' on each Image field to upload a new one or pick from already-uploaded photos."
+        fields:
+          - name: "home"
+            label: "Home page hero"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false, hint: "1600×900 or larger; landscape orientation works best" }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false, hint: "Describe the image for screen readers" }
+          - name: "events"
+            label: "Events page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "maps"
+            label: "Mapped areas page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "newcomers"
+            label: "Newcomers page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "training"
+            label: "Training page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "membership"
+            label: "Membership page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "about"
+            label: "About page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "contacts"
+            label: "Contacts page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "news"
+            label: "News page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+          - name: "information"
+            label: "Information page hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "image", label: "Image",     widget: "image",  required: false }
+              - { name: "alt",   label: "Alt text",  widget: "string", required: false }
+
   # ─── EVENTS ──────────────────────────────────────────────────────────────
   - name: "events"
     label: "Events"

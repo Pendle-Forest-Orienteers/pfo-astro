@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 <Layout
   title="Training — Pendle Forest Orienteers"
@@ -8,13 +9,12 @@ import Layout from '../layouts/Layout.astro';
 
 <main id="main">
 
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Training</p>
-      <h1 class="rise d-2">Get better at the bits you find hard.</h1>
-      <p class="page-lede rise d-3">PFO runs a regular programme of training sessions for members — informal map-reading help for newcomers, technique sessions for intermediate orienteers, and night-orienteering practice through the winter. Cath Wilson, our lead coach, plans the programme each year.</p>
-    </div>
-  </section>
+  <PageHero
+    page="training"
+    eyebrow="Training"
+    heading="Get better at the bits you find hard."
+    lede="PFO runs a regular programme of training sessions for members — informal map-reading help for newcomers, technique sessions for intermediate orienteers, and night-orienteering practice through the winter. Cath Wilson, our lead coach, plans the programme each year."
+  />
 
   <section class="info-block">
     <div class="info-wrap text-cols">

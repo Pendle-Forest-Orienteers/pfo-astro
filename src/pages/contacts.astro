@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 
 // Committee data — single source of truth.
 //
@@ -33,13 +34,12 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
 
 <main id="main">
 
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Contacts</p>
-      <h1 class="rise d-2">Who does what at PFO.</h1>
-      <p class="page-lede rise d-3">PFO is run entirely by volunteers — every committee member below is doing this in their spare time. Pick the right person for your question and they'll get back to you when they can.</p>
-    </div>
-  </section>
+  <PageHero
+    page="contacts"
+    eyebrow="Contacts"
+    heading="Who does what at PFO."
+    lede="PFO is run entirely by volunteers — every committee member below is doing this in their spare time. Pick the right person for your question and they'll get back to you when they can."
+  />
 
   <section class="contact-club">
     <div class="contact-club-wrap">

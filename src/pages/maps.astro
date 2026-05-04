@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
 
 // ─────── Data
@@ -42,25 +43,25 @@ const grouped = terrainOrder.map(t => ({
 <main id="main">
 
   <!-- ─────────────────────────── Page hero -->
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Mapped areas</p>
-      <h1 class="rise d-2">{allMaps.length} mapped areas across East Lancashire.</h1>
-      <p class="page-lede rise d-3">
-        Every venue PFO has surveyed and run on, from town-centre street-Os to open moorland fells.
-        For previous courses and routes, head to <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" class="rg-link">PFO RouteGadget →</a>
-      </p>
+  <PageHero
+    page="maps"
+    eyebrow="Mapped areas"
+    heading={`${allMaps.length} mapped areas across East Lancashire.`}
+  >
+    <p class="page-lede rise d-3">
+      Every venue PFO has surveyed and run on, from town-centre street-Os to open moorland fells.
+      For previous courses and routes, head to <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" class="rg-link">PFO RouteGadget →</a>
+    </p>
 
-      <nav class="terrain-jump rise d-4" aria-label="Jump to section">
-        {pocMaps.length > 0 && (
-          <a href="#permanent-courses" class="poc-jump">⭐ Permanent courses ({pocMaps.length})</a>
-        )}
-        {grouped.map(g => (
-          <a href={`#${g.terrain}`}>{terrainLabel[g.terrain]} ({g.maps.length})</a>
-        ))}
-      </nav>
-    </div>
-  </section>
+    <nav class="terrain-jump rise d-4" aria-label="Jump to section">
+      {pocMaps.length > 0 && (
+        <a href="#permanent-courses" class="poc-jump">⭐ Permanent courses ({pocMaps.length})</a>
+      )}
+      {grouped.map(g => (
+        <a href={`#${g.terrain}`}>{terrainLabel[g.terrain]} ({g.maps.length})</a>
+      ))}
+    </nav>
+  </PageHero>
 
   <!-- ─────────────────────────── Permanent courses (POCs) — venues you can run any time -->
   {pocMaps.length > 0 && (

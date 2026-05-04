@@ -1,0 +1,84 @@
+---
+// Reusable hero block for inner pages (events, maps, contacts, etc.).
+//
+// Reads the hero photo for this page from `src/data/page-heroes.json` so the
+// committee can swap any page's hero image through the CMS without a developer.
+//
+// If the page has no image set, the hero falls back to the existing
+// text-on-paper style with no backdrop.
+import heroes from '../data/page-heroes.json';
+
+export interface Props {
+  /** Key into page-heroes.json — e.g. "events", "maps", "newcomers". */
+  page: string;
+  /** Eyebrow label, e.g. "Events" */
+  eyebrow: string;
+  /** Big page heading */
+  heading: string;
+  /** Optional intro paragraph */
+  lede?: string;
+}
+
+const { page, eyebrow, heading, lede } = Astro.props;
+const hero = (heroes as Record<string, { image?: string; alt?: string }>)[page] ?? {};
+const hasImage = !!hero.image;
+---
+<section class={`page-hero ${hasImage ? 'page-hero--photo' : ''}`}>
+  {hasImage && (
+    <div class="page-hero-backdrop" aria-hidden="true">
+      <img src={hero.image} alt={hero.alt ?? ''} loading="eager">
+    </div>
+  )}
+  <div class="page-hero-wrap">
+    <p class="eyebrow rise d-1">{eyebrow}</p>
+    <h1 class="rise d-2">{heading}</h1>
+    {lede && <p class="page-lede rise d-3">{lede}</p>}
+    <slot />
+  </div>
+</section>
+
+<style is:global>
+  /* Base styles for the inner-page hero. is:global so the styles apply
+     wherever the component is used (otherwise Astro's scoping would
+     hide them when the markup is in a child component). The
+     `.page-hero--photo` variant overrides selectively in Layout.astro. */
+  .page-hero {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(40px, 5vw, 80px) var(--pad-x) clamp(40px, 4vw, 64px);
+  }
+  .page-hero-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .page-hero .eyebrow {
+    color: var(--gold-muted);
+    margin-bottom: 18px;
+  }
+  .page-hero .eyebrow::before { background: var(--plum); }
+  .page-hero h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 20;
+    margin: 0 0 20px 0;
+    color: var(--ink);
+    max-width: 22ch;
+  }
+  .page-hero .page-lede {
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+  .page-hero .page-lede a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+</style>

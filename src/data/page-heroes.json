@@ -1,0 +1,16 @@
+{
+  "_comment": "Hero photo for each page. Edited by the committee via the CMS at /admin → Site settings → Page hero photos. Leave 'image' empty to use the plain text-only hero (no backdrop). Path is /assets/uploads/<filename> for CMS-uploaded photos, or /assets/photos/<filename> for committee-supplied originals.",
+  "home": {
+    "image": "/assets/photos/training-moorland.jpg",
+    "alt": "PFO members training on East Lancashire moorland"
+  },
+  "events": { "image": "", "alt": "" },
+  "maps": { "image": "", "alt": "" },
+  "newcomers": { "image": "", "alt": "" },
+  "training": { "image": "", "alt": "" },
+  "membership": { "image": "", "alt": "" },
+  "about": { "image": "", "alt": "" },
+  "contacts": { "image": "", "alt": "" },
+  "news": { "image": "", "alt": "" },
+  "information": { "image": "", "alt": "" }
+}

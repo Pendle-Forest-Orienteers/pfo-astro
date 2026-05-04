@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 
 // Note for Kyle: the BO join URL preserves PFO's club code (ms_club_id=78).
 // Annual fees here are placeholders — confirm current figures with the committee
@@ -13,17 +14,17 @@ const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=7
 
 <main id="main">
 
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Membership</p>
-      <h1 class="rise d-2">Join the club, support the sport.</h1>
-      <p class="page-lede rise d-3">If you plan to orienteer more than a couple of times a year, joining PFO is a small annual cost that gets you insured, ranked, discounted at events, and contributing to the sport's future.</p>
-      <div class="hero-cta-row rise d-4">
-        <a class="btn btn-primary" href={joinUrl} rel="noopener">Join PFO online <span class="arrow">→</span></a>
-        <a class="btn btn-ghost" href="#what-you-get">What you get</a>
-      </div>
+  <PageHero
+    page="membership"
+    eyebrow="Membership"
+    heading="Join the club, support the sport."
+    lede="If you plan to orienteer more than a couple of times a year, joining PFO is a small annual cost that gets you insured, ranked, discounted at events, and contributing to the sport's future."
+  >
+    <div class="hero-cta-row rise d-4">
+      <a class="btn btn-primary" href={joinUrl} rel="noopener">Join PFO online <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#what-you-get">What you get</a>
     </div>
-  </section>
+  </PageHero>
 
   <!-- ─────────────────────────── Why join -->
   <section id="what-you-get" class="info-block">

@@ -200,7 +200,14 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
             {event.data.bofEventNumber && (
               <div>
                 <dt>BOF event no.</dt>
-                <dd class="mono">{event.data.bofEventNumber}</dd>
+                <dd class="mono">
+                  <a
+                    href={`https://www.britishorienteering.org.uk/event?event=${event.data.bofEventNumber}&bpage=0`}
+                    rel="noopener"
+                    target="_blank"
+                    class="bof-link"
+                  >{event.data.bofEventNumber} ↗</a>
+                </dd>
               </div>
             )}
             {event.data.venue && (
@@ -481,6 +488,13 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     margin: 0;
     line-height: 1.35;
   }
+  .bof-link {
+    color: var(--navy);
+    border-bottom: 1px solid var(--rule-2);
+    padding-bottom: 1px;
+    transition: color .18s, border-color .18s;
+  }
+  .bof-link:hover { color: var(--plum); border-color: var(--plum); }
 
   /* ─────────────────────────── CTA card on the right */
   .ev-hero-right { display: flex; flex-direction: column; gap: 14px; }

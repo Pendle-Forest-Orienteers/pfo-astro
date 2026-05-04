@@ -300,6 +300,46 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   }
 }
 
+/* ───────────────────────────── inner-page hero with optional photo backdrop
+   Used by the <PageHero> component on events, maps, newcomers, training, etc.
+   When the committee uploads a hero image via the CMS, the page automatically
+   gains a full-bleed photo behind the title. When the image is empty, the
+   page-hero stays text-only on paper-2. */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.page-hero--photo {
+  color: var(--paper);
+  background: var(--navy-deep);
+}
+.page-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.page-hero-backdrop img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  display: block;
+  filter: contrast(1.05) saturate(0.95);
+}
+.page-hero--photo .page-hero-backdrop::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(125deg, rgba(27, 59, 98, 0.86) 0%, rgba(27, 59, 98, 0.7) 55%, rgba(44, 89, 140, 0.55) 100%);
+}
+.page-hero--photo h1,
+.page-hero--photo .page-lede {
+  color: var(--paper);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+.page-hero--photo .eyebrow { color: var(--gold-bright); }
+.page-hero--photo .eyebrow::before { background: var(--gold); }
+
 /* ───────────────────────────── homepage announcement banner */
 .announcement {
   border-bottom: 1px solid var(--rule);

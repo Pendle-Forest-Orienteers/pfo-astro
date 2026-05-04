@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
 
 // Read all info pages and group by section
@@ -32,13 +33,13 @@ const topLevel = [
 
 <main id="main">
 
-  <section class="page-hero">
-    <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Information</p>
-      <h1 class="rise d-2">Everything else.</h1>
-      <p class="page-lede rise d-3">Constitution, policies, safeguarding, insurance, members' resources and other useful odds and ends. If you're looking for something specific and can't find it here, the <a href="/contacts">committee</a> can usually point you in the right direction.</p>
-    </div>
-  </section>
+  <PageHero
+    page="information"
+    eyebrow="Information"
+    heading="Everything else."
+  >
+    <p class="page-lede rise d-3">Constitution, policies, safeguarding, insurance, members' resources and other useful odds and ends. If you're looking for something specific and can't find it here, the <a href="/contacts">committee</a> can usually point you in the right direction.</p>
+  </PageHero>
 
   <section class="info-hub">
     <div class="info-hub-wrap">
