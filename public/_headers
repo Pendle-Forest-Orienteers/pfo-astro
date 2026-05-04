@@ -33,6 +33,14 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Pagefind on-site search index. The build step generates content-hashed
+# filenames (e.g. wasm.unknown.pagefind, en_xxx.pf_*) so they're safe to
+# cache forever. Returning visitors hit the cache instead of redownloading
+# the WASM binary and index chunks every time, which makes mobile search
+# feel instant on a second visit.
+/pagefind/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # ───── HTML pages — short cache, must revalidate ──────────────────────
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
