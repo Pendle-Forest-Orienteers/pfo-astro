@@ -1148,19 +1148,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   display: grid;
   /* Brand sits on top spanning the full width; the 4 link columns
      (Events, Get involved, Maps, Club) sit on a single plane below.
-     Wraps on narrow screens via the media queries below. */
-  grid-template-columns: repeat(4, 1fr);
+     Auto-fit keeps them on one row until the viewport genuinely can't
+     hold 4 columns of ~160px each, then they wrap. */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 32px 24px;
   padding-bottom: 32px;
   border-bottom: 1px solid rgba(244, 237, 224, 0.1);
 }
 .foot-grid > div:first-child { grid-column: 1 / -1; }
-@media (max-width: 900px) {
-  .foot-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 520px) {
-  .foot-grid { grid-template-columns: 1fr; }
-}
 .foot-grid .brand-small {
   font-family: var(--ff-display);
   font-size: 20px;
@@ -1251,7 +1246,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .ev-card:nth-child(1), .ev-card:nth-child(2) { border-bottom: 1px solid var(--rule); }
   .featured-news { grid-template-columns: 1fr; }
   .news-image { aspect-ratio: 16 / 10; }
-  .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 520px) {
@@ -1259,7 +1253,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .event-row { grid-template-columns: 1fr; }
   .ev-card { border-right: 0; border-bottom: 1px solid var(--rule); }
   .ev-card:last-child { border-bottom: 0; }
-  .foot-grid { grid-template-columns: 1fr; }
   .event-meta { grid-template-columns: 1fr; }
   .next-event { padding: 24px 22px 22px; }
   .event-date .big { font-size: 68px; }
