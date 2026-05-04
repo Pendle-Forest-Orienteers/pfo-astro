@@ -237,16 +237,6 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
             </div>
           )}
 
-          {!isUpcoming && hasResults && (
-            <div class="cta-card primary">
-              <p class="cta-label">Event finished</p>
-              <p class="cta-detail">Results available below</p>
-              <a class="btn btn-primary btn-full" href="#results">
-                Jump to results <span class="arrow">↓</span>
-              </a>
-            </div>
-          )}
-
           {!isUpcoming && !hasResults && (
             <div class="cta-card neutral">
               <p class="cta-label">Event finished</p>
@@ -269,6 +259,27 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
       </div>
     </div>
   </section>
+
+  <!-- ─────────────────────────── Results files (shown FIRST so visitors landing
+       the morning after an event get straight to their splits, no scrolling) -->
+  {hasResults && (
+    <section id="results" class="ev-results">
+      <div class="ev-results-wrap">
+        <h2>Results</h2>
+        <ul class="results-list">
+          {event.data.results.map(file => (
+            <li>
+              <a href={file.url} rel="noopener">
+                <span class="result-icon" data-type={file.type}>{fileTypeLabel(file.type)}</span>
+                <span class="result-label">{file.label}</span>
+                <span class="result-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   <!-- ─────────────────────────── Body content -->
   <section class="ev-body">
@@ -363,26 +374,6 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
       </aside>
     </div>
   </section>
-
-  <!-- ─────────────────────────── Results files -->
-  {hasResults && (
-    <section id="results" class="ev-results">
-      <div class="ev-results-wrap">
-        <h2>Results</h2>
-        <ul class="results-list">
-          {event.data.results.map(file => (
-            <li>
-              <a href={file.url} rel="noopener">
-                <span class="result-icon" data-type={file.type}>{fileTypeLabel(file.type)}</span>
-                <span class="result-label">{file.label}</span>
-                <span class="result-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
 
 </main>
 

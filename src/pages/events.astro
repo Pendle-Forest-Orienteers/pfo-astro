@@ -137,29 +137,43 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
         <div class="year-group">
           <h2 class="year-heading">{year}</h2>
           <ul class="event-list">
-            {pastByYear[year].map(event => (
-              <li>
-                <a class="ev-row past-row" href={`/events/${event.id}`}>
-                  <time class="ev-row-date" datetime={event.data.date.toISOString()}>
-                    <span class="ev-row-day">{fmtDay(event.data.date)}</span>
-                    <span class="ev-row-month">{fmtMonth(event.data.date)}</span>
-                    <span class="ev-row-weekday">{fmtWeekday(event.data.date)}</span>
-                  </time>
-                  <div class="ev-row-body">
-                    <h3>{event.data.title}</h3>
-                    <p class="ev-row-meta">
-                      <span>{event.data.format}</span>
-                      {event.data.location && <><span aria-hidden="true">·</span><span>{event.data.location}</span></>}
-                      {event.data.results && event.data.results.length > 0 && (
-                        <><span aria-hidden="true">·</span><span class="has-results">Results available</span></>
-                      )}
-                    </p>
-                  </div>
-                  <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
-                  <span class="ev-row-action" aria-hidden="true">→</span>
-                </a>
-              </li>
-            ))}
+            {pastByYear[year].map(event => {
+              const firstResult = event.data.results?.[0];
+              const hasResults = !!firstResult;
+              return (
+                <li class="past-row-li">
+                  <a class="ev-row past-row" href={`/events/${event.id}`}>
+                    <time class="ev-row-date" datetime={event.data.date.toISOString()}>
+                      <span class="ev-row-day">{fmtDay(event.data.date)}</span>
+                      <span class="ev-row-month">{fmtMonth(event.data.date)}</span>
+                      <span class="ev-row-weekday">{fmtWeekday(event.data.date)}</span>
+                    </time>
+                    <div class="ev-row-body">
+                      <h3>{event.data.title}</h3>
+                      <p class="ev-row-meta">
+                        <span>{event.data.format}</span>
+                        {event.data.location && <><span aria-hidden="true">·</span><span>{event.data.location}</span></>}
+                      </p>
+                    </div>
+                    <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
+                  </a>
+                  {hasResults ? (
+                    <a class="results-quick-link"
+                       href={firstResult.url}
+                       rel="noopener"
+                       target={firstResult.url.startsWith('http') ? '_blank' : undefined}
+                       aria-label={`${event.data.title} — view results`}>
+                      <span class="results-quick-tag">Results</span>
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  ) : (
+                    <span class="results-quick-link results-quick-link--empty" aria-hidden="true">
+                      <span class="results-quick-tag results-quick-tag--empty">No results</span>
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       ))
@@ -421,6 +435,52 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   }
   .ev-row-meta span[aria-hidden="true"] { color: var(--ink-mute); }
   .ev-row-meta .has-results { color: var(--plum); font-weight: 500; }
+
+  /* ─────────────────────────── Past row with quick results link */
+  .past-row-li {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .past-row-li > .ev-row { flex: 1 1 auto; min-width: 0; }
+
+  .results-quick-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px;
+    background: var(--gold);
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-left: 1px solid var(--rule);
+    transition: background .18s ease, color .18s ease;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .results-quick-link:hover { background: var(--ink); color: var(--gold); }
+  .results-quick-tag { font-weight: 500; }
+
+  .results-quick-link--empty {
+    background: var(--paper-2);
+    color: var(--ink-mute);
+    cursor: default;
+    pointer-events: none;
+  }
+  .results-quick-tag--empty { font-weight: 400; }
+
+  @media (max-width: 600px) {
+    .past-row-li { flex-direction: column; }
+    .results-quick-link {
+      border-left: 0;
+      border-top: 1px solid var(--rule);
+      padding: 10px 18px;
+      justify-content: space-between;
+    }
+  }
 
   .ev-row-action {
     font-family: var(--ff-mono);
