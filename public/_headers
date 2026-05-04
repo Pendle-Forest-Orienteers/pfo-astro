@@ -20,6 +20,18 @@
 /admin/*
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://identity.netlify.com https://*.netlify.app https://api.github.com https://api.netlify.com https://gitgateway.netlify.app; frame-ancestors 'none'; base-uri 'self';
 
+# ───── Pagefind on-site search at /search needs WASM + Workers ────────
+# Pagefind compiles a WebAssembly module and spawns a Web Worker for the
+# search engine, both of which need looser CSP than the rest of the site.
+/search
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self';
+
+/search/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self';
+
+/pagefind/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; connect-src 'self'; worker-src 'self' blob:;
+
 # ───── Long-cache static assets (versioned by content hash by Astro) ──
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
