@@ -144,6 +144,11 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
       { "@type": "ListItem", position: 3, name: event.data.title, item: canonical },
     ],
   })}></script>
+  {coords && (
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+  )}
 </Fragment>
 
 <main id="main">
@@ -302,6 +307,16 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
           <p class="meta-label">Location</p>
           <p class="meta-place">{event.data.location}</p>
           {coords && (
+            <div
+              id="event-venue-map"
+              class="event-venue-map"
+              data-lat={coords.lat}
+              data-lng={coords.lng}
+              data-title={event.data.venue ?? event.data.location}
+              aria-label={`Map of ${event.data.venue ?? event.data.location}`}
+            ></div>
+          )}
+          {coords && (
             <p class="meta-coord mono">{coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}</p>
           )}
           {event.data.gridRef && (
@@ -385,6 +400,38 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   </section>
 
 </main>
+
+{coords && (
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script is:inline>
+    // Render the venue map after Leaflet has loaded.
+    window.addEventListener('DOMContentLoaded', function () {
+      var el = document.getElementById('event-venue-map');
+      if (!el || typeof window.L === 'undefined') return;
+      var lat = parseFloat(el.dataset.lat);
+      var lng = parseFloat(el.dataset.lng);
+      var title = el.dataset.title || 'Event venue';
+      if (Number.isNaN(lat) || Number.isNaN(lng)) return;
+
+      var map = window.L.map(el, {
+        center: [lat, lng],
+        zoom: 14,
+        scrollWheelZoom: false,
+      });
+      window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+      window.L.marker([lat, lng]).addTo(map).bindPopup('<strong>' + title + '</strong>').openPopup();
+
+      // Allow scroll-wheel zoom only after the user clicks/touches the map,
+      // so they don't get hijacked while scrolling the page.
+      el.addEventListener('click', function () { map.scrollWheelZoom.enable(); });
+    });
+  </script>
+)}
 
 </Layout>
 
@@ -634,6 +681,28 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     color: var(--ink);
     margin: 0 0 6px 0;
     font-weight: 500;
+  }
+
+  /* Embedded venue map — Leaflet + OpenStreetMap. Sits at the top of
+     the Location block. Scroll-wheel zoom is disabled until the user
+     clicks/taps the map so they can scroll past it on the page. */
+  .event-venue-map {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 8px 0 12px 0;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+  }
+  .event-venue-map :global(.leaflet-popup-content) {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .event-venue-map :global(.leaflet-control-attribution) {
+    font-size: 9px;
+  }
+  @media print {
+    .event-venue-map { display: none; }
   }
   .meta-note {
     font-size: 13px;

@@ -7,11 +7,23 @@ lastReviewed: 2024-02-03
 wideLayout: true
 ---
 
+<img src="/assets/Maprun-logo.png" alt="MapRun app logo" class="maprun-mark" width="96" height="96" />
+
 All the courses below are available via the **MapRun app** for Android and iPhone — your phone beeps and vibrates when you reach each control site. No physical posts on the ground, no entry fee, run any time the venue is open.
 
 PFO's MapRun courses live in the **UK / Lancashire** folder inside the app, grouped by area below to help you pick something close to you. A handful of courses are organised by competition rather than location — for example the Rossendale Schools Sports Partnership ones, in `UK/Lancashire/Rossendale/RSSP`.
 
 Any course with **"Start Anywhere"** in the name lets you begin at any control rather than a fixed start point — useful if you'd like to start and finish near where you've parked.
+
+<div class="store-buttons">
+  <a class="store-btn" href="https://play.google.com/store/search?q=maprun&amp;c=apps" rel="noopener" aria-label="Get MapRun on Google Play">
+    <svg class="store-btn-icon" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gp-a" x1="3.5" y1="2" x2="14.5" y2="13"><stop offset="0" stop-color="#34a853"/><stop offset="1" stop-color="#1d9543"/></linearGradient><linearGradient id="gp-b" x1="14.5" y1="13" x2="3.5" y2="22"><stop offset="0" stop-color="#ea4335"/><stop offset="1" stop-color="#fbbc04"/></linearGradient><linearGradient id="gp-c" x1="14.5" y1="13" x2="22" y2="9"><stop offset="0" stop-color="#fbbc04"/><stop offset="1" stop-color="#fdd835"/></linearGradient><linearGradient id="gp-d" x1="3.5" y1="2" x2="14.5" y2="11"><stop offset="0" stop-color="#4285f4"/><stop offset="1" stop-color="#1a73e8"/></linearGradient></defs><path fill="url(#gp-d)" d="M3.5 2.2c-.3.2-.5.6-.5 1v17.6c0 .4.2.8.5 1l9.5-9.8z"/><path fill="url(#gp-a)" d="M16.7 8.3 13 12l-9.5-9.8c.1-.1.3-.1.5-.1.2 0 .4.1.6.2z"/><path fill="url(#gp-b)" d="M16.7 15.7 4.6 22.7c-.2.1-.4.2-.6.2-.2 0-.3 0-.5-.1L13 13z"/><path fill="url(#gp-c)" d="M21.2 11 17 8.6 13.4 12l3.6 3.4 4.2-2.4c.5-.3.8-.6.8-1s-.3-.7-.8-1z"/></svg>
+    <span class="store-btn-copy">
+      <span class="store-btn-eyebrow">Get it on</span>
+      <span class="store-btn-name">Google Play</span>
+    </span>
+  </a>
+</div>
 
 **Getting started:**
 

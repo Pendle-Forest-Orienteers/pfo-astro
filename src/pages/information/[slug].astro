@@ -343,6 +343,76 @@ const breadcrumbJsonLd = {
     margin-bottom: 4px;
   }
 
+  /* MapRun (and similar) logo inside info-page prose. Floats right of
+     the surrounding paragraph on wider screens; stacks on phones.
+     The size is driven by the inline width/height attributes on the
+     <img> so different pages can use different sizes. */
+  .info-prose :global(.maprun-mark) {
+    float: right;
+    margin: 0 0 12px 24px;
+    border-radius: 18%;
+    box-shadow: 0 6px 18px -8px rgba(27, 59, 98, 0.3);
+  }
+  @media (max-width: 600px) {
+    .info-prose :global(.maprun-mark) {
+      float: none;
+      display: block;
+      margin: 4px 0 16px 0;
+    }
+  }
+
+  /* App Store + Google Play download buttons */
+  .info-prose :global(.store-buttons) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 28px 0;
+    clear: both;
+  }
+  .info-prose :global(.store-btn) {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px 10px 16px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background .18s ease, transform .18s ease;
+    min-width: 200px;
+  }
+  .info-prose :global(.store-btn:hover) {
+    background: var(--navy);
+    color: var(--paper);
+    transform: translateY(-2px);
+    border-color: var(--navy);
+  }
+  .info-prose :global(.store-btn-icon) {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+  }
+  .info-prose :global(.store-btn-copy) {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .info-prose :global(.store-btn-eyebrow) {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 224, 0.75);
+    margin-bottom: 2px;
+  }
+  .info-prose :global(.store-btn-name) {
+    font-family: var(--ff-display);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--paper);
+  }
+
   /* Tables — horizontally scrollable inside their column when narrow,
      so a wide table (MapRun courses, POC courses) never overflows under
      the sticky sidebar. */
