@@ -427,9 +427,15 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero-backdrop::after {
   content: "";
   position: absolute; inset: 0;
+  /* Blend navy → plum across the gradient so the homepage hero carries both
+     club colours instead of just navy. Magenta is concentrated on the
+     right-hand side so it doesn't fight with the headline. */
   background:
-    linear-gradient(125deg, rgba(27, 59, 98, 0.92) 0%, rgba(27, 59, 98, 0.78) 55%, rgba(44, 89, 140, 0.68) 100%),
-    radial-gradient(1200px 600px at 20% 20%, rgba(153, 72, 144, 0.18), transparent 65%);
+    linear-gradient(125deg,
+      rgba(27, 59, 98, 0.92) 0%,
+      rgba(27, 59, 98, 0.85) 45%,
+      rgba(122, 58, 114, 0.72) 78%,
+      rgba(153, 72, 144, 0.55) 100%);
 }
 .contour-bg {
   position: absolute; inset: 0;
@@ -563,7 +569,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: var(--gold);
+  background: var(--plum);
 }
 .next-event::after {
   content: "";
@@ -650,6 +656,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   max-width: var(--max-w); margin: 0 auto;
   padding: clamp(20px, 3vw, 40px) var(--pad-x) clamp(32px, 4vw, 56px);
 }
+/* The "Also coming up" eyebrow on the homepage uses magenta instead of
+   the default gold-muted, to carry the brand colour through the section. */
+.upcoming .eyebrow { color: var(--plum); }
 .sec-head {
   display: flex; align-items: baseline; justify-content: space-between;
   margin-bottom: 24px; gap: 16px;
@@ -1056,7 +1065,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .news-body .more:hover { color: var(--gold); border-color: var(--gold); }
 
 .newcomer-cta {
-  background: var(--navy);
+  /* Magenta block — strong club-colour moment on the homepage. White text
+     on plum reads at AAA contrast (>7:1). Gold accents stay legible. */
+  background: var(--plum);
   color: var(--paper);
   padding: 32px 28px 28px;
   display: flex; flex-direction: column;
@@ -1068,7 +1079,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   position: absolute;
   top: -80px; right: -80px;
   width: 260px; height: 260px;
-  border: 2px solid rgba(244, 237, 224, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.10);
   border-radius: 50%;
 }
 .newcomer-cta::after {
@@ -1076,7 +1087,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   position: absolute;
   top: -40px; right: -40px;
   width: 180px; height: 180px;
-  border: 2px solid rgba(244, 237, 224, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.10);
   border-radius: 50%;
 }
 .newcomer-cta .eyebrow { color: var(--gold-bright); margin-bottom: 20px; position: relative; z-index: 1; }
