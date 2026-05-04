@@ -8,17 +8,6 @@ import PageHero from '../components/PageHero.astro';
   noindex={true}
 >
 
-<Fragment slot="head">
-  <!-- Pagefind UI assets. The /pagefind/ directory is generated AFTER
-       `astro build` runs (by the postbuild `pagefind --site dist` step), so
-       these 404 in dev mode — that's expected. They resolve correctly once
-       the site is built and previewed/deployed.
-       `is:inline` keeps the script out of Vite's bundler so it isn't
-       resolved at build time. -->
-  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-  <script is:inline src="/pagefind/pagefind-ui.js"></script>
-</Fragment>
-
 <main id="main">
 
   <PageHero
@@ -30,8 +19,29 @@ import PageHero from '../components/PageHero.astro';
 
   <section class="search-section">
     <div class="search-wrap">
-      <!-- Pagefind injects an input + live results into this container -->
-      <div id="search"></div>
+
+      <!-- Search form. Submits via JS to Pagefind's underlying API,
+           so results only fetch when you click Search rather than
+           on every keystroke. Falls back gracefully if JS is off. -->
+      <form id="search-form" class="search-form" autocomplete="off">
+        <label class="visually-hidden" for="search-input">Search the site</label>
+        <div class="search-row">
+          <input
+            id="search-input"
+            type="search"
+            name="q"
+            placeholder="Try a venue name, event format, or year…"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          >
+          <button type="submit" class="search-submit">Search →</button>
+        </div>
+      </form>
+
+      <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+
+      <ol id="search-results" class="search-results" aria-label="Search results"></ol>
 
       <noscript>
         <p class="search-help">
@@ -55,27 +65,99 @@ import PageHero from '../components/PageHero.astro';
     </div>
   </section>
 
-  <!-- Pagefind UI is an IIFE bundle that exposes a global `PagefindUI`
-       constructor. `is:inline` keeps Astro/Vite from rewriting the script. -->
-  <script is:inline>
-    window.addEventListener('DOMContentLoaded', function () {
-      if (typeof window.PagefindUI === 'function') {
-        new window.PagefindUI({
-          element: '#search',
-          showImages: false,
-          showSubResults: true,
-          resetStyles: false,
-          placeholder: 'Try a venue name, event format, or year…'
-        });
-      } else {
-        var el = document.getElementById('search');
-        if (el) {
-          el.innerHTML =
-            '<p class="search-help">Search will be available once the site is built. ' +
-            'For now, use the quick links below.</p>';
+  <!-- Pagefind low-level API. We use the underlying library directly
+       rather than PagefindUI so we control exactly when search runs
+       (only on submit), and surface real errors when something fails
+       rather than hanging silently. -->
+  <script is:inline type="module">
+    const form    = document.getElementById('search-form');
+    const input   = document.getElementById('search-input');
+    const status  = document.getElementById('search-status');
+    const results = document.getElementById('search-results');
+
+    let pagefind = null;
+
+    async function ensurePagefind() {
+      if (pagefind) return pagefind;
+      status.textContent = 'Loading search…';
+      try {
+        const mod = await import('/pagefind/pagefind.js');
+        if (typeof mod.options === 'function') {
+          await mod.options({ baseUrl: '/' });
         }
+        pagefind = mod;
+        return pagefind;
+      } catch (err) {
+        status.textContent = 'Could not load search engine: ' + err.message;
+        throw err;
       }
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, ch => ({
+        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+      }[ch]));
+    }
+
+    async function runSearch(query) {
+      results.innerHTML = '';
+      status.textContent = 'Searching…';
+      let pf;
+      try {
+        pf = await ensurePagefind();
+      } catch (e) { return; }
+
+      try {
+        const search = await pf.search(query);
+        if (!search || !search.results || search.results.length === 0) {
+          status.textContent = 'No results for "' + query + '". Try a different word, or use the quick links below.';
+          return;
+        }
+
+        const top = search.results.slice(0, 30);
+        const fetched = await Promise.all(top.map(r => r.data()));
+
+        status.textContent = 'Found ' + search.results.length + ' result' +
+          (search.results.length === 1 ? '' : 's') + ' for "' + query + '".';
+
+        const html = fetched.map(d => {
+          const title = d.meta && d.meta.title ? d.meta.title : d.url;
+          const excerpt = d.excerpt || '';
+          return '<li class="search-result">' +
+            '<a href="' + escapeHtml(d.url) + '">' +
+              '<h3>' + escapeHtml(title) + '</h3>' +
+              '<p class="search-result-excerpt">' + excerpt + '</p>' +
+              '<p class="search-result-url">' + escapeHtml(d.url) + '</p>' +
+            '</a>' +
+          '</li>';
+        }).join('');
+        results.innerHTML = html;
+      } catch (err) {
+        status.textContent = 'Search failed: ' + err.message + '. Try refreshing the page.';
+        console.error('[search] error:', err);
+      }
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) {
+        status.textContent = 'Type something first.';
+        return;
+      }
+      runSearch(q);
     });
+
+    // If the user arrived with ?q=foo (e.g. from the 404 page's search box),
+    // pre-fill and run the search immediately.
+    const params = new URLSearchParams(window.location.search);
+    const initial = params.get('q');
+    if (initial) {
+      input.value = initial;
+      runSearch(initial.trim());
+    } else {
+      input.focus();
+    }
   </script>
 
 </main>
@@ -122,48 +204,99 @@ import PageHero from '../components/PageHero.astro';
   .search-section { padding: clamp(40px, 5vw, 64px) var(--pad-x); }
   .search-wrap { max-width: 720px; margin: 0 auto; }
 
-  /* ── Pagefind UI overrides — keep it visually consistent with the rest of the site ── */
-  #search {
-    /* Pagefind reads CSS custom properties for colours; map ours onto theirs. */
-    --pagefind-ui-scale: 1;
-    --pagefind-ui-primary: var(--ink);
-    --pagefind-ui-text: var(--ink);
-    --pagefind-ui-background: var(--paper);
-    --pagefind-ui-border: var(--rule-2);
-    --pagefind-ui-tag: var(--paper-2);
-    --pagefind-ui-border-width: 1px;
-    --pagefind-ui-border-radius: 0;
-    --pagefind-ui-image-border-radius: 0;
-    --pagefind-ui-image-box-ratio: 3 / 2;
-    --pagefind-ui-font: var(--ff-body);
-
-    margin-bottom: 14px;
+  /* Search form */
+  .search-form { margin-bottom: 18px; }
+  .search-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
   }
-  /* Tighten the search input styling. Left padding leaves room for
-     Pagefind's magnifying-glass icon; right padding leaves room for the
-     "Clear" button when there's a query. */
-  #search :global(.pagefind-ui__search-input) {
-    padding: 14px 56px 14px 52px;
-    font-size: 18px;
+  .search-row input {
+    font-family: var(--ff-body);
+    font-size: 17px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule-2);
+    padding: 14px 16px;
+    transition: border-color .18s ease, background .18s ease;
+  }
+  .search-row input:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: -1px;
+    border-color: var(--ink);
     background: var(--paper);
   }
-  /* Slight nudge so the magnifying-glass icon sits cleanly inside the field */
-  #search :global(.pagefind-ui__search-clear) { right: 14px; }
-  #search :global(.pagefind-ui__search-input:focus) {
-    outline: 2px solid var(--gold);
-    outline-offset: -2px;
-    border-color: var(--ink);
+  .search-submit {
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 0;
+    cursor: pointer;
+    transition: background .18s, color .18s;
   }
-  #search :global(.pagefind-ui__result) {
+  .search-submit:hover {
+    background: var(--ink);
+    color: var(--gold);
+  }
+  @media (max-width: 520px) {
+    .search-row { grid-template-columns: 1fr; }
+  }
+
+  .search-status {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 18px 0;
+    min-height: 1.4em;
+  }
+
+  .search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .search-result {
     border-bottom: 1px solid var(--rule);
-    padding: 16px 0;
   }
-  #search :global(.pagefind-ui__result-title) {
+  .search-result a {
+    display: block;
+    padding: 18px 0;
+    color: var(--ink);
+    transition: background .18s ease;
+  }
+  .search-result a:hover { background: var(--paper-2); }
+  .search-result h3 {
     font-family: var(--ff-display);
     font-weight: 500;
+    font-size: 19px;
     color: var(--navy);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
   }
-  #search :global(.pagefind-ui__result-title a:hover) { color: var(--plum); }
+  .search-result a:hover h3 { color: var(--plum); }
+  .search-result-excerpt {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 6px 0;
+  }
+  .search-result-excerpt :global(mark) {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0 2px;
+    border-radius: 0;
+  }
+  .search-result-url {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin: 0;
+    word-break: break-all;
+  }
 
   .search-help {
     font-size: 13px;
