@@ -354,13 +354,15 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   .year-group:last-child { margin-bottom: 0; }
   .year-heading {
     font-family: var(--ff-display);
-    font-weight: 400;
+    font-weight: 600;
     font-size: 28px;
     line-height: 1;
-    letter-spacing: -0.01em;
-    font-variation-settings: "opsz" 36, "SOFT" 20;
+    letter-spacing: -0.02em;
     color: var(--navy);
     margin: 0 0 12px 0;
+    /* Magenta tick to the left of every year heading — subtle club-colour accent */
+    border-left: 4px solid var(--plum);
+    padding-left: 12px;
   }
 
   /* ─────────────────────────── Event list */

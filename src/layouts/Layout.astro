@@ -659,18 +659,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
-  border-bottom: 1px solid var(--ink);
+  color: var(--navy);
+  border-bottom: 1px solid var(--navy);
   padding-bottom: 2px;
   transition: color .2s, border-color .2s;
 }
-.sec-head .sec-link:hover { color: var(--gold); border-color: var(--gold); }
+.sec-head .sec-link:hover { color: var(--plum); border-color: var(--plum); }
 .event-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-top: 2px solid var(--navy);
+  border-bottom: 2px solid var(--plum);
 }
 .ev-card {
   padding: 22px 22px 26px;
@@ -681,7 +681,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   min-height: 160px;
 }
 .ev-card:last-child { border-right: 0; }
-.ev-card:hover { background: var(--paper-2); }
+.ev-card {
+  border-top: 3px solid transparent;
+  transition: background .2s ease, border-color .2s ease;
+}
+.ev-card:hover { background: var(--paper-2); border-top-color: var(--plum); }
 .ev-card time {
   font-family: var(--ff-mono);
   font-size: 11px;
@@ -1023,11 +1027,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .news-body .eyebrow { margin-bottom: 18px; }
 .news-body h2 {
   font-family: var(--ff-display);
-  font-weight: 500;
+  font-weight: 600;
   font-size: clamp(26px, 2.5vw, 36px);
   line-height: 1.1;
-  letter-spacing: -0.015em;
-  font-variation-settings: "opsz" 48, "SOFT" 20;
+  letter-spacing: -0.02em;
+  color: var(--navy);
   margin-bottom: 14px;
 }
 .news-body p {
@@ -1109,10 +1113,24 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ───────────────────────────── footer */
 .footer {
+  position: relative;
   background: var(--navy-deep);
   color: rgba(244, 237, 224, 0.75);
   padding: clamp(40px, 5vw, 64px) var(--pad-x) 28px;
-  border-top: 4px solid var(--gold);
+}
+/* Club-colour stripe across the top of the footer: gold + plum + navy
+   echoing the logo palette */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    var(--gold)  0%, var(--gold)  33.33%,
+    var(--plum)  33.33%, var(--plum)  66.66%,
+    var(--navy-soft) 66.66%, var(--navy-soft) 100%
+  );
 }
 .foot-wrap { max-width: var(--max-w); margin: 0 auto; }
 .foot-grid {

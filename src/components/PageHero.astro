@@ -43,9 +43,23 @@ const hasImage = !!hero.image;
      hide them when the markup is in a child component). The
      `.page-hero--photo` variant overrides selectively in Layout.astro. */
   .page-hero {
+    position: relative;
     background: var(--paper-2);
     border-bottom: 1px solid var(--rule);
-    padding: clamp(40px, 5vw, 80px) var(--pad-x) clamp(40px, 4vw, 64px);
+    padding: clamp(48px, 5vw, 84px) var(--pad-x) clamp(40px, 4vw, 64px);
+  }
+  /* Club-colour accent stripe — 4px navy + 4px magenta at the very top of
+     every inner page. Carries the PFO brand through every page. */
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(
+      to bottom,
+      var(--navy) 0%, var(--navy) 50%,
+      var(--plum) 50%, var(--plum) 100%
+    );
   }
   .page-hero-wrap {
     max-width: var(--max-w);
