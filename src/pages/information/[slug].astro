@@ -291,6 +291,58 @@ const breadcrumbJsonLd = {
   }
   .info-prose :global(a:hover) { color: var(--plum); }
 
+  /* Bullet-list links to documents (PDFs, Google Drive maps) get a small
+     file-style icon so the page reads as a proper list of downloads. */
+  .info-prose :global(li > a[href$=".pdf"]),
+  .info-prose :global(li > a[href*="drive.google.com"]),
+  .info-prose :global(li > a[href$=".docx"]),
+  .info-prose :global(li > a[href$=".xlsx"]) {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .info-prose :global(li > a[href$=".pdf"])::before,
+  .info-prose :global(li > a[href*="drive.google.com"])::before,
+  .info-prose :global(li > a[href$=".docx"])::before,
+  .info-prose :global(li > a[href$=".xlsx"])::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 16px;
+    flex: 0 0 14px;
+    background-color: var(--gold-muted);
+    /* Inline SVG of a generic document icon — masked so it picks up colour */
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none' stroke='currentColor' stroke-width='1.4'><path d='M2 1.5h7l3 3v10a.5.5 0 01-.5.5h-9.5a.5.5 0 01-.5-.5V2a.5.5 0 01.5-.5z'/><path d='M9 1.5V4.5h3'/><line x1='3.5' y1='8' x2='10.5' y2='8'/><line x1='3.5' y1='10.5' x2='10.5' y2='10.5'/><line x1='3.5' y1='13' x2='8' y2='13'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none' stroke='currentColor' stroke-width='1.4'><path d='M2 1.5h7l3 3v10a.5.5 0 01-.5.5h-9.5a.5.5 0 01-.5-.5V2a.5.5 0 01.5-.5z'/><path d='M9 1.5V4.5h3'/><line x1='3.5' y1='8' x2='10.5' y2='8'/><line x1='3.5' y1='10.5' x2='10.5' y2='10.5'/><line x1='3.5' y1='13' x2='8' y2='13'/></svg>");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transform: translateY(2px);
+  }
+  .info-prose :global(li > a[href$=".pdf"]:hover),
+  .info-prose :global(li > a[href*="drive.google.com"]:hover),
+  .info-prose :global(li > a[href$=".docx"]:hover),
+  .info-prose :global(li > a[href$=".xlsx"]:hover) {
+    color: var(--plum);
+    border-bottom-color: var(--plum);
+  }
+  .info-prose :global(li > a[href$=".pdf"]:hover)::before,
+  .info-prose :global(li > a[href*="drive.google.com"]:hover)::before,
+  .info-prose :global(li > a[href$=".docx"]:hover)::before,
+  .info-prose :global(li > a[href$=".xlsx"]:hover)::before {
+    background-color: var(--plum);
+  }
+
+  /* Tighten list spacing on POC-style download lists so the icons + lines
+     read as a list rather than dense prose. */
+  .info-prose :global(ul) :global(li) {
+    margin-bottom: 4px;
+  }
+
   /* Tables — horizontally scrollable inside their column when narrow,
      so a wide table (MapRun courses, POC courses) never overflows under
      the sticky sidebar. */
