@@ -7,6 +7,9 @@ const allMaps = (await getCollection('maps'))
   .filter(m => !m.data.draft)
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
+// Subset of mapped areas that have a permanent orienteering course (POC)
+const pocMaps = allMaps.filter(m => m.data.permanentCourse);
+
 // Group by terrain
 const terrainOrder = ['urban', 'parkland', 'forest', 'moorland', 'mtbo', 'mixed'] as const;
 const terrainLabel: Record<string, string> = {
@@ -32,8 +35,8 @@ const grouped = terrainOrder.map(t => ({
 })).filter(g => g.maps.length > 0);
 ---
 <Layout
-  title="Maps — Pendle Forest Orienteers"
-  description="The PFO map library — orienteering maps across Burnley, Pendle, Rossendale, Accrington and Blackburn."
+  title="Mapped areas — Pendle Forest Orienteers"
+  description="The PFO mapped-areas library — every venue PFO has surveyed across East Lancashire, plus permanent courses you can run any time."
 >
 
 <main id="main">
@@ -41,17 +44,55 @@ const grouped = terrainOrder.map(t => ({
   <!-- ─────────────────────────── Page hero -->
   <section class="page-hero">
     <div class="page-hero-wrap">
-      <p class="eyebrow rise d-1">Maps</p>
+      <p class="eyebrow rise d-1">Mapped areas</p>
       <h1 class="rise d-2">{allMaps.length} mapped areas across East Lancashire.</h1>
-      <p class="page-lede rise d-3">Every venue PFO has surveyed and run on, from town-centre street-Os to open moorland fells. Click any map to see it in detail.</p>
+      <p class="page-lede rise d-3">
+        Every venue PFO has surveyed and run on, from town-centre street-Os to open moorland fells.
+        For previous courses and routes, head to <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" class="rg-link">PFO RouteGadget →</a>
+      </p>
 
-      <nav class="terrain-jump rise d-4" aria-label="Jump to terrain">
+      <nav class="terrain-jump rise d-4" aria-label="Jump to section">
+        {pocMaps.length > 0 && (
+          <a href="#permanent-courses" class="poc-jump">⭐ Permanent courses ({pocMaps.length})</a>
+        )}
         {grouped.map(g => (
           <a href={`#${g.terrain}`}>{terrainLabel[g.terrain]} ({g.maps.length})</a>
         ))}
       </nav>
     </div>
   </section>
+
+  <!-- ─────────────────────────── Permanent courses (POCs) — venues you can run any time -->
+  {pocMaps.length > 0 && (
+    <section id="permanent-courses" class="terrain-section terrain-poc">
+      <div class="terrain-wrap">
+        <div class="sec-head">
+          <div>
+            <p class="eyebrow">Permanent courses (POCs)</p>
+            <p class="terrain-blurb">Mapped areas with permanent posts you can run any day of the week. Pick up the map, find the controls in any order, no event required. See the <a href="/information/anytime-orienteering">Anytime Orienteering page</a> for MapRun courses too.</p>
+          </div>
+          <span class="sec-count">{pocMaps.length} map{pocMaps.length === 1 ? '' : 's'}</span>
+        </div>
+        <ul class="map-grid">
+          {pocMaps.map(m => (
+            <li>
+              <a class="map-card" href={`/maps/${m.id}`}>
+                <div class="map-card-image">
+                  <img src={m.data.image} alt={m.data.imageAlt ?? m.data.title} loading="lazy">
+                </div>
+                <div class="map-card-body">
+                  <h3>{m.data.title}</h3>
+                  {m.data.nearTown && <p class="map-card-near">{m.data.nearTown}</p>}
+                  <p class="map-card-summary">{m.data.summary}</p>
+                  <span class="permanent-tag">Permanent course</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   <!-- ─────────────────────────── Map sections by terrain -->
   {grouped.map(({ terrain, maps }) => (

@@ -253,6 +253,11 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
               <span aria-hidden="true">→</span>
             </a>
           )}
+
+          <button class="link-row print-btn" type="button" onclick="window.print()">
+            <span>Print this page</span>
+            <span aria-hidden="true">⎙</span>
+          </button>
         </aside>
       </div>
     </div>
@@ -730,5 +735,90 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     .ev-hero-right { order: -1; }
     .ev-body-wrap { grid-template-columns: 1fr; }
     .ev-meta { position: static; }
+  }
+
+  /* ─────────────────────────── Print stylesheet
+     When the user prints an event page, strip the chrome (header, footer,
+     dark nav, social strip), drop background colours, force the content
+     into a single column, and stack the meta sidebar after the body so the
+     printout reads top-to-bottom like a one-page event briefing. */
+  @media print {
+    :global(.topbar),
+    :global(.footer),
+    :global(.skip),
+    :global(.announcement),
+    :global(.contour-divider),
+    :global(.social-strip),
+    .back-link,
+    .ev-hero-right,
+    .arrow,
+    .arrow-mono { display: none !important; }
+
+    :global(body) {
+      background: white !important;
+      color: black !important;
+      font-size: 11pt;
+    }
+    :global(a) { color: black !important; text-decoration: none !important; }
+    :global(a[href^="http"]:after) {
+      content: " (" attr(href) ")";
+      font-size: 9pt;
+      color: #444;
+      word-wrap: break-word;
+    }
+    .ev-hero,
+    .ev-body,
+    .ev-results {
+      background: white !important;
+      color: black !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+    .ev-hero { margin-bottom: 12pt; }
+    .ev-hero-grid { grid-template-columns: 1fr !important; gap: 12pt !important; }
+    .ev-hero-left h1 {
+      font-size: 22pt !important;
+      color: black !important;
+      margin: 0 0 6pt 0 !important;
+    }
+    .ev-key-facts {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8pt 18pt !important;
+      padding-top: 8pt !important;
+      border-top: 1px solid #999 !important;
+    }
+    .ev-body-wrap { grid-template-columns: 1fr !important; gap: 12pt !important; }
+    .ev-meta { display: block !important; }
+    .meta-block {
+      background: white !important;
+      border-left: 2px solid #333 !important;
+      padding: 6pt 10pt !important;
+      page-break-inside: avoid;
+    }
+    .ev-prose :global(h2),
+    .ev-prose :global(h3) { color: black !important; page-break-after: avoid; }
+    .ev-prose :global(p),
+    .ev-prose :global(li) {
+      color: black !important;
+      font-size: 11pt !important;
+      line-height: 1.4 !important;
+    }
+    .ev-prose :global(table) {
+      border-collapse: collapse;
+      width: 100%;
+      page-break-inside: avoid;
+    }
+    .ev-prose :global(th), .ev-prose :global(td) {
+      border: 1px solid #999;
+      padding: 4pt 6pt;
+      font-size: 10pt;
+    }
+    .results-list a {
+      background: white !important;
+      color: black !important;
+      border: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    .ev-results h2 { color: black !important; }
   }
 </style>

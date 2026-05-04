@@ -150,4 +150,24 @@ const infoPages = defineCollection({
   }),
 });
 
-export const collections = { events, news, maps, infoPages };
+// ─────── Announcements collection
+// Banner messages displayed on the homepage between two dates. Committee
+// uses these for last-minute event changes, weather warnings, AGM notices,
+// etc. The banner only renders if `today` is between validFrom and validUntil
+// AND `published: true`. Once the period elapses the banner disappears
+// automatically — but the announcement record stays for future reference.
+const announcements = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/announcements' }),
+  schema: z.object({
+    title: z.string(),               // e.g. "Brun Valley parking change"
+    message: z.string(),             // 1–2 sentences shown on the banner
+    validFrom: z.date(),
+    validUntil: z.date(),
+    severity: z.enum(['info', 'warning', 'urgent']).default('info'),
+    link: z.string().optional(),     // optional URL the banner links to
+    linkLabel: z.string().optional(),// custom label for the link
+    published: z.boolean().default(true),
+  }),
+});
+
+export const collections = { events, news, maps, infoPages, announcements };

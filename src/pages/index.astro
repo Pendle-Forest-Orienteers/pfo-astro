@@ -115,6 +115,29 @@ const upcoming = allEvents
 const nextEvent = upcoming[0];
 const alsoComingUp = upcoming.slice(1, 5);
 
+// ─────── Announcements — banners for the homepage. We pick the single
+// most-severe currently-valid announcement to display.
+const allAnnouncements = await getCollection('announcements');
+const activeAnnouncements = allAnnouncements
+  .filter(a => a.data.published
+            && a.data.validFrom <= now
+            && a.data.validUntil >= now)
+  .sort((a, b) => {
+    const order = { urgent: 0, warning: 1, info: 2 };
+    return order[a.data.severity] - order[b.data.severity];
+  });
+const activeAnnouncement = activeAnnouncements[0];
+
+// ─────── Latest results — most recent past event in the last 10 days that
+// has at least one results file. Shown on the homepage so people landing
+// the morning after an event can find their splits without hunting.
+const tenDaysAgo = new Date(now.getTime() - 10 * 24 * 60 * 60 * 1000);
+const latestResultEvent = allEvents
+  .filter(e => e.data.entryCloseDate < now
+            && e.data.date >= tenDaysAgo
+            && e.data.results && e.data.results.length > 0)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+
 // ─────── Data: most recent news article for the homepage
 const allNews = (await getCollection('news'))
   .filter(n => !n.data.draft)
@@ -173,6 +196,24 @@ const orgJsonLd = {
 </Fragment>
 
 <main id="main">
+
+  <!-- ─────────────────────────── ANNOUNCEMENT BANNER (only if active) -->
+  {activeAnnouncement && (
+    <aside class={`announcement announcement-${activeAnnouncement.data.severity}`} role="status">
+      <div class="announcement-wrap">
+        <span class="announcement-tag" aria-hidden="true">
+          {activeAnnouncement.data.severity === 'urgent' ? '⚠️' :
+           activeAnnouncement.data.severity === 'warning' ? '!' : 'i'}
+        </span>
+        <p class="announcement-msg">{activeAnnouncement.data.message}</p>
+        {activeAnnouncement.data.link && (
+          <a class="announcement-link" href={activeAnnouncement.data.link} rel="noopener">
+            {activeAnnouncement.data.linkLabel ?? 'Read more'} →
+          </a>
+        )}
+      </div>
+    </aside>
+  )}
 
   <!-- ─────────────────────────── HERO -->
   <section class="hero">
@@ -254,6 +295,36 @@ const orgJsonLd = {
       ))}
     </ul>
   </section>
+
+  <!-- ─────────────────────────── LATEST RESULTS (only if a recent event has them) -->
+  {latestResultEvent && (
+    <section class="latest-results" aria-label="Latest results">
+      <div class="latest-results-wrap">
+        <div class="lr-text">
+          <p class="eyebrow">Latest results</p>
+          <h2>{latestResultEvent.data.title}</h2>
+          <p class="lr-when">
+            <time datetime={latestResultEvent.data.date.toISOString()}>{fmtCardDate(latestResultEvent.data.date)}</time>
+            <span aria-hidden="true"> · </span>
+            <span>{latestResultEvent.data.format}</span>
+            {latestResultEvent.data.location && <><span aria-hidden="true"> · </span><span>{latestResultEvent.data.location}</span></>}
+          </p>
+        </div>
+        <ul class="lr-files">
+          {latestResultEvent.data.results.slice(0, 3).map(file => (
+            <li>
+              <a href={file.url} rel="noopener">
+                <span class="lr-tag" data-type={file.type}>{file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}</span>
+                <span class="lr-label">{file.label}</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="lr-event-link" href={`/events/${latestResultEvent.id}`}>Full event page →</a>
+      </div>
+    </section>
+  )}
 
   <!-- ─────────────────────────── SOCIAL STRIP -->
   <section class="social-strip" aria-label="Follow us on social media">

@@ -202,6 +202,34 @@ collections:
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
       - { name: "body", label: "Long-form description", widget: "markdown", required: false, hint: "Area history, access notes, parking, hazards, etc." }
 
+  # ─── ANNOUNCEMENTS ───────────────────────────────────────────────────────
+  - name: "announcements"
+    label: "Announcements"
+    label_singular: "Announcement"
+    description: "Banner messages on the homepage. Used for last-minute event changes, weather warnings, AGM notices, etc. The banner shows only between the validFrom and validUntil dates."
+    folder: "src/content/announcements"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} ({{validFrom | date('YYYY-MM-DD')}} → {{validUntil | date('YYYY-MM-DD')}})"
+    sort: "validFrom:desc"
+    fields:
+      - { name: "title", label: "Internal title", widget: "string", hint: "For committee reference, not shown publicly. e.g. 'Brun Valley parking change'" }
+      - { name: "message", label: "Banner message", widget: "text", hint: "1–2 sentences. Shown on the homepage between the dates below." }
+      - { name: "validFrom",  label: "Show from",  widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - { name: "validUntil", label: "Show until", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - name: "severity"
+        label: "Severity"
+        widget: "select"
+        default: "info"
+        options:
+          - { label: "Info (gold)",   value: "info" }
+          - { label: "Warning (plum)", value: "warning" }
+          - { label: "Urgent (red)",   value: "urgent" }
+      - { name: "link",      label: "Link URL (optional)", widget: "string", required: false, hint: "If filled in, banner becomes clickable" }
+      - { name: "linkLabel", label: "Link label",          widget: "string", required: false, hint: "e.g. 'See full details →'" }
+      - { name: "published", label: "Published",           widget: "boolean", default: true }
+
   # ─── INFO PAGES ──────────────────────────────────────────────────────────
   - name: "infoPages"
     label: "Information pages"

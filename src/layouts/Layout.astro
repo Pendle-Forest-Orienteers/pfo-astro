@@ -96,9 +96,17 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
   --mist:      #a3b4c4;   /* tertiary cool neutral */
 
-  --ff-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --ff-body:    "IBM Plex Sans", -apple-system, Segoe UI, Roboto, sans-serif;
-  --ff-mono:    "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  /* Display font cascade: Fraunces is loaded from Google Fonts. If that
+     fails (firewall, ad-blocker, slow connection), fall through a stack
+     of decent system serifs in priority order. We deliberately omit
+     Times New Roman from the cascade — its rendering on Windows is poor
+     and clients have flagged seeing it. */
+  --ff-display: "Fraunces", "Charter", "Iowan Old Style", "Apple Garamond",
+                "Palatino", Georgia, ui-serif, serif;
+  --ff-body:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ff-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+                "Liberation Mono", monospace;
 
   --max-w: 1360px;
   --pad-x: clamp(20px, 4.5vw, 56px);
@@ -181,14 +189,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   gap: 24px;
 }
 .wordmark {
-  display: inline-flex; align-items: center; gap: 14px;
+  display: inline-flex; align-items: center; gap: 16px;
   font-family: var(--ff-display);
-  font-size: 19px;
+  font-size: 21px;
   font-weight: 500;
   letter-spacing: -0.01em;
   font-variation-settings: "opsz" 14, "SOFT" 20;
 }
-.wordmark .club-logo { width: 44px; height: 44px; flex: 0 0 44px; display: block; }
+.wordmark .club-logo { width: 64px; height: 64px; flex: 0 0 64px; display: block; }
 .wordmark small {
   display: block;
   font-family: var(--ff-mono);
@@ -291,6 +299,62 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     font-size: 14px; font-weight: 500; color: var(--ink);
   }
 }
+
+/* ───────────────────────────── homepage announcement banner */
+.announcement {
+  border-bottom: 1px solid var(--rule);
+}
+.announcement-wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px var(--pad-x);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.announcement-tag {
+  font-family: var(--ff-mono);
+  font-size: 13px;
+  font-weight: 600;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  flex: 0 0 26px;
+  color: var(--ink);
+}
+.announcement-msg {
+  flex: 1 1 auto;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  font-weight: 500;
+  min-width: 200px;
+}
+.announcement-link {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color .18s, border-color .18s;
+}
+.announcement-link:hover { color: var(--plum); border-color: var(--plum); }
+
+.announcement-info    { background: var(--gold); }
+.announcement-info    .announcement-tag { background: var(--ink); color: var(--gold); }
+.announcement-warning { background: var(--plum); color: var(--paper); }
+.announcement-warning .announcement-msg { color: var(--paper); }
+.announcement-warning .announcement-link { color: var(--paper); border-color: var(--paper); }
+.announcement-warning .announcement-tag { background: var(--paper); color: var(--plum); }
+.announcement-urgent  { background: #b71c1c; color: var(--paper); }
+.announcement-urgent  .announcement-msg { color: var(--paper); }
+.announcement-urgent  .announcement-link { color: var(--paper); border-color: var(--paper); }
+.announcement-urgent  .announcement-tag { background: var(--paper); color: #b71c1c; }
 
 /* ───────────────────────────── HERO */
 .hero {
@@ -619,6 +683,86 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   transform: translateX(-4px);
 }
 .ev-card:hover .arrow-mono { opacity: 1; transform: translateX(0); color: var(--gold); }
+
+/* ───────────────────────────── latest results (homepage) */
+.latest-results {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 40px) var(--pad-x) clamp(24px, 4vw, 56px);
+}
+.latest-results-wrap {
+  background: var(--navy);
+  color: var(--paper);
+  border-top: 4px solid var(--gold);
+  padding: clamp(22px, 3vw, 32px);
+  display: grid;
+  grid-template-columns: 1.2fr 1.4fr auto;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: center;
+}
+.lr-text .eyebrow { color: var(--gold-bright); margin-bottom: 12px; }
+.lr-text .eyebrow::before { background: var(--gold-bright); }
+.lr-text h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36, "SOFT" 20;
+  margin: 0 0 8px 0;
+  color: var(--paper);
+}
+.lr-when {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240, 243, 247, 0.7);
+  margin: 0;
+}
+.lr-files { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.lr-files a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--paper);
+  font-size: 14px;
+  transition: background .18s ease, color .18s ease;
+}
+.lr-files a:hover { background: var(--gold); color: var(--ink); }
+.lr-tag {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: var(--gold);
+  color: var(--ink);
+}
+.lr-files a:hover .lr-tag { background: var(--ink); color: var(--gold); }
+.lr-label { font-weight: 500; }
+.lr-event-link {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border-bottom: 1px solid var(--gold-bright);
+  padding-bottom: 2px;
+  align-self: center;
+  white-space: nowrap;
+  transition: color .18s ease, border-color .18s ease;
+}
+.lr-event-link:hover { color: var(--paper); border-color: var(--paper); }
+
+@media (max-width: 880px) {
+  .latest-results-wrap { grid-template-columns: 1fr; gap: 20px; }
+  .lr-event-link { justify-self: start; }
+}
 
 /* ───────────────────────────── social strip */
 .social-strip {

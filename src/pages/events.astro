@@ -50,9 +50,42 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
         <a href="#upcoming">Upcoming ({upcoming.length})</a>
         <span aria-hidden="true">·</span>
         <a href="#past">Past results ({past.length})</a>
+        <span aria-hidden="true">·</span>
+        <a href="/events.ics">📅 Subscribe to calendar</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.britishorienteering.org.uk/event_listing" rel="noopener">BOF event listings →</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener">RouteGadget →</a>
       </nav>
     </div>
   </section>
+
+  <!-- ─────────────────────────── Map view (only renders if there are upcoming events with coords) -->
+  {upcoming.some(e => e.data.coords) && (
+    <section id="map" class="event-map-section" aria-label="Upcoming events on a map">
+      <div id="events-map"
+           class="events-map"
+           data-events={JSON.stringify(
+             upcoming
+               .filter(e => e.data.coords)
+               .map(e => ({
+                 lat: e.data.coords!.lat,
+                 lng: e.data.coords!.lng,
+                 title: e.data.title,
+                 url: `/events/${e.id}`,
+                 date: new Intl.DateTimeFormat('en-GB',
+                   { weekday: 'short', day: 'numeric', month: 'short' })
+                   .format(e.data.date),
+                 format: e.data.format,
+                 location: e.data.location,
+               }))
+           )}>
+      </div>
+      <noscript>
+        <p class="empty">The map view needs JavaScript to render. The list below works without it.</p>
+      </noscript>
+    </section>
+  )}
 
   <!-- ─────────────────────────── Upcoming events -->
   <section id="upcoming" class="event-section">
@@ -136,7 +169,73 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 </Layout>
 
+<Fragment slot="head">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="" />
+</Fragment>
+
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+<script is:inline>
+  // Render the events map after Leaflet has loaded.
+  window.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('events-map');
+    if (!el || typeof window.L === 'undefined') return;
+    var events = [];
+    try { events = JSON.parse(el.dataset.events || '[]'); } catch (e) {}
+    if (events.length === 0) return;
+
+    // Fit map to all event coords
+    var lats = events.map(function (e) { return e.lat; });
+    var lngs = events.map(function (e) { return e.lng; });
+    var bounds = [
+      [Math.min.apply(null, lats), Math.min.apply(null, lngs)],
+      [Math.max.apply(null, lats), Math.max.apply(null, lngs)],
+    ];
+
+    var map = L.map(el, { scrollWheelZoom: false }).fitBounds(bounds, { padding: [40, 40] });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+
+    events.forEach(function (e) {
+      var popup =
+        '<strong><a href="' + e.url + '">' + e.title + '</a></strong><br>' +
+        e.date + ' · ' + e.format +
+        (e.location ? ' · ' + e.location : '');
+      L.marker([e.lat, e.lng]).addTo(map).bindPopup(popup);
+    });
+  });
+</script>
+
 <style>
+  /* ─────────────────────────── Events map (Leaflet) */
+  .event-map-section {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: clamp(20px, 3vw, 40px) var(--pad-x) clamp(8px, 2vw, 16px);
+  }
+  .events-map {
+    height: clamp(280px, 40vh, 440px);
+    width: 100%;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+  }
+  .events-map :global(a) { color: var(--navy); }
+  .events-map :global(.leaflet-popup-content) {
+    font-family: var(--ff-body);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .events-map :global(.leaflet-popup-content strong a) {
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 2px;
+  }
+
   /* ─────────────────────────── Page hero (smaller than homepage hero) */
   .page-hero {
     background: var(--paper-2);
