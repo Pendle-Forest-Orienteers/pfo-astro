@@ -197,7 +197,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   letter-spacing: -0.01em;
   font-variation-settings: "opsz" 14, "SOFT" 20;
 }
-.wordmark .club-logo { width: 64px; height: 64px; flex: 0 0 64px; display: block; }
+.wordmark .club-logo { width: 80px; height: 80px; flex: 0 0 80px; display: block; }
 .wordmark small {
   display: block;
   font-family: var(--ff-mono);
@@ -1146,10 +1146,20 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .foot-wrap { max-width: var(--max-w); margin: 0 auto; }
 .foot-grid {
   display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
+  /* Brand sits on top spanning the full width; the 4 link columns
+     (Events, Get involved, Maps, Club) sit on a single plane below.
+     Wraps on narrow screens via the media queries below. */
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px 24px;
   padding-bottom: 32px;
   border-bottom: 1px solid rgba(244, 237, 224, 0.1);
+}
+.foot-grid > div:first-child { grid-column: 1 / -1; }
+@media (max-width: 900px) {
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .foot-grid { grid-template-columns: 1fr; }
 }
 .foot-grid .brand-small {
   font-family: var(--ff-display);
