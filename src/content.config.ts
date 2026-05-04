@@ -133,6 +133,9 @@ const maps = defineCollection({
     // for internal records and future use if licensing changes.
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    // Direct link to this specific area's RouteGadget entry (preferred).
+    // If unset we fall back to the public RG index.
+    routeGadgetUrl: z.string().optional(),
     summary: z.string(),                     // one-line description for cards
     draft: z.boolean().optional(),
   }),

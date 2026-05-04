@@ -285,6 +285,7 @@ collections:
       # licensing changes — but is now optional.
       - { name: "image", label: "Map image (internal only — not shown publicly)", widget: "image", required: false, hint: "Optional — for committee records. Not displayed on the live site." }
       - { name: "imageAlt", label: "Map image alt text", widget: "string", required: false }
+      - { name: "routeGadgetUrl", label: "RouteGadget URL", widget: "string", required: false, hint: "Direct link to this area on RouteGadget — e.g. https://www.pfo.routegadget.co.uk/rg2/?map=42 — leave blank to fall back to the RG index." }
       - { name: "summary", label: "Card description", widget: "string", hint: "1-line description shown on the map library page." }
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
       - { name: "body", label: "Long-form description", widget: "markdown", required: false, hint: "Area history, access notes, parking, hazards, etc." }

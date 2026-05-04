@@ -38,6 +38,11 @@ const coords = map.data.coords;
 const mapsLink = coords
   ? `https://www.google.com/maps/place/${coords.lat},${coords.lng}/@${coords.lat},${coords.lng},14z`
   : null;
+
+// Per-map RouteGadget URL when set; fall back to the public RG index so
+// the link is never broken if the committee hasn't populated this one yet.
+const routeGadgetUrl = map.data.routeGadgetUrl ?? "https://www.pfo.routegadget.co.uk/rg2/";
+const hasSpecificRg = !!map.data.routeGadgetUrl;
 ---
 <Layout
   title={`${map.data.title} — Map — PFO`}
@@ -77,9 +82,13 @@ const mapsLink = coords
       <aside class="map-meta">
         <div class="meta-block meta-block--rg">
           <p class="meta-label">Routes &amp; results</p>
-          <p class="meta-rg-copy">PFO doesn't publish the orienteering map itself (copyright sits with the individual surveyors). Members can see routes, splits and previous events on RouteGadget.</p>
-          <a class="meta-rg-cta" href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" target="_blank">
-            Open RouteGadget →
+          <p class="meta-rg-copy">
+            {hasSpecificRg
+              ? <>See route choices, splits and previous events at <strong>{map.data.title}</strong> on RouteGadget.</>
+              : <>PFO doesn't publish the orienteering map itself (copyright sits with the individual surveyors). Members can find routes and previous events on RouteGadget.</>}
+          </p>
+          <a class="meta-rg-cta" href={routeGadgetUrl} rel="noopener" target="_blank">
+            {hasSpecificRg ? "Open this map on RouteGadget →" : "Open RouteGadget →"}
           </a>
         </div>
 
