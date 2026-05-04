@@ -684,11 +684,12 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   }
 
   /* Embedded venue map — Leaflet + OpenStreetMap. Sits at the top of
-     the Location block. Scroll-wheel zoom is disabled until the user
-     clicks/taps the map so they can scroll past it on the page. */
+     the Location block. Compact ~140px tall so it gives a clear sense
+     of place without dominating the sidebar. Scroll-wheel zoom stays
+     off until the user clicks/taps so the page is scrollable past it. */
   .event-venue-map {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 140px;
     margin: 8px 0 12px 0;
     background: var(--paper-2);
     border: 1px solid var(--rule);
