@@ -44,6 +44,17 @@
 # WordPress dated permalinks — collapse to /news/<slug>
 /20*/*/*/*              /news/:splat               301
 
+# ─── Specific old PFO news + info article URLs that have moved to /information
+# (these were "topic" posts on the old site that now live as proper info pages)
+/news/permanent-orienteering-courses-pocs            /information/permanent-orienteering-courses   301
+/news/maprun-a-new-version-of-the-app-is-now-available  /information/maprun-orienteering-courses    301
+/info/anytime-orienteering                           /information/anytime-orienteering              301
+/info/permanent-orienteering-courses                 /information/permanent-orienteering-courses    301
+/info/maprun-orienteering-courses                    /information/maprun-orienteering-courses       301
+/permanent-orienteering-courses                      /information/permanent-orienteering-courses    301
+/maprun                                              /information/maprun-orienteering-courses       301
+/anytime-orienteering                                /information/anytime-orienteering              301
+
 # ─── Maps ────────────────────────────────────────────────────────────────────
 /map/*                  /maps/:splat               301
 /areas                  /maps                      301

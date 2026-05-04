@@ -153,6 +153,10 @@ const infoPages = defineCollection({
     order: z.number().optional(),
     lastReviewed: z.date().optional(),
     draft: z.boolean().optional(),
+    /** Use the full-width layout (no right sidebar, sibling links collapsed
+     *  into a small dropdown). Use for pages with wide tables that need the
+     *  whole content area — e.g. POC course tables. */
+    wideLayout: z.boolean().optional(),
   }),
 });
 

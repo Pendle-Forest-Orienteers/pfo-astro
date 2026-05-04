@@ -66,21 +66,38 @@ const breadcrumbJsonLd = {
     </div>
   </section>
 
-  <section class="info-page-body">
+  <section class={`info-page-body ${page.data.wideLayout ? 'info-page-body--wide' : ''}`}>
     <div class="info-page-body-wrap">
+      {page.data.wideLayout && (
+        <details class="info-page-dropdown">
+          <summary>
+            <span class="dropdown-label">Other information</span>
+            <span class="dropdown-arrow" aria-hidden="true">▾</span>
+          </summary>
+          <ul>
+            {allPages.map(p => (
+              <li><a href={`/information/${p.id}`}>{p.data.title}</a></li>
+            ))}
+            <li><a class="all-info-link" href="/information">All information →</a></li>
+          </ul>
+        </details>
+      )}
+
       <article class="info-prose">
         <Content />
       </article>
 
-      <aside class="info-page-aside">
-        <p class="aside-label">Other information</p>
-        <ul>
-          {allPages.map(p => (
-            <li><a href={`/information/${p.id}`}>{p.data.title}</a></li>
-          ))}
-          <li><a href="/information">All information →</a></li>
-        </ul>
-      </aside>
+      {!page.data.wideLayout && (
+        <aside class="info-page-aside">
+          <p class="aside-label">Other information</p>
+          <ul>
+            {allPages.map(p => (
+              <li><a href={`/information/${p.id}`}>{p.data.title}</a></li>
+            ))}
+            <li><a href="/information">All information →</a></li>
+          </ul>
+        </aside>
+      )}
     </div>
   </section>
 
@@ -160,8 +177,73 @@ const breadcrumbJsonLd = {
     gap: clamp(32px, 4vw, 56px);
     align-items: start;
   }
+  /* Wide layout (used for pages with wide tables — e.g. POCs).
+     Single full-width column, sibling links collapse into a dropdown
+     above the prose. */
+  .info-page-body--wide .info-page-body-wrap {
+    display: block;
+  }
+  .info-page-dropdown {
+    margin: 0 0 28px 0;
+    background: var(--paper-2);
+    border-left: 3px solid var(--plum);
+  }
+  .info-page-dropdown > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: background .18s ease;
+  }
+  .info-page-dropdown > summary::-webkit-details-marker { display: none; }
+  .info-page-dropdown > summary:hover { background: var(--paper-3); }
+  .info-page-dropdown > summary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+  }
+  .dropdown-label {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .dropdown-arrow {
+    font-family: var(--ff-display);
+    font-size: 16px;
+    color: var(--plum);
+    transition: transform .22s ease;
+  }
+  .info-page-dropdown[open] .dropdown-arrow { transform: rotate(180deg); }
+  .info-page-dropdown ul {
+    list-style: none;
+    padding: 6px 18px 16px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 4px 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .info-page-dropdown li { margin: 0; }
+  .info-page-dropdown a {
+    display: block;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .info-page-dropdown a:hover { color: var(--plum); border-bottom-color: var(--plum); }
+  .info-page-dropdown .all-info-link { color: var(--plum); font-weight: 500; }
 
-  .info-prose { max-width: 65ch; }
+  /* The prose container fills its grid column so wide tables (e.g. MapRun
+     courses, POC courses) can use the full available width. Individual
+     text elements get their own narrow max-width below for readability. */
+  .info-prose { min-width: 0; }
   .info-prose :global(h2) {
     font-family: var(--ff-display);
     font-weight: 500;
@@ -171,6 +253,7 @@ const breadcrumbJsonLd = {
     font-variation-settings: "opsz" 36, "SOFT" 20;
     color: var(--navy);
     margin: 32px 0 12px 0;
+    max-width: 30ch;
   }
   .info-prose :global(h2:first-child) { margin-top: 0; }
   .info-prose :global(h3) {
@@ -179,17 +262,20 @@ const breadcrumbJsonLd = {
     font-size: 19px;
     color: var(--ink);
     margin: 24px 0 8px 0;
+    max-width: 40ch;
   }
   .info-prose :global(p) {
     font-size: 16px;
     line-height: 1.65;
     color: var(--ink);
     margin: 0 0 16px 0;
+    max-width: 65ch;
   }
   .info-prose :global(strong) { font-weight: 500; }
   .info-prose :global(ul), .info-prose :global(ol) {
     margin: 0 0 18px 1.4em;
     padding: 0;
+    max-width: 65ch;
   }
   .info-prose :global(li) {
     font-size: 16px;
@@ -205,11 +291,54 @@ const breadcrumbJsonLd = {
   }
   .info-prose :global(a:hover) { color: var(--plum); }
 
+  /* Tables — horizontally scrollable inside their column when narrow,
+     so a wide table (MapRun courses, POC courses) never overflows under
+     the sticky sidebar. */
+  .info-prose :global(table) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 18px 0 24px 0;
+    font-size: 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .info-prose :global(thead) { background: var(--paper-2); }
+  .info-prose :global(th) {
+    text-align: left;
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--ink);
+    vertical-align: top;
+  }
+  .info-prose :global(td) {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+    color: var(--ink);
+    min-width: 120px;
+  }
+  .info-prose :global(tr:hover td) { background: var(--paper-2); }
+  .info-prose :global(table a) { word-break: break-word; }
+
   .info-page-aside {
     background: var(--paper-2);
     padding: 18px;
     border-left: 3px solid var(--plum);
-    position: sticky; top: 24px;
+    position: sticky;
+    top: 24px;
+    /* Cap height + scroll internally so a very long sidebar can't run
+       past the page itself; also avoids any visual collision with wide
+       tables in the prose column. */
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
   }
   .aside-label {
     font-family: var(--ff-mono);

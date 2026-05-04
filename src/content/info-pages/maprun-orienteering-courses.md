@@ -1,9 +1,9 @@
 ---
-title: "Maprun Orienteering Courses"
-summary: "All the courses shown below are available via the MaprunF App that is available for both Android and iOS phones"
+title: "MapRun Orienteering Courses"
+summary: "Free virtual orienteering courses across East Lancashire. Use the MapRun smartphone app — no physical posts, no entry fee, your phone beeps when you reach each control."
 section: participation
-lastReviewed: 2021-12-23
-draft: true   # review and remove this line to publish
+order: 3
+lastReviewed: 2024-02-03
 ---
 
 All the courses shown below are available via the MaprunF App that is available for both Android and iOS phones.

@@ -1,9 +1,10 @@
 ---
 title: "Permanent Orienteering Courses"
-summary: "Pendle Forest Orienteering club have a small number of POC's"
+summary: "PFO maintains seven Permanent Orienteering Courses (POCs) across East Lancashire. Try one any day at a time and place that suits you — no event entry needed."
 section: participation
+order: 2
 lastReviewed: 2026-02-04
-draft: true   # review and remove this line to publish
+wideLayout: true
 ---
 
 Pendle Forest Orienteering club have a small number of POC's.

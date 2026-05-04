@@ -345,4 +345,5 @@ collections:
       - { name: "order", label: "Sort order within section", widget: "number", required: false, value_type: "int" }
       - { name: "lastReviewed", label: "Last reviewed", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, required: false }
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
+      - { name: "wideLayout", label: "Use full-width layout (for pages with wide tables)", widget: "boolean", default: false, required: false, hint: "Hides the right-hand 'Other information' sidebar and shows it as a small dropdown above the page instead. Use this when the page has wide tables — e.g. POC courses." }
       - { name: "body", label: "Page content", widget: "markdown" }
