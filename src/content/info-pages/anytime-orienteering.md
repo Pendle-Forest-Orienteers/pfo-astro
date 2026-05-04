@@ -8,7 +8,7 @@ lastReviewed: 2024-02-22
 
 **Anytime Orienteering courses are ones where you can take part anytime when it is convenient for yourself.**
 
-Some make use of the **MapRun App** which can be downloaded for either Android or iOS and there are no physical controls on the ground. Others are [Permanent Orienteering](/information/permanent-orienteering-courses) courses in local parks which make use of fixed posts with orienteering markers attached, whilst some others are just based upon a paper map.
+Some make use of the [**MapRun App**](/information/maprun-orienteering-courses) which can be downloaded for either Android or iOS and there are no physical controls on the ground. Others are [Permanent Orienteering](/information/permanent-orienteering-courses) courses in local parks which make use of fixed posts with orienteering markers attached, whilst some others are just based upon a paper map.
 
 There will be different ways that you can participate in "Virtual Orienteering" — in some instances each course will be available in different formats. The events will use a variety of different map styles ranging from conventional orienteering maps, OpenOrienteeringMap maps or OS maps.
 
@@ -22,14 +22,14 @@ You can either navigate using the map on your mobile phone or print off a paper 
 
 Once you have completed your run, your results will get automatically uploaded to a server and you can download your GPS track to then upload into the corresponding RouteGadget event.
 
-More details can be found via the MapRun Orienteering course link on this page.
+[See PFO's full list of MapRun courses →](/information/maprun-orienteering-courses)
 
 [Here is a brief overview of using MapRun](/documents/Maprun20updated.docx).
 
 ## Lamp-post Orienteering
 
-Details of a number of "Lamp-post" orienteering courses can be found [here](/news/lamp-post-orienteering).
+PFO has run a number of "lamp-post" orienteering courses — short urban routes where the controls are numbered lamp-posts you tick off as you go. Keep an eye on the [events calendar](/events) for the next one, or follow us on Facebook for last-minute fixtures.
 
 ## Permanent Orienteering Courses
 
-Details of PFO's Permanent Orienteering Courses (POCs) can be found [here](/information/permanent-orienteering-courses).
+Details of PFO's [Permanent Orienteering Courses (POCs)](/information/permanent-orienteering-courses) can be found here — fixed posts in seven local parks across East Lancashire.
