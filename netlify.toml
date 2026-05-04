@@ -1,0 +1,24 @@
+# Pendle Forest Orienteers — Netlify build configuration
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Skip the secret scanner over directories that contain mirrored 3rd-party
+  # HTML / sample files where harmless API keys legitimately appear in source.
+  SECRETS_SCAN_OMIT_PATHS = "public/results-archive/**,dist/results-archive/**"
+
+# Pretty URLs without trailing slashes
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Surface form submissions (committee contact form) in the Netlify dashboard.
+# Email notifications are configured in: Site → Forms → Settings & usage.
+[forms]
+  # Implicit; this block is here so the form-detection setting is documented.

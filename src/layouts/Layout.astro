@@ -96,6 +96,12 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
   --mist:      #a3b4c4;   /* tertiary cool neutral */
 
+  /* Status colours — used by announcement banners and form success notes */
+  --alert:     #b71c1c;   /* urgent / error */
+  --success-bg:     #d8efdd;
+  --success-text:   #0f3818;
+  --success-border: #6ab47a;
+
   /* Display and body share the same IBM Plex Sans stack — by client request,
      to avoid the serif fallback rendering as Times New Roman on networks
      where Google Fonts is blocked. Headings carry weight via font-weight
@@ -395,10 +401,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .announcement-warning .announcement-msg { color: var(--paper); }
 .announcement-warning .announcement-link { color: var(--paper); border-color: var(--paper); }
 .announcement-warning .announcement-tag { background: var(--paper); color: var(--plum); }
-.announcement-urgent  { background: #b71c1c; color: var(--paper); }
+.announcement-urgent  { background: var(--alert); color: var(--paper); }
 .announcement-urgent  .announcement-msg { color: var(--paper); }
 .announcement-urgent  .announcement-link { color: var(--paper); border-color: var(--paper); }
-.announcement-urgent  .announcement-tag { background: var(--paper); color: #b71c1c; }
+.announcement-urgent  .announcement-tag { background: var(--paper); color: var(--alert); }
 
 /* ───────────────────────────── HERO */
 .hero {
@@ -1285,20 +1291,45 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 </script>
 
 <!-- Netlify Identity widget — handles committee logins for the /admin CMS.
-     Loads on every page so email-invite links work from any URL. -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" is:inline></script>
+     Loaded lazily on non-admin pages so it doesn't bloat the homepage payload
+     for ordinary visitors. The widget is still needed everywhere so that
+     email-invite confirmation links land correctly on any page, but we defer
+     the network fetch until the browser is idle. -->
 <script is:inline>
-  // After a successful login, redirect the user to the admin area.
-  // (If they're already on /admin, the CMS handles login itself.)
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", function(user) {
-      if (!user) {
-        window.netlifyIdentity.on("login", function() {
-          document.location.href = "/admin/";
+  (function () {
+    function loadIdentity() {
+      var s = document.createElement('script');
+      s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+      s.async = true;
+      s.onload = function () {
+        if (!window.netlifyIdentity) return;
+        window.netlifyIdentity.on('init', function (user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function () {
+              document.location.href = '/admin/';
+            });
+          }
         });
-      }
-    });
-  }
+      };
+      document.head.appendChild(s);
+    }
+    // Load immediately on /admin (the CMS depends on it). Elsewhere defer
+    // until the browser is idle so it doesn't compete with above-the-fold
+    // rendering. Also load if the URL contains an invite/recovery token.
+    var pathname = window.location.pathname || '';
+    var hash = window.location.hash || '';
+    var isAdmin = pathname.indexOf('/admin') === 0;
+    var hasAuthToken = hash.indexOf('invite_token') !== -1
+                    || hash.indexOf('recovery_token') !== -1
+                    || hash.indexOf('confirmation_token') !== -1;
+    if (isAdmin || hasAuthToken) {
+      loadIdentity();
+    } else if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadIdentity, { timeout: 3000 });
+    } else {
+      setTimeout(loadIdentity, 2000);
+    }
+  })();
 </script>
 
 </body>

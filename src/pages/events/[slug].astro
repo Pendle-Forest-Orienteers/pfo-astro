@@ -135,6 +135,15 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
 
 <Fragment slot="head">
   <script type="application/ld+json" set:html={JSON.stringify(eventJsonLd)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home",   item: siteUrl.toString() },
+      { "@type": "ListItem", position: 2, name: "Events", item: new URL("/events", siteUrl).toString() },
+      { "@type": "ListItem", position: 3, name: event.data.title, item: canonical },
+    ],
+  })}></script>
 </Fragment>
 
 <main id="main">

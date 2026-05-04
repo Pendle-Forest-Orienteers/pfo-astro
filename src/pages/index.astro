@@ -98,7 +98,17 @@ async function fetchBoNews(): Promise<BoNewsItem[]> {
   return fallbackBoNews;
 }
 
-const boNews = (await fetchBoNews()).slice(0, 4);
+// Extra belt-and-braces — fetchBoNews already returns the static fallback on
+// error, but if anything truly catastrophic happens (e.g. JSON parse blowup
+// in a future change) we want the build to keep going rather than fail the
+// deploy. The template hides the BO News block when this is empty.
+let boNews: BoNewsItem[] = [];
+try {
+  boNews = (await fetchBoNews()).slice(0, 4);
+} catch (err) {
+  console.warn('[index] BO news fetch failed at the top level:', err);
+  boNews = [];
+}
 
 const fmtBoDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric'
@@ -160,20 +170,40 @@ const fmtNewsCaption = (d) => new Intl.DateTimeFormat('en-GB', {
 const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // ─────── Schema.org SportsOrganization JSON-LD for the homepage.
-// This is what Google uses to build the club's Knowledge Panel.
+// This is what Google uses to build the club's Knowledge Panel and to
+// verify the club's social-media profiles (sameAs). The PostalAddress and
+// areaServed list lift visibility for queries like "orienteering Burnley"
+// or "orienteering club East Lancashire".
 const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "SportsOrganization",
+  "@id": siteUrl.toString() + "#organization",
   name: "Pendle Forest Orienteers",
   alternateName: "PFO",
   url: siteUrl.toString(),
   logo: new URL("/assets/logo.svg", siteUrl).toString(),
+  image: new URL("/assets/og-default.jpg", siteUrl).toString(),
   sport: "Orienteering",
-  description: "A small orienteering club covering the moors, woodland and mill towns of East Lancashire.",
-  areaServed: {
-    "@type": "Place",
-    name: "East Lancashire",
+  description: "A small orienteering club covering the moors, woodland and mill towns of East Lancashire — 12–15 events a year, newcomers always welcome.",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "Lancashire",
+    addressCountry: "GB",
+  },
+  areaServed: [
+    { "@type": "Place", name: "Burnley" },
+    { "@type": "Place", name: "Pendle" },
+    { "@type": "Place", name: "Rossendale" },
+    { "@type": "Place", name: "Accrington" },
+    { "@type": "Place", name: "Blackburn" },
+    { "@type": "Place", name: "East Lancashire" },
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    url: new URL("/contacts", siteUrl).toString(),
+    availableLanguage: "English",
   },
   memberOf: {
     "@type": "SportsOrganization",
@@ -181,8 +211,8 @@ const orgJsonLd = {
     url: "https://www.britishorienteering.org.uk/",
   },
   sameAs: [
-    "https://www.facebook.com/PendleForestOrienteers",
-    "https://www.instagram.com/pendleforestorienteers/",
+    "https://www.facebook.com/pendleorienteer/",
+    "https://www.instagram.com/pendleforestorienteerers/",
   ],
 };
 ---

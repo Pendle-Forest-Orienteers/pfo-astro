@@ -28,11 +28,29 @@ const sectionLabel: Record<string, string> = {
 const fmtReviewed = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   month: 'long', year: 'numeric'
 }).format(d);
+
+// BreadcrumbList JSON-LD — helps search results render a (Home › Information ›
+// Page) trail and reinforces the site's hierarchy for crawlers.
+const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl.toString() },
+    { "@type": "ListItem", position: 2, name: "Information", item: new URL("/information", siteUrl).toString() },
+    { "@type": "ListItem", position: 3, name: page.data.title, item: canonical },
+  ],
+};
 ---
 <Layout
   title={`${page.data.title} — Information — PFO`}
   description={page.data.summary}
 >
+
+<Fragment slot="head">
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)}></script>
+</Fragment>
 
 <main id="main">
 
