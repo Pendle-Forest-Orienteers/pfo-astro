@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Queens Park · June Series, event (2/4)"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2024/2024-06-12-queens-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-06-12-queens-park/index.html"
     type: "html"
 coords:
   lat: 53.79705

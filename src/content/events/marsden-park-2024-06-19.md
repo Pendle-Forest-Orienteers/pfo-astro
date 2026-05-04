@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Marsden Park · June Series, event (3/4)"
 results:
   - label: "Results"
-    url: "/results-archive/2024/2024-06-19-marsden-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-06-19-marsden-park/index.html"
     type: "html"
 coords:
   lat: 53.83913

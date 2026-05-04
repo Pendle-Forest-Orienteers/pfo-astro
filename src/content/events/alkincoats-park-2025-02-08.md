@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Alkincoats Park · Spring Series, event (1/4)"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2025/2025-02-08-alkincoats-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-02-08-alkincoats-park/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#221"

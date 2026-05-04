@@ -8,7 +8,7 @@ level: "local"
 summary: "Urban Score · Ightenhill  -"
 results:
   - label: "Results"
-    url: "/results-archive/2026/2026-01-28-ightenhill-urban-score/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-01-28-ightenhill-urban-score/index.html"
     type: "html"
 coords:
   lat: 53.7959
@@ -71,7 +71,7 @@ Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).
 Age 18+ may run as an individual.
 
-If the event needs to be cancelled the [PFO Event Cancellation Policy](/information/event-cancellation-refund-policy) will apply.
+If the event needs to be cancelled the [PFO Event Cancellation Policy](https://www.pfo.org.uk/info/event-cancellation-refund-policy) will apply.
 
 ## Facilities
 

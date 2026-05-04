@@ -1,30 +1,24 @@
 ---
-title: "Memorial Park"
-date: 2025-08-20
-entryCloseDate: 2025-08-20T12:00:00
-location: "Memorial Park"
-format: "Snook-O"
+title: "Alkincoats Park"
+date: 2026-06-17
+entryCloseDate: 2026-06-17T12:00:00
+location: "Alkincoats Park"
+format: "Standard"
 level: "local"
-summary: "Snook-O · Memorial Park · Summer Snook-O"
-results:
-  - label: "Results and points"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-08-20-memorial-park/index.html"
-    type: "html"
+summary: "Local · Alkincoats Park"
 coords:
-  lat: 53.79962
-  lng: -2.32025
-postcode: "BB12 8LA O"
-gridRef: "SD789337"
-bofEventNumber: 86934
-planner: "George Crawford-Smith PFO"
-seriesOrganiser: "Kay Hawke PFO"
+  lat: 53.8632
+  lng: -2.18063
+postcode: "BB8 9QQ OP"
+bofEventNumber: 87934
+dogsAllowed: "no"
 ---
 
 <!-- migrated -->
 
 ## Map and terrain
 
-The park is mapped at 1:2000 on A4. The park is compact, but well very featured and steep in places, especially near the river!
+TBC
 
 ## Course information
 
@@ -43,8 +37,6 @@ Zero value: 0 points (control **150** only).
 Colours: Yellow/**2** points/control 11**2**, Green/**3**/11**3**, Brown/**4**/11**4**, Blue/**5**/11**5**. Pink **6**/11**6**, Black **7**/11**7**. Colour controls will be marked with a double circle for easy recognition.
 Maximum possible score = 115.
 
-SI boxes are set to **dibbing only **to ensure deliberate recording** **only.
-
 ## Registration and start times
 
 **Starts:** From 18:30 to 19:15
@@ -52,16 +44,11 @@ SI boxes are set to **dibbing only **to ensure deliberate recording** **only.
 
 ## Directions and parking
 
-Street parking, suggested to be on the A671 Whalley Road, Padiham.
-
-Nearest postcode:** BB12 8JR**
-
-Whether parking on Whalley Road or Blackburn Road, proceed on foot to the mini- roundabout where these two roads meet. Immediatly adjacet to this roundabout is a pedestrian gate into the park. Proceed, passing a monument, for 40m to the gate entrance to Oliver's Cafe - which will be open for us! Event centre is here - clothing and equipment can be deposited here, coffee/other drinks anf food here. Finish and Download are also here.
-Start location is about 75m from here. Follow tape.
+TBC
 
 ## Entry details
 
-Pre-entry on **[SIEntries](https://www.sientries.co.uk/event.php?event_id=15940)** only. **Closing date for entries is 12 noon on the day of the event.**
+Pre-entry on **SIEntries** only. **Closing date for entries is 12 noon on the day of the event.**
 
 **Seniors:** (M/W26+) **£7.00**.
 **Young Adults:** (M/W21-25) **£5.00**.
@@ -75,14 +62,12 @@ Collect your hired dibber from Download.
 
 ## Facilities
 
-Nearest toilets, Tesco Padiham - BB12 8DQ , 2 min drive.
+TBC
 
 ## Dog restrictions
 
-Dogs are permitted, but should be under control on a leash. Please clean up after your dog.
+No dogs are allowed in the park
 
 ## Contacts and officials
 
-Planner: George Crawford-Smith PFO
-
-Series Co-ordinator: Kay Hawke PFO
+TBC

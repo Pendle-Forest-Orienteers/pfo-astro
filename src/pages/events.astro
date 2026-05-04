@@ -287,11 +287,17 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   .anchor-nav {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+    flex-wrap: wrap;
     font-family: var(--ff-mono);
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    /* Breathe — keep clear space between the lede paragraph above and
+       these filter links so they read as a separate UI row. */
+    margin-top: clamp(28px, 3vw, 40px);
+    padding-top: clamp(20px, 2.5vw, 28px);
+    border-top: 1px solid var(--rule);
   }
   .anchor-nav a {
     color: var(--ink);

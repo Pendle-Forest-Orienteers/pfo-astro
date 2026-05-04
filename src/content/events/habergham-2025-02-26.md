@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Habergham · February Street-O (2/10)"
 results:
   - label: "Results"
-    url: "/results-archive/2025/2025-02-26-habergham/Habergham-StreetO-results.pdf"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-02-26-habergham/Habergham-StreetO-results.pdf"
     type: "pdf"
 coords:
   lat: 53.79009
@@ -77,7 +77,7 @@ Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).
 Age 18+ may run as an individual.
 
-If the event needs to be cancelled the [PFO Event Cancellation Policy](/information/event-cancellation-refund-policy) will apply.
+If the event needs to be cancelled the [PFO Event Cancellation Policy](https://www.pfo.org.uk/info/event-cancellation-refund-policy) will apply.
 
 ## Facilities
 

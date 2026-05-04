@@ -8,7 +8,7 @@ level: "regional"
 summary: "Regional · Tockholes · Regional"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2024/2024-12-08-tockholes/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2024/2024-12-08-tockholes/index.html"
     type: "html"
   - label: "Winsplits Online"
     url: "http://obasen.orientering.se/winsplits/online/en/show_event.asp?id=101957"

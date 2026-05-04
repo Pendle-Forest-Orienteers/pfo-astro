@@ -8,7 +8,7 @@ level: "regional"
 summary: "Night-O · Hurstwood North · PFO Night &amp; Day"
 results:
   - label: "Results and splits"
-    url: "/results-archive/2025/2025-11-30-hurstwood-north-regional/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2025/2025-11-30-hurstwood-north-regional/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#225"

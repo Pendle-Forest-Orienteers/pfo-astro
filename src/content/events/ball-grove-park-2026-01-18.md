@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Ball Grove Park"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2026/2026-01-18-ball-grove-park/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-01-18-ball-grove-park/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#227"

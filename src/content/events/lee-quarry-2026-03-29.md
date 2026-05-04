@@ -8,7 +8,7 @@ level: "local"
 summary: "Local · Bacup"
 results:
   - label: "Results and Splits"
-    url: "/results-archive/2026/2026-03-29-lee-quarry/index.html"
+    url: "https://www.pfo.org.uk/results-archive/2026/2026-03-29-lee-quarry/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#230"
