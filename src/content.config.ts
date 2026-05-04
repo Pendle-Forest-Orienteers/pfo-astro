@@ -128,7 +128,10 @@ const maps = defineCollection({
       lat: z.number(),
       lng: z.number(),
     }).optional(),
-    image: z.string(),                       // path to the map image
+    // The map image itself is no longer rendered on the public site —
+    // copyright sits with the individual surveyors. Field kept (optional)
+    // for internal records and future use if licensing changes.
+    image: z.string().optional(),
     imageAlt: z.string().optional(),
     summary: z.string(),                     // one-line description for cards
     draft: z.boolean().optional(),

@@ -279,7 +279,11 @@ collections:
         fields:
           - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
           - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }
-      - { name: "image", label: "Map image", widget: "image", hint: "The orienteering map itself — JPEG, PNG, or GIF." }
+      # NOTE: the map image is no longer rendered on the public site
+      # (copyright sits with the individual surveyor). Field kept here for
+      # internal records — and so we can re-enable rendering later if
+      # licensing changes — but is now optional.
+      - { name: "image", label: "Map image (internal only — not shown publicly)", widget: "image", required: false, hint: "Optional — for committee records. Not displayed on the live site." }
       - { name: "imageAlt", label: "Map image alt text", widget: "string", required: false }
       - { name: "summary", label: "Card description", widget: "string", hint: "1-line description shown on the map library page." }
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }

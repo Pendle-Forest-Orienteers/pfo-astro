@@ -68,34 +68,6 @@ const mapsLink = coords
     </div>
   </section>
 
-  <!-- ─────────────────────────── Map placeholder + RouteGadget link
-       PFO doesn't hold the licence to publish the orienteering map images
-       directly, so the public site shows a stylised placeholder and links
-       out to RouteGadget where members can see route choices etc. -->
-  <section class="map-image-section">
-    <div class="map-image-wrap">
-      <div class="map-placeholder" aria-hidden="true">
-        <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" class="map-placeholder-bg">
-          <rect width="600" height="300" fill="var(--paper-2)"/>
-          <path d="M 0 90 C 80 70, 180 110, 280 80 S 480 50, 600 80" stroke="var(--navy-soft)" stroke-width="1.2" fill="none" opacity="0.4"/>
-          <path d="M 0 130 C 100 110, 200 150, 300 120 S 500 90, 600 120" stroke="var(--navy-soft)" stroke-width="1.2" fill="none" opacity="0.4"/>
-          <path d="M 0 180 C 120 160, 220 200, 320 170 S 520 140, 600 170" stroke="var(--navy-soft)" stroke-width="1.2" fill="none" opacity="0.4"/>
-          <path d="M 0 230 C 90 210, 200 250, 320 220 S 500 190, 600 220" stroke="var(--navy-soft)" stroke-width="1.2" fill="none" opacity="0.4"/>
-        </svg>
-        <div class="map-placeholder-content">
-          <p class="map-placeholder-eyebrow">View routes on</p>
-          <h2 class="map-placeholder-title">PFO RouteGadget</h2>
-          <a class="map-placeholder-cta"
-             href="https://www.pfo.routegadget.co.uk/rg2/"
-             rel="noopener" target="_blank">
-            Open RouteGadget →
-          </a>
-          <p class="map-placeholder-note">Map image not published here — copyright held by surveyor.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ─────────────────────────── Body and aside -->
   <section class="map-body">
     <div class="map-body-wrap">
@@ -103,6 +75,14 @@ const mapsLink = coords
         <Content />
       </div>
       <aside class="map-meta">
+        <div class="meta-block meta-block--rg">
+          <p class="meta-label">Routes &amp; results</p>
+          <p class="meta-rg-copy">PFO doesn't publish the orienteering map itself (copyright sits with the individual surveyors). Members can see routes, splits and previous events on RouteGadget.</p>
+          <a class="meta-rg-cta" href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" target="_blank">
+            Open RouteGadget →
+          </a>
+        </div>
+
         {coords && (
           <div class="meta-block">
             <p class="meta-label">Location</p>
@@ -204,72 +184,6 @@ const mapsLink = coords
     margin: 0;
   }
 
-  /* ─────────────────────────── Map image */
-  .map-image-section {
-    padding: 0 var(--pad-x);
-    background: var(--navy-deep);
-  }
-  .map-image-wrap {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: clamp(24px, 3vw, 40px) 0;
-  }
-  .map-placeholder {
-    position: relative;
-    aspect-ratio: 16 / 7;
-    background: var(--paper-2);
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-  }
-  .map-placeholder-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-  }
-  .map-placeholder-content {
-    position: relative;
-    text-align: center;
-    padding: 0 24px;
-  }
-  .map-placeholder-eyebrow {
-    font-family: var(--ff-mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--plum);
-    text-transform: uppercase;
-    margin: 0 0 10px 0;
-  }
-  .map-placeholder-title {
-    font-family: var(--ff-display);
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 600;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-    margin: 0 0 18px 0;
-  }
-  .map-placeholder-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--gold);
-    color: var(--ink);
-    padding: 12px 22px;
-    font-family: var(--ff-body);
-    font-size: 14px;
-    font-weight: 500;
-    transition: background .18s ease, color .18s ease;
-  }
-  .map-placeholder-cta:hover { background: var(--ink); color: var(--gold); }
-  .map-placeholder-note {
-    margin: 18px 0 0 0;
-    font-size: 12px;
-    color: var(--ink-mute);
-    max-width: 36ch;
-    margin-left: auto; margin-right: auto;
-    line-height: 1.4;
-  }
-
   /* ─────────────────────────── Body */
   .map-body {
     padding: clamp(40px, 5vw, 64px) var(--pad-x);
@@ -311,6 +225,28 @@ const mapsLink = coords
     background: var(--paper-2);
     border-left: 3px solid var(--plum);
   }
+  .meta-block--rg {
+    background: var(--navy-deep);
+    border-left-color: var(--gold);
+  }
+  .meta-block--rg .meta-label { color: var(--gold-bright); }
+  .meta-rg-copy {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(244, 237, 224, 0.85);
+    margin: 0 0 14px 0;
+  }
+  .meta-rg-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 10px 18px;
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background .18s ease, color .18s ease;
+  }
+  .meta-rg-cta:hover { background: var(--paper); color: var(--ink); }
   .meta-block .meta-label {
     font-family: var(--ff-mono);
     font-size: 10px;
