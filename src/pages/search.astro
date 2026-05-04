@@ -70,27 +70,9 @@ import PageHero from '../components/PageHero.astro';
           showImages: false,
           showSubResults: true,
           resetStyles: false,
-          // Slightly longer debounce so we don't fire a query on every
-          // keystroke — important on mobile where typing + searching
-          // simultaneously is heavy. 500ms feels responsive but skips
-          // ~half the redundant queries of the 300ms default.
-          debounceTimeoutMs: 500,
+          debounceTimeoutMs: 400,
           placeholder: 'Try a venue name, event format, or year…'
         });
-
-        // Warm the index immediately so the WASM binary, fragment files
-        // and metadata are downloaded in the background while the user
-        // is still reading the page. By the time they type, results
-        // appear instantly instead of waiting on the first network round-trip.
-        if (window.requestIdleCallback) {
-          requestIdleCallback(function () {
-            import('/pagefind/pagefind.js').then(function (pagefind) {
-              if (pagefind && typeof pagefind.preload === 'function') {
-                pagefind.preload('');
-              }
-            }).catch(function () { /* preload is best-effort */ });
-          }, { timeout: 1500 });
-        }
       } else {
         var el = document.getElementById('search');
         if (el) {
