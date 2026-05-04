@@ -8,7 +8,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://identity.netlify.com https://*.netlify.app https://www.britishorienteering.org.uk https://*.tile.openstreetmap.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.netlify.app
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://identity.netlify.com https://*.netlify.app https://www.britishorienteering.org.uk https://*.tile.openstreetmap.org; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.netlify.app
 
 # ───── Decap CMS at /admin needs a relaxed CSP ─────────────────────────
 # Decap evaluates its config at runtime (Function constructor / new Function)

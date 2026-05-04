@@ -16,11 +16,11 @@ import PageHero from '../components/PageHero.astro';
        `is:inline` keeps the script out of Vite's bundler so it isn't
        resolved at build time. -->
   <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-  <!-- Preload the underlying Pagefind library + UI bundle so the browser
-       fetches them in parallel with the page render. Means by the time
-       the user types their first character on mobile, the WASM engine
-       has already been initialised — no spinning gap on first search. -->
-  <link rel="preload" href="/pagefind/pagefind.js" as="fetch" crossorigin>
+  <!-- Preload the underlying Pagefind library so the browser fetches it
+       in parallel with the page render. By the time the user types their
+       first character the engine has been instantiated, so the first
+       search returns near-instantly. -->
+  <link rel="preload" href="/pagefind/pagefind.js" as="script">
   <script is:inline src="/pagefind/pagefind-ui.js"></script>
 </Fragment>
 
