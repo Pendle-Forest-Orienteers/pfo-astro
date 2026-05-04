@@ -64,7 +64,7 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,30..100;1,9..144,400..700,30..100&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,30..100;1,9..144,400..700,30..100&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 
 <style is:global>
 /* ───────────────────────────── design tokens
@@ -96,13 +96,12 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
   --mist:      #a3b4c4;   /* tertiary cool neutral */
 
-  /* Display font cascade: Fraunces is loaded from Google Fonts. If that
-     fails (firewall, ad-blocker, slow connection), fall through a stack
-     of decent system serifs in priority order. We deliberately omit
-     Times New Roman from the cascade — its rendering on Windows is poor
-     and clients have flagged seeing it. */
-  --ff-display: "Fraunces", "Charter", "Iowan Old Style", "Apple Garamond",
-                "Palatino", Georgia, ui-serif, serif;
+  /* Display and body share the same IBM Plex Sans stack — by client request,
+     to avoid the serif fallback rendering as Times New Roman on networks
+     where Google Fonts is blocked. Headings carry weight via font-weight
+     600/700 in the .display class and individual heading selectors below. */
+  --ff-display: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, sans-serif;
   --ff-body:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, "Helvetica Neue", Arial, sans-serif;
   --ff-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
@@ -164,14 +163,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   clip-path: polygon(0 0, 100% 100%, 0 100%);
 }
 .display {
+  /* Sans-serif headings need more weight to read as "display" — bumped from
+     400 (which suited Fraunces) to 600 (semibold) for IBM Plex Sans. */
   font-family: var(--ff-display);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 0.98;
-  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 .display em {
   color: var(--plum);
+  font-weight: inherit;
 }
 .mono { font-family: var(--ff-mono); letter-spacing: 0.03em; }
 .small { font-size: 13px; color: var(--ink-soft); }
@@ -452,12 +453,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .hero-intro .eyebrow::before { background: var(--gold); }
 .hero-intro h1 {
-  font-family: var(--ff-display);
-  font-weight: 400;
-  font-size: clamp(40px, 6vw, 82px);
-  line-height: 0.97;
-  letter-spacing: -0.02em;
-  font-variation-settings: "opsz" 144, "SOFT" 20;
+  /* Body font (IBM Plex Sans) instead of Fraunces — by client request, so
+     this matches the lede paragraph and renders consistently on networks
+     that block Google Fonts. */
+  font-family: var(--ff-body);
+  font-weight: 600;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   margin: 0 0 22px 0;
   color: var(--paper);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
@@ -1076,11 +1079,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .newcomer-cta .eyebrow::before { background: var(--gold); }
 .newcomer-cta h2 {
   font-family: var(--ff-display);
-  font-weight: 400;
+  font-weight: 600;
   font-size: clamp(24px, 2.2vw, 32px);
   line-height: 1.1;
-  letter-spacing: -0.015em;
-  font-variation-settings: "opsz" 48, "SOFT" 20;
+  letter-spacing: -0.02em;
   margin-bottom: 14px;
   position: relative; z-index: 1;
 }
