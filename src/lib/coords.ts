@@ -14,8 +14,10 @@ export interface LatLng {
 
 export function resolveCoords(event: {
   coordsGeoJson?: string;
+  coordsPaste?: string;
   coords?: LatLng;
 }): LatLng | undefined {
+  // 1. Map-pin output (preferred — highest fidelity, dragged into place)
   if (event.coordsGeoJson) {
     try {
       const obj = JSON.parse(event.coordsGeoJson);
@@ -31,8 +33,22 @@ export function resolveCoords(event: {
         }
       }
     } catch {
-      // fall through to manual coords
+      // fall through
     }
   }
+
+  // 2. "lat, lng" paste from Google Maps
+  if (event.coordsPaste) {
+    const m = event.coordsPaste.trim().match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
+    if (m) {
+      const lat = parseFloat(m[1]);
+      const lng = parseFloat(m[2]);
+      if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+        return { lat, lng };
+      }
+    }
+  }
+
+  // 3. Manual lat/lng object (fallback)
   return event.coords;
 }

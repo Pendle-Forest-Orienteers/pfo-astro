@@ -147,18 +147,19 @@ collections:
         type: "Point"
         decimals: 5
         default: '{"type":"Point","coordinates":[-2.20,53.79]}'
-        hint: "Map opens centred on East Lancashire. Pan/zoom and click to drop a pin, drag to move it. There's no search box — fastest workflow if you can't find the venue: open Google Maps in another tab, search for the venue there, right-click the pin, click the lat/lng numbers that appear (this copies them), then paste into the fallback Latitude/Longitude fields below."
-      # ─── Manual lat/lng (fallback) ────────────────────────────────
-      # Used when the map pin isn't set, or for power users who'd
-      # rather paste coordinates from Google Maps directly. To get
-      # coords from Google Maps: right-click the venue on Google Maps,
-      # then click the lat/lng that appears at the top of the menu.
+        hint: "Map opens centred on East Lancashire. Pan/zoom and click to drop a pin, drag to move it. If you can't find the venue, use the Google Maps paste box below — much faster."
+      # ─── Google Maps paste (fastest fallback) ────────────────────
+      # Single field accepting "lat, lng" exactly as Google Maps gives
+      # it when you right-click and click the coordinates. Parsed at
+      # build time and used identically to the map pin / manual fields.
+      - { name: "coordsPaste", label: "Or paste coordinates from Google Maps", widget: "string", required: false, hint: "On Google Maps: right-click the venue, then click the numbers at the top of the menu (e.g. 53.79748, -2.22698). They auto-copy. Paste here." }
+      # ─── Manual lat/lng (final fallback) ─────────────────────────
       - name: "coords"
-        label: "Or paste coordinates manually (fallback)"
+        label: "Or enter latitude / longitude manually"
         widget: "object"
         required: false
         collapsed: true
-        hint: "Only fill these in if you didn't drop a pin above. Right-click the venue on Google Maps then click the lat,lng numbers that appear."
+        hint: "Only needed if neither of the above approaches worked."
         fields:
           - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
           - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }

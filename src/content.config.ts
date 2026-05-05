@@ -35,6 +35,12 @@ const events = defineCollection({
      *  Andy can just drop a pin on the map and everything else is
      *  auto-generated. */
     coordsGeoJson: z.string().optional(),
+    /** Convenience field for Google-Maps-style "lat, lng" paste —
+     *  right-click → click coords → paste here. The page templates
+     *  parse this format and use it like `coords`. Highest-priority
+     *  format if all three are filled in is the map pin (GeoJSON);
+     *  next is this paste; last is the manual lat/lng object. */
+    coordsPaste: z.string().optional(),
     what3words: z.string().optional(),      // e.g. "typically.capacity.skips" — common on UK
                                             // orienteering events for the event-centre/parking
     gridRef: z.string().optional(),         // OS grid ref, e.g. "SD848335"
