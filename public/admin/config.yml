@@ -137,7 +137,17 @@ collections:
       # Coordinates and all four external map links (Google Maps,
       # OpenStreetMap, StreetMap, Bing) are derived from this pin
       # automatically. Drag the pin to fine-tune.
-      - { name: "coordsGeoJson", label: "Drop a pin on the map at the venue", widget: "map", required: false, type: "Point", decimals: 5, hint: "Click to place a pin, drag to move it. Search isn't built in — pan/zoom to find the venue, or paste lat/lng below as a fallback." }
+      #
+      # The map opens pre-centred on East Lancashire so most venues
+      # are already in view — pan slightly + click is usually enough.
+      - name: "coordsGeoJson"
+        label: "Drop a pin on the map at the venue"
+        widget: "map"
+        required: false
+        type: "Point"
+        decimals: 5
+        default: '{"type":"Point","coordinates":[-2.20,53.79]}'
+        hint: "Map opens centred on East Lancashire. Pan/zoom and click to drop a pin, drag to move it. There's no search box — fastest workflow if you can't find the venue: open Google Maps in another tab, search for the venue there, right-click the pin, click the lat/lng numbers that appear (this copies them), then paste into the fallback Latitude/Longitude fields below."
       # ─── Manual lat/lng (fallback) ────────────────────────────────
       # Used when the map pin isn't set, or for power users who'd
       # rather paste coordinates from Google Maps directly. To get
