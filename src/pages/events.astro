@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import EventCalendar from '../components/EventCalendar.astro';
 import { getCollection } from 'astro:content';
 import { resolveCoords } from '../lib/coords';
+import { neighbouringClubs } from '../data/neighbouring-clubs';
 
 // ─────── Data: split events into upcoming and past
 const now = new Date();
@@ -55,11 +56,11 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
       <span aria-hidden="true">·</span>
       <a href="#upcoming">Upcoming ({upcoming.length})</a>
       <span aria-hidden="true">·</span>
+      <a href="#neighbours">Other clubs</a>
+      <span aria-hidden="true">·</span>
       <a href="#past">Past results ({past.length})</a>
       <span aria-hidden="true">·</span>
       <a href="/events.ics">📅 Subscribe to calendar</a>
-      <span aria-hidden="true">·</span>
-      <a href="https://www.britishorienteering.org.uk/event" rel="noopener">BOF event listings →</a>
       <span aria-hidden="true">·</span>
       <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener">RouteGadget →</a>
     </nav>
@@ -154,6 +155,32 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
         ))}
       </ul>
     )}
+  </section>
+
+  <!-- ─────────────────────────── More from neighbouring clubs.
+       Direct links to the events pages of nearby clubs whose fixtures
+       PFO members may also want to enter. -->
+  <section id="neighbours" class="event-section neighbours">
+    <div class="sec-head">
+      <p class="eyebrow">More upcoming events</p>
+      <span class="sec-count">From neighbouring clubs</span>
+    </div>
+    <p class="neighbours-intro">PFO members are welcome at these neighbouring clubs' events too. Each link opens their own events / fixtures page.</p>
+    <ul class="neighbours-grid">
+      {neighbouringClubs.map(club => (
+        <li>
+          <a class="neighbour-card" href={club.eventsUrl} rel="noopener" target="_blank">
+            <p class="neighbour-abbr">{club.abbr}</p>
+            <h3>{club.name}</h3>
+            <p class="neighbour-region">{club.region}</p>
+            <span class="neighbour-arrow" aria-hidden="true">View their events →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="neighbours-foot">
+      <a href="https://www.britishorienteering.org.uk/event" rel="noopener">View all UK orienteering events on British Orienteering →</a>
+    </p>
   </section>
 
   <!-- ─────────────────────────── Past events / results -->
@@ -579,6 +606,90 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   }
   .ev-row-meta span[aria-hidden="true"] { color: var(--ink-mute); }
   .ev-row-meta .has-results { color: var(--plum); font-weight: 500; }
+
+  /* ─────────────────────────── Neighbouring-clubs section.
+     A grid of 5 cards, one per club, each linking out to that club's
+     own events/fixtures page. Visitors can browse what's on at
+     surrounding clubs in one click. */
+  .neighbours-intro {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0 0 18px 0;
+    max-width: 60ch;
+  }
+  .neighbours-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .neighbour-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px 14px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--navy);
+    transition: border-color .18s ease, background .18s ease, transform .18s ease;
+  }
+  .neighbour-card:hover {
+    border-left-color: var(--plum);
+    background: var(--paper-2);
+    transform: translateX(2px);
+  }
+  .neighbour-abbr {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0;
+  }
+  .neighbour-card h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .neighbour-region {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin: 0 0 4px 0;
+  }
+  .neighbour-arrow {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    transition: color .18s ease;
+  }
+  .neighbour-card:hover .neighbour-arrow { color: var(--plum); }
+  .neighbours-foot {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+  .neighbours-foot a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+  .neighbours-foot a:hover { color: var(--plum); }
 
   /* ─────────────────────────── Past row with quick results toggle.
      The row + Results button sit horizontally in `.past-row-main`.
