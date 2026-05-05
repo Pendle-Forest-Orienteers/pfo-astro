@@ -12,6 +12,7 @@ bofEventNumber: 86988
 dogsAllowed: not-recommended
 planner: Richard Edwards PFO
 summary: Street-O · Oswaldtwistle · July Street-O (6/10)
+description: New area
 ---
 <!-- migrated -->
 
@@ -46,7 +47,7 @@ Starts from 6:00PM to 7:00PM at minute intervals. You can choose your 15 minute 
 
 W3W: ///**typically.capacity.skips**
 
-**Parking: TBC**
+**Parking:** On adjacent streets.  Please park showing consideration for residents
 
 ## Entry details
 
