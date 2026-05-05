@@ -1,13 +1,6 @@
 /**
- * The neighbouring orienteering clubs whose events PFO members may
- * also want to explore. Edit this list to add or remove clubs without
- * touching template code.
- *
- * Each entry must have:
- *   abbr       — short identifier shown as the card eyebrow
- *   name       — full club name
- *   region     — short geographic descriptor
- *   eventsUrl  — direct link to the club's upcoming-events / fixtures page
+ * Neighbouring clubs whose events PFO members may also want to enter.
+ * Edit this list to add or remove clubs.
  */
 
 export interface NeighbourClub {
