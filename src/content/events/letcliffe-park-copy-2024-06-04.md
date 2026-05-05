@@ -1,9 +1,9 @@
 ---
 title: Letcliffe Park COPY
-date: 2024-06-05
-entryCloseDate: 2024-06-05T12:00:00
+date: 2026-06-12
+entryCloseDate: 2026-06-11T12:00:00.000+01:00
 location: Letcliffe Park
-postcode: TBA OPEN A
+postcode: TBA
 coords:
   lat: 53.91275
   lng: -2.18737
