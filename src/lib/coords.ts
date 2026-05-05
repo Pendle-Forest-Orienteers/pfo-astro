@@ -17,7 +17,22 @@ export function resolveCoords(event: {
   coordsPaste?: string;
   coords?: LatLng;
 }): LatLng | undefined {
-  // 1. Map-pin output (preferred — highest fidelity, dragged into place)
+  // 1. Google-Maps-style paste — highest priority because it's the most
+  //    explicit "I want THIS exact location" input. If the user has
+  //    typed/pasted coords here, those win over any saved map-pin
+  //    (which may carry an old default or unintentional pin).
+  if (event.coordsPaste) {
+    const m = event.coordsPaste.trim().match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
+    if (m) {
+      const lat = parseFloat(m[1]);
+      const lng = parseFloat(m[2]);
+      if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+        return { lat, lng };
+      }
+    }
+  }
+
+  // 2. Map-pin output from the Decap CMS map widget
   if (event.coordsGeoJson) {
     try {
       const obj = JSON.parse(event.coordsGeoJson);
@@ -37,18 +52,7 @@ export function resolveCoords(event: {
     }
   }
 
-  // 2. "lat, lng" paste from Google Maps
-  if (event.coordsPaste) {
-    const m = event.coordsPaste.trim().match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
-    if (m) {
-      const lat = parseFloat(m[1]);
-      const lng = parseFloat(m[2]);
-      if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
-        return { lat, lng };
-      }
-    }
-  }
-
-  // 3. Manual lat/lng object (fallback)
+  // 3. Legacy manual lat/lng object (older events created before the
+  //    map widget existed — kept working without migration).
   return event.coords;
 }
