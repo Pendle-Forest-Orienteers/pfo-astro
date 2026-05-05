@@ -1,19 +1,18 @@
 ---
-title: "Oswaldtwistle"
+title: Oswaldtwistle
 date: 2025-07-16
 entryCloseDate: 2025-07-16T12:00:00
-location: "Oswaldtwistle"
-format: "Street-O"
-level: "local"
-summary: "Street-O · Oswaldtwistle · July Street-O (6/10)"
+location: Oswaldtwistle
 coords:
   lat: 53.74121
   lng: -2.4021
+format: Street-O
+level: local
 bofEventNumber: 86988
-dogsAllowed: "not-recommended"
-planner: "Richard Edwards PFO"
+dogsAllowed: not-recommended
+planner: Richard Edwards PFO
+summary: Street-O · Oswaldtwistle · July Street-O (6/10)
 ---
-
 <!-- migrated -->
 
 ## Map and terrain
@@ -21,20 +20,20 @@ planner: "Richard Edwards PFO"
 Street-O competition is on local streets, main roads, parks, ginnels, semi-rural areas and footpaths.
 You can choose either a 60 minutes score or a 75 minutes score aimed at faster runners.
 
-**MAP SCALE: **The competition map for this event is **1:10000**, in simplified format.
+**MAP SCALE:** The competition map for this event is **1:10000**, in simplified format.
 
 ## Course information
 
-**Start & ** **Finish: **Nearby.
+**Start &**  **Finish:** Nearby.
 
 **Timing** (Start/Finish): SI.
 
 Each individual or team will require one Dibber (collect at registration/download if hired), one clue/answer sheet (collect at registration/download) and one course map (issued at the Start). Plus pen/pencil and a watch.
 Example maps and clue sheets of previous events will be available to view at the event centre.
 
-**Scoring: **Controls are numbered 10 to 64. The first digit multiplied by 10 is the score value. Thus there are 10 x 10 points controls, 10 x 20, 10 x 30, 10 x 40, 10 x 50 and 5 x 60. Typically, the higher the score value, the greater the distance and/or difficulty.
+**Scoring:** Controls are numbered 10 to 64. The first digit multiplied by 10 is the score value. Thus there are 10 x 10 points controls, 10 x 20, 10 x 30, 10 x 40, 10 x 50 and 5 x 60. Typically, the higher the score value, the greater the distance and/or difficulty.
 
-**Penalties: **Your course time limit is either 75 minutes or 60 minutes depending on which course you entered.
+**Penalties:** Your course time limit is either 75 minutes or 60 minutes depending on which course you entered.
 Thereafter, 1 penalty point will be deducted for each 3 seconds you are late, equivalent to 20 points deducted per minute late.
 
 ## Registration and start times
@@ -43,7 +42,7 @@ Starts from 6:00PM to 7:00PM at minute intervals. You can choose your 15 minute 
 
 ## Directions and parking
 
-**Event centre:** **TBC**
+**Event centre:** **Black Dog PH**
 
 W3W: ///**TBC**
 
@@ -52,16 +51,16 @@ W3W: ///**TBC**
 ## Entry details
 
 Entry and dibber hire (£1.00) will be via [**SI Entries**.](https://www.sientries.co.uk/event.php?elid=Y&event_id=15924)
-[**Note: £40 charge if dibber is lost during hire period.]
+\[\*\*Note: £40 charge if dibber is lost during hire period.]
 
 Online entries will **close at midday on race day**. There will be no EOD for this event.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries.
 
-|  | **Lead** | **Second** | **Third** |
-| --- | --- | --- | --- |
-| **Solo** | £5.00 |  |  |
-| **Pair Team** | £5.00 | £2.00 |  |
-| **Trio Team** | £5.00 | £2.00 | £1.00 |
+|               | **Lead** | **Second** | **Third** |
+| ------------- | -------- | ---------- | --------- |
+| **Solo**      | £5.00    |            |           |
+| **Pair Team** | £5.00    | £2.00      |           |
+| **Trio Team** | £5.00    | £2.00      | £1.00     |
 
 **Rules concerning junior entries:**
 
@@ -73,7 +72,7 @@ If the event needs to be cancelled the [PFO Event Cancellation Policy](https://w
 
 ## Facilities
 
-The event centre is** TBC.**
+The event centre is **TBC.**
 
 ## Dog restrictions
 
@@ -83,4 +82,4 @@ Taking dogs on urban courses is not recommended due to the traffic hazard.
 
 **Series organiser:** Kay Hawke PFO -
 
-**Planner: **Richard Edwards PFO
+**Planner:** Richard Edwards PFO
