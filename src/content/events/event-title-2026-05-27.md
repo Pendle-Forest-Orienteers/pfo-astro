@@ -7,7 +7,7 @@ location: Location Field
 venue: Venue Field (optional)
 postcode: Postcode Field (optional)
 coordsGeoJson: '{"type":"Point","coordinates":[-2.20,53.79]}'
-coordsPaste: 53.78583420123371, -2.2085320093652157
+coordsPaste: 53.78583420123371, -2.2085320093652151
 what3words: what3wordsfield.com (optional)
 gridRef: OSGrid reference field (optional)
 format: Standard
