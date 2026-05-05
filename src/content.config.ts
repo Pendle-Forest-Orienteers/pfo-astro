@@ -29,6 +29,12 @@ const events = defineCollection({
       lat: z.number(),
       lng: z.number(),
     }).optional(),
+    /** Optional Decap CMS "map widget" output — a GeoJSON Point string
+     *  like `{"type":"Point","coordinates":[-2.21,53.85]}`. When set,
+     *  page templates prefer this over the manual `coords` object so
+     *  Andy can just drop a pin on the map and everything else is
+     *  auto-generated. */
+    coordsGeoJson: z.string().optional(),
     what3words: z.string().optional(),      // e.g. "typically.capacity.skips" — common on UK
                                             // orienteering events for the event-centre/parking
     gridRef: z.string().optional(),         // OS grid ref, e.g. "SD848335"
@@ -98,6 +104,11 @@ const news = defineCollection({
       alt: z.string(),
       caption: z.string().optional(),
     })).optional(),
+    attachments: z.array(z.object({
+      label: z.string(),
+      file: z.string(),
+      type: z.enum(['pdf', 'docx', 'xlsx', 'csv', 'image', 'other']).optional(),
+    })).optional(),
     draft: z.boolean().optional(),
   }),
 });
@@ -157,6 +168,13 @@ const infoPages = defineCollection({
      *  into a small dropdown). Use for pages with wide tables that need the
      *  whole content area — e.g. POC course tables. */
     wideLayout: z.boolean().optional(),
+    /** Optional file downloads attached to this info page — PDFs, Word
+     *  docs, spreadsheets, etc. Rendered as a styled list at the bottom. */
+    attachments: z.array(z.object({
+      label: z.string(),
+      file: z.string(),
+      type: z.enum(['pdf', 'docx', 'xlsx', 'csv', 'image', 'other']).optional(),
+    })).optional(),
   }),
 });
 

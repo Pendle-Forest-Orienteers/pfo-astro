@@ -183,6 +183,55 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .mono { font-family: var(--ff-mono); letter-spacing: 0.03em; }
 .small { font-size: 13px; color: var(--ink-soft); }
 
+/* ───────────────────────────── prose helpers (markdown body content)
+   These classes + tag styles let committee members highlight text and
+   float images inside any markdown body — events, news, info pages, etc.
+   Used via the CMS's "raw HTML" editor mode. */
+
+/* <mark>important text</mark> renders as a yellow highlight that picks
+   up the PFO gold without screaming. */
+mark {
+  background: var(--gold);
+  color: var(--ink);
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+/* Float helpers for images embedded in the body. The committee can use
+   these via the CMS's HTML mode:
+     <img src="..." alt="..." class="float-right" />
+     <img src="..." alt="..." class="float-left" />
+     <img src="..." alt="..." class="full-width" />
+   The neighbouring text wraps around floated images so the layout reads
+   text-photo-text or photo-then-text without leaving an awkward gap.
+   On phones, floats collapse to centred full-width images. */
+img.float-right {
+  float: right;
+  max-width: min(50%, 360px);
+  margin: 4px 0 16px 24px;
+  height: auto;
+}
+img.float-left {
+  float: left;
+  max-width: min(50%, 360px);
+  margin: 4px 24px 16px 0;
+  height: auto;
+}
+img.full-width {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 18px 0;
+}
+@media (max-width: 600px) {
+  img.float-right, img.float-left {
+    float: none;
+    display: block;
+    max-width: 100%;
+    margin: 18px auto;
+  }
+}
+
 /* ───────────────────────────── header & nav (two-row) */
 .topbar {
   position: relative; z-index: 5;
@@ -415,7 +464,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero-wrap {
   position: relative;
   max-width: var(--max-w); margin: 0 auto;
-  padding: clamp(48px, 6vw, 88px) var(--pad-x) clamp(56px, 6vw, 96px);
+  /* Reduced bottom padding because the Next Event + Latest Results bands
+     now sit immediately below this within the same hero section. */
+  padding: clamp(48px, 6vw, 88px) var(--pad-x) clamp(20px, 3vw, 32px);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: clamp(28px, 4vw, 56px);
@@ -562,6 +613,109 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   color: var(--paper);
 }
 
+/* Right-hand column of the hero — stacks Next Event + Latest Results
+   so both pieces of "what's happening now" information sit prominently
+   in the hero rather than in separate page bands. */
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-self: start;
+}
+
+/* Latest results card inside the hero. Same navy/gold colour scheme as
+   the original standalone Latest Results band — navy background, paper
+   text, gold accents, gold-bright eyebrow. */
+.hero-latest {
+  position: relative;
+  background: var(--navy-deep);
+  color: var(--paper);
+  padding: 22px 24px 20px;
+  border-top: 4px solid var(--gold);
+  overflow: hidden;
+  box-shadow: 0 18px 40px -20px rgba(27, 59, 98, 0.45);
+}
+.hero-latest .eyebrow {
+  color: var(--gold-bright);
+  margin-bottom: 10px;
+}
+.hero-latest .eyebrow::before { background: var(--gold-bright); }
+.hero-latest-when {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.75);
+  margin: 0 0 6px 0;
+}
+.hero-latest h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  margin: 0 0 14px 0;
+}
+.hero-latest-files {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-latest-files a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(244, 237, 224, 0.08);
+  color: var(--paper);
+  font-size: 13px;
+  border-left: 2px solid transparent;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+.hero-latest-files a:hover {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.hero-latest-tag {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+.hero-latest-files a:hover .hero-latest-tag {
+  background: var(--ink);
+  color: var(--gold);
+}
+.hero-latest-label {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.hero-latest-link {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border-bottom: 1px solid var(--gold-bright);
+  padding-bottom: 1px;
+  display: inline-block;
+  transition: color .18s, border-color .18s;
+}
+.hero-latest-link:hover {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
 /* next event panel — compact teaser on a paper card */
 .next-event {
   position: relative;
@@ -580,16 +734,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   height: 4px;
   background: var(--plum);
 }
-.next-event::after {
-  content: "";
-  position: absolute;
-  bottom: -60px; right: -60px;
-  width: 180px; height: 180px;
-  background: var(--plum);
-  transform: rotate(45deg);
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  opacity: 0.10;
-}
+/* Decorative corner triangle removed — was reading as the card being
+   "cut off". Both hero cards now sit as clean rectangles with matching
+   dimensions, distinguished by their border-top accent colour. */
 .next-event .eyebrow { color: var(--gold-muted); margin-bottom: 14px; }
 .next-event .eyebrow::before { background: var(--plum); }
 .next-event .event-when {
@@ -749,6 +896,146 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .ev-card:hover .arrow-mono { opacity: 1; transform: translateX(0); color: var(--gold); }
 
+/* ───────────────────────────── next event band (homepage)
+   Mirrors the latest-results band dimensions exactly so the two sit
+   together as a matched pair. Paper background + plum accent
+   distinguish it from the navy + gold Latest Results band. */
+.next-event-band {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(28px, 3.5vw, 48px) var(--pad-x) clamp(20px, 3vw, 40px);
+}
+.ne-band-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--plum);
+  color: var(--paper);
+  border-top: 4px solid var(--gold);
+  padding: clamp(22px, 3vw, 32px);
+  display: grid;
+  grid-template-columns: 1.2fr 1.4fr auto;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: center;
+  transition: box-shadow .22s ease;
+}
+.ne-band-wrap:hover { box-shadow: 0 22px 48px -22px rgba(153, 72, 144, 0.55); }
+/* Decorative concentric white circles, top-right corner — same treatment
+   as the newcomer CTA block. Adds a club-colour signature without
+   competing with the text. */
+.ne-band-wrap::before {
+  content: "";
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 260px; height: 260px;
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ne-band-wrap::after {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.ne-band-text, .ne-band-actions { position: relative; z-index: 2; }
+/* Stretched-link pattern — clicking anywhere on the band goes to that
+   event's page. The SI Entries button + eyebrow link sit at a higher
+   z-index so they remain individually clickable. */
+.ne-band-text h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.ne-band-text h2 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.ne-band-text h2 a:hover { color: var(--gold-bright); }
+.ne-band-text .eyebrow a,
+.ne-band-actions {
+  position: relative;
+  z-index: 2;
+}
+.ne-band-text .eyebrow a {
+  color: inherit;
+  text-decoration: none;
+}
+.ne-band-text .eyebrow a:hover { color: var(--paper); }
+.ne-band-text .eyebrow {
+  color: var(--gold-bright);
+  margin-bottom: 12px;
+}
+.ne-band-text .eyebrow::before { background: var(--gold-bright); }
+.ne-band-text h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 36, "SOFT" 20;
+  margin: 0 0 8px 0;
+  color: var(--paper);
+}
+.ne-band-when {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.75);
+  margin: 0 0 8px 0;
+}
+.ne-band-summary {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(244, 237, 224, 0.85);
+  margin: 0 0 8px 0;
+}
+.ne-band-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin: 0;
+}
+.ne-band-terms span {
+  padding: 3px 10px;
+  background: rgba(244, 237, 224, 0.12);
+  border: 1px solid rgba(244, 237, 224, 0.25);
+}
+.ne-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+.ne-band-event-link {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  align-self: center;
+  white-space: nowrap;
+  transition: color .18s ease, border-color .18s ease;
+}
+.ne-band-event-link:hover { color: var(--plum); border-color: var(--plum); }
+
+@media (max-width: 880px) {
+  .ne-band-wrap { grid-template-columns: 1fr; gap: 20px; }
+  .ne-band-event-link { justify-self: start; }
+  .ne-band-actions { align-items: flex-start; }
+}
+
 /* ───────────────────────────── latest results (homepage) */
 .latest-results {
   max-width: var(--max-w);
@@ -756,6 +1043,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   padding: clamp(20px, 3vw, 40px) var(--pad-x) clamp(24px, 4vw, 56px);
 }
 .latest-results-wrap {
+  position: relative;
   background: var(--navy);
   color: var(--paper);
   border-top: 4px solid var(--gold);
@@ -764,7 +1052,33 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   grid-template-columns: 1.2fr 1.4fr auto;
   gap: clamp(20px, 3vw, 36px);
   align-items: center;
+  transition: box-shadow .22s ease;
 }
+.latest-results-wrap:hover { box-shadow: 0 22px 48px -22px rgba(27, 59, 98, 0.55); }
+/* Stretched-link pattern — clicking anywhere on the band goes to that
+   event's page. Individual file downloads + the eyebrow link sit at a
+   higher z-index so they remain separately clickable. */
+.lr-text h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.lr-text h2 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.lr-text h2 a:hover { color: var(--gold-bright); }
+.lr-text .eyebrow a,
+.lr-files {
+  position: relative;
+  z-index: 2;
+}
+.lr-text .eyebrow a {
+  color: inherit;
+  text-decoration: none;
+}
+.lr-text .eyebrow a:hover { color: var(--paper); }
 .lr-text .eyebrow { color: var(--gold-bright); margin-bottom: 12px; }
 .lr-text .eyebrow::before { background: var(--gold-bright); }
 .lr-text h2 {

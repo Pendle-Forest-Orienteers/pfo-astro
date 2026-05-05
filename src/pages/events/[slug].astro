@@ -29,8 +29,10 @@ const fmtYear = (d: Date) => new Intl.DateTimeFormat('en-GB', { year: 'numeric' 
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-// ─────── Location helpers
-const coords = event.data.coords;
+// ─────── Location helpers — prefers the CMS map-pin (Decap "map"
+// widget GeoJSON output) over the manual lat/lng object.
+import { resolveCoords } from '../../lib/coords';
+const coords = resolveCoords(event.data);
 const mapsLink = coords
   ? `https://www.google.com/maps/place/${coords.lat},${coords.lng}/@${coords.lat},${coords.lng},14z`
   : null;

@@ -276,34 +276,72 @@ const orgJsonLd = {
       </dl>
     </div>
 
-    {nextEvent && (
-      <aside class="next-event rise d-4" aria-label="Next event">
-        <p class="eyebrow">Next event</p>
-        <p class="event-when">{fmtFeaturedDate(nextEvent.data.date)}{nextEvent.data.startTime && ` · ${nextEvent.data.startTime}`}</p>
-        <h2>{nextEvent.data.title}</h2>
-        <p class="event-where">{nextEvent.data.summary}</p>
-        <p class="event-terms">
-          {nextEvent.data.duration && <span>{nextEvent.data.duration} min</span>}
-          {nextEvent.data.entryFee && <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>}
-          {nextEvent.data.capacity && <span>{nextEvent.data.capacity} capacity</span>}
-        </p>
-        {nextEvent.data.siEntriesUrl ? (
-          <a class="btn btn-primary btn-full" href={nextEvent.data.siEntriesUrl} rel="noopener">Enter via SI Entries <span class="arrow">→</span></a>
-        ) : (
-          <a class="btn btn-primary btn-full" href={`/events/${nextEvent.id}`}>Event details <span class="arrow">→</span></a>
-        )}
-      </aside>
-    )}
   </div>
-  </section>
 
-  <!-- contour divider -->
-  <div class="contour-divider" aria-hidden="true">
-    <svg viewBox="0 0 1200 22" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1">
-      <path d="M0 11 C 100 4, 220 18, 340 11 S 560 4, 700 11 S 920 18, 1060 11 S 1200 4, 1200 11"/>
-    </svg>
-    <span class="coord">53°48′N · 02°16′W</span>
-  </div>
+  <!-- Both bands sit INSIDE the hero so they overlay the photo backdrop. -->
+
+  <!-- ─────────────────────────── NEXT EVENT (full-width band) -->
+  {nextEvent && (
+    <section class="next-event-band" aria-label="Next event">
+      <div class="ne-band-wrap">
+        <div class="ne-band-text">
+          <p class="eyebrow"><a href="/events">Next event</a></p>
+          <h2><a href={`/events/${nextEvent.id}`}>{nextEvent.data.title}</a></h2>
+          <p class="ne-band-when">
+            <time datetime={nextEvent.data.date.toISOString()}>{fmtFeaturedDate(nextEvent.data.date)}</time>
+            {nextEvent.data.startTime && <><span aria-hidden="true"> · </span><span>{nextEvent.data.startTime}</span></>}
+            {nextEvent.data.location && <><span aria-hidden="true"> · </span><span>{nextEvent.data.location}</span></>}
+          </p>
+          <p class="ne-band-summary">{nextEvent.data.summary}</p>
+          {(nextEvent.data.duration || nextEvent.data.entryFee || nextEvent.data.capacity) && (
+            <p class="ne-band-terms">
+              {nextEvent.data.duration && <span>{nextEvent.data.duration} min</span>}
+              {nextEvent.data.entryFee && <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>}
+              {nextEvent.data.capacity && <span>{nextEvent.data.capacity} capacity</span>}
+            </p>
+          )}
+        </div>
+        {nextEvent.data.siEntriesUrl && (
+          <div class="ne-band-actions">
+            <a class="btn btn-primary" href={nextEvent.data.siEntriesUrl} rel="noopener">Enter via SI Entries <span class="arrow">→</span></a>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- ─────────────────────────── LATEST RESULTS (only if a recent event has them).
+       Sits directly under the Next Event band so the two read as a matched
+       pair — what's coming next + what just happened. -->
+  {latestResultEvent && (
+    <section class="latest-results" aria-label="Latest results">
+      <div class="latest-results-wrap">
+        <div class="lr-text">
+          <p class="eyebrow"><a href="/events#past">Latest results</a></p>
+          <h2><a href={`/events/${latestResultEvent.id}`}>{latestResultEvent.data.title}</a></h2>
+          <p class="lr-when">
+            <time datetime={latestResultEvent.data.date.toISOString()}>{fmtCardDate(latestResultEvent.data.date)}</time>
+            <span aria-hidden="true"> · </span>
+            <span>{latestResultEvent.data.format}</span>
+            {latestResultEvent.data.location && <><span aria-hidden="true"> · </span><span>{latestResultEvent.data.location}</span></>}
+          </p>
+        </div>
+        <ul class="lr-files">
+          {latestResultEvent.data.results.slice(0, 3).map(file => (
+            <li>
+              <a href={file.url} rel="noopener">
+                <span class="lr-tag" data-type={file.type}>{file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}</span>
+                <span class="lr-label">{file.label}</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  </section><!-- /hero -->
 
   <!-- ─────────────────────────── UPCOMING -->
   <section class="upcoming">
@@ -326,35 +364,6 @@ const orgJsonLd = {
     </ul>
   </section>
 
-  <!-- ─────────────────────────── LATEST RESULTS (only if a recent event has them) -->
-  {latestResultEvent && (
-    <section class="latest-results" aria-label="Latest results">
-      <div class="latest-results-wrap">
-        <div class="lr-text">
-          <p class="eyebrow">Latest results</p>
-          <h2>{latestResultEvent.data.title}</h2>
-          <p class="lr-when">
-            <time datetime={latestResultEvent.data.date.toISOString()}>{fmtCardDate(latestResultEvent.data.date)}</time>
-            <span aria-hidden="true"> · </span>
-            <span>{latestResultEvent.data.format}</span>
-            {latestResultEvent.data.location && <><span aria-hidden="true"> · </span><span>{latestResultEvent.data.location}</span></>}
-          </p>
-        </div>
-        <ul class="lr-files">
-          {latestResultEvent.data.results.slice(0, 3).map(file => (
-            <li>
-              <a href={file.url} rel="noopener">
-                <span class="lr-tag" data-type={file.type}>{file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}</span>
-                <span class="lr-label">{file.label}</span>
-                <span aria-hidden="true">→</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a class="lr-event-link" href={`/events/${latestResultEvent.id}`}>Full event page →</a>
-      </div>
-    </section>
-  )}
 
   <!-- ─────────────────────────── TAKE PART ANYTIME
        Three routes for people who can't make a formal event: the parent

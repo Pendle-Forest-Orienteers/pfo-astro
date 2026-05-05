@@ -132,11 +132,23 @@ collections:
       - { name: "location", label: "Location", widget: "string", hint: "Short label for cards, e.g. 'Burnley'" }
       - { name: "venue", label: "Venue", widget: "string", required: false, hint: "Specific building, e.g. 'Ighten Leigh Social Club'" }
       - { name: "postcode", label: "Postcode", widget: "string", required: false }
+      # ─── Map pin (preferred) ──────────────────────────────────────
+      # Click on the map below to drop a pin at the event venue.
+      # Coordinates and all four external map links (Google Maps,
+      # OpenStreetMap, StreetMap, Bing) are derived from this pin
+      # automatically. Drag the pin to fine-tune.
+      - { name: "coordsGeoJson", label: "Drop a pin on the map at the venue", widget: "map", required: false, type: "Point", decimals: 5, hint: "Click to place a pin, drag to move it. Search isn't built in — pan/zoom to find the venue, or paste lat/lng below as a fallback." }
+      # ─── Manual lat/lng (fallback) ────────────────────────────────
+      # Used when the map pin isn't set, or for power users who'd
+      # rather paste coordinates from Google Maps directly. To get
+      # coords from Google Maps: right-click the venue on Google Maps,
+      # then click the lat/lng that appears at the top of the menu.
       - name: "coords"
-        label: "Coordinates"
+        label: "Or paste coordinates manually (fallback)"
         widget: "object"
         required: false
         collapsed: true
+        hint: "Only fill these in if you didn't drop a pin above. Right-click the venue on Google Maps then click the lat,lng numbers that appear."
         fields:
           - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
           - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }
@@ -238,6 +250,27 @@ collections:
           - { name: "src", label: "Image", widget: "image" }
           - { name: "alt", label: "Alt text", widget: "string" }
           - { name: "caption", label: "Caption", widget: "string", required: false }
+      - name: "attachments"
+        label: "File attachments"
+        widget: "list"
+        required: false
+        summary: "{{fields.label}}"
+        hint: "PDFs, Word docs, spreadsheets, or images that visitors can download from this article. Each attachment becomes a labelled link at the bottom of the page."
+        fields:
+          - { name: "label", label: "Label shown to readers", widget: "string", hint: "E.g. 'Course details (PDF)' or 'Results spreadsheet'" }
+          - { name: "file", label: "Upload file", widget: "file" }
+          - name: "type"
+            label: "File type"
+            widget: "select"
+            options:
+              - { label: "PDF", value: "pdf" }
+              - { label: "Word document", value: "docx" }
+              - { label: "Spreadsheet", value: "xlsx" }
+              - { label: "CSV", value: "csv" }
+              - { label: "Image", value: "image" }
+              - { label: "Other", value: "other" }
+            default: "pdf"
+            required: false
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
       - { name: "body", label: "Article body", widget: "markdown" }
 
@@ -346,4 +379,25 @@ collections:
       - { name: "lastReviewed", label: "Last reviewed", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false, required: false }
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
       - { name: "wideLayout", label: "Use full-width layout (for pages with wide tables)", widget: "boolean", default: false, required: false, hint: "Hides the right-hand 'Other information' sidebar and shows it as a small dropdown above the page instead. Use this when the page has wide tables — e.g. POC courses." }
+      - name: "attachments"
+        label: "File attachments"
+        widget: "list"
+        required: false
+        summary: "{{fields.label}}"
+        hint: "PDFs, Word docs, spreadsheets, or images that visitors can download. Each attachment becomes a labelled link at the bottom of the page."
+        fields:
+          - { name: "label", label: "Label shown to readers", widget: "string", hint: "E.g. 'Safeguarding policy (PDF)' or 'Membership form'" }
+          - { name: "file", label: "Upload file", widget: "file" }
+          - name: "type"
+            label: "File type"
+            widget: "select"
+            options:
+              - { label: "PDF", value: "pdf" }
+              - { label: "Word document", value: "docx" }
+              - { label: "Spreadsheet", value: "xlsx" }
+              - { label: "CSV", value: "csv" }
+              - { label: "Image", value: "image" }
+              - { label: "Other", value: "other" }
+            default: "pdf"
+            required: false
       - { name: "body", label: "Page content", widget: "markdown" }

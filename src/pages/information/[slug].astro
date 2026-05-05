@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Attachments from '../../components/Attachments.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -85,6 +86,9 @@ const breadcrumbJsonLd = {
 
       <article class="info-prose">
         <Content />
+        {page.data.attachments && page.data.attachments.length > 0 && (
+          <Attachments attachments={page.data.attachments} />
+        )}
       </article>
 
       {!page.data.wideLayout && (
