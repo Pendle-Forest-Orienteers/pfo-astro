@@ -189,13 +189,28 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
    Used via the CMS's "raw HTML" editor mode. */
 
 /* <mark>important text</mark> renders as a yellow highlight that picks
-   up the PFO gold without screaming. */
-mark {
-  background: var(--gold);
-  color: var(--ink);
+   up the PFO gold without screaming. Also targeted via prose-container
+   selectors below in case scoped page styles ever try to undo it. */
+mark, mark *, .ev-prose mark, .article-prose mark, .info-prose mark, .map-prose mark, .news-prose mark {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
   padding: 1px 3px;
   border-radius: 2px;
 }
+
+/* Named text-colour utility classes — committee can wrap text in a
+   <span> with one of these classes via the editor's source mode to
+   change a phrase's colour. Limited to the club palette so the site
+   stays visually consistent. Usage:
+     <span class="t-plum">important phrase</span>
+     <span class="t-navy">key date</span>
+     <span class="t-alert">EVENT CANCELLED</span> */
+.t-plum     { color: var(--plum); }
+.t-navy     { color: var(--navy); }
+.t-gold     { color: var(--gold-muted); }      /* slightly darker gold for legibility */
+.t-success  { color: var(--success-text); }
+.t-alert    { color: var(--alert); font-weight: 500; }
+.t-mute     { color: var(--ink-mute); }
 
 /* Float helpers for images embedded in the body. The committee can use
    these via the CMS's HTML mode:
