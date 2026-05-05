@@ -847,10 +847,13 @@ img.full-width {
 }
 .ev-card:last-child { border-right: 0; }
 .ev-card {
-  border-top: 3px solid transparent;
-  transition: background .2s ease, border-color .2s ease;
+  /* Permanent plum top stripe — gives every upcoming event card a club
+     accent and visually flags it as a separate clickable thing without
+     the heaviness of a full border. */
+  border-top: 4px solid var(--plum);
+  transition: background .2s ease;
 }
-.ev-card:hover { background: var(--paper-2); border-top-color: var(--plum); }
+.ev-card:hover { background: var(--paper-2); }
 .ev-card time {
   font-family: var(--ff-mono);
   font-size: 11px;
