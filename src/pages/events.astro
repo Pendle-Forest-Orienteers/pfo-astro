@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
+import EventCalendar from '../components/EventCalendar.astro';
 import { getCollection } from 'astro:content';
 import { resolveCoords } from '../lib/coords';
 
@@ -50,6 +51,8 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     lede="PFO runs around 12–15 events a year — local midweek street events, weekend regionals on the fells, and the headline Brun Valley fixture in May. Online entry via SI Entries; turn-up-on-the-day welcome where space allows."
   >
     <nav class="anchor-nav rise d-4" aria-label="Skip to section">
+      <a href="#calendar">Calendar</a>
+      <span aria-hidden="true">·</span>
       <a href="#upcoming">Upcoming ({upcoming.length})</a>
       <span aria-hidden="true">·</span>
       <a href="#past">Past results ({past.length})</a>
@@ -62,31 +65,58 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     </nav>
   </PageHero>
 
-  <!-- ─────────────────────────── Map view (only renders if there are upcoming events with coords) -->
-  {upcoming.some(e => resolveCoords(e.data)) && (
-    <section id="map" class="event-map-section" aria-label="Upcoming events on a map">
-      <div id="events-map"
-           class="events-map"
-           data-events={JSON.stringify(
-             upcoming
-               .map(e => ({ event: e, c: resolveCoords(e.data) }))
-               .filter(({ c }) => !!c)
-               .map(({ event: e, c }) => ({
-                 lat: c!.lat,
-                 lng: c!.lng,
-                 title: e.data.title,
-                 url: `/events/${e.id}`,
-                 date: new Intl.DateTimeFormat('en-GB',
-                   { weekday: 'short', day: 'numeric', month: 'short' })
-                   .format(e.data.date),
-                 format: e.data.format,
-                 location: e.data.location,
-               }))
-           )}>
+  <!-- ─────────────────────────── Map + Calendar (side-by-side at the top)
+       Map takes the bulk of the width, calendar sits in a narrower column
+       on the right. Stacks on phones. -->
+  {(upcoming.some(e => resolveCoords(e.data)) || upcoming.length > 0) && (
+    <section id="map" class="map-and-calendar" aria-label="Events overview">
+      <div class="mc-grid">
+        {upcoming.some(e => resolveCoords(e.data)) && (
+          <div class="mc-map">
+            <div id="events-map"
+                 class="events-map"
+                 data-events={JSON.stringify(
+                   upcoming
+                     .map(e => ({ event: e, c: resolveCoords(e.data) }))
+                     .filter(({ c }) => !!c)
+                     .map(({ event: e, c }) => ({
+                       lat: c!.lat,
+                       lng: c!.lng,
+                       title: e.data.title,
+                       url: `/events/${e.id}`,
+                       date: new Intl.DateTimeFormat('en-GB',
+                         { weekday: 'short', day: 'numeric', month: 'short' })
+                         .format(e.data.date),
+                       format: e.data.format,
+                       location: e.data.location,
+                     }))
+                 )}>
+            </div>
+            <noscript>
+              <p class="empty">The map view needs JavaScript to render. The list below works without it.</p>
+            </noscript>
+          </div>
+        )}
+
+        {upcoming.length > 0 && (
+          <div class="mc-calendar" id="calendar">
+            <div class="mc-calendar-head">
+              <p class="eyebrow">At a glance</p>
+              <span class="mc-calendar-sub">Next 2 months</span>
+            </div>
+            <EventCalendar
+              events={upcoming.map(e => ({
+                id: e.id,
+                title: e.data.title,
+                date: e.data.date,
+                format: e.data.format,
+                location: e.data.location,
+              }))}
+              monthsAhead={2}
+            />
+          </div>
+        )}
       </div>
-      <noscript>
-        <p class="empty">The map view needs JavaScript to render. The list below works without it.</p>
-      </noscript>
     </section>
   )}
 
@@ -229,11 +259,23 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 </script>
 
 <style>
-  /* ─────────────────────────── Events map (Leaflet) */
-  .event-map-section {
+  /* ─────────────────────────── Events overview — map + calendar
+     side-by-side. Map fills the left column; calendar tucks into the
+     right column at a compact size. Stacks on phones, calendar first
+     so people see "next event date" before reaching for the map. */
+  .map-and-calendar {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: clamp(20px, 3vw, 40px) var(--pad-x) clamp(8px, 2vw, 16px);
+  }
+  .mc-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: clamp(14px, 2vw, 24px);
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .mc-grid { grid-template-columns: 1fr; }
   }
   .events-map {
     height: clamp(280px, 40vh, 440px);
@@ -241,6 +283,55 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     border: 1px solid var(--rule);
     background: var(--paper-2);
   }
+
+  /* Calendar column header */
+  .mc-calendar-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .mc-calendar-head .eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-muted);
+    margin: 0;
+  }
+  .mc-calendar-head .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--plum);
+    margin-right: 8px;
+    transform: translateY(-1px);
+  }
+  .mc-calendar-sub {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* Compact the EventCalendar component when it lives in the side column.
+     The component's own styles use `.event-calendar` — overriding here to
+     remove its outer padding (we're already inside a padded section) and
+     stack the months vertically rather than side-by-side. */
+  .mc-calendar :global(.event-calendar) {
+    padding: 0;
+    max-width: none;
+  }
+  .mc-calendar :global(.event-calendar-key) { display: none; }
+  .mc-calendar :global(.event-calendar-grid) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .mc-calendar :global(.cal-month) { padding: 12px 12px 10px; }
+  .mc-calendar :global(.cal-day) { font-size: 11px; }
   .events-map :global(a) { color: var(--navy); }
   .events-map :global(.leaflet-popup-content) {
     font-family: var(--ff-body);
