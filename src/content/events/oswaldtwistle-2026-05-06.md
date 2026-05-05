@@ -16,6 +16,7 @@ bofEventNumber: 87374
 dogsAllowed: not-recommended
 planner: Richard Edwards (PFO)
 summary: May Street-O
+description: New area
 ---
 
 <!-- migrated -->
