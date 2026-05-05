@@ -191,11 +191,10 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
                   </a>
                   {hasResults ? (
                     <a class="results-quick-link"
-                       href={firstResult.url}
-                       rel="noopener"
-                       target={firstResult.url.startsWith('http') ? '_blank' : undefined}
-                       aria-label={`${event.data.title} — view results`}>
+                       href={`/events/${event.id}#results`}
+                       aria-label={`${event.data.title} — see all results files`}>
                       <span class="results-quick-tag">Results</span>
+                      <span class="results-quick-count">{event.data.results.length}</span>
                       <span aria-hidden="true">→</span>
                     </a>
                   ) : (
@@ -561,6 +560,18 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     transition: background .18s ease, color .18s ease;
     flex: 0 0 auto;
     white-space: nowrap;
+  }
+  .results-quick-count {
+    display: inline-block;
+    min-width: 18px;
+    padding: 2px 6px;
+    background: var(--ink);
+    color: var(--gold);
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
   }
   .results-quick-link:hover { background: var(--ink); color: var(--gold); }
   .results-quick-tag { font-weight: 500; }
