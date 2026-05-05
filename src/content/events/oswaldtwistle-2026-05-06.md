@@ -1,20 +1,21 @@
 ---
-title: "Oswaldtwistle"
+title: Oswaldtwistle
 date: 2026-05-06
-startTime: "7:00pm"
+startTime: 7:00pm
 entryCloseDate: 2026-05-06T12:00:00
-location: "Oswaldtwistle"
-format: "Street-O"
-level: "local"
-series: "May Street-O"
-summary: "May Street-O"
+location: Oswaldtwistle
+venue: Black Dog PH
 coords:
   lat: 53.74206
   lng: -2.40648
-what3words: "typically.capacity.skips"
+what3words: typically.capacity.skips
+format: Street-O
+level: local
+series: May Street-O
 bofEventNumber: 87374
-dogsAllowed: "not-recommended"
-planner: "Richard Edwards (PFO)"
+dogsAllowed: not-recommended
+planner: Richard Edwards (PFO)
+summary: May Street-O
 ---
 
 <!-- migrated -->
