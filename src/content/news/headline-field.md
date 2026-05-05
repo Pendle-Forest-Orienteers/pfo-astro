@@ -40,4 +40,4 @@ article body text
 
 ***~~Numbers~~***
 
-`Highlighted ( will always be yellow)`
+<mark>Highlighted</mark>
