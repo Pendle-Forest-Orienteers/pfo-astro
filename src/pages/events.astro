@@ -174,33 +174,55 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
               const hasResults = !!firstResult;
               return (
                 <li class="past-row-li">
-                  <a class="ev-row past-row" href={`/events/${event.id}`}>
-                    <time class="ev-row-date" datetime={event.data.date.toISOString()}>
-                      <span class="ev-row-day">{fmtDay(event.data.date)}</span>
-                      <span class="ev-row-month">{fmtMonth(event.data.date)}</span>
-                      <span class="ev-row-weekday">{fmtWeekday(event.data.date)}</span>
-                    </time>
-                    <div class="ev-row-body">
-                      <h3>{event.data.title}</h3>
-                      <p class="ev-row-meta">
-                        <span>{event.data.format}</span>
-                        {event.data.location && <><span aria-hidden="true">·</span><span>{event.data.location}</span></>}
-                      </p>
-                    </div>
-                    <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
-                  </a>
-                  {hasResults ? (
-                    <a class="results-quick-link"
-                       href={`/events/${event.id}#results`}
-                       aria-label={`${event.data.title} — see all results files`}>
-                      <span class="results-quick-tag">Results</span>
-                      <span class="results-quick-count">{event.data.results.length}</span>
-                      <span aria-hidden="true">→</span>
+                  <div class="past-row-main">
+                    <a class="ev-row past-row" href={`/events/${event.id}`}>
+                      <time class="ev-row-date" datetime={event.data.date.toISOString()}>
+                        <span class="ev-row-day">{fmtDay(event.data.date)}</span>
+                        <span class="ev-row-month">{fmtMonth(event.data.date)}</span>
+                        <span class="ev-row-weekday">{fmtWeekday(event.data.date)}</span>
+                      </time>
+                      <div class="ev-row-body">
+                        <h3>{event.data.title}</h3>
+                        <p class="ev-row-meta">
+                          <span>{event.data.format}</span>
+                          {event.data.location && <><span aria-hidden="true">·</span><span>{event.data.location}</span></>}
+                        </p>
+                      </div>
+                      <span class={`level level-${event.data.level}`}>{capitalize(event.data.level)}</span>
                     </a>
-                  ) : (
-                    <span class="results-quick-link results-quick-link--empty" aria-hidden="true">
-                      <span class="results-quick-tag results-quick-tag--empty">No results</span>
-                    </span>
+                    {hasResults ? (
+                      <a class="results-quick-link"
+                         href={`/events/${event.id}#results`}
+                         data-results-toggle
+                         aria-expanded="false"
+                         aria-controls={`results-${event.id}`}
+                         aria-label={`${event.data.title} — show all results files`}>
+                        <span class="results-quick-tag">Results</span>
+                        <span class="results-quick-count">{event.data.results.length}</span>
+                        <span class="results-quick-arrow" aria-hidden="true">▾</span>
+                      </a>
+                    ) : (
+                      <span class="results-quick-link results-quick-link--empty" aria-hidden="true">
+                        <span class="results-quick-tag results-quick-tag--empty">No results</span>
+                      </span>
+                    )}
+                  </div>
+                  {hasResults && (
+                    <ul class="past-row-files" id={`results-${event.id}`} hidden>
+                      {event.data.results.map(file => (
+                        <li>
+                          <a href={file.url}
+                             rel="noopener"
+                             target={file.url.startsWith('http') ? '_blank' : undefined}>
+                            <span class="past-row-file-tag" data-type={file.type}>
+                              {file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}
+                            </span>
+                            <span class="past-row-file-label">{file.label}</span>
+                            <span class="past-row-file-arrow" aria-hidden="true">→</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </li>
               );
@@ -220,6 +242,28 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin="" />
 </Fragment>
+
+<script is:inline>
+  // Past-event Results toggle: click the Results button to expand an
+  // inline list of all result files for that event, instead of having
+  // to click through to the event detail page. Falls back to a normal
+  // link if JS is off.
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggles = document.querySelectorAll('[data-results-toggle]');
+    Array.prototype.forEach.call(toggles, function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var expanded = el.getAttribute('aria-expanded') === 'true';
+        el.setAttribute('aria-expanded', String(!expanded));
+        var panelId = el.getAttribute('aria-controls');
+        var panel = panelId ? document.getElementById(panelId) : null;
+        if (panel) panel.hidden = expanded;
+        var arrow = el.querySelector('.results-quick-arrow');
+        if (arrow) arrow.textContent = expanded ? '▾' : '▴'; // ▾ / ▴
+      });
+    });
+  });
+</script>
 
 <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -536,21 +580,92 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   .ev-row-meta span[aria-hidden="true"] { color: var(--ink-mute); }
   .ev-row-meta .has-results { color: var(--plum); font-weight: 500; }
 
-  /* ─────────────────────────── Past row with quick results link */
+  /* ─────────────────────────── Past row with quick results toggle.
+     The row + Results button sit horizontally in `.past-row-main`.
+     Clicking Results reveals an inline file list `.past-row-files`
+     below the row (when JS is on). When JS is off, the Results
+     button falls back to navigating to the event page #results. */
   .past-row-li {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+  }
+  .past-row-main {
     display: flex;
     align-items: stretch;
     gap: 0;
   }
-  .past-row-li > .ev-row { flex: 1 1 auto; min-width: 0; }
+  .past-row-main > .ev-row { flex: 1 1 auto; min-width: 0; }
+
+  .past-row-files {
+    list-style: none;
+    margin: 0;
+    padding: 12px 18px 14px;
+    background: var(--paper-2);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  /* Explicit override for the [hidden] attribute — needed because our
+     `display: flex` above otherwise wins over the browser's default
+     `[hidden] { display: none }` rule, leaving the panel permanently
+     visible. */
+  .past-row-files[hidden] {
+    display: none !important;
+  }
+  .past-row-files a {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-size: 14px;
+    text-decoration: none;
+    transition: background .18s ease, border-color .18s ease;
+  }
+  .past-row-files a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+  .past-row-file-tag {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3px 8px;
+  }
+  .past-row-files a:hover .past-row-file-tag {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .past-row-file-label { font-weight: 500; }
+  .past-row-file-arrow { color: var(--ink-mute); }
+  .past-row-files a:hover .past-row-file-arrow { color: var(--ink); }
+
+  /* Rotate the toggle arrow when expanded for a clear affordance. */
+  .results-quick-arrow {
+    display: inline-block;
+    transition: transform .18s ease;
+  }
+  [data-results-toggle][aria-expanded="true"] .results-quick-arrow {
+    transform: rotate(180deg);
+  }
 
   .results-quick-link {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 0 18px;
-    background: var(--gold);
-    color: var(--ink);
+    background: var(--navy);
+    color: var(--paper);
     text-decoration: none;
     font-family: var(--ff-mono);
     font-size: 12px;
@@ -565,15 +680,22 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     display: inline-block;
     min-width: 18px;
     padding: 2px 6px;
-    background: var(--ink);
-    color: var(--gold);
+    background: var(--gold);
+    color: var(--ink);
     font-family: var(--ff-mono);
     font-size: 10px;
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
   }
-  .results-quick-link:hover { background: var(--ink); color: var(--gold); }
+  .results-quick-link:hover {
+    background: var(--navy-deep);
+    color: var(--paper);
+  }
+  .results-quick-link:hover .results-quick-count {
+    background: var(--gold-bright);
+    color: var(--ink);
+  }
   .results-quick-tag { font-weight: 500; }
 
   .results-quick-link--empty {
