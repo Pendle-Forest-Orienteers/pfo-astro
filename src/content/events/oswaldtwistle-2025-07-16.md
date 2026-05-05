@@ -44,7 +44,7 @@ Starts from 6:00PM to 7:00PM at minute intervals. You can choose your 15 minute 
 
 **Event centre:** **Black Dog PH**
 
-W3W: ///**TBC**
+W3W: ///**typically.capacity.skips**
 
 **Parking: TBC**
 
