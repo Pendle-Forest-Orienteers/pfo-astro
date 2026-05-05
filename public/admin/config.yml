@@ -142,8 +142,7 @@ collections:
         required: false
         type: "Point"
         decimals: 7
-        default: '{"type":"Point","coordinates":[-2.20,53.79]}'
-        hint: "Map opens centred on East Lancashire. Pan/zoom and click to drop a pin, drag to move it. If you can't find the venue, use Method 2 below instead — much faster."
+        hint: "Pan/zoom the map to East Lancashire, then click to drop a pin at the venue. Drag the pin to fine-tune. If you can't find the venue, use Method 2 below instead — much faster."
       - { name: "coordsPaste", label: "Method 2 — or paste coordinates from Google Maps", widget: "string", required: false, hint: "On Google Maps: right-click the venue, then click the numbers at the top of the menu (e.g. 53.79748, -2.22698). They auto-copy. Paste here. You only need to use ONE of the two methods — whichever you've used will set the location." }
       - { name: "what3words", label: "what3words", widget: "string", required: false, hint: "Three-word location for parking / event centre, e.g. 'typically.capacity.skips' (no leading slashes)" }
       - { name: "gridRef", label: "OS grid reference", widget: "string", required: false, hint: "e.g. 'SD848335'" }
