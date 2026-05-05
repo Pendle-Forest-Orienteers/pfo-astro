@@ -5,21 +5,16 @@ import EventCalendar from '../components/EventCalendar.astro';
 import { getCollection } from 'astro:content';
 import { resolveCoords } from '../lib/coords';
 import { neighbouringClubs } from '../data/neighbouring-clubs';
-import { fetchNeighbourEvents, type NeighbourEvent } from '../lib/neighbour-events';
 
 // ─────── Data: split events into upcoming and past
 const now = new Date();
 const allEvents = await getCollection('events');
 
-// Pull live neighbouring-club events from BOF at build time. If the
-// fetch fails or returns nothing, we just show the club-card fallback
-// underneath the table — page still works.
-let neighbourEvents: NeighbourEvent[] = [];
-try {
-  neighbourEvents = await fetchNeighbourEvents();
-} catch {
-  neighbourEvents = [];
-}
+// Neighbouring-club events are fetched client-side at request time
+// (via /api/neighbour-events Netlify Function) because BOF blocks the
+// Netlify build server's IPs. Until that promise resolves, the page
+// renders the fallback club-list below; the script swaps it out for a
+// populated table on success.
 
 const upcoming = allEvents
   .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled)
@@ -169,15 +164,14 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
       </ul>
     )}
 
-    <!-- CTA: jump down to the neighbouring-clubs table. Bottom-left of
-         the upcoming list, mirroring the old PFO site's pattern. -->
+    <!-- CTA: jump down to the neighbouring-clubs table. Bottom-right of
+         the upcoming list. The count badge is filled in client-side once
+         the /api/neighbour-events function returns. -->
     <div class="upcoming-cta">
       <a class="neighbour-cta" href="#neighbours">
         <span class="neighbour-cta-icon" aria-hidden="true">↓</span>
         <span class="neighbour-cta-text">Events from neighbouring clubs</span>
-        {neighbourEvents.length > 0 && (
-          <span class="neighbour-cta-count">{neighbourEvents.length}</span>
-        )}
+        <span class="neighbour-cta-count" data-neighbour-count hidden></span>
       </a>
     </div>
   </section>
@@ -260,19 +254,19 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   </section>
 
   <!-- ─────────────────────────── Neighbouring clubs
-       Live BOF feed of upcoming events run by clubs near PFO. Renders
-       as a table matching the old PFO site (Date / Event / Club / Near
-       / Level). If the feed is empty (BOF unreachable, format change),
-       falls back to a list of club links so members can still get to
-       each club's own events page. -->
-  <section id="neighbours" class="event-section neighbours">
+       Live BOF feed via /api/neighbour-events (Netlify Function).
+       Three states, all rendered server-side and toggled by the script
+       at the bottom of the page:
+         · loading   — shown by default while fetch is in flight
+         · table     — populated on success
+         · fallback  — club-card list, shown if fetch fails or returns 0
+       This way the section is always meaningful even with JS off (the
+       fallback is the default visible state), and progressively
+       enhances when the function returns rows. -->
+  <section id="neighbours" class="event-section neighbours" data-neighbour-section>
     <div class="sec-head">
       <p class="eyebrow">Neighbouring clubs</p>
-      <span class="sec-count">
-        {neighbourEvents.length > 0
-          ? `${neighbourEvents.length} fixture${neighbourEvents.length === 1 ? '' : 's'}`
-          : `${neighbouringClubs.length} clubs`}
-      </span>
+      <span class="sec-count" data-neighbour-count-text>{neighbouringClubs.length} clubs</span>
     </div>
 
     <p class="neighbours-intro">
@@ -282,54 +276,49 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
       <a href="https://www.britishorienteering.org.uk/event" rel="noopener">British Orienteering's full event listing →</a>.
     </p>
 
-    {neighbourEvents.length > 0 ? (
-      <div class="neighbour-table-wrap">
-        <table class="neighbour-table">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Event</th>
-              <th scope="col">Club</th>
-              <th scope="col">Near</th>
-              <th scope="col">Level</th>
-            </tr>
-          </thead>
-          <tbody>
-            {neighbourEvents.map(e => (
-              <tr>
-                <td class="nb-date">
-                  <time datetime={e.date.toISOString()}>{fmtRowDate(e.date)}</time>
-                </td>
-                <td class="nb-title">
-                  <a href={e.url} rel="noopener" target="_blank">{e.title}</a>
-                </td>
-                <td class="nb-club"><span class={`nb-club-tag nb-club-${e.club.toLowerCase()}`}>{e.club}</span></td>
-                <td class="nb-near">{e.near || '—'}</td>
-                <td class="nb-level">{e.level || '—'}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    ) : (
-      <div class="neighbour-fallback">
-        <p class="neighbour-fallback-note">
-          Live feed unavailable right now. Check each club's events page directly:
-        </p>
-        <ul class="neighbour-club-list">
-          {neighbouringClubs.map(club => (
-            <li>
-              <a href={club.eventsUrl} rel="noopener" target="_blank">
-                <span class="neighbour-club-abbr">{club.abbr}</span>
-                <span class="neighbour-club-name">{club.name}</span>
-                <span class="neighbour-club-region">{club.region}</span>
-                <span class="neighbour-club-arrow" aria-hidden="true">→</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+    <!-- Loading state (visible by default; script hides it once fetch resolves) -->
+    <div class="neighbour-loading" data-neighbour-loading>
+      <p class="neighbour-loading-note">
+        <span class="loading-dot" aria-hidden="true"></span>
+        Loading upcoming events from British Orienteering…
+      </p>
+    </div>
+
+    <!-- Table — empty until populated by the script -->
+    <div class="neighbour-table-wrap" data-neighbour-table hidden>
+      <table class="neighbour-table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event</th>
+            <th scope="col">Club</th>
+            <th scope="col">Near</th>
+            <th scope="col">Level</th>
+          </tr>
+        </thead>
+        <tbody data-neighbour-tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Fallback — shown if fetch fails or returns no events.
+         Also the no-JS default. -->
+    <div class="neighbour-fallback" data-neighbour-fallback>
+      <p class="neighbour-fallback-note">
+        Live feed unavailable right now. Check each club's events page directly:
+      </p>
+      <ul class="neighbour-club-list">
+        {neighbouringClubs.map(club => (
+          <li>
+            <a href={club.eventsUrl} rel="noopener" target="_blank">
+              <span class="neighbour-club-abbr">{club.abbr}</span>
+              <span class="neighbour-club-name">{club.name}</span>
+              <span class="neighbour-club-region">{club.region}</span>
+              <span class="neighbour-club-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   </section>
 
 </main>
@@ -361,6 +350,70 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
         if (arrow) arrow.textContent = expanded ? '▾' : '▴'; // ▾ / ▴
       });
     });
+  });
+</script>
+
+<script is:inline>
+  // Neighbouring-clubs hydration. Calls the Netlify Function that
+  // proxies BOF, then either fills in the table or leaves the fallback
+  // visible. Loading dot stays in either case until the swap happens.
+  document.addEventListener('DOMContentLoaded', function () {
+    var section  = document.querySelector('[data-neighbour-section]');
+    if (!section) return;
+    var loading  = section.querySelector('[data-neighbour-loading]');
+    var tableWrap= section.querySelector('[data-neighbour-table]');
+    var tbody    = section.querySelector('[data-neighbour-tbody]');
+    var fallback = section.querySelector('[data-neighbour-fallback]');
+    var countText= document.querySelector('[data-neighbour-count-text]');
+    var ctaCount = document.querySelector('[data-neighbour-count]');
+
+    fetch('/api/neighbour-events', { credentials: 'omit' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var events = (data && data.events) || [];
+        if (loading) loading.hidden = true;
+        if (events.length === 0) {
+          // Keep fallback visible — nothing came back.
+          return;
+        }
+        // Build table rows
+        var rows = events.map(function (e) {
+          var d = new Date(e.date);
+          var dateStr = d.toLocaleDateString('en-GB', {
+            weekday: 'short', day: 'numeric', month: 'short'
+          }).replace(',', '');
+          var clubLower = (e.club || '').toLowerCase();
+          var safe = function (s) {
+            return String(s == null ? '' : s)
+              .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+          };
+          return (
+            '<tr>' +
+              '<td class="nb-date"><time datetime="' + safe(e.date) + '">' + safe(dateStr) + '</time></td>' +
+              '<td class="nb-title"><a href="' + safe(e.url) + '" rel="noopener" target="_blank">' + safe(e.title) + '</a></td>' +
+              '<td class="nb-club"><span class="nb-club-tag nb-club-' + safe(clubLower) + '">' + safe(e.club) + '</span></td>' +
+              '<td class="nb-near">' + (e.near ? safe(e.near) : '—') + '</td>' +
+              '<td class="nb-level">' + (e.level ? safe(e.level) : '—') + '</td>' +
+            '</tr>'
+          );
+        }).join('');
+        if (tbody) tbody.innerHTML = rows;
+        if (tableWrap) tableWrap.hidden = false;
+        if (fallback) fallback.hidden = true;
+        if (countText) countText.textContent = events.length + ' fixture' + (events.length === 1 ? '' : 's');
+        if (ctaCount) {
+          ctaCount.textContent = String(events.length);
+          ctaCount.hidden = false;
+        }
+      })
+      .catch(function () {
+        // Leave fallback visible; just hide the loading note.
+        if (loading) loading.hidden = true;
+      });
   });
 </script>
 
@@ -1024,6 +1077,34 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     .nb-title { grid-column: 1 / -1; grid-row: 2; padding: 4px 0; font-size: 16px; }
     .nb-near { grid-column: 1 / -1; grid-row: 3; }
     .nb-level { grid-column: 1 / -1; grid-row: 4; }
+  }
+
+  /* Loading state (shown until /api/neighbour-events resolves) */
+  .neighbour-loading {
+    max-width: var(--max-w);
+    margin: 0 auto 18px;
+    padding: 14px var(--pad-x);
+  }
+  .neighbour-loading-note {
+    margin: 0;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .loading-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--plum);
+    border-radius: 50%;
+    margin-right: 8px;
+    transform: translateY(-1px);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.35; }
+    50%      { opacity: 1; }
   }
 
   /* Fallback (no live events) — club card list */
