@@ -87,6 +87,16 @@ const events = defineCollection({
       type: z.enum(['html', 'pdf', 'xlsx', 'csv']),
     })).optional(),
 
+    // ─────── Pre-event attachments
+    // Course details, briefing notes, parking maps, entry forms — anything
+    // visitors should be able to download from the event page. Rendered as
+    // a download list at the bottom of the event body.
+    attachments: z.array(z.object({
+      label: z.string(),
+      file: z.string(),
+      type: z.enum(['pdf', 'docx', 'xlsx', 'csv', 'image', 'other']).optional(),
+    })).optional(),
+
     // ─────── Misc
     cancelled: z.boolean().optional(),
     notes: z.string().optional(),           // committee-only notes, not rendered to public

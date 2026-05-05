@@ -132,37 +132,19 @@ collections:
       - { name: "location", label: "Location", widget: "string", hint: "Short label for cards, e.g. 'Burnley'" }
       - { name: "venue", label: "Venue", widget: "string", required: false, hint: "Specific building, e.g. 'Ighten Leigh Social Club'" }
       - { name: "postcode", label: "Postcode", widget: "string", required: false }
-      # ─── Map pin (preferred) ──────────────────────────────────────
-      # Click on the map below to drop a pin at the event venue.
-      # Coordinates and all four external map links (Google Maps,
-      # OpenStreetMap, StreetMap, Bing) are derived from this pin
-      # automatically. Drag the pin to fine-tune.
-      #
-      # The map opens pre-centred on East Lancashire so most venues
-      # are already in view — pan slightly + click is usually enough.
+      # ─── Location: choose ONE of the two methods below ───────────
+      # Either drop a pin on the map, OR paste coordinates from Google
+      # Maps. Either alone is enough — the four external map links and
+      # the embedded mini-map on the event page generate automatically.
       - name: "coordsGeoJson"
-        label: "Drop a pin on the map at the venue"
+        label: "Method 1 — drop a pin on the map at the venue"
         widget: "map"
         required: false
         type: "Point"
         decimals: 5
         default: '{"type":"Point","coordinates":[-2.20,53.79]}'
-        hint: "Map opens centred on East Lancashire. Pan/zoom and click to drop a pin, drag to move it. If you can't find the venue, use the Google Maps paste box below — much faster."
-      # ─── Google Maps paste (fastest fallback) ────────────────────
-      # Single field accepting "lat, lng" exactly as Google Maps gives
-      # it when you right-click and click the coordinates. Parsed at
-      # build time and used identically to the map pin / manual fields.
-      - { name: "coordsPaste", label: "Or paste coordinates from Google Maps", widget: "string", required: false, hint: "On Google Maps: right-click the venue, then click the numbers at the top of the menu (e.g. 53.79748, -2.22698). They auto-copy. Paste here." }
-      # ─── Manual lat/lng (final fallback) ─────────────────────────
-      - name: "coords"
-        label: "Or enter latitude / longitude manually"
-        widget: "object"
-        required: false
-        collapsed: true
-        hint: "Only needed if neither of the above approaches worked."
-        fields:
-          - { name: "lat", label: "Latitude", widget: "number", value_type: "float", step: 0.00001 }
-          - { name: "lng", label: "Longitude", widget: "number", value_type: "float", step: 0.00001 }
+        hint: "Map opens centred on East Lancashire. Pan/zoom and click to drop a pin, drag to move it. If you can't find the venue, use Method 2 below instead — much faster."
+      - { name: "coordsPaste", label: "Method 2 — or paste coordinates from Google Maps", widget: "string", required: false, hint: "On Google Maps: right-click the venue, then click the numbers at the top of the menu (e.g. 53.79748, -2.22698). They auto-copy. Paste here. You only need to use ONE of the two methods — whichever you've used will set the location." }
       - { name: "what3words", label: "what3words", widget: "string", required: false, hint: "Three-word location for parking / event centre, e.g. 'typically.capacity.skips' (no leading slashes)" }
       - { name: "gridRef", label: "OS grid reference", widget: "string", required: false, hint: "e.g. 'SD848335'" }
       - name: "format"
@@ -233,6 +215,27 @@ collections:
       - { name: "cancelled", label: "Event cancelled", widget: "boolean", default: false, required: false }
       - { name: "notes", label: "Committee notes", widget: "text", required: false, hint: "Private notes, not shown publicly" }
       - { name: "body", label: "Long-form description", widget: "markdown", required: false, hint: "Full event details, course information, parking notes, etc." }
+      - name: "attachments"
+        label: "File attachments"
+        widget: "list"
+        required: false
+        summary: "{{fields.label}}"
+        hint: "Course details, briefing notes, parking maps, entry forms — anything visitors should be able to download from this event's page. Each attachment becomes a labelled link at the bottom of the event body."
+        fields:
+          - { name: "label", label: "Label shown to readers", widget: "string", hint: "E.g. 'Course details (PDF)' or 'Final entry list'" }
+          - { name: "file", label: "Upload file", widget: "file" }
+          - name: "type"
+            label: "File type"
+            widget: "select"
+            options:
+              - { label: "PDF", value: "pdf" }
+              - { label: "Word document", value: "docx" }
+              - { label: "Spreadsheet", value: "xlsx" }
+              - { label: "CSV", value: "csv" }
+              - { label: "Image", value: "image" }
+              - { label: "Other", value: "other" }
+            default: "pdf"
+            required: false
 
   # ─── NEWS ────────────────────────────────────────────────────────────────
   - name: "news"
