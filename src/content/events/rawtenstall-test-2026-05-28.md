@@ -29,8 +29,8 @@ attachments: []
 
 **Courses:**
 
-| **Course** | **Length** | **Climb** | **Notes:** |
-| --- | --- | --- | --- |
+| **Course** | **Length** | **Climb** | **Notes:** | Difficulty |
+| --- | --- | --- | --- | --- |
 | **Blue** | 6.7 | 250 | 18 controls | TD5 |
 | **Green ** | 5.9 | 180 | 17 controls | TD5 |
 | **Short Green** | 5.0 | 125 | 15 controls | TD5 |
