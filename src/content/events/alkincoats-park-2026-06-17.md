@@ -21,7 +21,7 @@ coords:
 
 TBC
 
-## Course information
+<span class="t-plum">Course Information</span>
 
 **First part: **Pot any **Red+Colour** pair, then repeat potting a **different Red+any Colour**, up to a maximum of 11 pairs.
 Each Red must be potted only once, but Colours may be repeated. You can stop potting Red+Colour pairs at any time, before commencing to parts 2 and 3.
