@@ -20,15 +20,47 @@
  *                 status: string }
  */
 
+// Each neighbouring club has both an abbreviation and a numeric BOF
+// club ID. The fixturesjson.php feed sometimes returns the abbreviation
+// in the `club` field, sometimes a numeric id, sometimes the full club
+// name. We accept any of the three so we don't depend on BOF's choice.
 const CLUBS = [
-  { abbr: 'EPOC' },
-  { abbr: 'SROC' },
-  { abbr: 'AIRE' },
-  { abbr: 'SELOC' },
-  { abbr: 'MDOC' },
+  { abbr: 'EPOC',  bofClubId: 26, fullName: 'East Pennine Orienteering Club' },
+  { abbr: 'SROC',  bofClubId: 81, fullName: 'South Ribble Orienteering Club' },
+  { abbr: 'AIRE',  bofClubId: 23, fullName: 'Airienteers' },
+  { abbr: 'SELOC', bofClubId: 79, fullName: 'South East Lancashire Orienteering Club' },
+  { abbr: 'MDOC',  bofClubId: 66, fullName: 'Manchester & District Orienteering Club' },
 ];
 
 const TARGET_ABBRS = new Set(CLUBS.map(c => c.abbr));
+const TARGET_IDS   = new Set(CLUBS.map(c => c.bofClubId));
+const TARGET_NAMES = new Set(CLUBS.map(c => c.fullName.toLowerCase()));
+
+/** Resolve any of (abbr | numeric id | full name) → canonical abbr. */
+function resolveClub(raw) {
+  if (raw == null) return null;
+  // Numeric id
+  if (typeof raw === 'number') {
+    const m = CLUBS.find(c => c.bofClubId === raw);
+    return m ? m.abbr : null;
+  }
+  const s = String(raw).trim();
+  if (!s) return null;
+  // Numeric string
+  if (/^\d+$/.test(s)) {
+    const m = CLUBS.find(c => c.bofClubId === Number(s));
+    return m ? m.abbr : null;
+  }
+  // Uppercase abbr match
+  const upper = s.toUpperCase();
+  if (TARGET_ABBRS.has(upper)) return upper;
+  // Full name match (case-insensitive substring)
+  const lower = s.toLowerCase();
+  for (const c of CLUBS) {
+    if (lower.includes(c.fullName.toLowerCase())) return c.abbr;
+  }
+  return null;
+}
 
 const FEED_URL = 'https://www.britishorienteering.org.uk/fullfixturesjson.php';
 
@@ -75,8 +107,11 @@ async function fetchFeed() {
  * Some feeds also include `id` and `start_date`; we look for both.
  */
 function normalize(e) {
-  const club = (e.club || '').toString().toUpperCase().trim();
-  if (!TARGET_ABBRS.has(club)) return null;
+  // BOF stores the club identifier under various keys depending on the
+  // feed flavour; check all three.
+  const rawClub = e.club ?? e.club_id ?? e.clubId ?? e.organiser ?? e.host;
+  const club = resolveClub(rawClub);
+  if (!club) return null;
   if (e.cancelled === true) return null;
   if (e.show_on_bof_website === false) return null;
 
@@ -117,18 +152,39 @@ function normalize(e) {
   };
 }
 
-export default async () => {
+export default async (req) => {
   const fetchedAt = new Date().toISOString();
+  const url = new URL(req.url);
+  const debug = url.searchParams.get('debug') === '1';
+
   let totalFromFeed = 0;
   let events = [];
   let status = 'ok';
+  let rawSample = null;
+  let distinctClubs = null;
 
   try {
     const raw = await fetchFeed();
     totalFromFeed = raw.length;
-    events = raw.map(normalize).filter(Boolean);
 
-    // Sort + cap
+    if (debug) {
+      // Capture a small unfiltered sample + a tally of every distinct
+      // value that appeared in the various club-identifier fields, so
+      // we can see exactly what BOF is returning.
+      rawSample = raw.slice(0, 3);
+      const tally = {};
+      for (const e of raw) {
+        const v = e.club ?? e.club_id ?? e.clubId ?? e.organiser ?? e.host ?? '(none)';
+        const key = typeof v === 'object' ? JSON.stringify(v) : String(v);
+        tally[key] = (tally[key] || 0) + 1;
+      }
+      distinctClubs = Object.entries(tally)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 25)
+        .map(([value, count]) => ({ value, count }));
+    }
+
+    events = raw.map(normalize).filter(Boolean);
     events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     events = events.slice(0, 30);
   } catch (err) {
@@ -146,16 +202,22 @@ export default async () => {
     perClub.map(p => `${p.abbr}=${p.count}`).join(' '),
   );
 
-  return new Response(
-    JSON.stringify({ events, fetchedAt, perClub, totalFromFeed, status }),
-    {
-      status: status === 'ok' ? 200 : 200, // always 200 — page falls back gracefully
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        // Edge cache 1 hour, accept stale up to 1 day while revalidating
-        'Cache-Control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
-        'Access-Control-Allow-Origin': '*',
-      },
+  const body = { events, fetchedAt, perClub, totalFromFeed, status };
+  if (debug) {
+    body.rawSample = rawSample;
+    body.distinctClubs = distinctClubs;
+  }
+
+  return new Response(JSON.stringify(body), {
+    status: 200, // always 200 — page falls back gracefully
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      // Edge cache 1 hour, accept stale up to 1 day while revalidating.
+      // Debug responses bypass cache so we always see fresh data while iterating.
+      'Cache-Control': debug
+        ? 'no-store'
+        : 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+      'Access-Control-Allow-Origin': '*',
     },
-  );
+  });
 };
