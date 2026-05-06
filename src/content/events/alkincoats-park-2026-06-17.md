@@ -4,7 +4,7 @@ date: 2026-06-17
 entryCloseDate: 2026-06-17T12:00:00
 location: Alkincoats Park
 postcode: ""
-coordsGeoJson: '{"type":"Point","coordinates":[-2.1850005,53.8603868]}'
+coordsGeoJson: '{"type":"Point","coordinates":[-2.1822496,53.860917]}'
 format: Standard
 level: local
 bofEventNumber: 87934
