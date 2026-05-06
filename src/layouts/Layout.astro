@@ -479,15 +479,11 @@ img.full-width {
 .hero-wrap {
   position: relative;
   max-width: var(--max-w); margin: 0 auto;
-  /* Tightened both top and bottom padding so the Next Event card lands
-     above the fold on a typical 1366×768 laptop. The previous 2-column
-     grid had an empty right slot inflating the hero height with no
-     content; collapsed to single column. */
-  padding: clamp(28px, 3.5vw, 56px) var(--pad-x) clamp(8px, 1.5vw, 18px);
-  display: block;
-}
-.hero-wrap > .hero-intro {
-  max-width: 56ch;  /* keeps headline + lede readable, no super-long lines */
+  padding: clamp(40px, 5vw, 72px) var(--pad-x) clamp(40px, 5vw, 72px);
+  display: grid;
+  grid-template-columns: 1.2fr 0.85fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: stretch;
 }
 .hero-backdrop {
   position: absolute; inset: 0;
@@ -736,7 +732,9 @@ img.full-width {
   border-color: var(--paper);
 }
 
-/* next event panel — compact teaser on a paper card */
+/* next event panel — compact teaser on a paper card.
+   align-self: stretch so the card fills the full width of .hero-side,
+   matching the Latest Results card sitting below it. */
 .next-event {
   position: relative;
   background: var(--paper);
@@ -745,7 +743,7 @@ img.full-width {
   display: flex; flex-direction: column;
   overflow: hidden;
   box-shadow: 0 18px 40px -20px rgba(27, 59, 98, 0.45);
-  align-self: start;
+  align-self: stretch;
 }
 .next-event::before {
   content: "";

@@ -277,70 +277,64 @@ const orgJsonLd = {
       </dl>
     </div>
 
-  </div>
+    <!-- Right-hand column of the hero — compact Next Event + Latest
+         Results cards stacked. Sits ABOVE THE FOLD next to the headline
+         so the two pieces of "what's happening now" information are
+         visible immediately on landing. -->
+    {(nextEvent || latestResultEvent) && (
+      <aside class="hero-side rise d-5" aria-label="What's happening">
 
-  <!-- Both bands sit INSIDE the hero so they overlay the photo backdrop. -->
-
-  <!-- ─────────────────────────── NEXT EVENT (full-width band) -->
-  {nextEvent && (
-    <section class="next-event-band" aria-label="Next event">
-      <div class="ne-band-wrap">
-        <div class="ne-band-text">
-          <p class="eyebrow"><a href="/events">Next event</a></p>
-          <h2><a href={`/events/${nextEvent.id}`}>{nextEvent.data.title}</a></h2>
-          <p class="ne-band-when">
-            <time datetime={nextEvent.data.date.toISOString()}>{fmtFeaturedDate(nextEvent.data.date)}</time>
-            {nextEvent.data.startTime && <><span aria-hidden="true"> · </span><span>{nextEvent.data.startTime}</span></>}
-            {nextEvent.data.location && <><span aria-hidden="true"> · </span><span>{nextEvent.data.location}</span></>}
-          </p>
-          <p class="ne-band-summary">{nextEvent.data.summary}</p>
-          {(nextEvent.data.duration || nextEvent.data.entryFee || nextEvent.data.capacity) && (
-            <p class="ne-band-terms">
-              {nextEvent.data.duration && <span>{nextEvent.data.duration} min</span>}
-              {nextEvent.data.entryFee && <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>}
-              {nextEvent.data.capacity && <span>{nextEvent.data.capacity} capacity</span>}
+        {nextEvent && (
+          <article class="next-event">
+            <p class="eyebrow"><a href="/events">Next event</a></p>
+            <p class="event-when">
+              <time datetime={nextEvent.data.date.toISOString()}>{fmtFeaturedDate(nextEvent.data.date)}</time>
+              {nextEvent.data.startTime && <> · <span>{nextEvent.data.startTime}</span></>}
             </p>
-          )}
-        </div>
-        {nextEvent.data.siEntriesUrl && (
-          <div class="ne-band-actions">
-            <a class="btn btn-primary" href={nextEvent.data.siEntriesUrl} rel="noopener">Enter via SI Entries <span class="arrow">→</span></a>
-          </div>
+            <h2><a href={`/events/${nextEvent.id}`}>{nextEvent.data.title}</a></h2>
+            <p class="event-where">
+              {nextEvent.data.location || nextEvent.data.summary}
+            </p>
+            {(nextEvent.data.duration || nextEvent.data.entryFee) && (
+              <p class="event-terms">
+                {nextEvent.data.duration && <span>{nextEvent.data.duration} min</span>}
+                {nextEvent.data.entryFee && <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>}
+              </p>
+            )}
+            {nextEvent.data.siEntriesUrl ? (
+              <a class="btn btn-primary" href={nextEvent.data.siEntriesUrl} rel="noopener">Enter via SI Entries <span class="arrow">→</span></a>
+            ) : (
+              <a class="btn btn-primary" href={`/events/${nextEvent.id}`}>Event details <span class="arrow">→</span></a>
+            )}
+          </article>
         )}
-      </div>
-    </section>
-  )}
 
-  <!-- ─────────────────────────── LATEST RESULTS (only if a recent event has them).
-       Sits directly under the Next Event band so the two read as a matched
-       pair — what's coming next + what just happened. -->
-  {latestResultEvent && (
-    <section class="latest-results" aria-label="Latest results">
-      <div class="latest-results-wrap">
-        <div class="lr-text">
-          <p class="eyebrow"><a href="/events#past">Latest results</a></p>
-          <h2><a href={`/events/${latestResultEvent.id}`}>{latestResultEvent.data.title}</a></h2>
-          <p class="lr-when">
-            <time datetime={latestResultEvent.data.date.toISOString()}>{fmtCardDate(latestResultEvent.data.date)}</time>
-            <span aria-hidden="true"> · </span>
-            <span>{latestResultEvent.data.format}</span>
-            {latestResultEvent.data.location && <><span aria-hidden="true"> · </span><span>{latestResultEvent.data.location}</span></>}
-          </p>
-        </div>
-        <ul class="lr-files">
-          {latestResultEvent.data.results.slice(0, 3).map(file => (
-            <li>
-              <a href={file.url} rel="noopener">
-                <span class="lr-tag" data-type={file.type}>{file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}</span>
-                <span class="lr-label">{file.label}</span>
-                <span aria-hidden="true">→</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
+        {latestResultEvent && (
+          <article class="hero-latest">
+            <p class="eyebrow"><a href="/events#past">Latest results</a></p>
+            <p class="hero-latest-when">
+              <time datetime={latestResultEvent.data.date.toISOString()}>{fmtCardDate(latestResultEvent.data.date)}</time>
+              {latestResultEvent.data.location && <> · <span>{latestResultEvent.data.location}</span></>}
+            </p>
+            <h2><a href={`/events/${latestResultEvent.id}`}>{latestResultEvent.data.title}</a></h2>
+            <ul class="hero-latest-files">
+              {latestResultEvent.data.results.slice(0, 2).map(file => (
+                <li>
+                  <a href={file.url} rel="noopener">
+                    <span class="hero-latest-tag">{file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}</span>
+                    <span class="hero-latest-label">{file.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a class="hero-latest-link" href={`/events/${latestResultEvent.id}`}>All results →</a>
+          </article>
+        )}
+
+      </aside>
+    )}
+
+  </div>
 
   </section><!-- /hero -->
 
