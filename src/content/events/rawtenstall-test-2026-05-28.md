@@ -1,0 +1,24 @@
+---
+title: Rawtenstall Test
+date: 2026-05-29
+startTime: 7:00pm
+entryCloseDate: 2026-05-27T16:00:00.000+01:00
+location: Rawtenstall Town Centre
+venue: Town Square
+postcode: BB4 7LZ
+coordsGeoJson: '{"type":"Point","coordinates":[-2.2852553,53.7017143]}'
+format: Street-O
+level: local
+duration: 60
+series: Test
+bofEventNumber: 12345
+dogsAllowed: on-lead
+planner: Fred
+controller: Bill
+entryFee: 12:00
+summary: StreetO Rawtenstall
+description: Simple StreetO in and around Rawtenstall town centre
+cancelled: false
+hidden: false
+attachments: []
+---
