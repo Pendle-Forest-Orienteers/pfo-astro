@@ -38,6 +38,6 @@ article body text
 
 * ***~~Bullet points~~***
 
-***~~Numbers~~***
+1. ***~~Numbered~~***
 
 <mark>Highlighted</mark>
