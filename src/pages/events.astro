@@ -392,7 +392,7 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
               .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
           };
           return (
-            '<tr>' +
+            '<tr class="nb-row nb-row-' + safe(clubLower) + '" data-club="' + safe(clubLower) + '">' +
               '<td class="nb-date"><time datetime="' + safe(e.date) + '">' + safe(dateStr) + '</time></td>' +
               '<td class="nb-title"><a href="' + safe(e.url) + '" rel="noopener" target="_blank">' + safe(e.title) + '</a></td>' +
               '<td class="nb-club"><span class="nb-club-tag nb-club-' + safe(clubLower) + '">' + safe(e.club) + '</span></td>' +
@@ -1064,6 +1064,21 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   .nb-club-aire { background: #b85d3e; }
   .nb-club-seloc { background: #6b3b8c; }
   .nb-club-mdoc { background: #8a3a5e; }
+
+  /* Zebra stripes — two alternating cream tones from the brand palette.
+     Helps the eye separate one row from the next on a long list, and
+     stays on-brand (no jarring black/white contrast). The club-coloured
+     abbr pill in the Club column still does the heavy lifting for
+     "which club is this" identification. */
+  .neighbour-table tbody tr {
+    background: var(--paper);
+  }
+  .neighbour-table tbody tr:nth-child(even) {
+    background: var(--paper-2);
+  }
+  .neighbour-table tbody tr:hover {
+    background: var(--paper-3);
+  }
   .nb-near, .nb-level {
     color: var(--ink-soft);
     font-size: 13px;
