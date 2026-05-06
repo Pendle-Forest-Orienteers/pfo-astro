@@ -479,13 +479,15 @@ img.full-width {
 .hero-wrap {
   position: relative;
   max-width: var(--max-w); margin: 0 auto;
-  /* Reduced bottom padding because the Next Event + Latest Results bands
-     now sit immediately below this within the same hero section. */
-  padding: clamp(48px, 6vw, 88px) var(--pad-x) clamp(20px, 3vw, 32px);
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: clamp(28px, 4vw, 56px);
-  align-items: stretch;
+  /* Tightened both top and bottom padding so the Next Event card lands
+     above the fold on a typical 1366×768 laptop. The previous 2-column
+     grid had an empty right slot inflating the hero height with no
+     content; collapsed to single column. */
+  padding: clamp(28px, 3.5vw, 56px) var(--pad-x) clamp(8px, 1.5vw, 18px);
+  display: block;
+}
+.hero-wrap > .hero-intro {
+  max-width: 56ch;  /* keeps headline + lede readable, no super-long lines */
 }
 .hero-backdrop {
   position: absolute; inset: 0;
@@ -529,7 +531,7 @@ img.full-width {
   color: var(--paper);
 }
 .hero-intro .eyebrow {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   color: var(--gold);
 }
 .hero-intro .eyebrow::before { background: var(--gold); }
@@ -567,7 +569,8 @@ img.full-width {
 .lede-link:hover { color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
 .hero-cta {
   display: flex; flex-wrap: wrap; gap: 12px;
-  margin-bottom: 44px;
+  /* Reduced from 44px so the Next Event band sits closer underneath. */
+  margin-bottom: 22px;
 }
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
@@ -606,7 +609,9 @@ img.full-width {
 .hero-stats {
   margin-top: auto;
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-  padding-top: 28px;
+  /* Trimmed top spacing so the stats row hugs closer to the CTA buttons,
+     reducing total hero height. */
+  padding-top: 16px;
   border-top: 1px solid rgba(240, 243, 247, 0.22);
   max-width: 480px;
 }
@@ -921,7 +926,9 @@ img.full-width {
 .next-event-band {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: clamp(28px, 3.5vw, 48px) var(--pad-x) clamp(20px, 3vw, 40px);
+  /* Tightened top padding so the band sits closer to the hero text and
+     stays above the fold on a 1366×768 laptop. */
+  padding: clamp(12px, 1.5vw, 24px) var(--pad-x) clamp(14px, 2vw, 28px);
 }
 .ne-band-wrap {
   position: relative;
@@ -1058,7 +1065,8 @@ img.full-width {
 .latest-results {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: clamp(20px, 3vw, 40px) var(--pad-x) clamp(24px, 4vw, 56px);
+  /* Tightened top padding to keep band close to Next Event card. */
+  padding: clamp(8px, 1vw, 16px) var(--pad-x) clamp(20px, 3vw, 36px);
 }
 .latest-results-wrap {
   position: relative;

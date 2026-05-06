@@ -422,34 +422,51 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
         crossorigin=""></script>
 <script is:inline>
   // Render the events map after Leaflet has loaded.
+  // Default view: Burnley town centre at zoom 11 — covers the PFO
+  // catchment (Burnley, Padiham, Pendle, Blackburn, Clitheroe). If
+  // upcoming events are spread further, fitBounds extends outward,
+  // but never zooms in tighter than Burnley's default — single-event
+  // street-level zoom was disorientating.
   window.addEventListener('DOMContentLoaded', function () {
     var el = document.getElementById('events-map');
     if (!el || typeof window.L === 'undefined') return;
     var events = [];
     try { events = JSON.parse(el.dataset.events || '[]'); } catch (e) {}
-    if (events.length === 0) return;
 
-    // Fit map to all event coords
-    var lats = events.map(function (e) { return e.lat; });
-    var lngs = events.map(function (e) { return e.lng; });
-    var bounds = [
-      [Math.min.apply(null, lats), Math.min.apply(null, lngs)],
-      [Math.max.apply(null, lats), Math.max.apply(null, lngs)],
-    ];
+    var BURNLEY = [53.789, -2.248];
+    var DEFAULT_ZOOM = 11;
 
-    var map = L.map(el, { scrollWheelZoom: false }).fitBounds(bounds, { padding: [40, 40] });
+    var map = L.map(el, {
+      scrollWheelZoom: false,
+      minZoom: 7,
+    }).setView(BURNLEY, DEFAULT_ZOOM);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '© OpenStreetMap contributors',
     }).addTo(map);
 
-    events.forEach(function (e) {
-      var popup =
-        '<strong><a href="' + e.url + '">' + e.title + '</a></strong><br>' +
-        e.date + ' · ' + e.format +
-        (e.location ? ' · ' + e.location : '');
-      L.marker([e.lat, e.lng]).addTo(map).bindPopup(popup);
-    });
+    if (events.length > 0) {
+      events.forEach(function (e) {
+        var popup =
+          '<strong><a href="' + e.url + '">' + e.title + '</a></strong><br>' +
+          e.date + ' · ' + e.format +
+          (e.location ? ' · ' + e.location : '');
+        L.marker([e.lat, e.lng]).addTo(map).bindPopup(popup);
+      });
+
+      // If any event sits outside what zoom-11 around Burnley shows
+      // naturally, widen the view to include it. maxZoom caps any
+      // tightening so we never zoom in past the default.
+      var lats = events.map(function (e) { return e.lat; });
+      var lngs = events.map(function (e) { return e.lng; });
+      lats.push(BURNLEY[0]); lngs.push(BURNLEY[1]);
+      var bounds = [
+        [Math.min.apply(null, lats), Math.min.apply(null, lngs)],
+        [Math.max.apply(null, lats), Math.max.apply(null, lngs)],
+      ];
+      map.fitBounds(bounds, { padding: [30, 30], maxZoom: DEFAULT_ZOOM });
+    }
   });
 </script>
 
