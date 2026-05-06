@@ -5,6 +5,8 @@ startTime: 7:00pm
 entryCloseDate: 2026-05-06T12:00:00
 location: Oswaldtwistle
 venue: Black Dog PH
+postcode: BB5 3NW
+coordsPaste: 53.742532236449996, -2.406465002720764
 what3words: typically.capacity.skips
 format: Street-O
 level: local
