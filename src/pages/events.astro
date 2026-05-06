@@ -1077,23 +1077,59 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     white-space: nowrap;
   }
 
-  /* Mobile reflow — table becomes stacked cards */
-  @media (max-width: 640px) {
+  /* Mobile reflow — table becomes stacked cards.
+     We have to override the table elements' default display (table /
+     table-row-group / table-row) with `display: block`, otherwise
+     `display: grid` on <tr> is silently ignored — the row stays a
+     table-row inside a table-row-group, layout doesn't change. */
+  @media (max-width: 720px) {
+    .neighbour-table-wrap { overflow-x: visible; }
+    .neighbour-table,
+    .neighbour-table thead,
+    .neighbour-table tbody,
+    .neighbour-table tr,
+    .neighbour-table td {
+      display: block;
+      width: auto;
+    }
     .neighbour-table thead { display: none; }
     .neighbour-table tbody tr {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 4px 12px;
-      padding: 14px;
+      grid-template-columns: auto auto 1fr;
+      column-gap: 12px;
+      row-gap: 4px;
+      padding: 14px 16px;
       border-bottom: 1px solid var(--rule);
       background: var(--paper);
+      align-items: baseline;
     }
+    .neighbour-table tbody tr:hover { background: var(--paper); }
     .neighbour-table td { padding: 0; border: 0; }
-    .nb-date { grid-column: 1; grid-row: 1; }
-    .nb-club { grid-column: 2; grid-row: 1; justify-self: end; }
-    .nb-title { grid-column: 1 / -1; grid-row: 2; padding: 4px 0; font-size: 16px; }
-    .nb-near { grid-column: 1 / -1; grid-row: 3; }
-    .nb-level { grid-column: 1 / -1; grid-row: 4; }
+    .nb-date {
+      grid-column: 1; grid-row: 1;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .nb-club {
+      grid-column: 2; grid-row: 1;
+      justify-self: start;
+    }
+    .nb-level {
+      grid-column: 3; grid-row: 1;
+      justify-self: end;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .nb-title {
+      grid-column: 1 / -1; grid-row: 2;
+      padding: 6px 0 2px;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .nb-near {
+      grid-column: 1 / -1; grid-row: 3;
+      font-size: 13px;
+    }
   }
 
   /* Loading state (shown until /api/neighbour-events resolves) */
