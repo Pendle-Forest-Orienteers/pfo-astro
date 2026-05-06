@@ -41,6 +41,20 @@ If your invite link expires, ask the Secretary or Webmaster to send a fresh one 
 
 Within ~30 seconds the live site will show the new event on the homepage and on the events page.
 
+## Cancelling, hiding, and safe-deleting events
+
+Three different ways an event can come off the public site, ordered from safest to most permanent:
+
+**Cancel an edit you haven't published yet.** While an event is in **Draft** status (unpublished), you can throw away all changes by clicking the editor's three-dot menu and choosing **Delete unpublished entry**. The published version (if there is one) is unaffected. If the event is brand new and was never published, the entry vanishes entirely with no harm done — this is the right move when you've made a mess in the form and want to start over.
+
+**Hide a published event.** Tick the **Hide from public site** checkbox at the bottom of the form, then save and publish. The event disappears from every public page (homepage, events list, calendar, RSS) but stays in the CMS. Untick the checkbox to bring it back. **Use this for test entries or events not ready for public view.** Much safer than the trash button.
+
+**Mark an event cancelled.** Tick **Event cancelled**. The event still appears on the site with a "Cancelled" banner — calendar subscribers' apps will mark the event as cancelled rather than silently disappearing it. Use this when something genuinely won't go ahead.
+
+**Avoid the trash icon.** It's the only path that genuinely deletes an event, and there's no undo from inside the CMS. If you must delete, ask the Webmaster — every change is in git history, but recovery means hand-restoring the file.
+
+---
+
 ## Updating event results
 
 When an event has finished and SI Entries has closed:

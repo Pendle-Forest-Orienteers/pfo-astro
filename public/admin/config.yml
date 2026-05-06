@@ -211,7 +211,8 @@ collections:
               - { label: "PDF", value: "pdf" }
               - { label: "Excel (.xlsx)", value: "xlsx" }
               - { label: "CSV", value: "csv" }
-      - { name: "cancelled", label: "Event cancelled", widget: "boolean", default: false, required: false }
+      - { name: "cancelled", label: "Event cancelled", widget: "boolean", default: false, required: false, hint: "Tick this if the event was supposed to happen but isn't anymore. The event still appears on the site, marked 'Cancelled'." }
+      - { name: "hidden", label: "Hide from public site", widget: "boolean", default: false, required: false, hint: "Tick this to remove this event from every public page (homepage, events list, calendar, RSS) without deleting it. Use this for test entries or events not ready for the public yet — much safer than the trash icon." }
       - { name: "notes", label: "Committee notes", widget: "text", required: false, hint: "Private notes, not shown publicly" }
       - { name: "body", label: "Long-form description", widget: "markdown", required: false, hint: "Full event details, course information, parking notes, etc." }
       - name: "attachments"

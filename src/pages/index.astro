@@ -119,7 +119,7 @@ const now = new Date();
 const allEvents = await getCollection('events');
 
 const upcoming = allEvents
-  .filter(e => e.data.entryCloseDate >= now)
+  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled && !e.data.hidden)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 
 const nextEvent = upcoming[0];
@@ -145,6 +145,7 @@ const tenDaysAgo = new Date(now.getTime() - 10 * 24 * 60 * 60 * 1000);
 const latestResultEvent = allEvents
   .filter(e => e.data.entryCloseDate < now
             && e.data.date >= tenDaysAgo
+            && !e.data.hidden
             && e.data.results && e.data.results.length > 0)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 

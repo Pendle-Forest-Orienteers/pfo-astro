@@ -4,12 +4,16 @@ import Attachments from '../../components/Attachments.astro';
 import { getCollection, render } from 'astro:content';
 
 // ─────── Generate one page per event in the collection
+// Hidden events get no page generated — their slug 404s on the public site
+// even if someone has the direct URL. Un-hide in the CMS to bring it back.
 export async function getStaticPaths() {
   const events = await getCollection('events');
-  return events.map(event => ({
-    params: { slug: event.id },
-    props: { event },
-  }));
+  return events
+    .filter(event => !event.data.hidden)
+    .map(event => ({
+      params: { slug: event.id },
+      props: { event },
+    }));
 }
 
 const { event } = Astro.props;

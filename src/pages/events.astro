@@ -17,11 +17,11 @@ const allEvents = await getCollection('events');
 // populated table on success.
 
 const upcoming = allEvents
-  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled)
+  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled && !e.data.hidden)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 
 const past = allEvents
-  .filter(e => e.data.entryCloseDate < now)
+  .filter(e => e.data.entryCloseDate < now && !e.data.hidden)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Group past events by year

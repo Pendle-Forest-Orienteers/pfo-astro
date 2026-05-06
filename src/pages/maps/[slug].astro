@@ -15,6 +15,7 @@ const { Content } = await render(map);
 // Find events that have used this map (loose match — same town or same name)
 const allEvents = await getCollection('events');
 const relatedEvents = allEvents.filter(e => {
+  if (e.data.hidden) return false;
   const t = map.data.title.toLowerCase();
   return e.data.location?.toLowerCase().includes(t) ||
          e.data.title.toLowerCase().includes(t) ||

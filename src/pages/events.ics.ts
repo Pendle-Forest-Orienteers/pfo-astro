@@ -48,7 +48,10 @@ function ics(s: string): string {
 }
 
 export const GET: APIRoute = async ({ site }) => {
-  const events = await getCollection('events');
+  // Hidden events are excluded from the calendar feed entirely; cancelled
+  // ones stay (with a [CANCELLED] prefix) so subscribed calendars can mark
+  // them as cancelled rather than silently disappearing the entry.
+  const events = (await getCollection('events')).filter(e => !e.data.hidden);
   const baseUrl = site?.toString().replace(/\/$/, '') ?? 'https://pfo.org.uk';
   const generated = fmtIcsDate(new Date());
 

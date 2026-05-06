@@ -99,6 +99,11 @@ const events = defineCollection({
 
     // ─────── Misc
     cancelled: z.boolean().optional(),
+    /** Hide this event from every public page without deleting it.
+     *  Use this for test entries, future events not ready for public
+     *  view, or anything you'd otherwise be tempted to hard-delete.
+     *  Hidden events stay in the CMS and can be un-hidden any time. */
+    hidden: z.boolean().optional(),
     notes: z.string().optional(),           // committee-only notes, not rendered to public
   }),
 });

@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 const now = new Date();
 const upcoming = (await getCollection('events'))
-  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled)
+  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled && !e.data.hidden)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
   .slice(0, 3);
 
