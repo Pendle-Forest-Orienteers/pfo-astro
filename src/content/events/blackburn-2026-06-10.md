@@ -1,16 +1,20 @@
 ---
-title: "Blackburn"
+title: Blackburn
 date: 2026-06-10
-startTime: "7:00pm"
+startTime: 7:00pm
 entryCloseDate: 2026-06-10T12:00:00
-location: "Blackburn"
-format: "Snook-O"
-level: "local"
-summary: "Snook-O"
+location: Blackburn
+coordsPaste: 53.75435, -2.49521
+format: Snook-O
+level: local
+bofEventNumber: 87933
+dogsAllowed: on-lead
+entryFee: "Seniors (26+) : £7.00 Young Adults (21-25) : £5.00 Juniors (-20) :
+  £3.00 Senior +1 (Pair): 9.00 Senior +2 (Trio): £10.00"
+summary: Snook-O
 coords:
   lat: 53.75435
   lng: -2.49521
-bofEventNumber: 87933
 ---
 
 <!-- migrated -->
