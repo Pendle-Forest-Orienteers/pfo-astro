@@ -22,3 +22,7 @@ cancelled: false
 hidden: false
 attachments: []
 ---
+|** Course|Length|Climb|Controls**
+|** Blue**|6.7|250|17|
+|** Green**|5.9|180|15|
+|**Light Green**|5.0|120|12|
