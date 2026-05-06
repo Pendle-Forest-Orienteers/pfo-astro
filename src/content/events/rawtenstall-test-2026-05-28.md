@@ -26,3 +26,15 @@ attachments: []
 |** Blue**|6.7|250|17|
 |** Green**|5.9|180|15|
 |**Light Green**|5.0|120|12|
+
+**Courses:**
+
+| **Course** | **Length** | **Climb** | **Notes:** |
+| --- | --- | --- | --- |
+| **Blue** | 6.7 | 250 | 18 controls | TD5 |
+| **Green ** | 5.9 | 180 | 17 controls | TD5 |
+| **Short Green** | 5.0 | 125 | 15 controls | TD5 |
+| **Light Green *** | tbc | tbc | tbc | TD4 |
+| **Red** | tbc | tbc | tbc | TD3 |
+| **Orange *** | tbc | tbc | tbc | TD3 |
+| **Yellow *** | tbc | tbc | tbc | TD2 
