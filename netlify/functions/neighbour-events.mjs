@@ -62,15 +62,20 @@ function resolveClub(raw) {
   return null;
 }
 
-const FEED_URL = 'https://www.britishorienteering.org.uk/fullfixturesjson.php';
-
 /**
- * Pull the BOF feed. The endpoint sometimes returns a single object
- * with an `items` array (RPDE 0.2.3 wraps events that way), and other
- * times a top-level array of events directly. We handle both.
+ * Per-association feeds. Our 5 clubs span two BOF associations:
+ *   NWOA  — North-West Orienteering Association (SROC, SELOC, MDOC)
+ *   YHOA  — Yorkshire & Humberside Orienteering Association (AIRE, EPOC)
+ * The per-association feed is much smaller than the full national one
+ * and tends to return only recent + future fixtures.
  */
-async function fetchFeed() {
-  const res = await fetch(FEED_URL, {
+const FEED_URLS = [
+  'https://www.britishorienteering.org.uk/fixturesjson.php?assoc=NWOA',
+  'https://www.britishorienteering.org.uk/fixturesjson.php?assoc=YHOA',
+];
+
+async function fetchOneFeed(url) {
+  const res = await fetch(url, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (compatible; PFO-website/1.0; +https://pfo.org.uk)',
       'Accept': 'application/json,application/ld+json,*/*',
@@ -79,67 +84,78 @@ async function fetchFeed() {
     redirect: 'follow',
   });
   if (!res.ok) {
-    throw new Error(`HTTP ${res.status}`);
+    console.log(`[neighbour-events] ${url} → HTTP ${res.status}`);
+    return [];
   }
   const text = await res.text();
   let data;
   try {
     data = JSON.parse(text);
   } catch (e) {
-    throw new Error(`bad JSON (${text.length} bytes): ${e.message}`);
+    console.log(`[neighbour-events] ${url} → bad JSON (${text.length} bytes)`);
+    return [];
   }
-  // RPDE: { items: [{ data: {...} }, ...], next: "...", license: "..." }
-  if (Array.isArray(data?.items)) {
-    return data.items.map(item => item.data || item).filter(Boolean);
-  }
-  // Plain array of events
+  // Possible response shapes: array | {items: [...]} | {fixtures: [...]}
   if (Array.isArray(data)) return data;
-  // Some BOF endpoints wrap in { fixtures: [...] }
+  if (Array.isArray(data?.items)) return data.items.map(i => i.data || i).filter(Boolean);
   if (Array.isArray(data?.fixtures)) return data.fixtures;
   return [];
 }
 
+async function fetchFeed() {
+  const results = await Promise.all(FEED_URLS.map(fetchOneFeed));
+  return results.flat();
+}
+
 /**
  * Map one BOF event record → our NeighbourEvent shape.
- * BOF field names observed in the open-data sample:
- *   name, date, association, club, level, show_on_bof_website,
- *   website, details_website, town, venue, centre, cancelled, ...
- * Some feeds also include `id` and `start_date`; we look for both.
+ *
+ * Real shape (verified from the open-data feed):
+ *   name           — event title
+ *   date_start     — ISO datetime, e.g. "2026-05-12T00:00:00"
+ *   date_end       — ISO datetime
+ *   club           — club abbreviation, e.g. "AIRE"
+ *   association    — region abbr, e.g. "NWOA"
+ *   level          — "Local" / "Regional" / "National" / "Major"
+ *   location.nearest_town
+ *   location.venue
+ *   location.event_centre
+ *   details.event_website
+ *   details.final_details_website
+ *   session_url    — BOF's own event detail page
  */
 function normalize(e) {
-  // BOF stores the club identifier under various keys depending on the
-  // feed flavour; check all three.
-  const rawClub = e.club ?? e.club_id ?? e.clubId ?? e.organiser ?? e.host;
-  const club = resolveClub(rawClub);
+  const club = resolveClub(e.club);
   if (!club) return null;
-  if (e.cancelled === true) return null;
-  if (e.show_on_bof_website === false) return null;
 
-  const dateRaw = e.start_date || e.date || e.startDate;
+  const dateRaw = e.date_start || e.date || e.start_date;
   if (!dateRaw) return null;
   const date = new Date(dateRaw);
   if (isNaN(date.getTime())) return null;
 
-  // Today onwards only
-  const dayMs = 86_400_000;
-  if (date.getTime() < Date.now() - dayMs) return null;
+  // Today onwards only — keep events from up to 1 day ago so a same-day
+  // event still shows in the morning.
+  if (date.getTime() < Date.now() - 86_400_000) return null;
 
-  const title = (e.name || e.title || '').toString().trim();
+  const title = (e.name || '').toString().trim();
   if (!title) return null;
 
-  // Best link — prefer the club's own event page, then BOF's detail page
+  // Prefer the BOF event page (session_url) — that's what the old PFO
+  // site links to, and it's reliably constructed by BOF themselves.
+  const loc = e.location || {};
+  const det = e.details || {};
   const url =
-    e.details_website ||
-    e.website ||
-    (e.id ? `https://www.britishorienteering.org.uk/event/${e.id}` : 'https://www.britishorienteering.org.uk/event');
+    e.session_url ||
+    det.event_website ||
+    det.final_details_website ||
+    'https://www.britishorienteering.org.uk/event';
 
-  // "Near" — the most useful place name (town > venue > centre)
-  const near = [e.town, e.venue, e.centre]
+  // "Near" — town first, then venue, then event centre
+  const near = [loc.nearest_town, loc.venue, loc.event_centre]
     .filter(Boolean)
     .map(s => s.toString().trim())
     .find(Boolean);
 
-  // Level — already in form like "Level C", "Local", "Regional"
   const level = (e.level || '').toString().trim() || undefined;
 
   return {
