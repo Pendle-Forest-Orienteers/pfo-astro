@@ -4,6 +4,7 @@ date: 2026-06-03
 startTime: 7:00pm
 entryCloseDate: 2026-06-03T12:00:00
 location: Barrowford
+coordsPaste: 53.75435,-2.49521
 format: Snook-O
 level: local
 bofEventNumber: 87530
