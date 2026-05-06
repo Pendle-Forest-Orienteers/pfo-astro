@@ -1042,15 +1042,20 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     white-space: nowrap;
   }
   .nb-title a {
-    /* Yellow event-name links, mirroring the old PFO site treatment.
-       Underline switched to navy so it's still visible against the
-       gold text. Hover swaps to plum for the colour-shift affordance. */
-    color: var(--gold-dark);
+    /* Bright logo yellow on every event-name link — mirrors the old PFO
+       site treatment. !important guards against any global link colour
+       in the layout overriding this. Navy underline keeps the link
+       affordance visible against the yellow text. */
+    color: var(--gold) !important;
     font-weight: 600;
     border-bottom: 1px solid var(--navy);
     padding-bottom: 1px;
+    text-decoration: none;
   }
-  .nb-title a:hover { color: var(--plum); border-color: var(--plum); }
+  .nb-title a:hover {
+    color: var(--gold-bright) !important;
+    border-color: var(--plum);
+  }
   .nb-club-tag {
     display: inline-block;
     padding: 3px 8px;
@@ -1068,18 +1073,17 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   .nb-club-seloc { background: #6b3b8c; }
   .nb-club-mdoc { background: #8a3a5e; }
 
-  /* Zebra stripes — alternating cream paper and a soft pale blue.
-     Pale blue is a 6% tint of the navy brand colour, so it ties to the
-     navy table header above without competing with the yellow title
-     links. Helps the eye separate one row from the next on a long list. */
+  /* Zebra stripes — alternating pure white and a clearer light blue, so
+     the change between rows is unmistakable. Light blue ties to the
+     navy header above. */
   .neighbour-table tbody tr {
-    background: var(--paper);
+    background: #ffffff;
   }
   .neighbour-table tbody tr:nth-child(even) {
-    background: #e6edf5;
+    background: #d4e2f0;
   }
   .neighbour-table tbody tr:hover {
-    background: #d6e1ee;
+    background: #b8cee0;
   }
   .nb-near, .nb-level {
     color: var(--ink-soft);
