@@ -3,8 +3,8 @@ title: Letcliffe Park COPY
 date: 2026-06-12
 entryCloseDate: 2026-06-11T12:00:00.000+01:00
 location: Letcliffe Park
-postcode: BB10 3LB
-coordsPaste: " 53.79749576643745, -2.2270714824869313"
+postcode: BB18 5PW
+coordsPaste: " 53.91275, -2.18737"
 what3words: send.nooks.duke
 format: Standard
 level: local
