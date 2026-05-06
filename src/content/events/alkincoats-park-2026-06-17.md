@@ -1,17 +1,18 @@
 ---
-title: "Alkincoats Park"
+title: Alkincoats Park
 date: 2026-06-17
 entryCloseDate: 2026-06-17T12:00:00
-location: "Alkincoats Park"
-format: "Standard"
-level: "local"
-summary: "Local · Alkincoats Park"
+location: Alkincoats Park
+postcode: ""
+coordsGeoJson: '{"type":"Point","coordinates":[-2.1850005,53.8603868]}'
+format: Standard
+level: local
+bofEventNumber: 87934
+dogsAllowed: no
+summary: Local · Alkincoats Park
 coords:
   lat: 53.8632
   lng: -2.18063
-postcode: "BB8 9QQ OP"
-bofEventNumber: 87934
-dogsAllowed: "no"
 ---
 
 <!-- migrated -->
