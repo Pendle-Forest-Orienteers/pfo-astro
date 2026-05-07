@@ -59,8 +59,6 @@ Every save or publish in the CMS becomes a permanent record on GitHub, tagged wi
 
 You'll need a GitHub account and to be added as a collaborator on the repo. Ask the Webmaster to add you the first time. Read access is enough — you don't need write access since you're editing through the CMS, not GitHub directly.
 
-For a higher-level view of in-progress (unpublished) drafts, the **Workflow** tab inside `/admin` shows every draft any editor has open, who started it, and what state it's in (Draft / In Review / Ready). Useful for catching half-finished work before it goes live.
-
 ---
 
 ## Adding a new event
@@ -79,8 +77,7 @@ For a higher-level view of in-progress (unpublished) drafts, the **Workflow** ta
    - **SI Entries URL** — paste the direct URL from sientries.co.uk.
    - **Card subtitle** — the 1-line description shown on event cards. e.g. "Score event · Burnley · Local level".
 4. Optional: in the **Long-form description** block, add full event details (course information, parking, hazards, etc.) using the rich-text editor.
-5. Click **Save** (top right) to save as a draft.
-6. When ready to publish, change the status from **Draft** to **Ready** (top of editor), then **Publish**.
+5. Click **Publish** (top right) to save and go live. The change appears on the public site within ~30 seconds.
 
 Within ~30 seconds the live site will show the new event on the homepage and on the events page.
 
@@ -88,7 +85,7 @@ Within ~30 seconds the live site will show the new event on the homepage and on 
 
 Three different ways an event can come off the public site, ordered from safest to most permanent:
 
-**Cancel an edit you haven't published yet.** While an event is in **Draft** status (unpublished), you can throw away all changes by clicking the editor's three-dot menu and choosing **Delete unpublished entry**. The published version (if there is one) is unaffected. If the event is brand new and was never published, the entry vanishes entirely with no harm done — this is the right move when you've made a mess in the form and want to start over.
+**Cancel an edit before publishing.** While you're editing an entry, nothing goes live until you click **Publish**. If you've made a mess and want to start over, just navigate away — close the tab, click another collection in the sidebar, or hit the back arrow. Your changes are discarded. The previously-published version is unaffected.
 
 **Hide a published event.** Tick the **Hide from public site** checkbox at the bottom of the form, then save and publish. The event disappears from every public page (homepage, events list, calendar, RSS) but stays in the CMS. Untick the checkbox to bring it back. **Use this for test entries or events not ready for public view.** Much safer than the trash button.
 
@@ -128,7 +125,7 @@ If you want to upload an Excel or PDF file:
 2. Headline, publish date, summary (1-2 sentences for the homepage card).
 3. Optionally upload a hero image — appears on the article page and the homepage if it's the most recent article.
 4. Write the article in the **Article body** rich-text editor.
-5. Save → Ready → Publish.
+5. Click **Publish** when ready.
 
 To add photos throughout the article, use the image button in the rich-text toolbar. They get uploaded to the site automatically.
 
@@ -164,7 +161,7 @@ For any of the above:
 1. Open the collection in the sidebar.
 2. Click the entry you want to edit.
 3. Make your changes.
-4. Save → Publish (or Save as draft and Publish later).
+4. Click **Publish** to save and go live.
 
 ---
 
@@ -199,7 +196,7 @@ Anyone with an email invite can log in to the CMS and edit content. There's no s
 
 **Made a mistake on a published page.** Just edit it again. Each save is a separate commit so the history is preserved if anyone needs to roll back.
 
-**Want to see what changes are pending?** The "Workflow" tab in the CMS shows everything that's been saved but not yet published.
+**Want to see who's been editing?** Use the GitHub commits page (link in the "Seeing who edited what" section above) — every save shows up there with the editor's name.
 
 **Image upload looks blurry.** The Media Library shows a thumbnail; the original upload is full-resolution and is what's used on the live site. Don't worry about the thumbnail.
 
@@ -210,6 +207,6 @@ Anyone with an email invite can log in to the CMS and edit content. There's no s
 - **Events** should have a real Entry close date — that's what makes the auto-transition work.
 - **Map images** should be exported at decent resolution (1500px+ wide). The site resizes them down for thumbnails.
 - **News** without a hero image will still render fine, but a good photo on the homepage's featured-news block has a much bigger impact than the headline alone.
-- **Saving as draft** gives you time to review before going live. If you're not 100% sure, save as draft.
+- **News, info pages and maps** all have a "Draft" tickbox in their form — tick it to keep the entry hidden from the public site while you work on it. Untick + Publish when ready. (Events use the **Hidden** tickbox instead — same idea.)
 
 Anything not covered here, ask the Webmaster (currently [Andy Ellis](/contacts) for ongoing maintenance, [Kyle Gordon](mailto:kylegmassiah@gmail.com) for the initial build).
