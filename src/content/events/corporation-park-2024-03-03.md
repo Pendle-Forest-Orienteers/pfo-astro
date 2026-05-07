@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Corporation Park · Spring Series, event (3/4)"
 results:
   - label: "Combined and event results"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-03-03-corporation-park/index.html"
+    url: "/results-archive/2024/2024-03-03-corporation-park/index.html"
     type: "html"
   - label: "Routegadget for Event A"
     url: "https://www.pfo.routegadget.co.uk/rg2/#210"
@@ -19,7 +19,7 @@ results:
 coords:
   lat: 53.75439
   lng: -2.49761
-postcode: "BB2 6DG OP"
+postcode: "BB2 6DG"
 gridRef: "SD673288"
 what3words: "melt.cotton.dust"
 dogsAllowed: "no"
@@ -34,7 +34,7 @@ Corporation Park is well featured sloping parkland, with plenty of vegetation, w
 
 ## Course information
 
-| **Course: (Provisional details)** | **Length** | **Climb** | **Notes: ** |
+| **Course: (Provisional details)**|**Length**|**Climb**|**Notes:**  |
 | --- | --- | --- | --- |
 | **Sprint Course A** | 2.3k | 85m | Winning time c. 15mins |
 | **Sprint Course B** | 2.3k | 85m | Winning time c. 15mins |
@@ -42,7 +42,7 @@ Corporation Park is well featured sloping parkland, with plenty of vegetation, w
 
 For **Sprint Courses** the final race time will be the sum of the two course times.
 
-**Shadowing** **:** Sprint runners must not shadow Yellow course competitors until after completing both parts of your sprint course, as several controls are shared.
+**Shadowing** : Sprint runners must not shadow Yellow course competitors until after completing both parts of your sprint course, as several controls are shared.
 
 ## Registration and start times
 
@@ -70,26 +70,24 @@ If you are entering as a pair (or small group), it is only necessary to register
 
 Entries will close on Saturday 2nd March at 23:59, but entries made on or after 1st March will be subject to map availability and will be at a higher price.
 
-**Dibber hire: **If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can be picked up at the event **Download** location in the cafe.
 [**Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ** **for BOF-members: **
+**Entry fees** **for BOF-members:** 
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
 | Up to 29/02/2024 | £7.00 | £5.00 | £3.00 |
 | From 01/03/2024 | £9.00 | £6.00 | £4.00 |
 
-**Entry fees for non-members: **
+**Entry fees for non-members:** 
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
 | Up to 29/02/2024 | £8.00 | £5.50 | £3.00 |
 | From 01/03/2024 | £10.00 | £6.50 | £4.00 |
 
-**
-**
 
 ## Facilities
 

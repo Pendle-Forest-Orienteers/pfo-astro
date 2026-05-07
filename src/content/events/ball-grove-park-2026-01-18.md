@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Ball Grove Park"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2026/2026-01-18-ball-grove-park/index.html"
+    url: "/results-archive/2026/2026-01-18-ball-grove-park/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#227"
@@ -16,7 +16,7 @@ results:
 coords:
   lat: 53.8593
   lng: -2.1399
-postcode: "BB8 7HZ OP"
+postcode: "BB8 7HZ"
 what3words: "arena.outsmart.paper"
 planner: "George Crawford-Smith PFO"
 seriesOrganiser: "Ginny Anderson PFO"
@@ -34,7 +34,7 @@ It was a privilege to be both the mapper and the planner. The map was initially 
 
 I estimated 50 competitors would enter our Local event, but was surprised by an entry of almost double that! (Nothing else on, perhaps?) That put pressure on the Start team, who admirably coped with the extras. The staff at Lakeside Café (our Assembly and Download point) were also surprised by the extra numbers! The queue for sustenance and beverage, at one point, snaking out of the door and into the competition area! I trust you all enjoyed the venue.
 
-The courses: **Yellow** for young folk and adult first timers – an ideal area. **Orange** (shorter) and **Red** (longer) for progressing competitors – ideal. **Light Green** – more difficult navigation – again, an ideal area. **Green** – a bit contrived to get the distance and technical difficulty, but still well received, apart from one competitor who mis-punched 128 (lone tree), instead of 138 (between the hedges). Competitor error, except that these two controls were less than 30m apart by 5m! Planner error, which would have been spotted by a controller had today been a Regional event. My apologies to anyone adversely affected by this, but the results stand as there are no BOF Ranking Points at stake.
+The courses: **Yellow**for young folk and adult first timers – an ideal area.**Orange**(shorter) and**Red**(longer) for progressing competitors – ideal.**Light Green**– more difficult navigation – again, an ideal area.**Green** – a bit contrived to get the distance and technical difficulty, but still well received, apart from one competitor who mis-punched 128 (lone tree), instead of 138 (between the hedges). Competitor error, except that these two controls were less than 30m apart by 5m! Planner error, which would have been spotted by a controller had today been a Regional event. My apologies to anyone adversely affected by this, but the results stand as there are no BOF Ranking Points at stake.
 
 I also manned the Finish for half of the time. Smiles from most competitors, curses from a few, a hug from a friend and several requests for photos of proud finishers. You can picture the scene: competitor(s) by the FINISH banner, the lake, some tall trees, ducks or gulls and broad smiles of success and reward! Oh … and grey skies beyond. It drizzled a bit, but hey-ho, nobody cared!
 
@@ -61,7 +61,7 @@ The competition area lies between the main A6068 (Colne to Cross Hills road) and
 
 Provisional course details.
 
-| **Course:** | **Length:** | **Climb:** | **Controls:** | **Technical difficulty:** |
+| **Course:**|**Length:**|**Climb:**|**Controls:**|**Technical difficulty:** |
 | --- | --- | --- | --- | --- |
 | **Green** | 3.9k | 75m | 24 | TD5: Very difficult. |
 | **Light Green** | 3.3k | 50m | 20 | TD4: Difficult. |
@@ -73,8 +73,7 @@ Long legwear is recommended.
 
 ## Registration and start times
 
-**Start times** from 11:00 - 12:00.**
-**
+**Start times** from 11:00 - 12:00.
 
 **Courses close** at 14:00.
 
@@ -90,7 +89,7 @@ Nearest postcode **BB8 7HZ**
 
 ## Entry details
 
-**Registration:** ALL entries must be made through [](https://www.sientries.co.uk/event.php?event_id=14093) **[SiEntries](https://www.sientries.co.uk/event.php?event_id=16924)**. There will be no EOD.
+**Registration:**ALL entries must be made through [](https://www.sientries.co.uk/event.php?event_id=14093)**[SiEntries](https://www.sientries.co.uk/event.php?event_id=16924)**. There will be no EOD.
 
 When entering please choose a start block (15 minute window). Please choose an early start time if you anticipate being out for a long time.
 
@@ -98,11 +97,11 @@ If you are entering as a pair (or small group), it is only necessary to register
 
 Entries will close on Friday 16th January, but entries made on or after 15th January will be subject to map availability and will be at a higher price.
 
-**Dibber hire: **If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can only be picked up at the **Event Centre.**
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ** **for BOF-members:**
+**Entry fees** **for BOF-members:**
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
@@ -116,12 +115,10 @@ Your hired dibber can only be picked up at the **Event Centre.**
 | Up to 14/01/2026 | £8.00 | £5.50 | £3.00 |
 | From 15/01/2026 | £10.00 | £6.50 | £4.00 |
 
-**
-**
 
 ## Facilities
 
-**Event Centre:** Lakeside Cafe. Open 10:00 until 15:00. Cooked meals, burgers, snacks, hot & cold drinks. **Cash only.**
+**Event Centre:**Lakeside Cafe. Open 10:00 until 15:00. Cooked meals, burgers, snacks, hot & cold drinks.**Cash only.**
 
 Indoor toilet at the cafe.
 

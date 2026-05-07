@@ -129,7 +129,7 @@ Any course with **"Start Anywhere"** in the name lets you begin at any control r
 
 ### Queens Park
 
-- **Christmas at Queens Park** — 'Alphabet' score course with a 60-minute limit. Create as many Christmas-related words and sentences as you can. [More info here](/news/christmas-at-queens-park).
+- **Christmas at Queens Park** — 'Alphabet' score course with a 60-minute limit. Create as many Christmas-related words and sentences as you can.
   [Download Christmas at Queens Park](/documents/final-Alphabet.pdf)
 
 ---

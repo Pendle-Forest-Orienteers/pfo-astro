@@ -12,4 +12,4 @@ List of CAPRICORN Events 1980 to 2019
 - Did you compete? - Did you win? - Do you remember the location?
  If you can add any information, including planners or controllers, please e-mail me at
 
-[Previous winners listing](/documents/CAPRICORN_Past_winners.pdf).
+_Previous winners listing — to be re-uploaded by the committee._

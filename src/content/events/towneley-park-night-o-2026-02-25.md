@@ -8,7 +8,7 @@ level: "local"
 summary: "Night-O · Towneley Park"
 results:
   - label: "Results and Splits"
-    url: "https://www.pfo.org.uk/results-archive/2026/2026-02-25-towneley-park-night-o/index.html"
+    url: "/results-archive/2026/2026-02-25-towneley-park-night-o/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#229"
@@ -16,7 +16,7 @@ results:
 coords:
   lat: 53.77845
   lng: -2.21731
-postcode: "BB11 3ER O"
+postcode: "BB11 3ER"
 what3words: "thick.sling.half"
 bofEventNumber: 87370
 dogsAllowed: "on-lead"
@@ -32,11 +32,11 @@ The map of Towneley Park will be 1:7500 for all courses.
 
 ## Course information
 
-**Courses: **Easy (TD2), Intermediate (TD3) and Tricky (TD4)
+**Courses:** Easy (TD2), Intermediate (TD3) and Tricky (TD4)
 
 **Start:** 350m from Info/Registration
 
-**Finish: **75m from Info/Registration
+**Finish:** 75m from Info/Registration
 
 **Timing:** SI.
 
@@ -50,7 +50,7 @@ The map of Towneley Park will be 1:7500 for all courses.
 
 ## Directions and parking
 
-**Event centre:** Riverside Car Park, 1 Deer Park Rd, Burnley **BB11 3ER**
+**Event centre:** Riverside Car Park, 1 Deer Park Rd, Burnley. **BB11 3ER**
 
 W3W: ///**thick.sling.half**
 
@@ -59,7 +59,7 @@ W3W: ///**thick.sling.half**
 ## Entry details
 
 Entry and dibber hire (£1.00) will be via **[SI Entries](https://www.sientries.co.uk/event.php?event_id=17303)**.
-[**Note: £40 charge if dibber is lost during hire period.]
+[Note: £40 charge if dibber is lost during hire period.]
 
 Online entries will **close at midday on race day**. There will be no EOD for this event.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries.
@@ -75,7 +75,7 @@ Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).
 Age 18+ may run as an individual.
 
-If the event needs to be cancelled the [PFO Event Cancellation Policy](https://www.pfo.org.uk/info/event-cancellation-refund-policy) will apply.
+If the event needs to be cancelled the [PFO Event Cancellation Policy](/information/event-cancellation-refund-policy) will apply.
 
 ## Facilities
 
@@ -91,4 +91,4 @@ Well behaved dogs on leads.
 
 **Organiser:** Helen Ashton PFO
 
-**Planner: **Colin Woolford PFO
+**Planner:** Colin Woolford PFO

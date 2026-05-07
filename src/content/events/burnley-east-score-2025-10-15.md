@@ -8,7 +8,7 @@ level: "local"
 summary: "Score · Burnley East -"
 results:
   - label: "Final Scores"
-    url: "https://www.pfo.org.uk/results-archive/2025/2025-10-15-burnley-east-score/index.html"
+    url: "/results-archive/2025/2025-10-15-burnley-east-score/index.html"
     type: "html"
 coords:
   lat: 53.78516
@@ -26,16 +26,15 @@ Typical urban housing estates with many paths, cut-throughs and route choice.
 
 ## Course information
 
-**Courses: **One course with 20 controls, max score 200 pts, time limit 45 minutes, penalties for late finishers.**
-**
+**Courses:** One course with 20 controls, max score 200 pts, time limit 45 minutes, penalties for late finishers.
 
-**Start & ** **Finish: **Close to registration / assembly.
+**Start & Finish:** Close to registration / assembly.
 
 Plenty of cut-throughs and short-cuts to be found
 
 ## Registration and start times
 
-**Briefing at Event Centre **18:45.
+**Briefing at Event Centre** 18:45.
 
 **Mass Start time** 19:00.
 
@@ -47,15 +46,15 @@ Plenty of cut-throughs and short-cuts to be found
 
 W3W: ///**total.alert.locals**
 
-**Parking: **Pub car park plus plenty of street parking in the area.
+**Parking:** Pub car park plus plenty of street parking in the area.
 
 ## Entry details
 
-On-line pre-entry only via** [SIEntries](https://www.sientries.co.uk/event.php?event_id=16329)**. No EOD.
+On-line pre-entry only via **[SIEntries](https://www.sientries.co.uk/event.php?event_id=16329)**. No EOD.
 
 Standard pricing will apply up to midnight Sunday 12 October. Entry will remain open after this, **subject to map availability**, until noon Wednesday 15th October, with a late entry surcharge of £2.00 Adults / £1.00 Young Adults & Juniors.
 
-**Entry fees ** **for BOF-members:**
+**Entry fees for BOF-members:**
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
@@ -89,5 +88,5 @@ Taking dogs on urban courses is not recommended due to the traffic hazard.
 
 ## Contacts and officials
 
-**Planner:** Kay Hawke & Emma Taylor PFO.**
-Organiser:** Kay Hawke & Emma Taylor PFO.
+**Planner:** Kay Hawke & Emma Taylor PFO.
+**Organiser:** Kay Hawke & Emma Taylor PFO.

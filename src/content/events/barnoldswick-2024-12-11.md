@@ -8,7 +8,7 @@ level: "local"
 summary: "Street-O · Barnoldswick · December Street-O (10/10 Finale)"
 results:
   - label: "Results"
-    url: "https://www.pfo.org.uk/results-archive/2024/2024-12-11-barnoldswick/Barnoldswick-StreetO-results.pdf"
+    url: "/results-archive/2024/2024-12-11-barnoldswick/Barnoldswick-StreetO-results.pdf"
     type: "pdf"
 coords:
   lat: 53.91669
@@ -25,7 +25,7 @@ dogsAllowed: "not-recommended"
 Street-O competition is on local streets, main roads, parks, ginnels, semi-rural areas and footpaths.
 You can choose either a 60 minutes score or a 75 minutes score aimed at faster runners. There are two league tables.
 
-**MAP SCALE: **The competition map for this event is **1:10000**, in simplified format.
+**MAP SCALE:** The competition map for this event is **1:10000**, in simplified format.
 
 Cobbled alleys, pavements, stairways and paths, some steep, may be slippery when wet. There will be plenty of route choice options along roads, alleys, tracks and trails.
 Wear suitable studded footwear.
@@ -34,15 +34,15 @@ Faster runners, going further will encounter more of these muddy paths.
 
 ## Course information
 
-Collect your **clue/** **answer sheet** from Download.**
-Start:** 50m from Download.
-**Finish & Download: **75m from Download.
+Collect your **clue/answer sheet** from Download.
+**Start:** 50m from Download.
+**Finish & Download:** 75m from Download.
 
 Each individual or team will be issued with one Dibber (if hired), one clue/answer sheet (both issued pre-Start) and one course map (issued at the Start).
 Example maps and clue sheets of previous events will be available to view.
 
-**Scoring: **Controls are numbered 10 to 64. The first digit multiplied by 10 is the score value. Thus there are 10 x 10 points controls, 10 x 20, 10 x 30, 10 x 40, 10 x 50 and 5 x 60. The higher the score value, the greater the distance and/or difficulty.
-**Penalties: **Your course time limit is either 75 minutes or 60 minutes depending on which course you entered.
+**Scoring:** Controls are numbered 10 to 64. The first digit multiplied by 10 is the score value. Thus there are 10 x 10 points controls, 10 x 20, 10 x 30, 10 x 40, 10 x 50 and 5 x 60. The higher the score value, the greater the distance and/or difficulty.
+**Penalties:** Your course time limit is either 75 minutes or 60 minutes depending on which course you entered.
 Thereafter, 1 penalty point will be deducted for each 3 seconds you are late, equivalent to 20 points deducted per minute late.
 
 ## Registration and start times
@@ -60,12 +60,12 @@ The venue is Hickey's & Friends. It is the first building on your left in Albert
 ## Entry details
 
 Entry and dibber hire (£1.00) will be via **SI Entries**. (Entries open soonest.)
-[**Note: £40 charge if dibber is lost during hire period.]
+[Note: £40 charge if dibber is lost during hire period.]
 
 Entries will **close at midday on race day**. However, **entries after midnight on the Monday prior to the event** will be limited by map availability.
 An individual entry can be amended to a Pair or Trio if you want to add a buddy to run with, but this must be done on-line in advance via SIEntries. We cannot make changes at the event.
 
-|  | **Lead** | **Second** | **Third** |
+|  | **Lead**|**Second**|**Third** |
 | --- | --- | --- | --- |
 | **Solo** | £5.00 |  |  |
 | **Pair Team** | £5.00 | £2.00 |  |
@@ -77,7 +77,7 @@ Age 15 and under must be accompanied by an adult (as a pair or trio).
 Age 16 & 17 may run as a pair, or be accompanied by an adult (as a pair or trio).
 Age 18+ may run as an individual.
 
-If the event needs to be cancelled the [PFO Event Cancellation Policy](https://www.pfo.org.uk/info/event-cancellation-refund-policy) will apply.
+If the event needs to be cancelled the [PFO Event Cancellation Policy](/information/event-cancellation-refund-policy) will apply.
 
 ## Facilities
 

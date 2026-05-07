@@ -8,7 +8,7 @@ level: "local"
 summary: "Standard · Sunnyhurst Wood"
 results:
   - label: "Results and splits"
-    url: "https://www.pfo.org.uk/results-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
+    url: "/results-archive/2026/2026-02-07-sunnyhurst-wood/index.html"
     type: "html"
   - label: "Routegadget"
     url: "https://www.pfo.routegadget.co.uk/rg2/#228"
@@ -16,7 +16,7 @@ results:
 coords:
   lat: 53.70287
   lng: -2.48436
-postcode: "BB3 1JA OP"
+postcode: "BB3 1JA"
 gridRef: "SD680230"
 what3words: "belts.fuels.rushed"
 planner: "Katy Thompson PFO"
@@ -48,7 +48,7 @@ There are some areas of windblown trees, but courses have been planned to avoid 
 
 Provisional course details.
 
-| **Course:** | **Length:** | **Climb:** | **Controls:** | **Technical difficulty:** |
+| **Course:**|**Length:**|**Climb:**|**Controls:**|**Technical difficulty:** |
 | --- | --- | --- | --- | --- |
 | **Green** | 3.8 km | 120 m | 22 | TD5: Very difficult. |
 | **Light Green** | 3.2 km | 100 m | 18 | TD4: Difficult. |
@@ -60,22 +60,21 @@ Long legwear is recommended.
 
 ## Registration and start times
 
-**Start times** from 10:30 - 12:00**
-**
+**Start times** from 10:30 - 12:00.
 
 **Courses close** at 13:30
 
 ## Directions and parking
 
-**Event centre: **Start, Finish, Download, dibber collection and kit dump will be a downhill walk from parking. Allow 5 minutes and follow signage from the road.
+**Event centre:** Start, Finish, Download, dibber collection and kit dump will be a downhill walk from parking. Allow 5 minutes and follow signage from the road.
 
 **Parking:** Park sensibly in the widest parts of Earnsdale Road, Darwen, BB3 1JA. If travelling from the M65, turn right off the A666 on to Earnsdale Rd, just before St Cuthbert's Church at the traffic lights. Please avoid causing obstructions for residents when parking.
 
-What3Words coordinates: ///**belts.fuels.rushed **for the on-foot park entrance and for Earnsdale Road parking.
+What3Words coordinates: ///**belts.fuels.rushed** for the on-foot park entrance and for Earnsdale Road parking.
 
 ## Entry details
 
-**Registration:** ALL entries must be made through [](https://www.sientries.co.uk/event.php?event_id=14093) **[SiEntries](https://www.sientries.co.uk/event.php?event_id=17093)**. There will be no EOD.
+**Registration:**ALL entries must be made through [](https://www.sientries.co.uk/event.php?event_id=14093)**[SiEntries](https://www.sientries.co.uk/event.php?event_id=17093)**. There will be no EOD.
 
 When entering please choose a start block (15 minute window). Please choose an early start time if you anticipate being out for a long time.
 
@@ -83,11 +82,11 @@ If you are entering as a pair (or small group), it is only necessary to register
 
 Entries will close on Friday 6th February, but entries made on or after 5th February will be subject to map availability and will be at a higher price.
 
-**Dibber hire: **If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can only be picked up at the **Event Centre.**
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
-**Entry fees ** **for BOF-members:**
+**Entry fees for BOF-members:**
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
@@ -101,8 +100,6 @@ Your hired dibber can only be picked up at the **Event Centre.**
 | Up to 04/02/2026 | £8.00 | £5.50 | £3.00 |
 | From 05/02/2026 | £10.00 | £6.50 | £4.00 |
 
-**
-**
 
 ## Facilities
 

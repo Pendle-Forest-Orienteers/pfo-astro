@@ -8,4 +8,4 @@ draft: true   # review and remove this line to publish
 
 **Safety and Risk:** A comprehensive risk assessment will have been carried out by the organiser, but participants take part at their own risk and are responsible for their own safety during the event.
 
-**Privacy:** when participating in our events/activities your name may appear in the results section of this website or in newspaper reports. [Read our Privacy Policy](/information/privacy-statement) to see how we look after your personal data.
+**Privacy:** when participating in our events/activities your name may appear in the results section of this website or in newspaper reports. [Read our Privacy Policy](/information/privacy) to see how we look after your personal data.
