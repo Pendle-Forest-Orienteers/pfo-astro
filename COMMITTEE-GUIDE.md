@@ -20,6 +20,34 @@ If your invite link expires, ask the Secretary or Webmaster to send a fresh one 
 
 ---
 
+## Granting people CMS access — roles (admins only)
+
+Each person you invite to the CMS can be given one or more **roles** that control which sections they're allowed to edit. Someone with role `events` will only see the Events tab when they log in; everything else is hidden from their sidebar.
+
+Available roles:
+
+- **admin** — full access, including site-wide hero photo settings
+- **events** — Events collection only
+- **news** — News articles only
+- **maps** — Mapped Areas only
+- **info** — Information pages only
+- **announcements** — homepage banner messages only
+
+A user can have multiple roles; their access is the union (`["events","news"]` lets them edit both). A user with no roles assigned sees a friendly "ask the Secretary for access" page when they log in — they can't do anything until you grant them at least one role.
+
+**To assign roles to a user:**
+
+1. Go to the Netlify dashboard for the site.
+2. **Site overview → Identity** (top tab).
+3. Click the user's email in the list.
+4. **User metadata → Edit metadata**.
+5. Add a key called `roles` with a value like `["events"]` (JSON array, even for one role).
+6. **Save**. They'll see the change next time they refresh `/admin`.
+
+**Heads-up — this is trust-based, not bulletproof.** A technically-minded user with browser dev-tools could un-hide a section. For our committee that's not a concern, but be aware of it before granting access to anyone you don't fully trust.
+
+---
+
 ## Seeing who edited what (admins only)
 
 Every save or publish in the CMS becomes a permanent record on GitHub, tagged with the editor's name and the time. To audit who has been making changes:
