@@ -37,17 +37,15 @@ Further details will be added as and when they are confirmed.
 
 **Courses:**
 
-| **Course** | **Length** | **Climb** | **Controls:** | **Notes**
+| **Course** | **Length** | **Climb** | **Controls** | **Notes** |
 | --- | --- | --- | --- | --- |
 | **Blue** | 6.4k | 130m | 27 | TD5, A3 map, double sided with map flip |
-| **Green *** | 4.3k | 80m | 21 | TD5, A3 map, double sided with map flip  |
+| **Green** | 4.3k | 80m | 21 | TD5, A3 map, double sided with map flip |
 | **Short Green** | 3.3k | 65m | 15 | TD5, A3 map |
-| **Light Green *** | 3.4k | 65m | 16 | TD4, A3 map |
+| **Light Green** | 3.4k | 65m | 16 | TD4, A3 map |
 | **Red** | 6.0k | 90m | 22 | TD3, A3 map |
-| **Orange *** | 2.7k | 45m | 14 | TD3, A3 map |
-| **Yellow *** | 2.3k | 40 | 13 | TD2, A3 map |
-
-* courses included in the Yvette Baker competition
+| **Orange** | 2.7k | 45m | 14 | TD3, A3 map |
+| **Yellow** | 2.3k | 40m | 13 | TD2, A3 map |
 
 **Start:** 1km from Event Centre
 
@@ -69,9 +67,7 @@ If you are unfamiliar with Burnley, the best approach is to find Burnley Turf Mo
 
 W3W: ///**rarely.dozed.soaks**
 
-Nearest postcode** BB10 2AN
-****
-**
+Nearest postcode **BB10 2AN**.
 
 ## Entry details
 
