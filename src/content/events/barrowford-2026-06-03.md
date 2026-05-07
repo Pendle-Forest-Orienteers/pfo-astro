@@ -23,7 +23,7 @@ Each Red must be potted only once, but Colours may be repeated. You can stop pot
 
 **Second part:** Pot the **zero value** control (control 150), to signal that you are transfering to the final colour sequence. It will be near to the Yellow control.
 
-**Third part:** Finish by potting the snooker colours in sequence **Yellow **(112)** -> Green **(113)** -> Brown **(114)** -> Blue **(115)** -> Pink **(116)** -> Black **(117)**, then **Finish**. You can break from the final colour sequence at any time and head for the Finish. You must punch the Finish to stop the clock.
+**Third part:** Finish by potting the snooker colours in sequence **Yellow** (112) → **Green** (113) → **Brown** (114) → **Blue** (115) → **Pink** (116) → **Black** (117), then **Finish**. You can break from the final colour sequence at any time and head for the Finish. You must punch the Finish to stop the clock.
 
 **Penalties:** No penalties if you Finish in under **45** mins, thereafter penalties will be deducted at 5 points per minute (1 pt/12 seconds).
 
