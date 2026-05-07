@@ -20,6 +20,21 @@ If your invite link expires, ask the Secretary or Webmaster to send a fresh one 
 
 ---
 
+## Seeing who edited what (admins only)
+
+Every save or publish in the CMS becomes a permanent record on GitHub, tagged with the editor's name and the time. To audit who has been making changes:
+
+1. Go to `github.com/kylegmassiah-creator/pfo-astro/commits/main` (bookmark this).
+2. The list shows every change ever made, newest first.
+3. Each entry shows the **author** (who was logged in at the time), the **timestamp** ("3 hours ago"), and the **commit message** (what they changed — e.g. "Update Event `oswaldtwistle-2026-05-06`").
+4. Click any commit to open it and see the **diff** — the exact lines added (green) or removed (red).
+
+You'll need a GitHub account and to be added as a collaborator on the repo. Ask the Webmaster to add you the first time. Read access is enough — you don't need write access since you're editing through the CMS, not GitHub directly.
+
+For a higher-level view of in-progress (unpublished) drafts, the **Workflow** tab inside `/admin` shows every draft any editor has open, who started it, and what state it's in (Draft / In Review / Ready). Useful for catching half-finished work before it goes live.
+
+---
+
 ## Adding a new event
 
 1. Go to **pfo.org.uk/admin** and log in.
