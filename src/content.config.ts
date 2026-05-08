@@ -131,6 +131,11 @@ const news = defineCollection({
       type: z.enum(['pdf', 'docx', 'xlsx', 'csv', 'image', 'other']).optional(),
     })).optional(),
     draft: z.boolean().optional(),
+    /** Pin this article to the top of the news list and use it as the
+     *  featured article on the homepage, overriding the default
+     *  "most recent" behaviour. Use it to surface an older article that
+     *  has become relevant again. */
+    featured: z.boolean().optional(),
   }),
 });
 

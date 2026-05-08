@@ -149,11 +149,14 @@ const latestResultEvent = allEvents
             && e.data.results && e.data.results.length > 0)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 
-// ─────── Data: most recent news article for the homepage
+// ─────── Data: news article to feature on the homepage. Prefer
+// anything with `featured: true` (most recent featured wins if there
+// are several); else fall back to the most recent published article.
 const allNews = (await getCollection('news'))
   .filter(n => !n.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const latestNews = allNews[0];
+const latestNews =
+  allNews.find(n => n.data.featured) || allNews[0];
 
 // ─────── Date formatters (UK English, no comma after weekday)
 const fmtFeaturedDate = (d) => new Intl.DateTimeFormat('en-GB', {

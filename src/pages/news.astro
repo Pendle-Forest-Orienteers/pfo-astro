@@ -3,10 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
 
-// ─────── Latest news, newest first
+// ─────── Latest news. Featured articles pinned to the top, then the
+//        rest by date. The featured-card slot at the top of the page
+//        prefers a manually-featured article if one exists, else the
+//        most recent.
 const allNews = (await getCollection('news'))
   .filter(n => !n.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => {
+    const fa = a.data.featured ? 1 : 0;
+    const fb = b.data.featured ? 1 : 0;
+    if (fa !== fb) return fb - fa;
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
 
 const featured = allNews[0];
 const rest = allNews.slice(1);

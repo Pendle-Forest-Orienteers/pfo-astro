@@ -288,6 +288,7 @@ collections:
             default: "pdf"
             required: false
       - { name: "draft", label: "Draft (don't publish yet)", widget: "boolean", default: false, required: false }
+      - { name: "featured", label: "Feature this article", widget: "boolean", default: false, required: false, hint: "Pins this article to the top of the news list and uses it as the featured article on the homepage. Use it to bring an older article back to prominence (e.g. a relevant guide that suits the current season). Only one is needed at a time — if you tick it on multiple, the most recent featured article wins on the homepage." }
       - { name: "body", label: "Article body", widget: "markdown" }
 
   # ─── MAPS ────────────────────────────────────────────────────────────────

@@ -95,6 +95,24 @@ Three different ways an event can come off the public site, ordered from safest 
 
 ---
 
+## Duplicating an event (re-using last year's setup)
+
+Decap CMS doesn't have a one-click "duplicate" button, but the same effect takes 90 seconds. Use this when the new event is essentially a re-run — same venue, same course structure, same entry fee — with new dates.
+
+1. Open the **previous year's event** in the CMS (e.g. last year's Brun Valley).
+2. Switch the **Long-form description** to Markdown mode (toggle top-right of that field).
+3. Select all the markdown text in that field, copy it (Cmd-C / Ctrl-C).
+4. **Don't change anything** in the old entry — back out via the sidebar without saving.
+5. **Events → New Event**.
+6. Fill in the new fields: title, date, entry close date, location, postcode, format, level. Leave SI Entries URL until you have the new one.
+7. In the new entry's **Long-form description**, switch to Markdown mode and paste.
+8. Edit the dates / fees / contact names that need updating for this year's event.
+9. Hit **Publish**.
+
+If you do this often (e.g. summer street-O series, four events on the same venue), the **event templates** (separate Word docs) are usually quicker than copying a previous event — they're already in clean markdown and just need the bracketed values filled in.
+
+---
+
 ## Updating event results
 
 When an event has finished and SI Entries has closed:
@@ -128,6 +146,15 @@ If you want to upload an Excel or PDF file:
 5. Click **Publish** when ready.
 
 To add photos throughout the article, use the image button in the rich-text toolbar. They get uploaded to the site automatically.
+
+### Pinning an old article to the top
+
+Articles are normally listed newest-first, with the most recent one shown in the featured slot on the homepage. If an older article becomes relevant again (a how-to guide that suits the season, an evergreen reminder about etiquette, etc.) you don't need to change its publish date — there's a **Feature this article** tickbox at the bottom of the form. When ticked:
+
+- The article jumps to the **top of the news list**, regardless of its date.
+- The article appears as the **featured article on the homepage**, replacing whichever was most recent.
+
+Untick it when it no longer needs the spotlight. If you tick it on more than one article at a time, the most recent of the featured ones wins on the homepage; on the news list, all featured articles cluster at the top.
 
 ---
 
