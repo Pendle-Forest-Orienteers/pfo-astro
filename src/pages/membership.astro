@@ -61,32 +61,13 @@ const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=7
     </div>
   </section>
 
-  <!-- ─────────────────────────── Cost -->
+  <!-- ─────────────────────────── Memberships included -->
   <section class="info-block alt">
     <div class="info-wrap">
-      <p class="eyebrow">Annual cost</p>
-      <h2>One payment, three layers of membership.</h2>
-      <p class="cost-intro">When you join PFO, you automatically become a member of the North West Orienteering Association and British Orienteering. One annual fee covers all three.</p>
-
-      <div class="cost-grid">
-        <div class="cost-card">
-          <p class="cost-label">Senior</p>
-          <p class="cost-figure">[Current fee]</p>
-          <p class="cost-detail">Adult orienteer aged 21+</p>
-        </div>
-        <div class="cost-card">
-          <p class="cost-label">Junior</p>
-          <p class="cost-figure">[Current fee]</p>
-          <p class="cost-detail">Under 21 on 1 January</p>
-        </div>
-        <div class="cost-card">
-          <p class="cost-label">Family</p>
-          <p class="cost-figure">[Current fee]</p>
-          <p class="cost-detail">Adults and juniors at one address</p>
-        </div>
-      </div>
-
-      <p class="cost-note">Confirm current fees on the <a href="https://www.britishorienteering.org.uk/join" rel="noopener">British Orienteering join page</a>. Most members renew automatically each January.</p>
+      <p class="eyebrow">Three memberships, one payment</p>
+      <h2>PFO, NWOA and British Orienteering — all included.</h2>
+      <p class="cost-intro">When you join PFO, you automatically become a member of the North West Orienteering Association and British Orienteering. One annual fee, paid through the British Orienteering join form, covers all three. Senior, Junior and Family rates are shown when you start the application.</p>
+      <p class="cost-note">Membership runs to 31 December — joining mid-year still gets you full benefits to year-end. Most members renew automatically each January.</p>
     </div>
   </section>
 
@@ -189,41 +170,8 @@ const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=7
     padding-top: 12px;
   }
 
-  /* Cost */
-  .cost-intro { max-width: 60ch; margin-bottom: 28px; }
-  .cost-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin-bottom: 22px;
-  }
-  .cost-card {
-    background: var(--paper);
-    padding: 24px 24px;
-    border-top: 4px solid var(--gold);
-  }
-  .cost-card .cost-label {
-    font-family: var(--ff-mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold-muted);
-    margin: 0 0 10px 0;
-  }
-  .cost-card .cost-figure {
-    font-family: var(--ff-display);
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 1;
-    color: var(--navy);
-    font-variation-settings: "opsz" 48, "SOFT" 20;
-    margin: 0 0 6px 0;
-  }
-  .cost-card .cost-detail {
-    font-size: 13px;
-    color: var(--ink-soft);
-    margin: 0;
-  }
+  /* Memberships-included block */
+  .cost-intro { max-width: 60ch; margin-bottom: 16px; }
   .cost-note {
     font-size: 14px;
     color: var(--ink-mute);

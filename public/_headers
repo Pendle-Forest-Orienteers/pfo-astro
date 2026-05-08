@@ -14,8 +14,24 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=()
+  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), midi=(), serial=(), bluetooth=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  X-DNS-Prefetch-Control: on
+
+# ───── Admin area — never index, never cache ──────────────────────────
+# Stops search engines indexing /admin (the Decap login page is private)
+# and prevents browser caching from showing stale admin UI.
+/admin/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store, no-cache, must-revalidate
+
+# ───── Netlify Function (BOF feed proxy) — explicit CORS ──────────────
+# The function already sets Access-Control-Allow-Origin; this just makes
+# the cache behaviour visible in headers and signals intent.
+/api/neighbour-events
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex
 
 # ───── Long-cache static assets (versioned by content hash by Astro) ──
 /_astro/*
