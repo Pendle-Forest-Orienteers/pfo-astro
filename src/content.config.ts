@@ -97,6 +97,16 @@ const events = defineCollection({
       type: z.enum(['pdf', 'docx', 'xlsx', 'csv', 'image', 'other']).optional(),
     })).optional(),
 
+    // ─────── Photo gallery (filled in after the event)
+    // Optional set of post-event photos with alt text and an optional
+    // caption. Rendered below the body as a responsive grid. Same shape
+    // as the news-article gallery for consistency.
+    gallery: z.array(z.object({
+      src: z.string(),
+      alt: z.string(),
+      caption: z.string().optional(),
+    })).optional(),
+
     // ─────── Misc
     cancelled: z.boolean().optional(),
     /** Hide this event from every public page without deleting it.

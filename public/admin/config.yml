@@ -238,6 +238,16 @@ collections:
               - { label: "Other", value: "other" }
             default: "pdf"
             required: false
+      - name: "gallery"
+        label: "Photo gallery (after the event)"
+        widget: "list"
+        required: false
+        summary: "{{fields.alt}}"
+        hint: "Photos taken at the event. Appears as a responsive grid at the bottom of the event page. Add as many as you like — phones tend to make 6–12 a comfortable batch."
+        fields:
+          - { name: "src",     label: "Photo",       widget: "image" }
+          - { name: "alt",     label: "Alt text",    widget: "string", hint: "Short description for screen readers, e.g. 'Runners at the start of the long course'." }
+          - { name: "caption", label: "Caption",     widget: "string", required: false, hint: "Optional caption shown under the photo." }
 
   # ─── NEWS ────────────────────────────────────────────────────────────────
   - name: "news"
