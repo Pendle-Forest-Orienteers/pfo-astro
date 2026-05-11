@@ -18,6 +18,10 @@ coords:
 
 <!-- migrated -->
 
+The third of our June Series 2026 Snook-O events takes place at Alkincoats Park, Colne. Event 3 of 3.
+
+Summer evening Score event mixing orienteering with the game of snooker. Get as many points as you can in the time limit by visiting/potting red and colour checkpoints building up your score. Can you 'clear the table' in the time limit and make the highest break?
+
 ## Map and terrain
 
 TBC

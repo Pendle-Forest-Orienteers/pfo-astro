@@ -27,13 +27,15 @@ coords:
 
 ## Map and terrain
 
-All maps 1:7500
+**Map / Courses:** All maps will be A3 at a scale of **1:7500**. The competition courses, control descriptions and map legend will all be printed on one side, except Green and Blue, which have double-sided maps with a map-flip control. Loose descriptions will be available in the Start lanes.
 
 Brun Valley Forest & Parks area is made up of two parks, an old colliery site and the Brun Valley Forest. Shorter courses will stay within the parks, whilst longer courses will visit all areas, including the more technical parts of the forest. The area has an interesting mix of old quarry details and contours.
 
+**Undergrowth / clothing:** This is a mid-May event. Springtime undergrowth will be growing fast. For your own enjoyment please wear full leg cover and not shorts.
+
 ## Course information
 
-Further details will be added as and when they are confirmed.
+Course information is **provisional** subject to final approval.
 
 **Courses:**
 
@@ -49,7 +51,7 @@ Further details will be added as and when they are confirmed.
 
 **Start:** 1km from Event Centre
 
-**Finish:** 50m from Event Centre
+**Finish:** 200m from Event Centre
 
 ## Registration and start times
 
@@ -73,7 +75,7 @@ Nearest postcode **BB10 2AN**.
 
 Rules for the Yvette Baker competition can be found [here](/documents/Competition-Rule-L-Yvette-Baker-Trophy-v2-11-Effective-from-January-2026.pdf).
 
-**Yvette Baker Heat - Yvette Baker Trophy entries should be made via club captains using a spreadsheet. Payment for YBT entries will be made by BACS. Club captains should email the  to request the entry form and confirm their attendance at this heat.**
+**Yvette Baker Heat — Yvette Baker Trophy entries should be made via club captains using a spreadsheet. Payment for YBT entries will be made by BACS. Club captains should email the Organiser via the [Contacts page](/contacts) to request the entry form and confirm their attendance at this heat.**
 
 **All YBT entries must be submitted before noon on Friday 15th May**
 

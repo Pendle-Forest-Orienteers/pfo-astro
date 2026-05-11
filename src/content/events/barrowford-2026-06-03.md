@@ -20,6 +20,10 @@ coords:
 
 <!-- migrated -->
 
+The first of our June Series 2026 Snook-O events takes place at Victoria Park, Barrowford. Event 1 of 3.
+
+Summer evening Score event mixing orienteering with the game of snooker. Get as many points as you can in the time limit by visiting/potting red and colour checkpoints building up your score. Can you 'clear the table' in the time limit and make the highest break?
+
 ## Course information
 
 **First part:** Pot any **Red+Colour** pair, then repeat potting a **different Red+any Colour**, up to a maximum of 11 pairs.
@@ -47,6 +51,8 @@ Colours:
 
 **Blue/5 points** (control 115)
 
+**Pink/6 points** (control 116)
+
 **Black/7 points** (control 117)
 
 Colour controls will be marked with a double circle for easy recognition.
@@ -59,7 +65,9 @@ Maximum possible score = 115.
 
 ## Directions and parking
 
-TBC
+**Parking:** Victoria Park car park, Carr Road. Nearest postcode **BB9 7SS**. W3W: ///**tiling.devoured.smothered**.
+
+Overflow parking on Lomeshaye Way, adjacent to the car park, if required.
 
 ## Entry details
 
@@ -79,7 +87,7 @@ Collect your hired dibber from Download.
 
 ## Facilities
 
-TBC
+None on site. Nearest toilet: Morrisons, Pendle Street, Nelson, BB9 7UZ.
 
 ## Dog restrictions
 
