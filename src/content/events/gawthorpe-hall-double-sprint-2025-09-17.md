@@ -1,11 +1,11 @@
 ---
-title: "Gawthorpe Hall - Double Sprint"
+title: "Gawthorpe Hall"
 date: 2025-09-17
 entryCloseDate: 2025-09-17T12:00:00
-location: "Gawthorpe Hall -"
+location: "Gawthorpe Hall"
 format: "Sprint"
 level: "local"
-summary: "Sprint · Gawthorpe Hall -"
+summary: "Sprint · Gawthorpe Hall"
 results:
   - label: "Combined event results"
     url: "/results-archive/2025/2025-09-17-gawthorpe-hall-double-sprint/index.html"

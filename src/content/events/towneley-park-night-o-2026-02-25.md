@@ -1,5 +1,5 @@
 ---
-title: "Towneley Park Night-O"
+title: "Towneley Park"
 date: 2026-02-25
 entryCloseDate: 2026-02-25T12:00:00
 location: "Towneley Park"

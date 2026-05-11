@@ -1,5 +1,5 @@
 ---
-title: Barrowford StreetO
+title: Barrowford
 date: 2026-03-18
 entryCloseDate: 2026-03-18T12:00:00
 location: Barrowford

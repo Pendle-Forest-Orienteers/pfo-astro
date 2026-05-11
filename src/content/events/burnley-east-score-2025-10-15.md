@@ -1,11 +1,11 @@
 ---
-title: "Burnley East - Score"
+title: "Burnley East"
 date: 2025-10-15
 entryCloseDate: 2025-10-15T12:00:00
-location: "Burnley East -"
+location: "Burnley East"
 format: "Score"
 level: "local"
-summary: "Score · Burnley East -"
+summary: "Score · Burnley East"
 results:
   - label: "Final Scores"
     url: "/results-archive/2025/2025-10-15-burnley-east-score/index.html"

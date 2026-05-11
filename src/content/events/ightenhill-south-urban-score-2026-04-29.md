@@ -1,5 +1,5 @@
 ---
-title: "Ightenhill South Urban"
+title: "Ightenhill South"
 date: 2026-04-29
 startTime: "7:00pm"
 entryCloseDate: 2026-04-29T12:00:00

@@ -1,11 +1,11 @@
 ---
-title: "Ightenhill Urban - Score"
+title: "Ightenhill"
 date: 2026-01-28
 entryCloseDate: 2026-01-28T12:00:00
-location: "Ightenhill  -"
+location: "Ightenhill"
 format: "Urban Score"
 level: "local"
-summary: "Urban Score · Ightenhill  -"
+summary: "Urban Score · Ightenhill"
 results:
   - label: "Results"
     url: "/results-archive/2026/2026-01-28-ightenhill-urban-score/index.html"
