@@ -13,10 +13,9 @@ backend:
   branch: main
   squash_merges: true
 
-# Simple publish mode — clicking Publish saves and goes live immediately.
-# Editorial workflow (with admin pre-approval) was disabled in favour of a
-# faster, single-step flow for our trust-based committee. Reinstate by
-# changing this line to:  publish_mode: editorial_workflow
+# Drafts go through an editorial workflow — Save as draft → Ready → Publish.
+# This lets editors save in-progress edits without publishing them live.
+publish_mode: editorial_workflow
 
 # Where uploaded media (event photos, map images, news heroes) lives in the repo
 media_folder: "public/assets/uploads"
