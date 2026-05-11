@@ -1,8 +1,11 @@
 ---
-title: "North West Urban League"
+title: North West Urban League
 date: 2018-02-01
-summary: "The NWUL was re-started last year (2017) after lapsing for a few years. Read on for last years results, details of 2018 events and how to nominate areas for the 2019 series."
+summary: The NWUL was re-started last year (2017) after lapsing for a few years.
+  Read on for last years results, details of 2018 events and how to nominate
+  areas for the 2019 series.
 draft: false
+featured: true
 ---
 
 The NWUL was re-started last year (2017) after lapsing for a few years.
