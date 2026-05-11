@@ -1,23 +1,23 @@
 ---
-title: "Barrowford"
+title: Barrowford StreetO
 date: 2026-03-18
 entryCloseDate: 2026-03-18T12:00:00
-location: "Barrowford"
-format: "Street-O"
-level: "local"
-summary: "Street-O · Barrowford · March Street-O (1/6)"
+location: Barrowford
+postcode: BB9 7TZ
+what3words: fame.slopes.thank
+format: Street-O
+level: local
+bofEventNumber: 87373
+dogsAllowed: not-recommended
+planner: Pip Larter PFO
+summary: Street-O · Barrowford · March Street-O (1/6)
 results:
-  - label: "Final scores"
-    url: "/results-archive/2026/2026-03-18-barrowford/Final-Results.pdf"
-    type: "pdf"
+  - label: Final scores
+    url: /results-archive/2026/2026-03-18-barrowford/Final-Results.pdf
+    type: pdf
 coords:
   lat: 53.84309
   lng: -2.22067
-postcode: "BB9 7TZ"
-what3words: "fame.slopes.thank"
-bofEventNumber: 87373
-dogsAllowed: "not-recommended"
-planner: "Pip Larter PFO"
 ---
 
 <!-- migrated -->
