@@ -3,11 +3,15 @@ title: Barrowford SnookO
 date: 2026-06-03
 startTime: 7:00pm
 entryCloseDate: 2026-06-03T12:00:00
-location: Barrowford
-coordsPaste: 53.75435,-2.49521
+location: Victoria Park, Barrowford
+postcode: BB9 7SS
+coordsPaste: 53.83907, -2.22527
+what3words: tiling.devoured.smothered
 format: Snook-O
 level: local
 bofEventNumber: 87530
+planner: Sam Barnes & Karen Windle (PFO)
+siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17990
 summary: Snook-O
 coords:
   lat: 53.83907
@@ -59,7 +63,7 @@ TBC
 
 ## Entry details
 
-Pre-entry on **SIEntries** only. **Closing date for entries is 12 noon on the day of the event.**
+Pre-entry on [**SIEntries**](https://www.sientries.co.uk/event.php?event_id=17990) only. **Closing date for entries is 12 noon on the day of the event.**
 
 **Seniors:** (M/W26+) **£7.00**
 
@@ -83,4 +87,4 @@ Dogs are permitted, but should be under close control on a short leash. Please c
 
 ## Contacts and officials
 
-TBC
+Planners: Sam Barnes & Karen Windle (PFO)

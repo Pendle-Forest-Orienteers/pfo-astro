@@ -1,9 +1,10 @@
 ---
 title: Brun Valley
 date: 2026-05-16
+startTime: 11:30am
 entryCloseDate: 2026-05-13T23:59:00
 location: Burnley, Lancs
-postcode: "BB10 3LB "
+postcode: "BB10 3LB"
 coordsPaste: 53.79750,-2.22707
 what3words: rarely.dozed.soaks
 format: Regional & YB
@@ -13,7 +14,6 @@ dogsAllowed: no
 planner: Emma Taylor (PFO)
 controller: George Crawford-Smith (PFO)
 seriesOrganiser: "Hannah Dabinett (PFO) YB Organiser: Andy Ellis (PFO)"
-entryFee: from £4
 siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17787
 summary: Regional & YB · Burnley
 description: PFO's headline event of the year — a Regional and Yvette Baker
@@ -71,6 +71,8 @@ Nearest postcode **BB10 2AN**.
 
 ## Entry details
 
+Rules for the Yvette Baker competition can be found [here](/documents/Competition-Rule-L-Yvette-Baker-Trophy-v2-11-Effective-from-January-2026.pdf).
+
 **Yvette Baker Heat - Yvette Baker Trophy entries should be made via club captains using a spreadsheet. Payment for YBT entries will be made by BACS. Club captains should email the  to request the entry form and confirm their attendance at this heat.**
 
 **All YBT entries must be submitted before noon on Friday 15th May**
@@ -83,7 +85,7 @@ Standard pricing will apply up to midnight Wednesday 13th May. Entry will remain
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
-| Up to 13/05/2023 | £9.00 | £6.50 | £4.00 |
+| Up to 13/05/2026 | £9.00 | £6.50 | £4.00 |
 | From 14/05/2026 | £11.00 | £7.50 | £5.00 |
 
 **Entry fees for non-members:**
