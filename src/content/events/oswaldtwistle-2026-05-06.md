@@ -1,5 +1,5 @@
 ---
-title: Oswaldtwistle
+title: Oswaldtwistle StreetO
 date: 2026-05-06
 startTime: 7:00pm
 entryCloseDate: 2026-05-06T12:00:00
