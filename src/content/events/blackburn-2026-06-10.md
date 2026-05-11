@@ -1,5 +1,5 @@
 ---
-title: Blackburn
+title: Blackburn SnookO
 date: 2026-06-10
 startTime: 7:00pm
 entryCloseDate: 2026-06-10T12:00:00
