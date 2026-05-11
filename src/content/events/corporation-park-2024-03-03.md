@@ -52,7 +52,7 @@ Yellow course 12:00-13:45
 
 **Sprint times and Start procedures:**
 
-- First Sprint starts: 12:00-12:45.** **You will be randomly allocated Course A or Course B maps. On finishing, your map will be quarantined until after your Second Sprint run.- Second Sprint starts: 13:00-13:45. You must pick up the alternate course map from the labelled map box.
+- First Sprint starts: 12:00-12:45. You will be randomly allocated Course A or Course B maps. On finishing, your map will be quarantined until after your Second Sprint run.- Second Sprint starts: 13:00-13:45. You must pick up the alternate course map from the labelled map box.
 **Courses close:** 14:30.
 
 ## Directions and parking
@@ -70,9 +70,9 @@ If you are entering as a pair (or small group), it is only necessary to register
 
 Entries will close on Saturday 2nd March at 23:59, but entries made on or after 1st March will be subject to map availability and will be at a higher price.
 
-**Dibber hire:** If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can be picked up at the event **Download** location in the cafe.
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
 **Entry fees** **for BOF-members:** 
 
@@ -102,5 +102,5 @@ No dogs on courses, but they may be exercised in the park after your run. Doggie
 
 ## Contacts and officials
 
-**Planner:** Allan Hodkinson PFO.**
-Organiser:** Kay Hawke - PFO.
+**Planner:** Allan Hodkinson PFO.
+**Organiser:** Kay Hawke - PFO.

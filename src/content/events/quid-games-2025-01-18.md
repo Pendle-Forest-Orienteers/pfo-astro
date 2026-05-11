@@ -37,10 +37,18 @@ Broughton Hall stately home and it's private grounds will be out of bounds throu
 
 **Format:**
 
-**60 minute score course -Mass Start at 6pm
-**10 checkpoints located around the grounds each worth 10 points - maximum score 100 points, overall winners will be decided by the** highest points achieved in the quickest time, **male and female.
+**60 minute score course** - Mass Start at 6pm.
 
-- You can visit the checkpoints in **any order - once.**However you must visit** Checkpoint #10 last**- this will be clearly marked on your map. This will be located near the Finish and will be placed on the course after the race has started- there is a prize for the fastest run into the finish from Checkpoint 10 for both male/female.-**You will not have the map at the start of the race!** At 6pm - a Silva Spectra Headlamp will highlight where the maps are located within the grounds- get there as fast as you can to grab one map from the boxes of maps at this location.- Where you are **when you pick up the map**(not where the mass start was) will be shown by a triangle on your map.- At each checkpoint will be an orange & white orienteering flag and an SI Timing box (pictured below) - place your SI Card into the box to record your visit- it will beep.- The checkpoints will be numbered purple circles on the map - they will be located where the circle is and not the number corresponding to it.- Once you have visited the mandatory final checkpoint #10 - the finish is shown by a double circle -**make sure you put your SI Card into the finish boxes to stop your time!**- You will lose 2 points per minute late after 60 mins - time your return! After 15 minutes (7:15pm) you will lose** all of your points**and any prizes you may have gained throughout the event.- After you have finished -**visit the Download/Information tent to download your SI Card** - this will tell us how many checkpoints you visited and in what time. Results will be announced in the prize giving which starts at 7:30pm.
+10 checkpoints located around the grounds each worth 10 points - maximum score 100 points. Overall winners will be decided by the highest points achieved in the quickest time, male and female.
+
+- You can visit the checkpoints in **any order - once**. However you must visit **Checkpoint #10 last** - this will be clearly marked on your map. This will be located near the Finish and will be placed on the course after the race has started. There is a prize for the fastest run into the finish from Checkpoint 10 for both male/female.
+- **You will not have the map at the start of the race!** At 6pm a Silva Spectra Headlamp will highlight where the maps are located within the grounds - get there as fast as you can to grab one map from the boxes of maps at this location.
+- Where you are **when you pick up the map** (not where the mass start was) will be shown by a triangle on your map.
+- At each checkpoint will be an orange & white orienteering flag and an SI Timing box (pictured below) - place your SI Card into the box to record your visit; it will beep.
+- The checkpoints will be numbered purple circles on the map - they will be located where the circle is and not the number corresponding to it.
+- Once you have visited the mandatory final checkpoint #10, the finish is shown by a double circle - **make sure you put your SI Card into the finish boxes to stop your time!**
+- You will lose 2 points per minute late after 60 mins - time your return! After 15 minutes (7:15pm) you will lose **all of your points** and any prizes you may have gained throughout the event.
+- After you have finished, **visit the Download/Information tent to download your SI Card** - this will tell us how many checkpoints you visited and in what time. Results will be announced in the prize giving which starts at 7:30pm.
 
 ## Directions and parking
 
@@ -59,17 +67,15 @@ There will be many volunteers to answer any questions you may have, plus blank m
 
 **Event Village:**
 
-The event village will open at 5pm, there will be an information tent, portable toilets and stands from our sponsors Rab, Scarpa, OTE Nutrition and Silva. **Our sponsors will have brilliant gear for you to try both at the event village and out on the course, including;
-**Rab:
-**Available to test - 10x Veil 1 and 13x Veil 6 lightweight running vests - useful for putting in some spot prize control items (full details below). There will also be Spring/Summer 25 kit to preview on the stand.
+The event village will open at 5pm, there will be an information tent, portable toilets and stands from our sponsors Rab, Scarpa, OTE Nutrition and Silva. Our sponsors will have brilliant gear for you to try both at the event village and out on the course, including:
 
-**Scarpa:
-**Spin ST Trail Running Shoes to test out on course! Fantastic grip for the terrain!
+**Rab:** Available to test - 10x Veil 1 and 13x Veil 6 lightweight running vests - useful for putting in some spot prize control items (full details below). There will also be Spring/Summer 25 kit to preview on the stand.
 
-**OTE Nutrition:
-**OTE Cookie and Cream Duo Bars will be making their debut at the Quid Games socome and try some free samples! Show your Quid Games keyring (collected out on course) to Max once you have finished, to claim a free anytime bar too.
-Silva:
-**Silva will have demo headtorches to borrow for the event - first come first served! There will be a range of torches to view at the Silva shelter should you be looking to upgrade your headtorch from SportsShoes in the future, these will range from 250 lumen to 3000 Lumen modular headtorches.
+**Scarpa:** Spin ST Trail Running Shoes to test out on course! Fantastic grip for the terrain!
+
+**OTE Nutrition:** OTE Cookie and Cream Duo Bars will be making their debut at the Quid Games so come and try some free samples! Show your Quid Games keyring (collected out on course) to Max once you have finished, to claim a free anytime bar too.
+
+**Silva:** Silva will have demo headtorches to borrow for the event - first come first served! There will be a range of torches to view at the Silva shelter should you be looking to upgrade your headtorch from SportsShoes in the future, these will range from 250 lumen to 3000 Lumen modular headtorches.
 
 **Food/Drink:**
 North Pizza (@northpizzaco) will be there with a woodfired pizza oven perfect for your post-race munchies! A coffee van will also be serving hot drinks, you are also welcome to bring your own refreshments into the village. Both of these accept card payments.

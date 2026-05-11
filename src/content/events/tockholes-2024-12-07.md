@@ -77,9 +77,9 @@ Open till 23:30 for drinks, but food available normally till 8:00PM. If you orde
 
 Hardstanding parking areas (cars & campavans) next to, and right of, the Royal Arms. Entrance W3W ///**cried.tungsten.surfaces**.
 
-Best approach from north, east and west is via the M65. Exit at J3 and follow the A675** for (7km/4.5mi) past Tockholes Woods on your left to the next minor junction left, signposted Tockholes. Proceed for 2.7km/1.6mi, to parking, which is an easy turn on your right. Park as directed. The alternative route via J4 through Tockholes Village is steeper, bumpier, twistier and slower - and is not recommended.
+Best approach from north, east and west is via the M65. Exit at J3 and follow the A675 for (7km/4.5mi) past Tockholes Woods on your left to the next minor junction left, signposted Tockholes. Proceed for 2.7km/1.6mi, to parking, which is an easy turn on your right. Park as directed. The alternative route via J4 through Tockholes Village is steeper, bumpier, twistier and slower - and is not recommended.
 
-** Average speed cameras are in operation on the A675: from J3, first 50mph, then 40mph, then 30mph through Abbey Village and then 50mph.
+Average speed cameras are in operation on the A675: from J3, first 50mph, then 40mph, then 30mph through Abbey Village and then 50mph.
 
 From the south (Bolton direction) follow the A675 through Belmont village then after 2.5k/1.6mi turn right at the junction noted above. Average speed cameras in operation.
 

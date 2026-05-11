@@ -82,9 +82,9 @@ What3Words: **///along.former.layers**
 
 Entries will close on Friday 28th November, but entries made on or after 27th November will be subject to map availability and will be at a higher price.
 
-**Dibber hire:** If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can only be picked up at the **Event Centre.**
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
 **Entry fees** **for BOF-members:**
 

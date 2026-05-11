@@ -75,9 +75,9 @@ If you are entering as a pair (or small group), it is only necessary to register
 
 Entries will close on Friday 26th January at 23:59, but entries made on or after 25th January will be subject to map availability and will be at a higher price.
 
-**Dibber hire:** If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can be picked up at the event **Download** tent.
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
 **Entry fees** **for BOF-members:** Senior (26+) £7.00 (£9.00 on or after 25th January)
 Young Adult £5.00 (21-25) (£6.00 on or after 25th January)
@@ -99,5 +99,5 @@ No dogs on courses. Dogs may be exercised in the competition area after your run
 
 ## Contacts and officials
 
-**Planner:** Danny Allen PFO.**
-Organiser:** George Crawford-Smith PFO.
+**Planner:** Danny Allen PFO.
+**Organiser:** George Crawford-Smith PFO.

@@ -63,7 +63,7 @@ Competitors can 'Run Down' a course by entering the relevant 'Open' course, but 
 
 ## Registration and start times
 
-Starts: **10:30** to** 12:00**
+Starts: **10:30** to **12:00**
 
 Courses close **at 2 pm,** at which point, we may begin collecting controls.
 

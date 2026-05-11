@@ -57,7 +57,7 @@ There will be alternative parking at two roadside locations, depending on your d
 
 If approaching **from East or West along the A59**, at the roundabout turn onto the A671. Continue to the traffic lights on the dual carriageway (**DO NOT turn left**into the public car park), but continue for 200m and turn**left onto Portfield Road** signposted Sabden (What3Words ///**valley.caramel.quicksand**). Marshals will direct you to park half-on and half-off the verge, on either side of the widest part of this road. Space is limited, so please do not leave large gaps.
 
-If approaching **from the south**, from the M65, Burnley or Accrington direction, proceed north to the traffic lights at Spring Wood. Turn** left **here onto Accrington Rd (B6246), around a slight bend onto a long downhill straight. Pull over to the righthand side and park as directed by marshals (What3Words ///**completed.sailed.blotchy**). Do not leave large gaps as space is limited. Nearest postcode is BB7 9UE.
+If approaching **from the south**, from the M65, Burnley or Accrington direction, proceed north to the traffic lights at Spring Wood. Turn **left** here onto Accrington Rd (B6246), around a slight bend onto a long downhill straight. Pull over to the righthand side and park as directed by marshals (What3Words ///**completed.sailed.blotchy**). Do not leave large gaps as space is limited. Nearest postcode is BB7 9UE.
 
 On approach to the park, competitors will have to cross the busy A671/park entrance junction near the traffic lights. Traffic is fast along this stretch and **children MUST be accompanied** by an adult. Marshals will be on duty.
 
@@ -69,9 +69,9 @@ If you are entering as a pair (or small group), it is only necessary to register
 
 Entries will close on Saturday 15th February at 12:00 (midday), but entries made on or after 13th February will be subject to map availability and will be at a higher price.
 
-**Dibber hire:** If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can only be picked up at the Event Centre.
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
 **Entry fees** **for BOF-members:**
 

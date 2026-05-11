@@ -62,7 +62,7 @@ Several high crags and a dangerous ravine are highlighted with the purple **uncr
 | **Orange** | 2.3k | 70m | 10 | TD3. Map 1:7500 |
 | **Yellow** | 2.3k | 50m | 9 | TD2. Map 1:7500 |
 
-Distance to the Start is **200**m from parking and the return from the Finish is** 600**m.
+Distance to the Start is **200**m from parking and the return from the Finish is **600**m.
 
 **Control descriptions** will be on the map and available as loose descriptions in the start lanes.
 
@@ -90,11 +90,11 @@ We are asking for a donation (£2 suggested) for each vehicle parked. Please hav
 
 ==================
 
-Field parking near to BB3 0PA. However using W3W ///**reveal.aquatics.buckling** ** **will take you to the entrance gate of the parking field, which is approximately 500m south of the Tockholes Information Centre/Rambler's Country Cafe and Royal Arms car park, all of which will be open on the day.
+Field parking near to BB3 0PA. However using W3W ///**reveal.aquatics.buckling** will take you to the entrance gate of the parking field, which is approximately 500m south of the Tockholes Information Centre/Rambler's Country Cafe and Royal Arms car park, all of which will be open on the day.
 
-Best approach from north, east and west is via the M65. Exit at J3 and follow the A675** for (7km/4.5mi) past Tockholes Woods on your left to the next minor junction left, signposted Tockholes. Proceed for 2.0km/1.25mi, to the parking field entrance gate, which will be an easy turn on your right. Follow parking marshals directions. Your donation per vehicle (recommended £2) goes to local good causes in Tockholes. The alternative route via J4 through Tockholes Village is steeper, bumpier, twistier and slower - and is not recommended.
+Best approach from north, east and west is via the M65. Exit at J3 and follow the A675 for (7km/4.5mi) past Tockholes Woods on your left to the next minor junction left, signposted Tockholes. Proceed for 2.0km/1.25mi, to the parking field entrance gate, which will be an easy turn on your right. Follow parking marshals directions. Your donation per vehicle (recommended £2) goes to local good causes in Tockholes. The alternative route via J4 through Tockholes Village is steeper, bumpier, twistier and slower - and is not recommended.
 
-** Average speed cameras are in operation on the A675: from J3, first 50mph, then 40mph, then 30mph through Abbey Village and then 50mph.
+Average speed cameras are in operation on the A675: from J3, first 50mph, then 40mph, then 30mph through Abbey Village and then 50mph.
 
 From the south (Bolton direction) follow the A675 through Belmont village (average speed cameras in operation) then after 2.5k/1.6mi turn right at the junction noted above, then 2.0k/1.25mi tp parking.
 

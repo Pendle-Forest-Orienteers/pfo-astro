@@ -49,8 +49,9 @@ Calf Hey is a really attractive area with a good mix of terrain including conife
 
 There are cattle in the field areas to the north and west of the competition area and have freedom to roam most of this area. They have never been a problem in the past. You may see none, but if cattle are encountered, to avoid disturbance, please give them a wide berth. We recommend at least 25m.
 
-**Map notes:
-**1). One large area of woodland has within it a patchwork of fallen trees due to old age and/or windblow. Areas that are easily traversed, though slow, are shown with the wide green pinstripe symbol. Areas that are very slow or impassable are shown with the narrow pinstripe symbol -** best ** **avoided!**
+**Map notes:**
+
+1). One large area of woodland has within it a patchwork of fallen trees due to old age and/or windblow. Areas that are easily traversed, though slow, are shown with the wide green pinstripe symbol. Areas that are very slow or impassable are shown with the narrow pinstripe symbol - **best avoided!**
 
 2. There are several streams that run is chasms that may be up to 10m deep! Instead of the usual blue line, streams in these areas are marked with a **wide purple line** to indicate the **stream is uncrossable**. Steep terrain on either side must also be avoided. Take great care.
 Only cross streams where they are blue on the map.
@@ -143,6 +144,6 @@ This is sheep and cattle country - absolutely no dogs on courses. Dogs may be ex
 
 ## Contacts and officials
 
-**Planner:** Judith Wood PFO.**
+**Planner:** Judith Wood PFO.
 Controller: **Steve Wilson PFO.**
-Organiser:** Hannah Dabinett PFO.
+**Organiser:** Hannah Dabinett PFO.

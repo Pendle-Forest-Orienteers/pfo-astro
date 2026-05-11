@@ -93,9 +93,9 @@ When entering please choose a start block (15 minute window).
 
 Entries will close on Friday 10th April but entries made on or after 8th April will be subject to map availability and will be at a higher price.
 
-**Dibber hire:** If you do not possess a dibber** (SI-card) you must book and pay £1 when entering on-line.
+**Dibber hire:** If you do not possess a dibber (SI-card) you must book and pay £1 when entering on-line.
 Your hired dibber can only be picked up at the **Event Centre.**
-[**Note: £40 charge if dibber is lost or broken during the hire period.]
+[Note: £40 charge if dibber is lost or broken during the hire period.]
 
 **Entry fees** **for BOF-members:**
 

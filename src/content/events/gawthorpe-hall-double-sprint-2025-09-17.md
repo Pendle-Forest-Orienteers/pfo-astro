@@ -98,5 +98,5 @@ This is a fast and furious sprint event - no dogs on courses please. Dogs may be
 
 ## Contacts and officials
 
-**Planner:** Colin Woolford PFO**
-Organiser:** Ginny Anderson PFO
+**Planner:** Colin Woolford PFO
+**Organiser:** Ginny Anderson PFO
