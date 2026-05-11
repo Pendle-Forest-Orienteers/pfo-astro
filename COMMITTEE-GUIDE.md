@@ -137,6 +137,29 @@ If you want to upload an Excel or PDF file:
 
 ---
 
+## Adding photos to a past event
+
+Each event can have a photo gallery underneath the description — useful for sharing race-day photos after the event has finished. Photos appear as a responsive grid; visitors can click a thumbnail to open the full-size image.
+
+1. Open the event in the admin (Events → click the event).
+2. Scroll to the **Photo gallery (after the event)** field at the bottom of the form.
+3. Click **Add Photo gallery (after the event)**.
+4. For each photo:
+   - **Photo** — click "Browse" to upload a new image, or pick one already in the Media Library.
+   - **Alt text** — short description for screen readers and slow connections, e.g. "Runners at the start of the long course". Required.
+   - **Caption** — optional. Shown under the photo on the public page (e.g. "Course winner Hannah Dabinett crossing the finish line").
+5. Repeat for each photo. There's no upper limit, but 6–12 is a comfortable batch — too many slows the page down.
+6. Click **Publish**. The gallery appears within ~30 seconds.
+
+Tips:
+
+- Resize photos on your phone before uploading if they're huge — anything wider than 2000 pixels is overkill and uses up Netlify storage. iPhones can export "medium" size when sharing; Android has similar options.
+- The grid auto-arranges; you don't need to crop photos to a specific aspect ratio. The site picks a sensible thumbnail height and crops to fit.
+- To change the order of photos later, drag the items in the gallery list.
+- To remove a photo, click the **×** on its row in the gallery list and re-publish.
+
+---
+
 ## Publishing news
 
 1. **News → New News article**.

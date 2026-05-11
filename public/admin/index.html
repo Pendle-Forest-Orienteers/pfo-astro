@@ -125,7 +125,13 @@
       .then(r => r.text())
       .then(yamlText => {
         const config = jsyaml.load(yamlText);
-        const roles  = (user && user.user_metadata && user.user_metadata.roles) || [];
+        // Check both metadata locations. Netlify's built-in "Roles"
+        // field in the Identity admin UI writes to app_metadata.roles
+        // (admin-only, more secure). user_metadata.roles is editable
+        // by the user themselves. Either source is fine for our use.
+        const appRoles  = (user && user.app_metadata  && user.app_metadata.roles)  || [];
+        const userRoles = (user && user.user_metadata && user.user_metadata.roles) || [];
+        const roles = [...new Set([...appRoles, ...userRoles])];
         const filtered = filterConfig(config, roles);
 
         if (filtered.collections.length === 0) {
