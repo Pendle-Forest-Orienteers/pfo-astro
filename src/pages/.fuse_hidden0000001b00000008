@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-// ─────── British Orienteering news, fetched at build time
+// ─────── British Orienteering news — fetched at build time
 // Runs every time Netlify rebuilds (every git push and every nightly cron
 // trigger). If the live fetch fails for any reason, falls back to the
 // hardcoded list below so the section never renders empty.
@@ -12,14 +12,14 @@ import { getCollection } from 'astro:content';
 //   1. Site settings → Build & deploy → Build hooks → "Add build hook"
 //   2. Copy the URL it generates
 //   3. In a free service like https://cron-job.org, schedule a daily POST
-//      to that URL, anything from once a day to once a week is fine.
+//      to that URL — anything from once a day to once a week is fine.
 type BoNewsItem = { title: string; url: string; date: Date };
 
 const fallbackBoNews: BoNewsItem[] = [
   { title: "British Orienteering announces date for Annual General Meeting 2026",
     url: "https://www.britishorienteering.org.uk/news_archive/6783/british_orienteering_announces_date_for_annual_general_meeting_2026",
     date: new Date("2026-04-14") },
-  { title: "British Middle Championships 2026, Results",
+  { title: "British Middle Championships 2026 — Results",
     url: "https://www.britishorienteering.org.uk/news_archive/6775/british_middle_championships_2026_results",
     date: new Date("2026-04-07") },
   { title: "JEC 2026: GB Team Announcement",
@@ -70,7 +70,7 @@ function scrapeBoNewsArchive(html: string): BoNewsItem[] {
 
 async function fetchBoNews(): Promise<BoNewsItem[]> {
   const rssCandidates = [
-    // British Orienteering's actual RSS feed, discovered via the
+    // British Orienteering's actual RSS feed — discovered via the
     // <link rel="alternate" type="application/rss+xml"> on /news_archive.
     'https://www.britishorienteering.org.uk/newsrss.php',
     // Fallbacks just in case the path ever changes
@@ -86,7 +86,7 @@ async function fetchBoNews(): Promise<BoNewsItem[]> {
       if (items.length > 0) return items.slice(0, 4);
     } catch { /* try next */ }
   }
-  // RSS unavailable, try scraping the news archive page
+  // RSS unavailable — try scraping the news archive page
   try {
     const res = await fetch('https://www.britishorienteering.org.uk/news_archive',
                             { signal: AbortSignal.timeout(6000) });
@@ -98,7 +98,7 @@ async function fetchBoNews(): Promise<BoNewsItem[]> {
   return fallbackBoNews;
 }
 
-// Extra belt-and-braces, fetchBoNews already returns the static fallback on
+// Extra belt-and-braces — fetchBoNews already returns the static fallback on
 // error, but if anything truly catastrophic happens (e.g. JSON parse blowup
 // in a future change) we want the build to keep going rather than fail the
 // deploy. The template hides the BO News block when this is empty.
@@ -125,7 +125,7 @@ const upcoming = allEvents
 const nextEvent = upcoming[0];
 const alsoComingUp = upcoming.slice(1, 5);
 
-// ─────── Announcements, banners for the homepage. We pick the single
+// ─────── Announcements — banners for the homepage. We pick the single
 // most-severe currently-valid announcement to display.
 const allAnnouncements = await getCollection('announcements');
 const activeAnnouncements = allAnnouncements
@@ -138,7 +138,7 @@ const activeAnnouncements = allAnnouncements
   });
 const activeAnnouncement = activeAnnouncements[0];
 
-// ─────── Latest results, most recent past event in the last 10 days that
+// ─────── Latest results — most recent past event in the last 10 days that
 // has at least one results file. Shown on the homepage so people landing
 // the morning after an event can find their splits without hunting.
 const tenDaysAgo = new Date(now.getTime() - 10 * 24 * 60 * 60 * 1000);
@@ -189,7 +189,7 @@ const orgJsonLd = {
   logo: new URL("/assets/logo.svg", siteUrl).toString(),
   image: new URL("/assets/og-default.jpg", siteUrl).toString(),
   sport: "Orienteering",
-  description: "A small orienteering club covering the moors, woodland and mill towns of East Lancashire, 12–15 events a year, newcomers always welcome.",
+  description: "A small orienteering club covering the moors, woodland and mill towns of East Lancashire — 12–15 events a year, newcomers always welcome.",
   address: {
     "@type": "PostalAddress",
     addressRegion: "Lancashire",
@@ -221,7 +221,7 @@ const orgJsonLd = {
 };
 ---
 <Layout
-  title="Pendle Forest Orienteers, orienteering across East Lancashire"
+  title="Pendle Forest Orienteers — orienteering across East Lancashire"
   description="A small orienteering club covering the moors, woodland and mill towns of East Lancashire. 12–15 events a year. Newcomers always welcome."
 >
 
@@ -269,7 +269,7 @@ const orgJsonLd = {
     <div class="hero-intro">
       <p class="eyebrow rise d-2">East Lancashire · a British Orienteering club</p>
       <h1 class="rise d-3">Orienteering across the moors, woodland and mill towns of <em>East Lancashire</em>.</h1>
-      <p class="lede rise d-4">A small club running twelve to fifteen events a year, midweek street-Os, weekend regionals on the fells, and training for members. Turn up, pick a course, and navigate your way round at your own pace. <a class="lede-link" href="/membership">Join us →</a></p>
+      <p class="lede rise d-4">A small club running twelve to fifteen events a year — midweek street-Os, weekend regionals on the fells, and training for members. Turn up, pick a course, and navigate your way round at your own pace. <a class="lede-link" href="/membership">Join us →</a></p>
       <div class="hero-cta rise d-5">
         <a class="btn btn-primary" href="/newcomers">Find your first event <span class="arrow">→</span></a>
         <a class="btn btn-ghost" href="/events">All upcoming events</a>
@@ -280,7 +280,7 @@ const orgJsonLd = {
       </dl>
     </div>
 
-    <!-- Right-hand column of the hero, compact Next Event + Latest
+    <!-- Right-hand column of the hero — compact Next Event + Latest
          Results cards stacked. Sits ABOVE THE FOLD next to the headline
          so the two pieces of "what's happening now" information are
          visible immediately on landing. -->
@@ -372,14 +372,14 @@ const orgJsonLd = {
       <div class="anytime-intro">
         <p class="eyebrow">Take part anytime</p>
         <h2 id="anytime-heading">Can't make a Saturday? Try these.</h2>
-        <p>You don't need an event in the diary to go orienteering. PFO maintains permanent courses in seven local parks, plus virtual courses on the MapRun app, pick something that suits the day.</p>
+        <p>You don't need an event in the diary to go orienteering. PFO maintains permanent courses in seven local parks, plus virtual courses on the MapRun app — pick something that suits the day.</p>
       </div>
       <ul class="anytime-cards">
         <li>
           <a class="anytime-card" href="/information/anytime-orienteering">
             <p class="anytime-tag">Start here</p>
             <h3>Anytime Orienteering</h3>
-            <p class="anytime-blurb">The full guide, what's available, where, and how each format works.</p>
+            <p class="anytime-blurb">The full guide — what's available, where, and how each format works.</p>
             <span class="anytime-go" aria-hidden="true">Read the guide →</span>
           </a>
         </li>
@@ -398,7 +398,7 @@ const orgJsonLd = {
               <p class="anytime-tag">On your phone</p>
             </div>
             <h3>MapRun courses</h3>
-            <p class="anytime-blurb">Free smartphone app, your phone beeps when you reach each control. Dozens of courses across East Lancashire.</p>
+            <p class="anytime-blurb">Free smartphone app — your phone beeps when you reach each control. Dozens of courses across East Lancashire.</p>
             <span class="anytime-go" aria-hidden="true">Browse MapRun courses →</span>
           </a>
         </li>
@@ -487,7 +487,7 @@ const orgJsonLd = {
     <aside class="newcomer-cta">
       <p class="eyebrow">Never tried this?</p>
       <h2>The sport of finding your way, <em>at your own pace</em>.</h2>
-      <p>Orienteering is running, or walking, with a map and compass, navigating between checkpoints in a wood or a town. No special kit. No fitness minimum. Fastest round wins, but most people are just trying to beat their own time.</p>
+      <p>Orienteering is running — or walking — with a map and compass, navigating between checkpoints in a wood or a town. No special kit. No fitness minimum. Fastest round wins, but most people are just trying to beat their own time.</p>
       <a class="btn" href="/newcomers">How it works →</a>
     </aside>
   </section>

@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 
 // Note for Kyle: the BO join URL preserves PFO's club code (ms_club_id=78).
-// Annual fees here are placeholders, confirm current figures with the committee
+// Annual fees here are placeholders — confirm current figures with the committee
 // (Membership Secretary: Emma Taylor) and update before launch.
 const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=78&ms_assoc_id=5";
 ---
 <Layout
-  title="Membership, Pendle Forest Orienteers"
+  title="Membership — Pendle Forest Orienteers"
   description="How to join PFO, the benefits of membership, and current annual fees."
 >
 
@@ -35,7 +35,7 @@ const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=7
       <div class="benefits-grid">
         <div>
           <h3>British Orienteering insurance</h3>
-          <p>Public liability insurance covers you at every BO-affiliated event. From January 2026, non-members are no longer covered, you take part at your own risk and are personally liable for accidents to others or property damage. Membership solves this.</p>
+          <p>Public liability insurance covers you at every BO-affiliated event. From January 2026, non-members are no longer covered — you take part at your own risk and are personally liable for accidents to others or property damage. Membership solves this.</p>
         </div>
         <div>
           <h3>Discounted entry</h3>
@@ -65,9 +65,9 @@ const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=7
   <section class="info-block alt">
     <div class="info-wrap">
       <p class="eyebrow">Three memberships, one payment</p>
-      <h2>PFO, NWOA and British Orienteering, all included.</h2>
+      <h2>PFO, NWOA and British Orienteering — all included.</h2>
       <p class="cost-intro">When you join PFO, you automatically become a member of the North West Orienteering Association and British Orienteering. One annual fee, paid through the British Orienteering join form, covers all three. Senior, Junior and Family rates are shown when you start the application.</p>
-      <p class="cost-note">Membership runs to 31 December, joining mid-year still gets you full benefits to year-end. Most members renew automatically each January.</p>
+      <p class="cost-note">Membership runs to 31 December — joining mid-year still gets you full benefits to year-end. Most members renew automatically each January.</p>
     </div>
   </section>
 
@@ -79,7 +79,7 @@ const joinUrl = "https://www.britishorienteering.org.uk/join_online?ms_club_id=7
       <ol class="steps-list">
         <li><strong>Click the join link.</strong> It takes you to the British Orienteering join form with PFO already selected as your club.</li>
         <li><strong>Choose your membership type</strong> (Senior, Junior, or Family) and fill in your details.</li>
-        <li><strong>Pay by card.</strong> Membership runs to 31 December, joining mid-year still gets you full benefits to year-end.</li>
+        <li><strong>Pay by card.</strong> Membership runs to 31 December — joining mid-year still gets you full benefits to year-end.</li>
         <li><strong>You're in.</strong> A confirmation email arrives within a few minutes; we'll add you to the newsletter and members' WhatsApp group.</li>
       </ol>
 

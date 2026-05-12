@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 
-// Committee data, single source of truth.
+// Committee data — single source of truth.
 //
 // `email` is used SERVER-SIDE ONLY when the user submits the contact form.
 // Netlify Forms processes the submission and dispatches to the right inbox
@@ -21,7 +21,7 @@ const committee = [
   { name: "Daniel Allen",     roles: ["Permissions Officer"],        photo: "/images/contacts/_thumb/Danny_Allen2.jpg",         email: "permissions@pfo.org.uk" },
 ];
 
-// Build a list for the recipient dropdown, showing names + first role only.
+// Build a list for the recipient dropdown — showing names + first role only.
 const recipientOptions = committee.map(p => ({
   value: p.name,
   label: `${p.name} (${p.roles[0]})`,
@@ -30,8 +30,8 @@ const recipientOptions = committee.map(p => ({
 const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice(0, 2).toUpperCase();
 ---
 <Layout
-  title="Contacts, Pendle Forest Orienteers"
-  description="Get in touch with the PFO committee, chair, secretary, treasurer, events, membership and more."
+  title="Contacts — Pendle Forest Orienteers"
+  description="Get in touch with the PFO committee — chair, secretary, treasurer, events, membership and more."
 >
 
 <main id="main">
@@ -40,14 +40,14 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
     page="contacts"
     eyebrow="Contacts"
     heading="Who does what at PFO."
-    lede="PFO is run entirely by volunteers, every committee member below is doing this in their spare time. Pick the right person for your question and they'll get back to you when they can."
+    lede="PFO is run entirely by volunteers — every committee member below is doing this in their spare time. Pick the right person for your question and they'll get back to you when they can."
   />
 
   <section class="contact-club">
     <div class="contact-club-wrap">
       <p class="eyebrow">Get in touch</p>
       <h2>Reach the committee.</h2>
-      <p>Use the form below to send a message to a specific committee member, or pick the right person from the cards underneath. Messages go straight to that person, no email addresses are shown publicly.</p>
+      <p>Use the form below to send a message to a specific committee member, or pick the right person from the cards underneath. Messages go straight to that person — no email addresses are shown publicly.</p>
       <ul class="club-channels">
         <li>
           <a href="#contact-form" class="club-channel">
@@ -110,13 +110,13 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
 
   <!-- ─────────────────────────── Contact form
        Submits to Netlify Forms. The recipient dropdown determines who the
-       email goes to, but the actual email addresses are configured in the
+       email goes to — but the actual email addresses are configured in the
        Netlify dashboard, never appear in the rendered HTML. -->
   <section id="contact-form" class="contact-form-section">
     <div class="contact-form-wrap">
       <p class="eyebrow">Send a message</p>
       <h2>We'll get back to you.</h2>
-      <p class="contact-intro">Pick who you'd like to reach below. The message goes straight to that person, no email addresses are visible on the public site.</p>
+      <p class="contact-intro">Pick who you'd like to reach below. The message goes straight to that person — no email addresses are visible on the public site.</p>
 
       <form
         name="committee-contact"
@@ -134,7 +134,7 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
             {recipientOptions.map(r => (
               <option value={r.value}>{r.label}</option>
             ))}
-            <option value="General enquiry">General enquiry, any committee member</option>
+            <option value="General enquiry">General enquiry — any committee member</option>
           </select>
         </div>
 
@@ -162,7 +162,7 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
         <button type="submit" class="btn btn-primary">Send message →</button>
 
         <p class="contact-form-success" id="cf-success" hidden>
-          Thanks, your message has been sent. Someone will reply within a few days.
+          Thanks — your message has been sent. Someone will reply within a few days.
         </p>
       </form>
     </div>
@@ -239,7 +239,7 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
     margin: 0;
   }
 
-  /* Contact the club, sits between the page hero and the committee grid */
+  /* Contact the club — sits between the page hero and the committee grid */
   .contact-club {
     background: var(--paper);
     border-bottom: 1px solid var(--rule);

@@ -30,7 +30,7 @@ const fmtReviewed = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   month: 'long', year: 'numeric'
 }).format(d);
 
-// BreadcrumbList JSON-LD, helps search results render a (Home › Information ›
+// BreadcrumbList JSON-LD — helps search results render a (Home › Information ›
 // Page) trail and reinforces the site's hierarchy for crawlers.
 const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
@@ -45,7 +45,7 @@ const breadcrumbJsonLd = {
 };
 ---
 <Layout
-  title={`${page.data.title}, Information, PFO`}
+  title={`${page.data.title} — Information — PFO`}
   description={page.data.summary}
 >
 
@@ -181,7 +181,7 @@ const breadcrumbJsonLd = {
     gap: clamp(32px, 4vw, 56px);
     align-items: start;
   }
-  /* Wide layout (used for pages with wide tables, e.g. POCs).
+  /* Wide layout (used for pages with wide tables — e.g. POCs).
      Single full-width column, sibling links collapse into a dropdown
      above the prose. */
   .info-page-body--wide .info-page-body-wrap {
@@ -318,7 +318,7 @@ const breadcrumbJsonLd = {
     height: 16px;
     flex: 0 0 14px;
     background-color: var(--gold-muted);
-    /* Inline SVG of a generic document icon, masked so it picks up colour */
+    /* Inline SVG of a generic document icon — masked so it picks up colour */
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none' stroke='currentColor' stroke-width='1.4'><path d='M2 1.5h7l3 3v10a.5.5 0 01-.5.5h-9.5a.5.5 0 01-.5-.5V2a.5.5 0 01.5-.5z'/><path d='M9 1.5V4.5h3'/><line x1='3.5' y1='8' x2='10.5' y2='8'/><line x1='3.5' y1='10.5' x2='10.5' y2='10.5'/><line x1='3.5' y1='13' x2='8' y2='13'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none' stroke='currentColor' stroke-width='1.4'><path d='M2 1.5h7l3 3v10a.5.5 0 01-.5.5h-9.5a.5.5 0 01-.5-.5V2a.5.5 0 01.5-.5z'/><path d='M9 1.5V4.5h3'/><line x1='3.5' y1='8' x2='10.5' y2='8'/><line x1='3.5' y1='10.5' x2='10.5' y2='10.5'/><line x1='3.5' y1='13' x2='8' y2='13'/></svg>");
     -webkit-mask-size: contain;
@@ -417,7 +417,7 @@ const breadcrumbJsonLd = {
     color: var(--paper);
   }
 
-  /* Tables, horizontally scrollable inside their column when narrow,
+  /* Tables — horizontally scrollable inside their column when narrow,
      so a wide table (MapRun courses, POC courses) never overflows under
      the sticky sidebar. */
   .info-prose :global(table) {

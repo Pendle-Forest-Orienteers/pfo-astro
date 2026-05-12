@@ -62,7 +62,7 @@ const articleJsonLd = {
 };
 ---
 <Layout
-  title={`${item.data.title}, PFO News`}
+  title={`${item.data.title} — PFO News`}
   description={item.data.summary}
   ogType="article"
   {...(item.data.heroImage ? { ogImage: item.data.heroImage } : {})}

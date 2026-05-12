@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 const { map } = Astro.props;
 const { Content } = await render(map);
 
-// Find events that have used this map (loose match, same town or same name)
+// Find events that have used this map (loose match — same town or same name)
 const allEvents = await getCollection('events');
 const relatedEvents = allEvents.filter(e => {
   if (e.data.hidden) return false;
@@ -46,7 +46,7 @@ const routeGadgetUrl = map.data.routeGadgetUrl ?? "https://www.pfo.routegadget.c
 const hasSpecificRg = !!map.data.routeGadgetUrl;
 ---
 <Layout
-  title={`${map.data.title}, Map, PFO`}
+  title={`${map.data.title} — Map — PFO`}
   description={map.data.summary}
 >
 

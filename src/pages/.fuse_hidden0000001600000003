@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 <Layout
-  title="Page not found, Pendle Forest Orienteers"
+  title="Page not found — Pendle Forest Orienteers"
   description="That page has moved or no longer exists. Use the search box or pick one of the quick links below to find what you were looking for."
   noindex={true}
 >
@@ -14,7 +14,7 @@ import PageHero from '../components/PageHero.astro';
     page="404"
     eyebrow="404"
     heading="That page seems to have run off-course."
-    lede="Sorry, the page you were after has moved or no longer exists. The old PFO site had a different URL structure, so a few inbound links land here. Try searching, or pick one of the popular destinations below."
+    lede="Sorry — the page you were after has moved or no longer exists. The old PFO site had a different URL structure, so a few inbound links land here. Try searching, or pick one of the popular destinations below."
   />
 
   <section class="not-found-actions">
@@ -30,7 +30,7 @@ import PageHero from '../components/PageHero.astro';
       <p class="quick-links-label">Or jump straight to:</p>
       <ul class="quick-links">
         <li><a href="/events"><strong>Upcoming events</strong><span>The next few fixtures and the calendar</span></a></li>
-        <li><a href="/newcomers"><strong>New to orienteering?</strong><span>Start here, what to expect at your first event</span></a></li>
+        <li><a href="/newcomers"><strong>New to orienteering?</strong><span>Start here — what to expect at your first event</span></a></li>
         <li><a href="/maps"><strong>Mapped areas</strong><span>Where we run, with terrain notes</span></a></li>
         <li><a href="/contacts"><strong>Contact the committee</strong><span>Send a message to the right person</span></a></li>
       </ul>

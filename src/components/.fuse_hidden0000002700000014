@@ -9,7 +9,7 @@
 import heroes from '../data/page-heroes.json';
 
 export interface Props {
-  /** Key into page-heroes.json, e.g. "events", "maps", "newcomers". */
+  /** Key into page-heroes.json — e.g. "events", "maps", "newcomers". */
   page: string;
   /** Eyebrow label, e.g. "Events" */
   eyebrow: string;
@@ -48,7 +48,7 @@ const hasImage = !!hero.image;
     border-bottom: 1px solid var(--rule);
     padding: clamp(48px, 5vw, 84px) var(--pad-x) clamp(40px, 4vw, 64px);
   }
-  /* Club-colour accent stripe, 4px navy + 4px magenta at the very top of
+  /* Club-colour accent stripe — 4px navy + 4px magenta at the very top of
      every inner page. Carries the PFO brand through every page. */
   .page-hero::before {
     content: "";

@@ -14,7 +14,7 @@ export interface Props {
 }
 
 const {
-  title = "Pendle Forest Orienteers, orienteering across East Lancashire",
+  title = "Pendle Forest Orienteers — orienteering across East Lancashire",
   description = "A small orienteering club covering the moors, woodland and mill towns of East Lancashire. 12–15 events a year. Newcomers always welcome.",
   ogImage = "/assets/og-default.jpg",
   ogType = "website",
@@ -22,7 +22,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-// Canonical URL, built from Astro.site (configured in astro.config.mjs) plus the current path.
+// Canonical URL — built from Astro.site (configured in astro.config.mjs) plus the current path.
 // Falls back gracefully in dev where Astro.site may be undefined.
 const siteUrl = Astro.site ?? new URL("https://pfo.org.uk");
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
@@ -68,7 +68,7 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
 <style is:global>
 /* ───────────────────────────── design tokens
-   Palette matches the PFO logo exactly, navy #2c598c, yellow #ffc400,
+   Palette matches the PFO logo exactly — navy #2c598c, yellow #ffc400,
    purple #994890, charcoal #1d1d1b. Supporting shades added for web layout. */
 :root {
   --paper:    #f0f3f7;   /* soft blue-grey page background */
@@ -96,13 +96,13 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
   --mist:      #a3b4c4;   /* tertiary cool neutral */
 
-  /* Status colours, used by announcement banners and form success notes */
+  /* Status colours — used by announcement banners and form success notes */
   --alert:     #b71c1c;   /* urgent / error */
   --success-bg:     #d8efdd;
   --success-text:   #0f3818;
   --success-border: #6ab47a;
 
-  /* Display and body share the same IBM Plex Sans stack, by client request,
+  /* Display and body share the same IBM Plex Sans stack — by client request,
      to avoid the serif fallback rendering as Times New Roman on networks
      where Google Fonts is blocked. Headings carry weight via font-weight
      600/700 in the .display class and individual heading selectors below. */
@@ -169,7 +169,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   clip-path: polygon(0 0, 100% 100%, 0 100%);
 }
 .display {
-  /* Sans-serif headings need more weight to read as "display", bumped from
+  /* Sans-serif headings need more weight to read as "display" — bumped from
      400 (which suited Fraunces) to 600 (semibold) for IBM Plex Sans. */
   font-family: var(--ff-display);
   font-weight: 600;
@@ -185,7 +185,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ───────────────────────────── prose helpers (markdown body content)
    These classes + tag styles let committee members highlight text and
-   float images inside any markdown body, events, news, info pages, etc.
+   float images inside any markdown body — events, news, info pages, etc.
    Used via the CMS's "raw HTML" editor mode. */
 
 /* <mark>important text</mark> renders as a yellow highlight that picks
@@ -198,7 +198,7 @@ mark, mark *, .ev-prose mark, .article-prose mark, .info-prose mark, .map-prose 
   border-radius: 2px;
 }
 
-/* Named text-colour utility classes, committee can wrap text in a
+/* Named text-colour utility classes — committee can wrap text in a
    <span> with one of these classes via the editor's source mode to
    change a phrase's colour. Limited to the club palette so the site
    stays visually consistent. Usage:
@@ -532,7 +532,7 @@ img.full-width {
 }
 .hero-intro .eyebrow::before { background: var(--gold); }
 .hero-intro h1 {
-  /* Body font (IBM Plex Sans) instead of Fraunces, by client request, so
+  /* Body font (IBM Plex Sans) instead of Fraunces — by client request, so
      this matches the lede paragraph and renders consistently on networks
      that block Google Fonts. */
   font-family: var(--ff-body);
@@ -629,7 +629,7 @@ img.full-width {
   color: var(--paper);
 }
 
-/* Right-hand column of the hero, stacks Next Event + Latest Results
+/* Right-hand column of the hero — stacks Next Event + Latest Results
    so both pieces of "what's happening now" information sit prominently
    in the hero rather than in separate page bands. */
 .hero-side {
@@ -640,7 +640,7 @@ img.full-width {
 }
 
 /* Latest results card inside the hero. Same navy/gold colour scheme as
-   the original standalone Latest Results band, navy background, paper
+   the original standalone Latest Results band — navy background, paper
    text, gold accents, gold-bright eyebrow. */
 .hero-latest {
   position: relative;
@@ -732,7 +732,7 @@ img.full-width {
   border-color: var(--paper);
 }
 
-/* next event panel, compact teaser on a paper card.
+/* next event panel — compact teaser on a paper card.
    align-self: stretch so the card fills the full width of .hero-side,
    matching the Latest Results card sitting below it. */
 .next-event {
@@ -752,7 +752,7 @@ img.full-width {
   height: 4px;
   background: var(--plum);
 }
-/* Decorative corner triangle removed, was reading as the card being
+/* Decorative corner triangle removed — was reading as the card being
    "cut off". Both hero cards now sit as clean rectangles with matching
    dimensions, distinguished by their border-top accent colour. */
 .next-event .eyebrow { color: var(--gold-muted); margin-bottom: 14px; }
@@ -865,7 +865,7 @@ img.full-width {
 }
 .ev-card:last-child { border-right: 0; }
 .ev-card {
-  /* Permanent plum top stripe, gives every upcoming event card a club
+  /* Permanent plum top stripe — gives every upcoming event card a club
      accent and visually flags it as a separate clickable thing without
      the heaviness of a full border. */
   border-top: 4px solid var(--plum);
@@ -942,7 +942,7 @@ img.full-width {
   transition: box-shadow .22s ease;
 }
 .ne-band-wrap:hover { box-shadow: 0 22px 48px -22px rgba(153, 72, 144, 0.55); }
-/* Decorative concentric white circles, top-right corner, same treatment
+/* Decorative concentric white circles, top-right corner — same treatment
    as the newcomer CTA block. Adds a club-colour signature without
    competing with the text. */
 .ne-band-wrap::before {
@@ -964,7 +964,7 @@ img.full-width {
   pointer-events: none;
 }
 .ne-band-text, .ne-band-actions { position: relative; z-index: 2; }
-/* Stretched-link pattern, clicking anywhere on the band goes to that
+/* Stretched-link pattern — clicking anywhere on the band goes to that
    event's page. The SI Entries button + eyebrow link sit at a higher
    z-index so they remain individually clickable. */
 .ne-band-text h2 a {
@@ -1079,7 +1079,7 @@ img.full-width {
   transition: box-shadow .22s ease;
 }
 .latest-results-wrap:hover { box-shadow: 0 22px 48px -22px rgba(27, 59, 98, 0.55); }
-/* Stretched-link pattern, clicking anywhere on the band goes to that
+/* Stretched-link pattern — clicking anywhere on the band goes to that
    event's page. Individual file downloads + the eyebrow link sit at a
    higher z-index so they remain separately clickable. */
 .lr-text h2 a {
@@ -1168,7 +1168,7 @@ img.full-width {
 }
 
 /* ───────────────────────────── ANYTIME ORIENTEERING strip
-   Three cards highlighting Anytime O, POCs and MapRun, sits between the
+   Three cards highlighting Anytime O, POCs and MapRun — sits between the
    upcoming events block and the social strip to give people a route into
    the sport when there's nothing in the events diary. */
 .anytime-strip {
@@ -1523,7 +1523,7 @@ img.full-width {
 .news-body .more:hover { color: var(--gold); border-color: var(--gold); }
 
 .newcomer-cta {
-  /* Magenta block, strong club-colour moment on the homepage. White text
+  /* Magenta block — strong club-colour moment on the homepage. White text
      on plum reads at AAA contrast (>7:1). Gold accents stay legible. */
   background: var(--plum);
   color: var(--paper);
@@ -1739,7 +1739,7 @@ img.full-width {
   }());
 </script>
 
-<!-- Netlify Identity widget, handles committee logins for the /admin CMS.
+<!-- Netlify Identity widget — handles committee logins for the /admin CMS.
      Loaded lazily on non-admin pages so it doesn't bloat the homepage payload
      for ordinary visitors. The widget is still needed everywhere so that
      email-invite confirmation links land correctly on any page, but we defer

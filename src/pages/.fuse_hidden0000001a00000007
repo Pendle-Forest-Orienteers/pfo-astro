@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 <Layout
-  title="About, Pendle Forest Orienteers"
+  title="About — Pendle Forest Orienteers"
   description="Pendle Forest Orienteers is a small British Orienteering club covering Burnley, Pendle, Rossendale, Accrington and Blackburn."
 >
 
@@ -22,7 +22,7 @@ import PageHero from '../components/PageHero.astro';
         <p class="eyebrow">What we do</p>
         <h2>Twelve to fifteen events a year, plus training.</h2>
         <p>Our calendar mixes midweek street and Snook-O events through spring and summer, weekend regional fixtures on the moors and forests around Burnley, and the headline <a href="/maps/brun-valley-forest-park">Brun Valley</a> Regional and Yvette Baker Trophy round each May. We also run a steady programme of training and coaching for members, from map-symbol workshops for newcomers up to night-orienteering technique for experienced runners.</p>
-        <p>If we're not putting on an event, we're at someone else's, PFO members regularly travel to BO Major events, the JK, the British Champs, and the City Race Euro Tour.</p>
+        <p>If we're not putting on an event, we're at someone else's — PFO members regularly travel to BO Major events, the JK, the British Champs, and the City Race Euro Tour.</p>
       </div>
       <div>
         <p class="eyebrow">Where we cover</p>
@@ -37,7 +37,7 @@ import PageHero from '../components/PageHero.astro';
     <div class="info-wrap">
       <p class="eyebrow">The committee</p>
       <h2>Run by volunteers, every one of us.</h2>
-      <p class="committee-intro">PFO has no paid staff. Every event, every map survey, every results upload, every newsletter and every training session happens because someone on the committee or in the membership puts the time in. We're always looking for help, if you can plan, control, organise registration, photograph, or run a social media account, please <a href="/contacts">get in touch</a>.</p>
+      <p class="committee-intro">PFO has no paid staff. Every event, every map survey, every results upload, every newsletter and every training session happens because someone on the committee or in the membership puts the time in. We're always looking for help — if you can plan, control, organise registration, photograph, or run a social media account, please <a href="/contacts">get in touch</a>.</p>
       <p class="committee-cta">
         <a class="btn btn-primary" href="/contacts">Meet the committee <span class="arrow">→</span></a>
       </p>

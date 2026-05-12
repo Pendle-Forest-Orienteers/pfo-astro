@@ -4,7 +4,7 @@ import Attachments from '../../components/Attachments.astro';
 import { getCollection, render } from 'astro:content';
 
 // ─────── Generate one page per event in the collection
-// Hidden events get no page generated, their slug 404s on the public site
+// Hidden events get no page generated — their slug 404s on the public site
 // even if someone has the direct URL. Un-hide in the CMS to bring it back.
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -34,7 +34,7 @@ const fmtYear = (d: Date) => new Intl.DateTimeFormat('en-GB', { year: 'numeric' 
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-// ─────── Location helpers, prefers the CMS map-pin (Decap "map"
+// ─────── Location helpers — prefers the CMS map-pin (Decap "map"
 // widget GeoJSON output) over the manual lat/lng object.
 import { resolveCoords } from '../../lib/coords';
 const coords = resolveCoords(event.data);
@@ -134,7 +134,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
 }
 ---
 <Layout
-  title={`${event.data.title}, ${fmtMonth(event.data.date)} ${fmtYear(event.data.date)}, PFO`}
+  title={`${event.data.title} — ${fmtMonth(event.data.date)} ${fmtYear(event.data.date)} — PFO`}
   description={event.data.description ?? event.data.summary}
   ogType="article"
   publishedTime={event.data.date.toISOString()}
@@ -708,7 +708,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     font-weight: 500;
   }
 
-  /* Embedded venue map, Leaflet + OpenStreetMap. Sits at the top of
+  /* Embedded venue map — Leaflet + OpenStreetMap. Sits at the top of
      the Location block. Compact ~140px tall so it gives a clear sense
      of place without dominating the sidebar. Scroll-wheel zoom stays
      off until the user clicks/taps so the page is scrollable past it. */
@@ -765,7 +765,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   }
   .w3w:hover { color: var(--plum); border-color: var(--plum); }
 
-  /* Officials block, small dl in the meta sidebar */
+  /* Officials block — small dl in the meta sidebar */
   .officials {
     margin: 0;
     display: grid;

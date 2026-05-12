@@ -13,7 +13,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
 }).format(d).replace(',', '');
 ---
 <Layout
-  title="Newcomers, Pendle Forest Orienteers"
+  title="Newcomers — Pendle Forest Orienteers"
   description="Never tried orienteering? Here's how it works, what to bring, and how to come to your first PFO event."
 >
 
@@ -39,7 +39,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   <section class="info-block">
     <div class="info-wrap">
       <p class="eyebrow">How it works</p>
-      <h2>Pick a course, find the controls, race the clock, at your own pace.</h2>
+      <h2>Pick a course, find the controls, race the clock — at your own pace.</h2>
 
       <div class="info-grid">
         <div>
@@ -48,7 +48,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
         </div>
         <div>
           <h3>2. The course</h3>
-          <p>Most events offer several colour-coded courses, White (very short, for juniors and total beginners) up to Brown (long, technical, for experienced orienteers). You pick the one that matches your fitness and confidence.</p>
+          <p>Most events offer several colour-coded courses — White (very short, for juniors and total beginners) up to Brown (long, technical, for experienced orienteers). You pick the one that matches your fitness and confidence.</p>
         </div>
         <div>
           <h3>3. The clock</h3>
@@ -82,7 +82,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
         </div>
         <div class="kit-item">
           <h3>Whistle</h3>
-          <p>Required at forest events for safety, it's how you signal for help if you get into difficulty. Typically £2 from any outdoor shop.</p>
+          <p>Required at forest events for safety — it's how you signal for help if you get into difficulty. Typically £2 from any outdoor shop.</p>
         </div>
         <div class="kit-item">
           <h3>A friend</h3>
@@ -99,13 +99,13 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
       <h2>Turn up, register, run.</h2>
       <ol class="steps-list">
         <li>
-          <strong>Find an event near you</strong> on the <a href="/events">events page</a>. Local-level events are the friendliest, Wednesday evening street-Os in particular.
+          <strong>Find an event near you</strong> on the <a href="/events">events page</a>. Local-level events are the friendliest — Wednesday evening street-Os in particular.
         </li>
         <li>
           <strong>Pre-enter online</strong> through SI Entries (link from each event page) where indicated. Some events accept entry on the day; check the event details.
         </li>
         <li>
-          <strong>Arrive 30 minutes before your start time.</strong> Find the registration tent or vehicle. Tell them it's your first event, they'll explain the courses and help you choose.
+          <strong>Arrive 30 minutes before your start time.</strong> Find the registration tent or vehicle. Tell them it's your first event — they'll explain the courses and help you choose.
         </li>
         <li>
           <strong>Collect your map and dibber</strong> at the start. The clock starts when you punch the start box.
@@ -114,7 +114,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
           <strong>Find the controls in order</strong> using the map. Each has a unique three-digit code so you can confirm it's the right one. Punch your dibber at each.
         </li>
         <li>
-          <strong>Punch the finish</strong> when you're done. Download your dibber at the registration tent, your time appears immediately, and you can compare splits with everyone else.
+          <strong>Punch the finish</strong> when you're done. Download your dibber at the registration tent — your time appears immediately, and you can compare splits with everyone else.
         </li>
       </ol>
     </div>
@@ -160,7 +160,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
 
         <details>
           <summary>Can I bring children?</summary>
-          <p>Absolutely, orienteering is one of the most family-friendly outdoor sports. White and Yellow courses are designed for children to do alone or with an adult. At urban events, age 15 and under should be accompanied by an adult.</p>
+          <p>Absolutely — orienteering is one of the most family-friendly outdoor sports. White and Yellow courses are designed for children to do alone or with an adult. At urban events, age 15 and under should be accompanied by an adult.</p>
         </details>
 
         <details>

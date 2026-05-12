@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 <Layout
-  title="Training, Pendle Forest Orienteers"
-  description="Coaching and skills training for PFO members, map reading, route choice, night orienteering and more."
+  title="Training — Pendle Forest Orienteers"
+  description="Coaching and skills training for PFO members — map reading, route choice, night orienteering and more."
 >
 
 <main id="main">
@@ -13,7 +13,7 @@ import PageHero from '../components/PageHero.astro';
     page="training"
     eyebrow="Training"
     heading="Get better at the bits you find hard."
-    lede="PFO runs a regular programme of training sessions for members, informal map-reading help for newcomers, technique sessions for intermediate orienteers, and night-orienteering practice through the winter. Cath Wilson, our lead coach, plans the programme each year."
+    lede="PFO runs a regular programme of training sessions for members — informal map-reading help for newcomers, technique sessions for intermediate orienteers, and night-orienteering practice through the winter. Cath Wilson, our lead coach, plans the programme each year."
   />
 
   <section class="info-block">
@@ -22,12 +22,12 @@ import PageHero from '../components/PageHero.astro';
         <p class="eyebrow">For newcomers</p>
         <h2>Map symbols, contours, route choice.</h2>
         <p>If you've done a couple of events and are starting to want to understand what's actually happening on the map, the newcomer-focused sessions are for you. We cover the IOF symbol set, contour reading, simple compass work, and the basic route-choice questions that come up on every course.</p>
-        <p>Sessions are typically held on a weekend morning at a local park, last about 90 minutes, and are free for members. Non-members welcome too, turn up and we'll sign you up afterwards.</p>
+        <p>Sessions are typically held on a weekend morning at a local park, last about 90 minutes, and are free for members. Non-members welcome too — turn up and we'll sign you up afterwards.</p>
       </div>
       <div>
         <p class="eyebrow">For experienced orienteers</p>
         <h2>Night-O, sprint technique, JEC prep.</h2>
-        <p>Once you're past the basics, our intermediate and advanced sessions focus on specific techniques, dark-conditions navigation, urban sprint pace, attack-point selection, and (for juniors aiming at JEC, EYOC and JK) team-event preparation.</p>
+        <p>Once you're past the basics, our intermediate and advanced sessions focus on specific techniques — dark-conditions navigation, urban sprint pace, attack-point selection, and (for juniors aiming at JEC, EYOC and JK) team-event preparation.</p>
         <p>These are typically arranged through the members' WhatsApp group when there's enough interest. Get in touch with <a href="/contacts">Cath Wilson</a> if you want to suggest a topic.</p>
       </div>
     </div>

@@ -5,7 +5,7 @@
 // clickable link to that event's detail page (or shows a tooltip listing
 // multiple events on the same day). Today is subtly ringed.
 //
-// Pure HTML/CSS, no calendar library, no JavaScript runtime.
+// Pure HTML/CSS — no calendar library, no JavaScript runtime.
 
 interface CalEvent {
   id: string;
@@ -35,7 +35,7 @@ for (const list of eventsByDay.values()) {
   list.sort((a, b) => a.date.getTime() - b.date.getTime());
 }
 
-// Generate the months we need to render, starting with the current month
+// Generate the months we need to render — starting with the current month
 // and including the next (monthsAhead - 1) months.
 const today = new Date();
 const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
@@ -128,7 +128,7 @@ const weekdayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
           {month.weeks.flat().map(cell => {
             const hasEvent = cell.inMonth && cell.events.length > 0;
             const cellTitle = hasEvent
-              ? cell.events.map(e => `${e.title}${e.format ? ' (' + e.format + ')' : ''}${e.location ? ', ' + e.location : ''}`).join(' · ')
+              ? cell.events.map(e => `${e.title}${e.format ? ' (' + e.format + ')' : ''}${e.location ? ' — ' + e.location : ''}`).join(' · ')
               : undefined;
             const Wrapper = hasEvent ? 'a' : 'span';
             const wrapperProps = hasEvent
@@ -181,7 +181,7 @@ const weekdayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     background: var(--plum);
   }
 
-  /* Compact "at a glance" sizing, months stack vertically by default
+  /* Compact "at a glance" sizing — months stack vertically by default
      so the calendar fits in a narrow column alongside the map. */
   .event-calendar-grid {
     display: grid;

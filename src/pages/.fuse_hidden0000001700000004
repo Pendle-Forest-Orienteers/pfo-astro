@@ -11,7 +11,7 @@ const allMaps = (await getCollection('maps'))
 // Subset of mapped areas that have a permanent orienteering course (POC)
 const pocMaps = allMaps.filter(m => m.data.permanentCourse);
 
-// Public RouteGadget index, every map card links here. Committee can later
+// Public RouteGadget index — every map card links here. Committee can later
 // add a per-map `routeGadgetUrl` field if they want specific RG entries.
 const ROUTEGADGET_URL = "https://www.pfo.routegadget.co.uk/rg2/";
 
@@ -40,8 +40,8 @@ const grouped = terrainOrder.map(t => ({
 })).filter(g => g.maps.length > 0);
 ---
 <Layout
-  title="Mapped areas, Pendle Forest Orienteers"
-  description="The PFO mapped-areas library, every venue PFO has surveyed across East Lancashire, plus permanent courses you can run any time."
+  title="Mapped areas — Pendle Forest Orienteers"
+  description="The PFO mapped-areas library — every venue PFO has surveyed across East Lancashire, plus permanent courses you can run any time."
 >
 
 <main id="main">
@@ -67,7 +67,7 @@ const grouped = terrainOrder.map(t => ({
     </nav>
   </PageHero>
 
-  <!-- ─────────────────────────── Permanent courses (POCs), venues you can run any time -->
+  <!-- ─────────────────────────── Permanent courses (POCs) — venues you can run any time -->
   {pocMaps.length > 0 && (
     <section id="permanent-courses" class="terrain-section terrain-poc">
       <div class="terrain-wrap">
@@ -219,7 +219,7 @@ const grouped = terrainOrder.map(t => ({
     flex-shrink: 0;
   }
 
-  /* ─────────────────────────── Map grid, text-only clickable blocks
+  /* ─────────────────────────── Map grid — text-only clickable blocks
      We deliberately don't show the orienteering map images (licensing
      held by individual surveyors). Each block links through to the map's
      detail page where members can find the RouteGadget link, OS grid ref

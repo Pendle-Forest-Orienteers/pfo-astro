@@ -27,7 +27,7 @@ const topLevel = [
 ];
 ---
 <Layout
-  title="Information, Pendle Forest Orienteers"
+  title="Information — Pendle Forest Orienteers"
   description="Club policies, governance, members' resources and other useful information."
 >
 

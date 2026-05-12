@@ -1,6 +1,6 @@
 <header class="topbar rise d-1">
   <div class="topbar-brand">
-    <a class="wordmark" href="/" aria-label="Pendle Forest Orienteers, home">
+    <a class="wordmark" href="/" aria-label="Pendle Forest Orienteers — home">
       <img class="club-logo" src="/assets/logo.svg" alt="" aria-hidden="true">
       <span>
         Pendle Forest Orienteers

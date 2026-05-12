@@ -34,7 +34,7 @@ const byYear = rest.reduce((acc, item) => {
 const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 ---
 <Layout
-  title="News, Pendle Forest Orienteers"
+  title="News — Pendle Forest Orienteers"
   description="Latest news, race reports and updates from Pendle Forest Orienteers."
 >
 

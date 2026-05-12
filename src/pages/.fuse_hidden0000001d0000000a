@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 <Layout
-  title="Search, Pendle Forest Orienteers"
+  title="Search — Pendle Forest Orienteers"
   description="Search PFO events, news, maps and information pages."
   noindex={true}
 >
