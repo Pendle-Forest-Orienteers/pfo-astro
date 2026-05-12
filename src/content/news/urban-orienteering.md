@@ -7,11 +7,11 @@ draft: false
 
 There are a growing number of Urban Orienteering races across the country with various leagues having being established.
 
-	A number of PFO members have attended quite a few urban orienteering events during 2017 that form part of either the North West Urban League, the Yorkshire Urban League or the UK Urban League.
+A number of PFO members have attended quite a few urban orienteering events during 2017 that form part of either the North West Urban League, the Yorkshire Urban League or the UK Urban League.
 
-	Details of these leagues can be found via the links below, but here is a summary of the results for PFO members (PS Judith managed to compete in two separate age classes just to confuse everyone !)
+Details of these leagues can be found via the links below, but here is a summary of the results for PFO members (PS Judith managed to compete in two separate age classes just to confuse everyone !)
 
-	**[North West Urban League](http://www.oxfordfusion.com/ukul/index.cfm?Org=4)**
+**[North West Urban League](http://www.oxfordfusion.com/ukul/index.cfm?Org=4)**
 
 | Name | Age Class | Place | Number in Age Class |
 | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ There are a growing number of Urban Orienteering races across the country with v
 | George Crawford-Smith | MUV | 42 | 63 |
 | Wendy Crawford-Smith | WUV | 17 | 22 |
 
-	**​**[Yorkshire Urban League](http://www.oxfordfusion.com/ukul/index.cfm?Org=6&Test=0)
+**​**[Yorkshire Urban League](http://www.oxfordfusion.com/ukul/index.cfm?Org=6&Test=0)
 
 | Name | Age Class | Place | Number in Age Class |
 | --- | --- | --- | --- |

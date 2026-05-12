@@ -2,8 +2,21 @@
 title: "Two PFO titles at the 2025 City Race Euro Tour"
 date: 2025-12-08
 summary: "Kay and Emma defended their category wins at the final round in Toledo, Spain — nine European cities across the year, best five results count, and both kept the trophies they took in 2024."
-heroImage: "/assets/photos/podium-cret-2025.jpg"
-heroImageAlt: "Kay and Emma on the CRET 2025 podium in Toledo, Spain"
+heroImage: "/assets/photos/podium-faro-2025.jpg"
+heroImageAlt: "Top three on the Faro City Race podium"
+gallery:
+  - src: "/assets/photos/podium-faro-2025-kay.jpg"
+    alt: "Kay collecting her Faro City Race award"
+    caption: "Faro — Kay with her category award"
+  - src: "/assets/photos/podium-toledo-2025-wide.jpg"
+    alt: "Kay and Emma on the CRET 2025 podium in Toledo, Spain"
+    caption: "Toledo — final round of the 2025 City Race Euro Tour"
+  - src: "/assets/photos/podium-toledo-2025-close.jpg"
+    alt: "Emma and Kay receiving their certificates on the Toledo podium"
+    caption: "Toledo — collecting their certificates"
+  - src: "/assets/photos/podium-toledo-2025-with-organiser.jpg"
+    alt: "Kay and Emma on the Toledo podium with the race organiser"
+    caption: "Toledo — with the race organiser"
 ---
 
 While a number of PFO members were enjoying the delights of Hurstwood night and day events on the last weekend of November, Kay and Emma travelled to Spain to compete and complete the final event of this year's City Race Euro Tour series.

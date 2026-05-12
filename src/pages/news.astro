@@ -19,19 +19,10 @@ const allNews = (await getCollection('news'))
 const featured = allNews[0];
 const rest = allNews.slice(1);
 
-// ─────── Date formatting
+// ─────── Date formatting (year intentionally omitted — context makes it obvious)
 const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric', month: 'long', year: 'numeric'
+  day: 'numeric', month: 'long'
 }).format(d);
-
-// Group remaining articles by year
-const byYear = rest.reduce((acc, item) => {
-  const year = item.data.date.getFullYear();
-  if (!acc[year]) acc[year] = [];
-  acc[year].push(item);
-  return acc;
-}, {} as Record<number, typeof rest>);
-const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 ---
 <Layout
   title="News, Pendle Forest Orienteers"
@@ -70,7 +61,7 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
     </section>
   )}
 
-  <!-- ─────────────────────────── Earlier articles, grouped by year -->
+  <!-- ─────────────────────────── Earlier articles, newest first -->
   {rest.length > 0 && (
     <section class="news-archive">
       <div class="news-archive-wrap">
@@ -78,25 +69,20 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
           <p class="eyebrow">Earlier</p>
           <span class="sec-count">{rest.length} article{rest.length === 1 ? '' : 's'}</span>
         </div>
-        {years.map(year => (
-          <div class="year-group">
-            <h3 class="year-heading">{year}</h3>
-            <ul class="news-list">
-              {byYear[year].map(item => (
-                <li>
-                  <a class="news-row" href={`/news/${item.id}`}>
-                    <time class="news-row-date" datetime={item.data.date.toISOString()}>{fmtDate(item.data.date)}</time>
-                    <div class="news-row-body">
-                      <h4>{item.data.title}</h4>
-                      <p class="news-row-summary">{item.data.summary}</p>
-                    </div>
-                    <span class="news-row-arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <ul class="news-list">
+          {rest.map(item => (
+            <li>
+              <a class="news-row" href={`/news/${item.id}`}>
+                <time class="news-row-date" datetime={item.data.date.toISOString()}>{fmtDate(item.data.date)}</time>
+                <div class="news-row-body">
+                  <h4>{item.data.title}</h4>
+                  <p class="news-row-summary">{item.data.summary}</p>
+                </div>
+                <span class="news-row-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )}
@@ -236,17 +222,6 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-mute);
-  }
-
-  .year-group { margin-bottom: 32px; }
-  .year-group:last-child { margin-bottom: 0; }
-  .year-heading {
-    font-family: var(--ff-display);
-    font-weight: 500;
-    font-size: 22px;
-    color: var(--navy);
-    font-variation-settings: "opsz" 36, "SOFT" 20;
-    margin: 0 0 10px 0;
   }
 
   .news-list {

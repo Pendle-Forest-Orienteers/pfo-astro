@@ -7,4 +7,4 @@ draft: false
 
 Danny has created the Gawthorpe Hall POC's in the 'GPS Orienteering' app.
 
-    Further details of how to access the maps / courses etc are [here](/information/permanent-orienteering-courses).
+Further details of how to access the maps / courses etc are [here](/information/permanent-orienteering-courses).
