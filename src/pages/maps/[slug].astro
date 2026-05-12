@@ -40,10 +40,31 @@ const mapsLink = coords
   ? `https://www.google.com/maps/place/${coords.lat},${coords.lng}/@${coords.lat},${coords.lng},14z`
   : null;
 
-// Per-map RouteGadget URL when set; fall back to the public RG index so
-// the link is never broken if the committee hasn't populated this one yet.
-const routeGadgetUrl = map.data.routeGadgetUrl ?? "https://www.pfo.routegadget.co.uk/rg2/";
-const hasSpecificRg = !!map.data.routeGadgetUrl;
+// Per-map RouteGadget URL resolution. RouteGadget itself doesn't have one
+// URL per venue — only per event — so when the map record doesn't pin a
+// specific URL we look at the most recent event held at this venue and
+// reuse the deepest-linked RG URL we can find (either the event's
+// top-level routeGadgetUrl or any attachment whose URL points at RG).
+// Falls back to the public RG index only as a last resort.
+function findEventRouteGadget(event: typeof relatedEvents[number] | undefined): string | undefined {
+  if (!event) return undefined;
+  if (event.data.routeGadgetUrl) return event.data.routeGadgetUrl;
+  // Scan the post-event "results" links for the first RouteGadget URL with
+  // a fragment ID (#NNN) — that's the specific RG entry for this event.
+  const rgResult = event.data.results?.find(r =>
+    typeof r.url === 'string' &&
+    r.url.includes('routegadget.co.uk') &&
+    r.url.includes('#')
+  );
+  return rgResult?.url;
+}
+// Walk through related events newest-first until we find one with a
+// specific RouteGadget URL.
+const inheritedRgUrl = relatedEvents.map(findEventRouteGadget).find(Boolean);
+const routeGadgetUrl = map.data.routeGadgetUrl
+  ?? inheritedRgUrl
+  ?? "https://www.pfo.routegadget.co.uk/rg2/";
+const hasSpecificRg = !!(map.data.routeGadgetUrl || inheritedRgUrl);
 ---
 <Layout
   title={`${map.data.title}, Map, PFO`}

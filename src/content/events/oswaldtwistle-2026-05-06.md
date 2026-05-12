@@ -18,9 +18,6 @@ results:
   - label: "Results and points"
     url: "/results-archive/2026/2026-05-06-oswaldtwistle/Ossy-StreetO-results.xlsx"
     type: "xlsx"
-  - label: "RouteGadget"
-    url: "https://www.pfo.routegadget.co.uk/rg2/"
-    type: "html"
 summary: May Street-O
 description: New area
 coords:
