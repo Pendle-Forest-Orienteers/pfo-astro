@@ -14,14 +14,14 @@ series: May Street-O
 bofEventNumber: 87374
 dogsAllowed: not-recommended
 planner: Richard Edwards (PFO)
-results:
-  - label: "Results and points"
-    url: "/results-archive/2026/2026-05-06-oswaldtwistle/Ossy-StreetO-results.xlsx"
-    type: "xlsx"
 summary: May Street-O
 description: New area
-heroImage: "/assets/uploads/OSWALDTWISTLE STREET O26.jpg"
-heroImageAlt: "Oswaldtwistle Street-O event"
+heroImage: ""
+heroImageAlt: Oswaldtwistle Street-O event
+results:
+  - label: Results and points
+    url: /results-archive/2026/2026-05-06-oswaldtwistle/Ossy-StreetO-results.xlsx
+    type: xlsx
 coords:
   lat: 53.74206
   lng: -2.40648
