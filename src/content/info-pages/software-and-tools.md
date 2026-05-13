@@ -14,6 +14,8 @@ PFO uses a small toolkit of orienteering-specific software and online services t
 
 **[Condes](https://www.condes.net/)** — commercial alternative used by some larger event planners. Stronger for relays and complex multi-day events.
 
+**[OCAD](https://www.ocad.com/en/ocad-course-setting/)** — commercial alternative used by a few planners of very large events.
+
 ## Entries
 
 **[SI Entries (sientries.co.uk)](https://www.sientries.co.uk/)** — our default entry platform. Every PFO event with online entries uses SI Entries. Committee members with admin access can amend entries, generate the start list, and download the entrants file.
@@ -29,6 +31,8 @@ Alternative Entry Systems are used by some other clubs. You can access any of th
 ## Timing on the day
 
 **[SI Timing (sportident.com)](https://www.sportident.com/)** — the SportIdent dibber-and-station electronic timing system used at most British orienteering events. Software runs on a laptop at registration / download.
+
+**[EMIT](https://emit-uk.com/)** — This system is used by a few UK clubs and uses different style of timing card.  If you enter an event where EMIT timing is used then you would need to also hire a timing card. The software runs on a laptop at registration / download.
 
 ## Map drawing
 
