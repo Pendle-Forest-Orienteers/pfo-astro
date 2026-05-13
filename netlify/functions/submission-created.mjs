@@ -24,20 +24,13 @@
  */
 
 /* ─────────── Routing table — recipient name → email ─────────── */
-// Source of truth: src/pages/contacts.astro `committee` array. Keep
-// in sync if a member changes; only this server-side map is consulted.
-const COMMITTEE = {
-  'Hannah Dabinett': 'chair@pfo.org.uk',
-  'Helen Ellis':     'treasurer@pfo.org.uk',
-  'Andy Ellis':      'andy.ellis449@btinternet.com',
-  'Cath Wilson':     'coach@pfo.org.uk',
-  'Judith Wood':     'controller@pfo.org.uk',
-  'Kay Hawke':       'kay.hawke@yahoo.co.uk',
-  'Emma Taylor':     'membership@pfo.org.uk',
-  'Colin Woolford':  'mapping@pfo.org.uk',
-  'Helen Smethurst': 'equipment@pfo.org.uk',
-  'Daniel Allen':    'permissions@pfo.org.uk',
-};
+// Single source of truth: src/data/committee.json — edited via the CMS
+// at /admin → Site settings → Committee. This function reads the JSON
+// at startup so the routing table reflects the current site.
+import committeeData from '../../src/data/committee.json' assert { type: 'json' };
+const COMMITTEE = Object.fromEntries(
+  (committeeData.members || []).map(m => [m.name, m.email])
+);
 
 // Fallback for "General enquiry" or any unmatched recipient — Andy as
 // the website-aware committee member triages anything unrouted.

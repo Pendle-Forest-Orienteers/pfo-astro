@@ -114,6 +114,25 @@ collections:
               - { name: "image", label: "Image",     widget: "image",  required: false }
               - { name: "alt",   label: "Alt text",  widget: "string", required: false }
 
+      - name: "committee"
+        label: "Committee members"
+        file: "src/data/committee.json"
+        description: "Names, roles, photos and the routing email for each committee member. Photos shown on the Contacts page; emails are never visible on the public site, they're only used to forward contact-form submissions."
+        fields:
+          - name: "members"
+            label: "Members"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.roles}}"
+            fields:
+              - { name: "name", label: "Name", widget: "string" }
+              - name: "roles"
+                label: "Roles"
+                widget: "list"
+                field: { name: "role", label: "Role", widget: "string" }
+                hint: "One per row, e.g. Chair, Treasurer, Coach."
+              - { name: "photo", label: "Photo", widget: "image", required: false, hint: "Optional. Square-ish portrait works best. Leave blank for a circle with initials." }
+              - { name: "email", label: "Routing email", widget: "string", hint: "Where contact-form submissions for this person go. Never shown publicly." }
+
   # ─── EVENTS ──────────────────────────────────────────────────────────────
   - name: "events"
     label: "Events"
