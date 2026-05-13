@@ -79,6 +79,10 @@ const events = defineCollection({
     // ─────── Display
     summary: z.string(),                    // 1-line subtitle for cards
     description: z.string().optional(),     // 1–2 sentences for the homepage hero, if featured
+    /** Optional hero photo shown across the top of the event detail page.
+     *  Leave blank for the default text-only event hero. */
+    heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
 
     // ─────── Results (filled in after the event)
     results: z.array(z.object({

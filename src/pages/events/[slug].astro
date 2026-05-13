@@ -160,6 +160,13 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
 
 <main id="main">
 
+  <!-- ─────────────────────────── Optional hero photo banner -->
+  {event.data.heroImage && (
+    <div class="ev-hero-photo">
+      <img src={event.data.heroImage} alt={event.data.heroImageAlt ?? ""} loading="eager">
+    </div>
+  )}
+
   <!-- ─────────────────────────── Event hero -->
   <section class="ev-hero">
     <div class="ev-hero-wrap">
@@ -462,6 +469,19 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
 
 <style>
   .mono { font-family: var(--ff-mono); }
+
+  /* ─────────────────────────── Optional hero photo banner */
+  .ev-hero-photo {
+    width: 100%;
+    background: var(--navy-deep);
+    overflow: hidden;
+  }
+  .ev-hero-photo img {
+    display: block;
+    width: 100%;
+    max-height: clamp(220px, 38vw, 460px);
+    object-fit: cover;
+  }
 
   /* ─────────────────────────── Hero */
   .ev-hero {

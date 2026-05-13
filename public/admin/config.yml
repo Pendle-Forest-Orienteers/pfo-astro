@@ -196,6 +196,8 @@ collections:
       - { name: "routeGadgetUrl", label: "RouteGadget URL", widget: "string", required: false }
       - { name: "summary", label: "Card subtitle", widget: "string", hint: "1-line subtitle shown on cards, e.g. 'Score event · Burnley · Local level'" }
       - { name: "description", label: "Hero description", widget: "text", required: false, hint: "1-2 sentences for the homepage featured-event card. Optional." }
+      - { name: "heroImage", label: "Hero photo", widget: "image", required: false, hint: "Optional banner photo shown across the top of the event page." }
+      - { name: "heroImageAlt", label: "Hero photo alt text", widget: "string", required: false, hint: "Optional. Short description for screen readers." }
       - name: "results"
         label: "Results files"
         widget: "list"
