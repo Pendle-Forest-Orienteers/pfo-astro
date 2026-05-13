@@ -125,7 +125,7 @@ const articleJsonLd = {
         <ul class="gallery-grid">
           {item.data.gallery.map(image => (
             <li>
-              <img src={image.src} alt={image.alt}>
+              <img src={image.src} alt={image.alt ?? ""}>
               {image.caption && <p class="gallery-caption">{image.caption}</p>}
             </li>
           ))}

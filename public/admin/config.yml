@@ -245,7 +245,7 @@ collections:
         hint: "Photos taken at the event. Appears as a responsive grid at the bottom of the event page. Add as many as you like — phones tend to make 6–12 a comfortable batch."
         fields:
           - { name: "src",     label: "Photo",       widget: "image" }
-          - { name: "alt",     label: "Alt text",    widget: "string", hint: "Short description for screen readers, e.g. 'Runners at the start of the long course'." }
+          - { name: "alt",     label: "Alt text",    widget: "string", required: false, hint: "Optional. Short description for screen readers, e.g. 'Runners at the start of the long course'." }
           - { name: "caption", label: "Caption",     widget: "string", required: false, hint: "Optional caption shown under the photo." }
 
   # ─── NEWS ────────────────────────────────────────────────────────────────
@@ -273,7 +273,7 @@ collections:
         summary: "{{fields.alt}}"
         fields:
           - { name: "src", label: "Image", widget: "image" }
-          - { name: "alt", label: "Alt text", widget: "string" }
+          - { name: "alt", label: "Alt text", widget: "string", required: false, hint: "Optional. Short description for screen readers." }
           - { name: "caption", label: "Caption", widget: "string", required: false }
       - name: "attachments"
         label: "File attachments"

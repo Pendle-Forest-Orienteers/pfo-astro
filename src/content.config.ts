@@ -103,7 +103,7 @@ const events = defineCollection({
     // as the news-article gallery for consistency.
     gallery: z.array(z.object({
       src: z.string(),
-      alt: z.string(),
+      alt: z.string().optional(),
       caption: z.string().optional(),
     })).optional(),
 
@@ -132,7 +132,7 @@ const news = defineCollection({
     author: z.string().optional(),
     gallery: z.array(z.object({
       src: z.string(),
-      alt: z.string(),
+      alt: z.string().optional(),
       caption: z.string().optional(),
     })).optional(),
     attachments: z.array(z.object({
