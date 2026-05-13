@@ -16,12 +16,12 @@ gallery:
   - src: /assets/uploads/compassportmag8.jpg
   - src: /assets/uploads/compassportmag9.jpg
 attachments: []
-draft: false
+draft: true
 featured: false
 ---
 The end of a brilliant weekend away for the PFO crew who travelled to the CompassSport Cup Final in Cleveland.
 
-Our base for the weekend was the Watson Scout Centre close by, which gave us the chance to make the most of the trip as a team.
+Our base for the djdjdjweekend was the Watson Scout Centre close by, which gave us the chance to make the most of the trip as a team.
 
 It was brilliant to have every PFO member stay on the site and have a ball. Genuinely a club where everybody is a friend, proof of which came when, out of the three large communal living areas, two never got used. We all stuck to just one to enjoy each other's company.
 
