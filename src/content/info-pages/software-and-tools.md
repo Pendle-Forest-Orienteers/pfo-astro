@@ -30,7 +30,8 @@ Alternative Entry Systems are used by some other clubs. You can access any of th
 
 ## Timing on the day
 
-**[SI Timing (sportident.com)](https://www.sportident.com/)** — the SportIdent dibber-and-station electronic timing system used at most British orienteering events. Software runs on a laptop at registration / download.
+**[SI Timing (sportident.com)](https://www.sportident.com/)** — the SportIdent dibber-and-station electronic timing system used at most British orienteering events. The software runs on a laptop at registration / download. 
+Most participants have their own SI-Card known as a 'dibber' but newcomers can also hire one on the day from clubs for a small fee.  Older dibbers require the SI-Card to be inserted into the SI-Control box, but newer owns are contactless so just need to be wafted over the SI-Control to register.
 
 **[EMIT](https://emit-uk.com/)** — This system is used by a few UK clubs and uses different style of timing card.  If you enter an event where EMIT timing is used then you would need to also hire a timing card. The software runs on a laptop at registration / download.
 
