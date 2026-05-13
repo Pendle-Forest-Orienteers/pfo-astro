@@ -1,25 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
+import committeeData from '../data/committee.json';
 
-// Committee data, single source of truth.
+// Committee data, single source of truth — edited via the CMS at
+// /admin → Site settings → Committee.
 //
 // `email` is used SERVER-SIDE ONLY when the user submits the contact form.
 // Netlify Forms processes the submission and dispatches to the right inbox
 // without ever exposing the address in the rendered HTML. Visitors only see
 // names + roles; the email address never appears on the page.
-const committee = [
-  { name: "Hannah Dabinett",  roles: ["Chair", "Equipment Officer"], photo: "/images/_thumb/HD-PFO.jpg",                        email: "chair@pfo.org.uk" },
-  { name: "Helen Ellis",      roles: ["Treasurer"],                  photo: "/images/contacts/_thumb/Helen_Ellis.jpg",          email: "treasurer@pfo.org.uk" },
-  { name: "Andy Ellis",       roles: ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"], photo: "/images/contacts/_thumb/Andy-Halifax-urban-3-2.png", email: "andy.ellis449@btinternet.com" },
-  { name: "Cath Wilson",      roles: ["Lead Coach", "CompassSport coordinator"],   photo: null, email: "coach@pfo.org.uk" },
-  { name: "Judith Wood",      roles: ["Club Event Controller", "Permissions Officer"], photo: "/images/contacts/_thumb/Judith_Wood.jpg", email: "controller@pfo.org.uk" },
-  { name: "Kay Hawke",        roles: ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"], photo: "/images/contacts/_thumb/Kay-Hawke.jpg", email: "kay.hawke@yahoo.co.uk" },
-  { name: "Emma Taylor",      roles: ["Membership Secretary"],       photo: "/images/contacts/_thumb/Emma_Taylor.jpg",          email: "membership@pfo.org.uk" },
-  { name: "Colin Woolford",   roles: ["Mapping Co-ordinator"],       photo: null, email: "mapping@pfo.org.uk" },
-  { name: "Helen Smethurst",  roles: ["Equipment Officer"],          photo: null, email: "equipment@pfo.org.uk" },
-  { name: "Daniel Allen",     roles: ["Permissions Officer"],        photo: "/images/contacts/_thumb/Danny_Allen2.jpg",         email: "permissions@pfo.org.uk" },
-];
+const committee = committeeData.members.map(p => ({
+  ...p,
+  photo: p.photo && p.photo.trim() !== '' ? p.photo : null,
+}));
 
 // Build a list for the recipient dropdown, showing names + first role only.
 const recipientOptions = committee.map(p => ({
