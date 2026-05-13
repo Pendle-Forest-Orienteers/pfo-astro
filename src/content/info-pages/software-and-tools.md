@@ -1,6 +1,7 @@
 ---
-title: "Software and tools"
-summary: "The software and online services PFO uses to plan events, take entries, time competitors, draw maps and share results."
+title: Software and tools
+summary: The software and online services PFO uses to plan events, take entries,
+  time competitors, draw maps and share results.
 section: members
 order: 5
 ---
@@ -17,7 +18,13 @@ PFO uses a small toolkit of orienteering-specific software and online services t
 
 **[SI Entries (sientries.co.uk)](https://www.sientries.co.uk/)** — our default entry platform. Every PFO event with online entries uses SI Entries. Committee members with admin access can amend entries, generate the start list, and download the entrants file.
 
-**[Fabian4](https://www.fabian4.co.uk/)** — alternative entry platform used by some clubs. PFO doesn't currently use it but you may see it elsewhere.
+Alternative Entry Systems that are used by other clubs. You can access any of these to find events that are available from other clubs.
+
+**[Fabian4](https://www.fabian4.co.uk/)** 
+
+**[Racesignup](https://racesignup.co.uk/)**
+
+**[StartKite](https://www.thestartkite.uk/)**
 
 ## Timing on the day
 
