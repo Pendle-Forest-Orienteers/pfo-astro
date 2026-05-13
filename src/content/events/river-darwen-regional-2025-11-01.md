@@ -21,6 +21,23 @@ what3words: "start.donor.under"
 bofEventNumber: 86914
 controller: "Judith Wood PFO"
 seriesOrganiser: "Hannah Dabinett PFO"
+gallery:
+  - src: "/assets/uploads/Riverdarwen251.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen252.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen253.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen254.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen256.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen257.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen258.jpg"
+    alt: ""
+  - src: "/assets/uploads/Riverdarwen259.jpg"
+    alt: ""
 ---
 
 <!-- migrated -->

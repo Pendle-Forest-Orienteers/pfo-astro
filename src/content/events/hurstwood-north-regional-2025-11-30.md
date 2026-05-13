@@ -23,6 +23,23 @@ what3words: "just.twin.extra"
 bofEventNumber: 86914
 dogsAllowed: "no"
 controller: "Judith Wood PFO"
+gallery:
+  - src: "/assets/uploads/hurstwood20251.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood202512.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood20253.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood20254.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood20255.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood20256.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood20257.jpg"
+    alt: ""
+  - src: "/assets/uploads/hurstwood20258.jpg"
+    alt: ""
 ---
 
 <!-- migrated -->

@@ -18,6 +18,17 @@ what3words: "guards.chair.apply"
 bofEventNumber: 87370
 dogsAllowed: "not-recommended"
 planner: "Emma Taylor PFO"
+gallery:
+  - src: "/assets/uploads/ightenhill261.jpg"
+    alt: ""
+  - src: "/assets/uploads/ightenhill262.jpg"
+    alt: ""
+  - src: "/assets/uploads/ightenhill263.jpg"
+    alt: ""
+  - src: "/assets/uploads/ightenhill264.jpg"
+    alt: ""
+  - src: "/assets/uploads/ightenhill265.jpg"
+    alt: ""
 ---
 
 <!-- migrated -->

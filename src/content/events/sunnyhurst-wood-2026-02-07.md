@@ -21,6 +21,13 @@ gridRef: "SD680230"
 what3words: "belts.fuels.rushed"
 planner: "Katy Thompson PFO"
 seriesOrganiser: "Kay Hawke PFO"
+gallery:
+  - src: "/assets/uploads/sunnyhurst1.jpg"
+    alt: ""
+  - src: "/assets/uploads/sunnyhurst262.jpg"
+    alt: ""
+  - src: "/assets/uploads/sunnyhurst264.jpg"
+    alt: ""
 ---
 
 <!-- migrated -->
