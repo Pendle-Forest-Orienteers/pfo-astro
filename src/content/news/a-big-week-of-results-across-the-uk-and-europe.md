@@ -5,7 +5,18 @@ summary: >
   Vertical kilometres in the Canaries, a classic Pendle fell round, four races
   over three days in Warsaw, and nine more members out at SROC, SELOC and DEE
   events.
-gallery: []
+heroImage: /assets/uploads/big-wekk-1205261.jpg
+gallery:
+  - src: /assets/uploads/big-week-1205263.jpg
+    alt: Needs captioning (Testing)- field isn't optional
+  - src: /assets/uploads/big-week-1205264.jpg
+    alt: Needs captioning (Testing)- field isn't optional
+  - src: /assets/uploads/big-week-1205265.jpg
+    alt: Needs captioning (Testing)- field isn't optional
+  - src: /assets/uploads/big-week-1205262.jpg
+    alt: Needs captioning (Testing)- field isn't optional
+  - src: /assets/uploads/big-week-1205266.jpg
+    alt: Needs captioning (Testing)- field isn't optional
 attachments: []
 draft: true
 featured: false
