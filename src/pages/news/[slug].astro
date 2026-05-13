@@ -100,7 +100,7 @@ const articleJsonLd = {
 
     {item.data.heroImage && (
       <div class="article-hero-image">
-        <img src={item.data.heroImage} alt={item.data.heroImageAlt ?? ""}>
+        <img src={item.data.heroImage} alt={item.data.heroImageAlt || item.data.title}>
       </div>
     )}
   </article>

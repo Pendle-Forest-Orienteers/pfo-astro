@@ -46,7 +46,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
         <a class="featured-link" href={`/news/${featured.id}`}>
           {featured.data.heroImage && (
             <div class="featured-image">
-              <img src={featured.data.heroImage} alt={featured.data.heroImageAlt ?? ""}>
+              <img src={featured.data.heroImage} alt={featured.data.heroImageAlt || featured.data.title}>
             </div>
           )}
           <div class="featured-body">

@@ -85,7 +85,7 @@ const initials = (name: string) => name.split(' ').map(p => p[0]).join('').slice
           <li class="contact-card">
             <div class="contact-photo">
               {person.photo ? (
-                <img src={person.photo} alt="" loading="lazy">
+                <img src={person.photo} alt={`Photo of ${person.name}`} loading="lazy">
               ) : (
                 <span class="contact-initials" aria-hidden="true">{initials(person.name)}</span>
               )}
