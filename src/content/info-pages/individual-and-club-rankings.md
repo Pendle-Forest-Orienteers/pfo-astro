@@ -1,26 +1,22 @@
 ---
-title: "Individual And Club Rankings"
-summary: "There are a number of leagues and ranking tables where you can see how well you have done compared to other orienteers in your age class"
+title: Individual and Club Rankings
+summary: There are a number of leagues and ranking tables where you can see how
+  well you have done compared to other orienteers in your age class
 section: members
 lastReviewed: 2025-01-02
-draft: true   # review and remove this line to publish
+draft: true
 ---
 
 There are a number of leagues and ranking tables where you can see how well you have done compared to other orienteers in your age class.
 
 There are a series of links below to the main ones.
 
-## PFO Champions League 2024
-Current league positions at start of 2025 with one event remaining.
-
-[PFO Champions](/documents/PFO-Champions-08092024.xlsx)
-
 ## UK Orienteering League
 [UK Orienteering League](https://www.ukorienteeringleague.org.uk/)
 
 This shows how each club performed at UKOL events last year and the club members that contributed.
 
-PFO finished in 70th position which was the same as last year, but we had more than 200 more points.
+PFO finished in 46th position in 2025 and are currently 54th for 2026.
 
 ## UK Urban League
 [UK Urban League](http://www.oxfordfusion.com/ukul/)
@@ -29,10 +25,6 @@ Similar to above, but just for urban events
 
 ## North West Urban League[](http://www.oxfordfusion.com/ukul/index.cfm?&Org=4)
 [North West Urban League](http://www.oxfordfusion.com/ukul/index.cfm?&Org=4)
-
-This league is in a state of flux at moment but hopefully will get more support from NW clubs going forwards.
-
-Unfortunately there are currently no events planned for 2020.
 
 Prizes are awarded to winners in each age class (as long as they are members of a NWOA club)
 
