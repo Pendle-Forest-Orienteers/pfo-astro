@@ -18,13 +18,13 @@ PFO uses a small toolkit of orienteering-specific software and online services t
 
 **[SI Entries (sientries.co.uk)](https://www.sientries.co.uk/)** — our default entry platform. Every PFO event with online entries uses SI Entries. Committee members with admin access can amend entries, generate the start list, and download the entrants file.
 
-Alternative Entry Systems that are used by other clubs. You can access any of these to find events that are available from other clubs.
+Alternative Entry Systems are used by some other clubs. You can access any of these to find events that are available. Some clubs may use other systems.
 
-**[Fabian4](https://www.fabian4.co.uk/)** 
+       **[Fabian4](https://www.fabian4.co.uk/)** 
 
-**[Racesignup](https://racesignup.co.uk/)**
+       **[Racesignup](https://racesignup.co.uk/)**
 
-**[StartKite](https://www.thestartkite.uk/)**
+       **[StartKite](https://www.thestartkite.uk/)**
 
 ## Timing on the day
 
