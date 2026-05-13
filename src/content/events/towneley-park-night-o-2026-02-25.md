@@ -1,27 +1,44 @@
 ---
-title: "Towneley Park"
+title: Towneley Park
 date: 2026-02-25
 entryCloseDate: 2026-02-25T12:00:00
-location: "Towneley Park"
-format: "Night-O"
-level: "local"
-summary: "Night-O · Towneley Park"
+location: Towneley Park
+postcode: BB11 3ER
+what3words: thick.sling.half
+format: Night-O
+level: local
+bofEventNumber: 87370
+dogsAllowed: on-lead
+planner: Colin Woolford PFO
+seriesOrganiser: Helen Ashton PFO
+summary: Night-O · Towneley Park
 results:
-  - label: "Results and Splits"
-    url: "/results-archive/2026/2026-02-25-towneley-park-night-o/index.html"
-    type: "html"
-  - label: "Routegadget"
-    url: "https://www.pfo.routegadget.co.uk/rg2/#229"
-    type: "html"
+  - label: Results and Splits
+    url: /results-archive/2026/2026-02-25-towneley-park-night-o/index.html
+    type: html
+  - label: Routegadget
+    url: https://www.pfo.routegadget.co.uk/rg2/#229
+    type: html
+gallery:
+  - src: /assets/uploads/towneley-park-night-o2502261.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502262.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502263.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502264.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502265.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502266.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502267.jpg
+    alt: no caption
+  - src: /assets/uploads/towneley-park-night-o2502268.jpg
+    alt: no caption
 coords:
   lat: 53.77845
   lng: -2.21731
-postcode: "BB11 3ER"
-what3words: "thick.sling.half"
-bofEventNumber: 87370
-dogsAllowed: "on-lead"
-planner: "Colin Woolford PFO"
-seriesOrganiser: "Helen Ashton PFO"
 ---
 
 <!-- migrated -->
