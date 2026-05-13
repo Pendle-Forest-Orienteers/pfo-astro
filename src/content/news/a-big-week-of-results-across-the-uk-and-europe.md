@@ -18,7 +18,7 @@ gallery:
   - src: /assets/uploads/big-week-1205266.jpg
     alt: Needs captioning (Testing)- field isn't optional
 attachments: []
-draft: true
+draft: false
 featured: true
 ---
 PFO members have been busy this week, with some fantastic results in trail running, fell racing and orienteering across the UK and Europe.
