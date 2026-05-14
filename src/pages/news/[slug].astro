@@ -195,19 +195,32 @@ const articleJsonLd = {
       const nextBtn = carousel.querySelector('.gallery-nav-next');
       let pos = 0;
 
+      // Mobile shows 1 photo, desktop shows 3. Limit pos to never overshoot
+      // into trailing empty slots when the photo count isn't a multiple of 3.
+      function visibleCount() {
+        return window.matchMedia('(max-width: 720px)').matches ? 1 : 3;
+      }
+      function maxPos() {
+        return Math.max(0, total - visibleCount());
+      }
       function update() {
         if (!slides[0]) return;
         const slot = slides[0].getBoundingClientRect().width + 16; // 16 = gap
         track.style.transform = `translateX(${-pos * slot}px)`;
       }
       function step(dir) {
-        pos = (pos + dir + total) % total;
+        const m = maxPos();
+        pos += dir;
+        if (pos > m) pos = 0;
+        if (pos < 0) pos = m;
         update();
       }
       if (prevBtn) prevBtn.addEventListener('click', () => step(-1));
       if (nextBtn) nextBtn.addEventListener('click', () => step(1));
-      // Recompute on resize (mobile/desktop transition changes slot width)
-      window.addEventListener('resize', update);
+      window.addEventListener('resize', () => {
+        if (pos > maxPos()) pos = maxPos();
+        update();
+      });
 
       // Swipe support on touch devices
       let touchStart = 0;
