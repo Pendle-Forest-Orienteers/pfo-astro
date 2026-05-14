@@ -1,22 +1,29 @@
 ---
-title: "Ramsbottom"
+title: Ramsbottom
 date: 2024-02-15
 entryCloseDate: 2024-02-15T12:00:00
-location: "Ramsbottom"
-format: "Street-O"
-level: "local"
-summary: "Street-O · Ramsbottom · February Street-O (2/10)"
+location: Ramsbottom
+postcode: BL0 9FN
+gridRef: SD791167
+format: Street-O
+level: local
+bofEventNumber: 84168
+dogsAllowed: not-recommended
+summary: Street-O · Ramsbottom · February Street-O (2/10)
 results:
-  - label: "Results and points"
-    url: "/results-archive/2024/2024-02-15-ramsbottom/Ramsbottom-Results.xlsx"
-    type: "xlsx"
+  - label: Results and points
+    url: /results-archive/2024/2024-02-15-ramsbottom/Ramsbottom-Results.xlsx
+    type: xlsx
+gallery:
+  - src: /assets/uploads/Ramsbottom20241.jpg
+  - src: /assets/uploads/Ramsbottom20242.jpg
+  - src: /assets/uploads/Ramsbottom20243.jpg
+  - src: /assets/uploads/Ramsbottom20244.jpg
+  - src: /assets/uploads/Ramsbottom20245.jpg
+  - src: /assets/uploads/Ramsbottom20246.jpg
 coords:
   lat: 53.64702
   lng: -2.31742
-postcode: "BL0 9FN"
-gridRef: "SD791167"
-bofEventNumber: 84168
-dogsAllowed: "not-recommended"
 ---
 
 <!-- migrated -->
