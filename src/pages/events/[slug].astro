@@ -320,16 +320,17 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
         {event.data.gallery && event.data.gallery.length > 0 && (
           <section class="ev-gallery" aria-label="Event photos">
             <h2>Photos from the event</h2>
-            <ul class="ev-gallery-grid">
-              {event.data.gallery.map(image => (
-                <li>
-                  <a href={image.src} target="_blank" rel="noopener">
-                    <img src={image.src} alt={image.alt ?? ""} loading="lazy">
-                  </a>
-                  {image.caption && <p class="ev-gallery-caption">{image.caption}</p>}
-                </li>
-              ))}
-            </ul>
+            <div class="ev-gallery-strip">
+              <ul class="ev-gallery-track" style={`--track-duration: ${Math.max(20, event.data.gallery.length * 5)}s`}>
+                {[...event.data.gallery, ...event.data.gallery].map((image, i) => (
+                  <li>
+                    <a href={image.src} target="_blank" rel="noopener" aria-hidden={i >= event.data.gallery.length ? "true" : undefined} tabindex={i >= event.data.gallery.length ? -1 : undefined}>
+                      <img src={image.src} alt={image.alt ?? ""} loading="lazy">
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
         )}
       </article>
@@ -968,47 +969,55 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     border-left: 4px solid var(--gold);
     padding-left: 12px;
   }
-  .ev-gallery-grid {
+  /* ── Continuous-scroll gallery strip
+     Photos render twice and animate -50% for a seamless loop.
+     Hover or focus pauses the scroll so visitors can click to enlarge. */
+  .ev-gallery-strip {
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .ev-gallery-track {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-  }
-  .ev-gallery-grid li {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 14px;
+    width: max-content;
+    animation: ev-gallery-scroll var(--track-duration, 40s) linear infinite;
   }
-  .ev-gallery-grid a {
+  .ev-gallery-strip:hover .ev-gallery-track,
+  .ev-gallery-strip:focus-within .ev-gallery-track {
+    animation-play-state: paused;
+  }
+  .ev-gallery-track > li { flex: 0 0 auto; }
+  .ev-gallery-track a {
     display: block;
     overflow: hidden;
     background: var(--paper-2);
     line-height: 0;
     transition: transform .2s ease, box-shadow .2s ease;
   }
-  .ev-gallery-grid a:hover {
+  .ev-gallery-track a:hover {
     transform: translateY(-1px);
     box-shadow: 0 14px 32px -16px rgba(27, 59, 98, 0.35);
   }
-  .ev-gallery-grid img {
-    width: 100%;
-    height: 180px;
+  .ev-gallery-track img {
+    height: 220px;
+    width: auto;
     object-fit: cover;
     display: block;
   }
-  .ev-gallery-caption {
-    font-size: 13px;
-    line-height: 1.45;
-    color: var(--ink-soft);
-    margin: 0;
+  @keyframes ev-gallery-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ev-gallery-track { animation: none; }
+    .ev-gallery-strip { overflow-x: auto; }
   }
   @media (max-width: 520px) {
-    .ev-gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    .ev-gallery-grid img { height: 140px; }
+    .ev-gallery-track img { height: 160px; }
   }
 </style>

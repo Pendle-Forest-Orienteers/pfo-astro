@@ -117,18 +117,20 @@ const articleJsonLd = {
     </div>
   </article>
 
-  <!-- ─────────────────────────── Gallery (optional) -->
+  <!-- ─────────────────────────── Gallery (optional) — continuous marquee strip -->
   {item.data.gallery && item.data.gallery.length > 0 && (
     <section class="article-gallery">
       <div class="article-gallery-wrap">
         <h2>More photos</h2>
-        <ul class="gallery-grid">
-          {item.data.gallery.map(image => (
+      </div>
+      <div class="gallery-strip" aria-label="Photo gallery">
+        <ul class="gallery-track" style={`--track-duration: ${Math.max(20, item.data.gallery.length * 5)}s`}>
+          {/* Render twice so the animation loops seamlessly */}
+          {[...item.data.gallery, ...item.data.gallery].map((image, i) => (
             <li>
-              <a href={image.src} class="gallery-lightbox-link" data-caption={image.caption ?? ""}>
+              <a href={image.src} class="gallery-lightbox-link" data-caption={image.caption ?? ""} aria-hidden={i >= item.data.gallery.length ? "true" : undefined} tabindex={i >= item.data.gallery.length ? -1 : undefined}>
                 <img src={image.src} alt={image.alt ?? ""} loading="lazy">
               </a>
-              {image.caption && <p class="gallery-caption">{image.caption}</p>}
             </li>
           ))}
         </ul>
@@ -176,7 +178,10 @@ const articleJsonLd = {
   // open a full-screen overlay, navigate with arrow keys or the on-screen
   // buttons, close with Escape or the × button.
   (function () {
-    const links = Array.from(document.querySelectorAll('.gallery-lightbox-link'));
+    // Skip the duplicated entries we render for the marquee loop.
+    const links = Array.from(document.querySelectorAll('.gallery-lightbox-link'))
+      .filter(a => a.getAttribute('aria-hidden') !== 'true');
+    const allLinks = Array.from(document.querySelectorAll('.gallery-lightbox-link'));
     if (links.length === 0) return;
     const lb = document.getElementById('gallery-lightbox');
     if (!lb) return;
@@ -203,8 +208,16 @@ const articleJsonLd = {
       document.body.style.overflow = '';
     }
 
-    links.forEach((a, i) => {
-      a.addEventListener('click', (e) => { e.preventDefault(); show(i); });
+    // Wire click handlers on every rendered link (including duplicates).
+    // Map each clicked link to its position in the unique set so prev/next
+    // works whether the user clicked an original or a duplicate.
+    allLinks.forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        const idx = links.findIndex(l => l.getAttribute('href') === href);
+        show(idx === -1 ? 0 : idx);
+      });
     });
     closeBtn.addEventListener('click', hide);
     prevBtn.addEventListener('click', () => show(idx - 1));
@@ -372,17 +385,33 @@ const articleJsonLd = {
     font-variation-settings: "opsz" 36, "SOFT" 20;
     margin: 0 0 24px 0;
   }
-  .gallery-grid {
+  /* ── Continuous-scroll gallery strip
+     Renders the photo list twice, animates -50% so the loop is seamless.
+     Pauses on hover/focus so the visitor can click an image to enlarge. */
+  .gallery-strip {
+    position: relative;
+    overflow: hidden;
+    /* Soft fade at left/right edges */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .gallery-track {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    display: flex;
     gap: 16px;
+    width: max-content;
+    animation: gallery-scroll var(--track-duration, 40s) linear infinite;
   }
-  .gallery-grid img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
+  .gallery-strip:hover .gallery-track,
+  .gallery-strip:focus-within .gallery-track {
+    animation-play-state: paused;
+  }
+  .gallery-track > li { flex: 0 0 auto; }
+  .gallery-track img {
+    height: 240px;
+    width: auto;
     object-fit: cover;
     display: block;
     transition: transform .25s ease, filter .25s ease;
@@ -397,11 +426,17 @@ const articleJsonLd = {
     transform: scale(1.04);
     filter: brightness(1.05);
   }
-  .gallery-caption {
-    font-size: 13px;
-    color: var(--ink-soft);
-    margin: 8px 0 0 0;
-    line-height: 1.4;
+  @keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  /* Respect users who've asked for less motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-track { animation: none; }
+    .gallery-strip { overflow-x: auto; }
+  }
+  @media (max-width: 720px) {
+    .gallery-track img { height: 180px; }
   }
 
   /* ─────────────────────────── Lightbox overlay */
