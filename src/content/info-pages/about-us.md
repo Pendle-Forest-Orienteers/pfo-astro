@@ -1,9 +1,10 @@
 ---
-title: "About Us"
-summary: "Pendle Forest Orienteers is a small orienteering club based around Burnley, Pendle, Rossendale, Accrington and Blackburn. We organise around…"
+title: About Us
+summary: Pendle Forest Orienteers is a small orienteering club based around
+  Burnley, Pendle, Rossendale, Accrington and Blackburn. We organise around…
 section: governance
 lastReviewed: 2024-02-22
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 **Pendle Forest Orienteers** is a small orienteering club based around Burnley, Pendle, Rossendale, Accrington and Blackburn. We organise around 12-15 events each year locally, as well as training events for our members.
