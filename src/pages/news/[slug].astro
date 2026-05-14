@@ -433,9 +433,39 @@ const articleJsonLd = {
   /* Respect users who've asked for less motion */
   @media (prefers-reduced-motion: reduce) {
     .gallery-track { animation: none; }
-    .gallery-strip { overflow-x: auto; }
+    .gallery-strip {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .gallery-track > li { scroll-snap-align: start; }
+  }
+  /* Touch devices — no hover available, so auto-scroll feels broken.
+     Disable the animation and let the user swipe instead. Snap-to-image
+     so the swipe feels deliberate. */
+  @media (hover: none) and (pointer: coarse) {
+    .gallery-strip {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      -webkit-mask-image: none;
+              mask-image: none;
+    }
+    .gallery-track {
+      animation: none;
+      gap: 10px;
+      padding: 0 4px;
+    }
+    .gallery-track > li { scroll-snap-align: center; }
+    /* Hide the duplicate set of photos that exists only for the
+       desktop marquee loop; touch users swipe instead. */
+    .gallery-track > li:has(.gallery-lightbox-link[aria-hidden="true"]) { display: none; }
+    .gallery-track img { height: 220px; }
   }
   @media (max-width: 720px) {
+    .gallery-track img { height: 200px; }
+  }
+  @media (max-width: 480px) {
     .gallery-track img { height: 180px; }
   }
 

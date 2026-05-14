@@ -1029,9 +1029,34 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   }
   @media (prefers-reduced-motion: reduce) {
     .ev-gallery-track { animation: none; }
-    .ev-gallery-strip { overflow-x: auto; }
+    .ev-gallery-strip {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .ev-gallery-track > li { scroll-snap-align: start; }
+  }
+  /* Touch devices — disable auto-scroll, let users swipe through photos
+     with snap-to-image. */
+  @media (hover: none) and (pointer: coarse) {
+    .ev-gallery-strip {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      -webkit-mask-image: none;
+              mask-image: none;
+    }
+    .ev-gallery-track {
+      animation: none;
+      gap: 10px;
+      padding: 0 4px;
+    }
+    .ev-gallery-track > li { scroll-snap-align: center; }
+    /* Hide the duplicate set that exists for the desktop loop. */
+    .ev-gallery-track > li:has(a[aria-hidden="true"]) { display: none; }
+    .ev-gallery-track img { height: 200px; }
   }
   @media (max-width: 520px) {
-    .ev-gallery-track img { height: 160px; }
+    .ev-gallery-track img { height: 170px; }
   }
 </style>
