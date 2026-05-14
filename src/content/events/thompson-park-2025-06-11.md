@@ -20,6 +20,19 @@ bofEventNumber: 86278
 dogsAllowed: "no"
 planner: "Hannah Dabinett PFO"
 seriesOrganiser: "Kay Hawke PFO"
+gallery:
+  - src: "/assets/uploads/Thomspnparksnooko252.jpg"
+    alt: ""
+  - src: "/assets/uploads/Thomspnparksnooko253.jpg"
+    alt: ""
+  - src: "/assets/uploads/Thomspnparksnooko254.jpg"
+    alt: ""
+  - src: "/assets/uploads/Thomspnparksnooko255.jpg"
+    alt: ""
+  - src: "/assets/uploads/Thomspnparksnooko256.jpg"
+    alt: ""
+  - src: "/assets/uploads/Thomspnparksnooko257.jpg"
+    alt: ""
 ---
 
 <!-- migrated -->

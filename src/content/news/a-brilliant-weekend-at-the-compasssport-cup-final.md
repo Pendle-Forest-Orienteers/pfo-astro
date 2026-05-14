@@ -13,7 +13,6 @@ gallery:
   - src: /assets/uploads/compassportmag5.jpg
   - src: /assets/uploads/compassportmag7.jpg
   - src: /assets/uploads/compassportmag8.jpg
-  - src: /assets/uploads/compassportmag8.jpg
   - src: /assets/uploads/compassportmag9.jpg
 attachments: []
 draft: false

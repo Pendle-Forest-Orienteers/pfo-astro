@@ -18,6 +18,17 @@ gridRef: "SD789337"
 bofEventNumber: 86934
 planner: "George Crawford-Smith PFO"
 seriesOrganiser: "Kay Hawke PFO"
+gallery:
+  - src: "/assets/uploads/memorialparkaug251.jpg"
+    alt: ""
+  - src: "/assets/uploads/memorialparkaug252.jpg"
+    alt: ""
+  - src: "/assets/uploads/memorialparkaug253.jpg"
+    alt: ""
+  - src: "/assets/uploads/memorialparkaug254.jpg"
+    alt: ""
+  - src: "/assets/uploads/memorialparkaug255.jpg"
+    alt: ""
 ---
 
 <!-- migrated -->
