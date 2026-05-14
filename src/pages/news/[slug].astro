@@ -117,23 +117,26 @@ const articleJsonLd = {
     </div>
   </article>
 
-  <!-- ─────────────────────────── Gallery (optional) — continuous marquee strip -->
+  <!-- ─────────────────────────── Gallery (optional) — paginated carousel -->
   {item.data.gallery && item.data.gallery.length > 0 && (
     <section class="article-gallery">
       <div class="article-gallery-wrap">
         <h2>More photos</h2>
       </div>
-      <div class="gallery-strip" aria-label="Photo gallery">
-        <ul class="gallery-track" style={`--track-duration: ${Math.max(20, item.data.gallery.length * 5)}s`}>
-          {/* Render twice so the animation loops seamlessly */}
-          {[...item.data.gallery, ...item.data.gallery].map((image, i) => (
-            <li>
-              <a href={image.src} class="gallery-lightbox-link" data-caption={image.caption ?? ""} aria-hidden={i >= item.data.gallery.length ? "true" : undefined} tabindex={i >= item.data.gallery.length ? -1 : undefined}>
-                <img src={image.src} alt={image.alt ?? ""} loading="lazy">
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div class="gallery-carousel" data-count={item.data.gallery.length}>
+        <button type="button" class="gallery-nav gallery-nav-prev" aria-label="Previous photos">‹</button>
+        <div class="gallery-viewport">
+          <ul class="gallery-track">
+            {item.data.gallery.map(image => (
+              <li class="gallery-slide">
+                <a href={image.src} class="gallery-lightbox-link" data-caption={image.caption ?? ""}>
+                  <img src={image.src} alt={image.alt ?? ""} loading="lazy">
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <button type="button" class="gallery-nav gallery-nav-next" aria-label="Next photos">›</button>
       </div>
     </section>
   )}
@@ -178,11 +181,42 @@ const articleJsonLd = {
   // open a full-screen overlay, navigate with arrow keys or the on-screen
   // buttons, close with Escape or the × button.
   (function () {
-    // Skip the duplicated entries we render for the marquee loop.
-    const links = Array.from(document.querySelectorAll('.gallery-lightbox-link'))
-      .filter(a => a.getAttribute('aria-hidden') !== 'true');
-    const allLinks = Array.from(document.querySelectorAll('.gallery-lightbox-link'));
+    const links = Array.from(document.querySelectorAll('.gallery-lightbox-link'));
+    const allLinks = links;
     if (links.length === 0) return;
+
+    // Carousel: prev/next step through slides, wrapping at either end.
+    const carousel = document.querySelector('.gallery-carousel');
+    if (carousel) {
+      const track = carousel.querySelector('.gallery-track');
+      const slides = track.querySelectorAll('.gallery-slide');
+      const total = slides.length;
+      const prevBtn = carousel.querySelector('.gallery-nav-prev');
+      const nextBtn = carousel.querySelector('.gallery-nav-next');
+      let pos = 0;
+
+      function update() {
+        if (!slides[0]) return;
+        const slot = slides[0].getBoundingClientRect().width + 16; // 16 = gap
+        track.style.transform = `translateX(${-pos * slot}px)`;
+      }
+      function step(dir) {
+        pos = (pos + dir + total) % total;
+        update();
+      }
+      if (prevBtn) prevBtn.addEventListener('click', () => step(-1));
+      if (nextBtn) nextBtn.addEventListener('click', () => step(1));
+      // Recompute on resize (mobile/desktop transition changes slot width)
+      window.addEventListener('resize', update);
+
+      // Swipe support on touch devices
+      let touchStart = 0;
+      track.addEventListener('touchstart', (e) => { touchStart = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - touchStart;
+        if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+      });
+    }
     const lb = document.getElementById('gallery-lightbox');
     if (!lb) return;
     const img = lb.querySelector('.gallery-lightbox-img');
@@ -385,15 +419,16 @@ const articleJsonLd = {
     font-variation-settings: "opsz" 36, "SOFT" 20;
     margin: 0 0 24px 0;
   }
-  /* ── Continuous-scroll gallery strip
-     Renders the photo list twice, animates -50% so the loop is seamless.
-     Pauses on hover/focus so the visitor can click an image to enlarge. */
-  .gallery-strip {
+  /* ── Paginated carousel: shows 3 photos on desktop, 1 on mobile, with
+     prev/next buttons. Wraps at either end. */
+  .gallery-carousel {
     position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+  .gallery-viewport {
     overflow: hidden;
-    /* Soft fade at left/right edges */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   }
   .gallery-track {
     list-style: none;
@@ -401,72 +436,63 @@ const articleJsonLd = {
     margin: 0;
     display: flex;
     gap: 16px;
-    width: max-content;
-    animation: gallery-scroll var(--track-duration, 40s) linear infinite;
+    transition: transform .4s cubic-bezier(.2,.6,.2,1);
   }
-  .gallery-strip:hover .gallery-track,
-  .gallery-strip:focus-within .gallery-track {
-    animation-play-state: paused;
+  .gallery-slide {
+    flex: 0 0 calc((100% - 32px) / 3); /* 3 visible with 2 gaps */
+    min-width: 0;
   }
-  .gallery-track > li { flex: 0 0 auto; }
-  .gallery-track img {
-    height: 240px;
-    width: auto;
+  .gallery-slide a {
+    display: block;
+    cursor: zoom-in;
+    overflow: hidden;
+    background: var(--paper-2);
+    aspect-ratio: 4 / 3;
+  }
+  .gallery-slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform .25s ease, filter .25s ease;
   }
-  .gallery-lightbox-link {
-    display: block;
-    cursor: zoom-in;
-    overflow: hidden;
-  }
-  .gallery-lightbox-link:hover img,
-  .gallery-lightbox-link:focus-visible img {
+  .gallery-slide a:hover img,
+  .gallery-slide a:focus-visible img {
     transform: scale(1.04);
     filter: brightness(1.05);
   }
-  @keyframes gallery-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+
+  /* Prev / Next nav buttons — visible on all devices */
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(27, 59, 98, 0.9);
+    color: var(--paper);
+    border: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    transition: background .15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  /* Respect users who've asked for less motion */
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-track { animation: none; }
-    .gallery-strip {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-    }
-    .gallery-track > li { scroll-snap-align: start; }
-  }
-  /* Touch devices — no hover available, so auto-scroll feels broken.
-     Disable the animation and let the user swipe instead. Snap-to-image
-     so the swipe feels deliberate. */
-  @media (hover: none) and (pointer: coarse) {
-    .gallery-strip {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-      -webkit-mask-image: none;
-              mask-image: none;
-    }
-    .gallery-track {
-      animation: none;
-      gap: 10px;
-      padding: 0 4px;
-    }
-    .gallery-track > li { scroll-snap-align: center; }
-    /* Hide the duplicate set of photos that exists only for the
-       desktop marquee loop; touch users swipe instead. */
-    .gallery-track > li:has(.gallery-lightbox-link[aria-hidden="true"]) { display: none; }
-    .gallery-track img { height: 220px; }
-  }
+  .gallery-nav:hover { background: var(--navy); }
+  .gallery-nav-prev { left: 8px; }
+  .gallery-nav-next { right: 8px; }
+
   @media (max-width: 720px) {
-    .gallery-track img { height: 200px; }
-  }
-  @media (max-width: 480px) {
-    .gallery-track img { height: 180px; }
+    .gallery-carousel { padding: 0 48px; }
+    .gallery-slide { flex: 0 0 100%; } /* 1 photo per page on mobile */
+    .gallery-slide a { aspect-ratio: 16 / 11; }
+    .gallery-nav { width: 38px; height: 38px; font-size: 24px; }
+    .gallery-nav-prev { left: 4px; }
+    .gallery-nav-next { right: 4px; }
   }
 
   /* ─────────────────────────── Lightbox overlay */

@@ -334,16 +334,20 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
         {event.data.gallery && event.data.gallery.length > 0 && (
           <section class="ev-gallery" aria-label="Event photos">
             <h2>Photos from the event</h2>
-            <div class="ev-gallery-strip">
-              <ul class="ev-gallery-track" style={`--track-duration: ${Math.max(20, event.data.gallery.length * 5)}s`}>
-                {[...event.data.gallery, ...event.data.gallery].map((image, i) => (
-                  <li>
-                    <a href={image.src} target="_blank" rel="noopener" aria-hidden={i >= event.data.gallery.length ? "true" : undefined} tabindex={i >= event.data.gallery.length ? -1 : undefined}>
-                      <img src={image.src} alt={image.alt ?? ""} loading="lazy">
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <div class="ev-gallery-carousel" data-count={event.data.gallery.length}>
+              <button type="button" class="ev-gallery-nav ev-gallery-nav-prev" aria-label="Previous photos">‹</button>
+              <div class="ev-gallery-viewport">
+                <ul class="ev-gallery-track">
+                  {event.data.gallery.map(image => (
+                    <li class="ev-gallery-slide">
+                      <a href={image.src} target="_blank" rel="noopener">
+                        <img src={image.src} alt={image.alt ?? ""} loading="lazy">
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button type="button" class="ev-gallery-nav ev-gallery-nav-next" aria-label="Next photos">›</button>
             </div>
           </section>
         )}
@@ -479,6 +483,40 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     });
   </script>
 )}
+
+<script>
+  // Paginated carousel: prev/next step through one photo at a time, wrap at ends
+  (function () {
+    const carousel = document.querySelector('.ev-gallery-carousel');
+    if (!carousel) return;
+    const track = carousel.querySelector('.ev-gallery-track');
+    const slides = track.querySelectorAll('.ev-gallery-slide');
+    const total = slides.length;
+    if (total === 0) return;
+    const prev = carousel.querySelector('.ev-gallery-nav-prev');
+    const next = carousel.querySelector('.ev-gallery-nav-next');
+    let pos = 0;
+    function update() {
+      const slot = slides[0].getBoundingClientRect().width + 14;
+      track.style.transform = `translateX(${-pos * slot}px)`;
+    }
+    function step(dir) {
+      pos = (pos + dir + total) % total;
+      update();
+    }
+    if (prev) prev.addEventListener('click', () => step(-1));
+    if (next) next.addEventListener('click', () => step(1));
+    window.addEventListener('resize', update);
+
+    // Swipe support on touch devices
+    let touchStart = 0;
+    track.addEventListener('touchstart', (e) => { touchStart = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStart;
+      if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    });
+  })();
+</script>
 
 </Layout>
 
@@ -983,80 +1021,73 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     border-left: 4px solid var(--gold);
     padding-left: 12px;
   }
-  /* ── Continuous-scroll gallery strip
-     Photos render twice and animate -50% for a seamless loop.
-     Hover or focus pauses the scroll so visitors can click to enlarge. */
-  .ev-gallery-strip {
+  /* ── Paginated gallery carousel: 3 photos on desktop, 1 on mobile,
+     prev/next buttons step through and wrap around. */
+  .ev-gallery-carousel {
     position: relative;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    padding: 0 56px;
   }
+  .ev-gallery-viewport { overflow: hidden; }
   .ev-gallery-track {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     gap: 14px;
-    width: max-content;
-    animation: ev-gallery-scroll var(--track-duration, 40s) linear infinite;
+    transition: transform .4s cubic-bezier(.2,.6,.2,1);
   }
-  .ev-gallery-strip:hover .ev-gallery-track,
-  .ev-gallery-strip:focus-within .ev-gallery-track {
-    animation-play-state: paused;
+  .ev-gallery-slide {
+    flex: 0 0 calc((100% - 28px) / 3);
+    min-width: 0;
   }
-  .ev-gallery-track > li { flex: 0 0 auto; }
-  .ev-gallery-track a {
+  .ev-gallery-slide a {
     display: block;
     overflow: hidden;
     background: var(--paper-2);
-    line-height: 0;
+    aspect-ratio: 4 / 3;
     transition: transform .2s ease, box-shadow .2s ease;
   }
-  .ev-gallery-track a:hover {
+  .ev-gallery-slide a:hover {
     transform: translateY(-1px);
     box-shadow: 0 14px 32px -16px rgba(27, 59, 98, 0.35);
   }
-  .ev-gallery-track img {
-    height: 220px;
-    width: auto;
+  .ev-gallery-slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
-  @keyframes ev-gallery-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+
+  /* Prev / Next nav buttons — visible on all devices */
+  .ev-gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(27, 59, 98, 0.9);
+    color: var(--paper);
+    border: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    transition: background .15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  @media (prefers-reduced-motion: reduce) {
-    .ev-gallery-track { animation: none; }
-    .ev-gallery-strip {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-    }
-    .ev-gallery-track > li { scroll-snap-align: start; }
-  }
-  /* Touch devices — disable auto-scroll, let users swipe through photos
-     with snap-to-image. */
-  @media (hover: none) and (pointer: coarse) {
-    .ev-gallery-strip {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-      -webkit-mask-image: none;
-              mask-image: none;
-    }
-    .ev-gallery-track {
-      animation: none;
-      gap: 10px;
-      padding: 0 4px;
-    }
-    .ev-gallery-track > li { scroll-snap-align: center; }
-    /* Hide the duplicate set that exists for the desktop loop. */
-    .ev-gallery-track > li:has(a[aria-hidden="true"]) { display: none; }
-    .ev-gallery-track img { height: 200px; }
-  }
-  @media (max-width: 520px) {
-    .ev-gallery-track img { height: 170px; }
+  .ev-gallery-nav:hover { background: var(--navy); }
+  .ev-gallery-nav-prev { left: 4px; }
+  .ev-gallery-nav-next { right: 4px; }
+
+  @media (max-width: 720px) {
+    .ev-gallery-carousel { padding: 0 44px; }
+    .ev-gallery-slide { flex: 0 0 100%; }
+    .ev-gallery-slide a { aspect-ratio: 16 / 11; }
+    .ev-gallery-nav { width: 36px; height: 36px; font-size: 22px; }
+    .ev-gallery-nav-prev { left: 2px; }
+    .ev-gallery-nav-next { right: 2px; }
   }
 </style>
