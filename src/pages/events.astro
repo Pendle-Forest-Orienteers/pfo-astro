@@ -7,7 +7,13 @@ import { resolveCoords } from '../lib/coords';
 import { neighbouringClubs } from '../data/neighbouring-clubs';
 
 // ─────── Data: split events into upcoming and past
-const now = new Date();
+// Events stay under "Upcoming" until the day AFTER the event date — so a
+// 16 May event still shows as upcoming on 16 May and only moves to results
+// on 17 May. This is independent of entryCloseDate (which only governs
+// whether the Enter CTA is shown on the detail page).
+const startOfToday = new Date();
+startOfToday.setHours(0, 0, 0, 0);
+const now = new Date(); // still used by EventCalendar etc.
 const allEvents = await getCollection('events');
 
 // Neighbouring-club events are fetched client-side at request time
@@ -17,11 +23,11 @@ const allEvents = await getCollection('events');
 // populated table on success.
 
 const upcoming = allEvents
-  .filter(e => e.data.entryCloseDate >= now && !e.data.cancelled && !e.data.hidden)
+  .filter(e => e.data.date >= startOfToday && !e.data.cancelled && !e.data.hidden)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 
 const past = allEvents
-  .filter(e => e.data.entryCloseDate < now && !e.data.hidden)
+  .filter(e => e.data.date < startOfToday && !e.data.hidden)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Group past events by year

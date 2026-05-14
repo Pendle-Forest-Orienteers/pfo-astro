@@ -20,7 +20,14 @@ const { event } = Astro.props;
 const { Content } = await render(event);
 
 const now = new Date();
-const isUpcoming = event.data.entryCloseDate >= now;
+const startOfToday = new Date();
+startOfToday.setHours(0, 0, 0, 0);
+// "Open for entry" — controls whether the Enter CTAs are shown.
+const isOpenForEntry = event.data.entryCloseDate >= now;
+// "Upcoming" — controls whether the event is in the future overall.
+// An event that's closed for entry but still hasn't happened yet is
+// still considered upcoming. Flips on the day after the event date.
+const isUpcoming = event.data.date >= startOfToday;
 const hasResults = event.data.results && event.data.results.length > 0;
 
 // ─────── Date formatters
@@ -248,7 +255,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
         </div>
 
         <aside class="ev-hero-right">
-          {isUpcoming && event.data.siEntriesUrl && !event.data.cancelled && (
+          {isOpenForEntry && event.data.siEntriesUrl && !event.data.cancelled && (
             <div class="cta-card primary">
               <p class="cta-label">Online entry</p>
               <p class="cta-detail">Open until {fmtFullDate(event.data.entryCloseDate)}</p>
@@ -258,10 +265,17 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
             </div>
           )}
 
-          {isUpcoming && !event.data.siEntriesUrl && !event.data.cancelled && (
+          {isOpenForEntry && !event.data.siEntriesUrl && !event.data.cancelled && (
             <div class="cta-card neutral">
               <p class="cta-label">Online entry</p>
               <p class="cta-detail">Entry details to follow</p>
+            </div>
+          )}
+
+          {!isOpenForEntry && isUpcoming && !event.data.cancelled && (
+            <div class="cta-card neutral">
+              <p class="cta-label">Online entry</p>
+              <p class="cta-detail">Entries closed</p>
             </div>
           )}
 
