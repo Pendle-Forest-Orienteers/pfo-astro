@@ -8,6 +8,6 @@ draft: true   # review and remove this line to publish
 
 PFO complete a Risk assessment form before all of their events.
 
-    You can find our guidelines for dealing with an incident/accident and accident report forms here. You can also find a generic Junior Medical Form here. This may be needed for club training, trips to events etc.
+You can find our guidelines for dealing with an incident/accident and accident report forms here. You can also find a generic Junior Medical Form here. This may be needed for club training, trips to events etc.
 
-	There is also a document outlining the funding that PFO will provide for members of the NWJS and what juniors have to do to earn and claim the funding.
+There is also a document outlining the funding that PFO will provide for members of the NWJS and what juniors have to do to earn and claim the funding.

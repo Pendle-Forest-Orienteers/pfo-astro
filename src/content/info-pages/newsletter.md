@@ -8,7 +8,7 @@ draft: true   # review and remove this line to publish
 
 Copies of PFO's newsletter can be found below.
 
-    [October 2023](/documents/PFO-AUTUMN-23-NEWSLETTER.pdf)
+[October 2023](/documents/PFO-AUTUMN-23-NEWSLETTER.pdf)
 
 [November 2022](/documents/Newsletters/PFO-NEWSLETTER-WINTER-22-compressed.pdf)
 

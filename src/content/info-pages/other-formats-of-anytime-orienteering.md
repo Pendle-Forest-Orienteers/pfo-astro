@@ -8,7 +8,7 @@ draft: true   # review and remove this line to publish
 
 In addition to the MaprunF and Permanent Orienteering courses, there are also a small number of courses available to run anytime.
 
-    **Simple paper based courses**.
+**Simple paper based courses**.
 
 - I**t is important that when running any of these courses you stick to Public Rights of Way and ensure gates are closed after you go through.**- **There is no requirement to climb walls or fences when taking part.**
 1. [Bathtime!](/documents/virtual-maps/Bathtime-v2a.pdf) Short OS map based course to north of Marl Pits. 18th May -The feature at CTRL 6 has been removed, but the location should be obvious.
