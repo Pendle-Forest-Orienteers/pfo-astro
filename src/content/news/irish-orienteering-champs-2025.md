@@ -1,27 +1,29 @@
 ---
-title: "PFO at the Irish Orienteering Champs"
+title: PFO at the Irish Orienteering Champs
 date: 2025-05-04
-summary: "Six PFO members and Richard travelled to Northern Ireland for the Irish Orienteering Championships. Category wins for Emma (W35) and Kay (W40), plus silver for Judith (W60) at the Irish Sprint Champs."
-heroImage: "/assets/uploads/LadiesIrishOrienteers1.jpg"
+summary: Six PFO members and Richard travelled to Northern Ireland for the Irish
+  Orienteering Championships. Category wins for Emma (W35) and Kay (W40), plus
+  silver for Judith (W60) at the Irish Sprint Champs.
+heroImage: /assets/uploads/LadiesIrishOrienteers111.jpg
 heroImageAlt: ""
 gallery:
-  - src: "/assets/uploads/LadiesIrishOrienteers2.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers2.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteer3.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteer3.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers4.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers4.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers5.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers5.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers6.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers6.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers110.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers110.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers1102.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers1.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers111.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers111.jpg
     alt: ""
-  - src: "/assets/uploads/LadiesIrishOrienteers112.jpg"
+  - src: /assets/uploads/LadiesIrishOrienteers112.jpg
     alt: ""
 draft: false
 ---
