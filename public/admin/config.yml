@@ -260,14 +260,10 @@ collections:
             required: false
       - name: "gallery"
         label: "Photo gallery (after the event)"
-        widget: "list"
+        widget: "image"
+        multiple: true
         required: false
-        summary: "{{fields.alt}}"
-        hint: "Photos taken at the event. Appears as a responsive grid at the bottom of the event page. Add as many as you like — phones tend to make 6–12 a comfortable batch."
-        fields:
-          - { name: "src",     label: "Photo",       widget: "image" }
-          - { name: "alt",     label: "Alt text",    widget: "string", required: false, hint: "Optional. Short description for screen readers, e.g. 'Runners at the start of the long course'." }
-          - { name: "caption", label: "Caption",     widget: "string", required: false, hint: "Optional caption shown under the photo." }
+        hint: "Photos taken at the event. Click 'Choose images', then hold Cmd (Mac) or Ctrl (Windows) to select multiple at once. Appears as a carousel at the bottom of the event page."
 
   # ─── NEWS ────────────────────────────────────────────────────────────────
   - name: "news"
@@ -289,13 +285,10 @@ collections:
       - { name: "author", label: "Author", widget: "string", required: false }
       - name: "gallery"
         label: "Photo gallery"
-        widget: "list"
+        widget: "image"
+        multiple: true
         required: false
-        summary: "{{fields.alt}}"
-        fields:
-          - { name: "src", label: "Image", widget: "image" }
-          - { name: "alt", label: "Alt text", widget: "string", required: false, hint: "Optional. Short description for screen readers." }
-          - { name: "caption", label: "Caption", widget: "string", required: false }
+        hint: "Click 'Choose images', then hold Cmd (Mac) or Ctrl (Windows) to select multiple at once."
       - name: "attachments"
         label: "File attachments"
         widget: "list"

@@ -30,6 +30,12 @@ const isOpenForEntry = event.data.entryCloseDate >= now;
 const isUpcoming = event.data.date >= startOfToday;
 const hasResults = event.data.results && event.data.results.length > 0;
 
+// Normalise gallery: entries may be plain strings (CMS bulk-upload) or
+// objects { src, alt?, caption? } from older entries.
+const gallery = (event.data.gallery ?? []).map(g =>
+  typeof g === 'string' ? { src: g, alt: '', caption: '' } : g
+);
+
 // ─────── Date formatters
 const fmtFullDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
@@ -331,14 +337,14 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
         {event.data.attachments && event.data.attachments.length > 0 && (
           <Attachments attachments={event.data.attachments} />
         )}
-        {event.data.gallery && event.data.gallery.length > 0 && (
+        {gallery.length > 0 && (
           <section class="ev-gallery" aria-label="Event photos">
             <h2>Photos from the event</h2>
-            <div class="ev-gallery-carousel" data-count={event.data.gallery.length}>
+            <div class="ev-gallery-carousel" data-count={gallery.length}>
               <button type="button" class="ev-gallery-nav ev-gallery-nav-prev" aria-label="Previous photos">‹</button>
               <div class="ev-gallery-viewport">
                 <ul class="ev-gallery-track">
-                  {event.data.gallery.map(image => (
+                  {gallery.map(image => (
                     <li class="ev-gallery-slide">
                       <a href={image.src} class="ev-gallery-link" data-caption={image.caption ?? ""}>
                         <img src={image.src} alt={image.alt ?? ""} loading="lazy">
@@ -451,7 +457,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   </section>
 
   <!-- ─────────────────────────── Lightbox overlay (for gallery photos) -->
-  {event.data.gallery && event.data.gallery.length > 0 && (
+  {gallery.length > 0 && (
     <div id="ev-gallery-lightbox" class="ev-gallery-lightbox" hidden>
       <button type="button" class="ev-gallery-lightbox-close" aria-label="Close">×</button>
       <button type="button" class="ev-gallery-lightbox-prev" aria-label="Previous">‹</button>

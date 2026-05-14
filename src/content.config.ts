@@ -105,11 +105,20 @@ const events = defineCollection({
     // Optional set of post-event photos with alt text and an optional
     // caption. Rendered below the body as a responsive grid. Same shape
     // as the news-article gallery for consistency.
-    gallery: z.array(z.object({
-      src: z.string(),
-      alt: z.string().optional(),
-      caption: z.string().optional(),
-    })).optional(),
+    // Accepts either an array of plain photo URLs (when bulk-uploaded via
+     //  the CMS image widget with multiple: true) OR the older richer
+     //  format { src, alt, caption } for galleries created previously.
+     //  Render code normalises both into { src, alt, caption } shape. */
+    gallery: z.array(
+      z.union([
+        z.string(),
+        z.object({
+          src: z.string(),
+          alt: z.string().optional(),
+          caption: z.string().optional(),
+        }),
+      ])
+    ).optional(),
 
     // ─────── Misc
     cancelled: z.boolean().optional(),
@@ -134,11 +143,20 @@ const news = defineCollection({
     heroImage: z.string().optional(),
     heroImageAlt: z.string().optional(),
     author: z.string().optional(),
-    gallery: z.array(z.object({
-      src: z.string(),
-      alt: z.string().optional(),
-      caption: z.string().optional(),
-    })).optional(),
+    // Accepts either an array of plain photo URLs (when bulk-uploaded via
+     //  the CMS image widget with multiple: true) OR the older richer
+     //  format { src, alt, caption } for galleries created previously.
+     //  Render code normalises both into { src, alt, caption } shape. */
+    gallery: z.array(
+      z.union([
+        z.string(),
+        z.object({
+          src: z.string(),
+          alt: z.string().optional(),
+          caption: z.string().optional(),
+        }),
+      ])
+    ).optional(),
     attachments: z.array(z.object({
       label: z.string(),
       file: z.string(),
