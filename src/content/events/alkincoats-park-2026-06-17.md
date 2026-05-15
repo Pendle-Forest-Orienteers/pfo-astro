@@ -7,9 +7,14 @@ postcode: ""
 coordsGeoJson: '{"type":"Point","coordinates":[-2.1850477,53.8603703]}'
 format: Standard
 level: local
+duration: 45
+series: SnookO
 bofEventNumber: 87934
 dogsAllowed: no
+planner: Ginny Anderson
 summary: Local · Alkincoats Park
+heroImage: /assets/uploads/snooker-table-1.jpeg
+heroImageAlt: Orienteering event using snooker rules
 coords:
   lat: 53.8632
   lng: -2.18063
