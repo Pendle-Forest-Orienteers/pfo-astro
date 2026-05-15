@@ -3,61 +3,91 @@
   "members": [
     {
       "name": "Hannah Dabinett",
-      "roles": ["Chair", "Equipment Officer"],
+      "roles": [
+        "Chair",
+        "Equipment Officer"
+      ],
       "photo": "/images/_thumb/HD-PFO.jpg",
       "email": "chair@pfo.org.uk"
     },
     {
       "name": "Helen Ellis",
-      "roles": ["Treasurer"],
+      "roles": [
+        "Treasurer"
+      ],
       "photo": "/images/contacts/_thumb/Helen_Ellis.jpg",
       "email": "treasurer@pfo.org.uk"
     },
     {
       "name": "Andy Ellis",
-      "roles": ["Secretary", "Event Results", "MapRun admin", "Website", "SI Coordinator"],
+      "roles": [
+        "Secretary",
+        "Event Results",
+        "MapRun admin",
+        "Website",
+        "SI Coordinator"
+      ],
       "photo": "/images/contacts/_thumb/Andy-Halifax-urban-3-2.png",
       "email": "andy.ellis449@btinternet.com"
     },
     {
       "name": "Cath Wilson",
-      "roles": ["Lead Coach", "CompassSport coordinator"],
+      "roles": [
+        "Lead Coach",
+        "CompassSport coordinator"
+      ],
       "photo": "",
       "email": "coach@pfo.org.uk"
     },
     {
       "name": "Judith Wood",
-      "roles": ["Club Event Controller", "Permissions Officer"],
+      "roles": [
+        "Club Event Controller",
+        "Permissions Officer"
+      ],
       "photo": "/images/contacts/_thumb/Judith_Wood.jpg",
       "email": "controller@pfo.org.uk"
     },
     {
       "name": "Kay Hawke",
-      "roles": ["Events Secretary", "Welfare Officer", "Publicity", "Social Secretary"],
+      "roles": [
+        "Events Secretary",
+        "Welfare Officer",
+        "Publicity",
+        "Social Secretary"
+      ],
       "photo": "/images/contacts/_thumb/Kay-Hawke.jpg",
       "email": "kay.hawke@yahoo.co.uk"
     },
     {
       "name": "Emma Taylor",
-      "roles": ["Membership Secretary"],
+      "roles": [
+        "Membership Secretary"
+      ],
       "photo": "/images/contacts/_thumb/Emma_Taylor.jpg",
       "email": "membership@pfo.org.uk"
     },
     {
       "name": "Colin Woolford",
-      "roles": ["Mapping Co-ordinator"],
+      "roles": [
+        "Mapping Co-ordinator"
+      ],
       "photo": "",
       "email": "mapping@pfo.org.uk"
     },
     {
       "name": "Helen Smethurst",
-      "roles": ["Equipment Officer"],
-      "photo": "",
+      "roles": [
+        "Equipment Officer"
+      ],
+      "photo": "/assets/uploads/BlackburnstreeOSep251.jpg",
       "email": "equipment@pfo.org.uk"
     },
     {
       "name": "Daniel Allen",
-      "roles": ["Permissions Officer"],
+      "roles": [
+        "Permissions Officer"
+      ],
       "photo": "/images/contacts/_thumb/Danny_Allen2.jpg",
       "email": "permissions@pfo.org.uk"
     }
