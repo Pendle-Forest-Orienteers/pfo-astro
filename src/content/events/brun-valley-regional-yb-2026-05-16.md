@@ -18,6 +18,13 @@ siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17787
 summary: Regional & YB · Burnley
 description: PFO's headline event of the year — a Regional and Yvette Baker
   Trophy round at Brun Valley Forest Park.
+results:
+  - label: Results and Splits
+    url: public/assets/uploads/brun-valley-index.html
+    type: html
+  - label: YBT Results
+    url: public/assets/uploads/brunnvalley-index_clubresults.html
+    type: html
 coords:
   lat: 53.7975
   lng: -2.22707
