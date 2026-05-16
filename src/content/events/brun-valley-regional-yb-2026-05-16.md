@@ -1,10 +1,9 @@
 ---
 title: Brun Valley
 date: 2026-05-16
-startTime: 11:30am
 entryCloseDate: 2026-05-13T23:59:00
 location: Burnley, Lancs
-postcode: "BB10 3LB"
+postcode: "BB10 3LB "
 coordsPaste: 53.79750,-2.22707
 what3words: rarely.dozed.soaks
 format: Regional & YB
@@ -14,10 +13,18 @@ dogsAllowed: no
 planner: Emma Taylor (PFO)
 controller: George Crawford-Smith (PFO)
 seriesOrganiser: "Hannah Dabinett (PFO) YB Organiser: Andy Ellis (PFO)"
+entryFee: from £4
 siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17787
 summary: Regional & YB · Burnley
 description: PFO's headline event of the year — a Regional and Yvette Baker
   Trophy round at Brun Valley Forest Park.
+results:
+  - label: Results and Splits
+    url: public/assets/uploads/brun-valley-index.html
+    type: html
+  - label: YBT Results
+    url: public/assets/uploads/brunnvalley-index_clubresults.html
+    type: html
 coords:
   lat: 53.7975
   lng: -2.22707
@@ -27,31 +34,31 @@ coords:
 
 ## Map and terrain
 
-**Map / Courses:** All maps will be A3 at a scale of **1:7500**. The competition courses, control descriptions and map legend will all be printed on one side, except Green and Blue, which have double-sided maps with a map-flip control. Loose descriptions will be available in the Start lanes.
+All maps 1:7500
 
 Brun Valley Forest & Parks area is made up of two parks, an old colliery site and the Brun Valley Forest. Shorter courses will stay within the parks, whilst longer courses will visit all areas, including the more technical parts of the forest. The area has an interesting mix of old quarry details and contours.
 
-**Undergrowth / clothing:** This is a mid-May event. Springtime undergrowth will be growing fast. For your own enjoyment please wear full leg cover and not shorts.
-
 ## Course information
 
-Course information is **provisional** subject to final approval.
+Further details will be added as and when they are confirmed.
 
 **Courses:**
 
-| **Course** | **Length** | **Climb** | **Controls** | **Notes** |
+| **Course** | **Length** | **Climb** | **Controls:** | **Notes**
 | --- | --- | --- | --- | --- |
 | **Blue** | 6.4k | 130m | 27 | TD5, A3 map, double sided with map flip |
-| **Green** | 4.3k | 80m | 21 | TD5, A3 map, double sided with map flip |
+| **Green** | 4.3k | 80m | 21 | TD5, A3 map, double sided with map flip  |
 | **Short Green** | 3.3k | 65m | 15 | TD5, A3 map |
 | **Light Green** | 3.4k | 65m | 16 | TD4, A3 map |
 | **Red** | 6.0k | 90m | 22 | TD3, A3 map |
 | **Orange** | 2.7k | 45m | 14 | TD3, A3 map |
-| **Yellow** | 2.3k | 40m | 13 | TD2, A3 map |
+| **Yellow** | 2.3k | 40 | 13 | TD2, A3 map |
+
+* courses included in the Yvette Baker competition
 
 **Start:** 1km from Event Centre
 
-**Finish:** 200m from Event Centre
+**Finish:** 50m from Event Centre
 
 ## Registration and start times
 
@@ -69,13 +76,13 @@ If you are unfamiliar with Burnley, the best approach is to find Burnley Turf Mo
 
 W3W: ///**rarely.dozed.soaks**
 
-Nearest postcode **BB10 2AN**.
+Nearest postcode** BB10 2AN
+****
+**
 
 ## Entry details
 
-Rules for the Yvette Baker competition can be found [here](/documents/Competition-Rule-L-Yvette-Baker-Trophy-v2-11-Effective-from-January-2026.pdf).
-
-**Yvette Baker Heat — Yvette Baker Trophy entries should be made via club captains using a spreadsheet. Payment for YBT entries will be made by BACS. Club captains should email the Organiser via the [Contacts page](/contacts) to request the entry form and confirm their attendance at this heat.**
+**Yvette Baker Heat - Yvette Baker Trophy entries should be made via club captains using a spreadsheet. Payment for YBT entries will be made by BACS. Club captains should email the  to request the entry form and confirm their attendance at this heat.**
 
 **All YBT entries must be submitted before noon on Friday 15th May**
 
@@ -87,7 +94,7 @@ Standard pricing will apply up to midnight Wednesday 13th May. Entry will remain
 
 |  | Senior (26+) | Young Adult (21-25) | Junior (U21) |
 | --- | --- | --- | --- |
-| Up to 13/05/2026 | £9.00 | £6.50 | £4.00 |
+| Up to 13/05/2023 | £9.00 | £6.50 | £4.00 |
 | From 14/05/2026 | £11.00 | £7.50 | £5.00 |
 
 **Entry fees for non-members:**
