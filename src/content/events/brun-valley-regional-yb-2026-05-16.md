@@ -15,6 +15,7 @@ controller: George Crawford-Smith (PFO)
 seriesOrganiser: "Hannah Dabinett (PFO) YB Organiser: Andy Ellis (PFO)"
 entryFee: from £4
 siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17787
+routeGadgetUrl: https://www.pfo.routegadget.co.uk/rg2/#234
 summary: Regional & YB · Burnley
 description: PFO's headline event of the year — a Regional and Yvette Baker
   Trophy round at Brun Valley Forest Park.
