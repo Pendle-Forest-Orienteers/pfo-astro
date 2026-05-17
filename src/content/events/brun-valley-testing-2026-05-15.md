@@ -26,11 +26,11 @@ results:
   - label: YBT Results
     url: /results-archive/2026/brun-valley-testing/index_clubresults.html
     type: html
-    hidden: false
+    hidden: true
   - label: Route Gadget for Brun Valley YBT Heat
     url: https://www.pfo.routegadget.co.uk/rg2/#234
     type: html
-    hidden: true
+    hidden: false
   - label: YBT trophy qualifiers
     url: /results-archive/2026/brun-valley-testing/index_clubresults_yvette_baker_trophy_qualifier_teams.html
     type: html
