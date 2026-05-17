@@ -30,6 +30,18 @@ const isOpenForEntry = event.data.entryCloseDate >= now;
 const isUpcoming = event.data.date >= startOfToday;
 const hasResults = event.data.results && event.data.results.length > 0;
 
+// Decap CMS sometimes saves image paths with a "public/" prefix (the
+// repo path) instead of the public URL ("/assets/uploads/..."). This
+// helper strips that prefix and guarantees a leading slash so the
+// browser can resolve the URL correctly.
+function normaliseImagePath(p) {
+  if (!p) return p;
+  let out = p.replace(/^public\//, '/');
+  if (!out.startsWith('/') && !out.startsWith('http')) out = '/' + out;
+  return out;
+}
+const heroImageSrc = normaliseImagePath(event.data.heroImage);
+
 // ─────── Date formatters
 const fmtFullDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
@@ -170,7 +182,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   <!-- ─────────────────────────── Optional hero photo banner -->
   {event.data.heroImage && (
     <div class="ev-hero-photo">
-      <img src={event.data.heroImage.replace(/^public\//, '/').replace(/^([^/])/, '/$1')} alt={event.data.heroImageAlt ?? ""} loading="eager">
+      <img src={heroImageSrc} alt={event.data.heroImageAlt ?? ""} loading="eager">
     </div>
   )}
 
