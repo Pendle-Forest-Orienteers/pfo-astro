@@ -1,5 +1,5 @@
 ---
-title: Brun Valley
+title: Brun Valley Testing
 date: 2026-05-16
 entryCloseDate: 2026-05-13T23:59:00
 location: Burnley, Lancs
@@ -21,10 +21,16 @@ description: PFO's headline event of the year — a Regional and Yvette Baker
   Trophy round at Brun Valley Forest Park.
 results:
   - label: Results and Splits
-    url: public/assets/uploads/brun-valley-index.html
+    url: /results-archive/2026/brun-valley/brunindex.html
     type: html
   - label: YBT Results
     url: public/assets/uploads/brunnvalley-index_clubresults.html
+    type: html
+  - label: YBT Trophy — qualifier teams
+    url: /results-archive/2026/brun-valley/index_clubresults_yvette_baker_trophy_qualifier_teams.html
+    type: html
+  - label: YBT Shield — qualifier teams
+    url: /results-archive/2026/brun-valley/index_clubresults_yvette_baker_shield_qualifier_teams.html
     type: html
 coords:
   lat: 53.7975
