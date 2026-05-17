@@ -224,7 +224,7 @@ collections:
         summary: "{{fields.label}} ({{fields.type}})"
         fields:
           - { name: "label", label: "File label", widget: "string", hint: "e.g. 'Full results', 'Splits', 'RouteGadget'" }
-          - { name: "url", label: "File URL", widget: "string", hint: "Upload via Media Library, then paste the URL — or paste an external URL" }
+          - { name: "url", label: "Results file or URL", widget: "file", choose_url: true, hint: "Click to pick a file from the Media Library, or click 'Insert from URL' to paste an external link (e.g. RouteGadget)." }
           - name: "type"
             label: "File type"
             widget: "select"
