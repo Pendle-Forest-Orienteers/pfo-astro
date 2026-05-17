@@ -196,8 +196,9 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
           <h2 class="year-heading">{year}</h2>
           <ul class="event-list">
             {pastByYear[year].map(event => {
-              const firstResult = event.data.results?.[0];
-              const hasResults = !!firstResult;
+              // Filter out any results entries marked hidden in the CMS
+              const visibleResults = (event.data.results ?? []).filter(r => !r.hidden);
+              const hasResults = visibleResults.length > 0;
               return (
                 <li class="past-row-li">
                   <div class="past-row-main">
@@ -224,7 +225,7 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
                          aria-controls={`results-${event.id}`}
                          aria-label={`${event.data.title}, show all results files`}>
                         <span class="results-quick-tag">Results</span>
-                        <span class="results-quick-count">{event.data.results.length}</span>
+                        <span class="results-quick-count">{visibleResults.length}</span>
                         <span class="results-quick-arrow" aria-hidden="true">▾</span>
                       </a>
                     ) : (
@@ -235,7 +236,7 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
                   </div>
                   {hasResults && (
                     <ul class="past-row-files" id={`results-${event.id}`} hidden>
-                      {event.data.results.map(file => (
+                      {visibleResults.map(file => (
                         <li>
                           <a href={file.url}
                              rel="noopener"
