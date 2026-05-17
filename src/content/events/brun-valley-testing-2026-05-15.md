@@ -30,14 +30,15 @@ results:
   - label: Route Gadget for Brun Valley YBT Heat
     url: https://www.pfo.routegadget.co.uk/rg2/#234
     type: html
+    hidden: true
   - label: YBT trophy qualifiers
     url: /results-archive/2026/brun-valley-testing/index_clubresults_yvette_baker_trophy_qualifier_teams.html
     type: html
-    hidden: false
+    hidden: true
   - url: /results-archive/2026/brun-valley-testing/index_clubresults_yvette_baker_shield_qualifier_teams.html
     label: "YBT Shield qualifiers "
     type: html
-    hidden: false
+    hidden: true
 coords:
   lat: 53.7975
   lng: -2.22707
