@@ -21,7 +21,7 @@ description: PFO's headline event of the year — a Regional and Yvette Baker
   Trophy round at Brun Valley Forest Park.
 results:
   - label: Results and Splits
-    url: /results-archive/2026/brun-valley-testing/brunindex.html
+    url: /results-archive/2026/brun-valley-testing/index.html
     type: html
   - label: YBT Results
     url: /results-archive/2026/brun-valley-testing/index_clubresults.html
