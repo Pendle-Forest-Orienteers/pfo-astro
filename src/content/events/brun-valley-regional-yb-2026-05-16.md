@@ -1,5 +1,5 @@
 ---
-title: Brun Valley
+title: Brun Valley Testing
 date: 2026-05-16
 entryCloseDate: 2026-05-13T23:59:00
 location: Burnley, Lancs
