@@ -1,7 +1,7 @@
 ---
 title: Barrowford
 date: 2026-06-03
-startTime: 7:00pm
+startTime: 18:30
 entryCloseDate: 2026-06-03T12:00:00
 location: Victoria Park, Barrowford
 postcode: BB9 7SS
