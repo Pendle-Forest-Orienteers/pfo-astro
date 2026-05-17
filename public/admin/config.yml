@@ -144,6 +144,14 @@ collections:
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     summary: "{{title}} — {{year}}-{{month}}-{{day}}"
     sort: "date:desc"
+    # Per-event upload folder. Files uploaded while editing an event land
+    # in /public/results-archive/{year}/{slug}/ where {slug} is the event's
+    # full slug e.g. "brun-valley-2026-05-15". Filenames can stay as their
+    # SI Timing defaults (index.html, index_clubresults.html, etc) because
+    # they're in a unique folder. Relative links inside the HTML files keep
+    # working because both files share the same folder.
+    media_folder: "../../../public/results-archive/{{year}}/{{slug}}"
+    public_folder: "/results-archive/{{year}}/{{slug}}"
     fields:
       - { name: "title", label: "Event title", widget: "string", hint: "e.g. 'Ightenhill South Urban' — short, no format suffix" }
       - { name: "date", label: "Event date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
