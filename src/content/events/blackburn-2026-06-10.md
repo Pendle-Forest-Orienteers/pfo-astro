@@ -1,7 +1,7 @@
 ---
 title: Blackburn
 date: 2026-06-10
-startTime: 7:00pm
+startTime: 18:30pm
 entryCloseDate: 2026-06-10T12:00:00
 location: Blackburn
 coordsPaste: 53.75435, -2.49521
