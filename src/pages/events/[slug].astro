@@ -170,7 +170,7 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   <!-- ─────────────────────────── Optional hero photo banner -->
   {event.data.heroImage && (
     <div class="ev-hero-photo">
-      <img src={event.data.heroImage} alt={event.data.heroImageAlt ?? ""} loading="eager">
+      <img src={event.data.heroImage.replace(/^public\//, '/').replace(/^([^/])/, '/$1')} alt={event.data.heroImageAlt ?? ""} loading="eager">
     </div>
   )}
 
