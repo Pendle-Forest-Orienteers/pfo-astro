@@ -1,6 +1,7 @@
 ---
 title: Alkincoats Park
 date: 2026-06-17
+startTime: 18:30
 entryCloseDate: 2026-06-17T12:00:00
 location: Alkincoats Park
 postcode: ""
