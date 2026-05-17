@@ -233,6 +233,7 @@ collections:
         fields:
           - { name: "label", label: "File label", widget: "string", hint: "e.g. 'Full results', 'Splits', 'RouteGadget'" }
           - { name: "url", label: "Results file or URL", widget: "file", choose_url: true, hint: "Click to pick a file from the Media Library, or click 'Insert from URL' to paste an external link (e.g. RouteGadget)." }
+          - { name: "hidden", label: "Hide this entry from the public site", widget: "boolean", default: false, required: false, hint: "Tick to temporarily hide this single results file (e.g. while corrections are being made). The entry stays in the CMS." }
           - name: "type"
             label: "File type"
             widget: "select"

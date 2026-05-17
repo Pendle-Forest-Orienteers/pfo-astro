@@ -89,6 +89,10 @@ const events = defineCollection({
       label: z.string(),                    // "Full results", "Splits", "RouteGadget"
       url: z.string(),                      // plain string for CMS-friendliness
       type: z.enum(['html', 'pdf', 'xlsx', 'csv']),
+      /** Hide this individual results file from the public event page
+       *  without deleting the entry. Useful for results withdrawn for
+       *  correction. */
+      hidden: z.boolean().optional(),
     })).optional(),
 
     // ─────── Pre-event attachments
