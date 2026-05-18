@@ -32,9 +32,10 @@ const COMMITTEE = Object.fromEntries(
   (committeeData.members || []).map(m => [m.name, m.email])
 );
 
-// Fallback for "General enquiry" or any unmatched recipient — Andy as
-// the website-aware committee member triages anything unrouted.
-const FALLBACK = 'andy.ellis449@btinternet.com';
+// Fallback for "General enquiry" or any unmatched recipient. Uses the
+// info@ alias which fans out to Andy, George, Hannah and Kay so the
+// general enquiry has multiple eyes on it.
+const FALLBACK = 'info@pfo.org.uk';
 
 // FROM address (must be on a domain verified in Resend).
 const FROM_ADDRESS = 'PFO website <noreply@pfo.org.uk>';
