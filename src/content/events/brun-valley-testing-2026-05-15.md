@@ -24,7 +24,7 @@ results:
   - label: Results and Splits
     url: /results-archive/2026/brun-valley-testing/index.html
     type: html
-    hidden: true
+    hidden: false
   - label: YBT Results
     url: /results-archive/2026/brun-valley-testing/index_clubresults.html
     type: html
