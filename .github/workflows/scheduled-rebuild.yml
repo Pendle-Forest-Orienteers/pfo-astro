@@ -1,0 +1,40 @@
+name: Daily scheduled rebuild
+
+# Triggers a Netlify rebuild once a day so events automatically flip
+# from "Upcoming" to "Results" when their start time has passed, even
+# when no committee member has saved anything in the CMS.
+#
+# Setup (one-off):
+#   1. In Netlify, go to Site configuration → Build & deploy →
+#      Build hooks → Add build hook. Call it "Scheduled rebuild".
+#      Copy the URL it generates.
+#   2. In GitHub, go to Settings → Secrets and variables → Actions →
+#      New repository secret. Name: NETLIFY_BUILD_HOOK. Value: the URL.
+#   3. Push this file. The schedule below will fire automatically.
+
+on:
+  # 06:00 UTC daily (07:00 BST in summer, 06:00 GMT in winter).
+  # GitHub Actions cron uses UTC so this is a reasonable compromise —
+  # the rebuild always happens early in the UK morning before visitors
+  # are likely to check the events page.
+  schedule:
+    - cron: "0 6 * * *"
+  # Lets you trigger it manually from the Actions tab too.
+  workflow_dispatch:
+
+jobs:
+  ping-netlify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        run: |
+          if [ -z "${{ secrets.NETLIFY_BUILD_HOOK }}" ]; then
+            echo "::error::NETLIFY_BUILD_HOOK secret is not set. Add it in repo Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          response=$(curl -sS -o /dev/null -w "%{http_code}" -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}")
+          echo "Netlify build hook returned HTTP $response"
+          if [ "$response" -ge 400 ]; then
+            echo "::error::Build hook failed with HTTP $response"
+            exit 1
+          fi
