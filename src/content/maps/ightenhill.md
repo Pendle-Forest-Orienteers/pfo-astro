@@ -5,6 +5,7 @@ terrain: "urban"
 scale: "1:5000"
 image: "/assets/maps/Aitken_Wood_v12.gif"
 imageAlt: "Urban orienteering map of Ightenhill, Burnley"
+routeGadgetUrl: "https://www.pfo.routegadget.co.uk/rg2/#233"
 summary: "Interlinked urban housing estates west of Burnley town centre — quick route choice and lots of cut-throughs."
 ---
 

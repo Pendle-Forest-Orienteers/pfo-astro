@@ -6,6 +6,7 @@ scale: "1:7500"
 permanentCourse: true
 image: "/assets/maps/Healey-Colliery.gif"
 imageAlt: "Orienteering map of Towneley Park and Healey Heights"
+routeGadgetUrl: "https://www.pfo.routegadget.co.uk/rg2/#208"
 summary: "Mature parkland in the heart of Burnley with a permanent course on the ground."
 ---
 

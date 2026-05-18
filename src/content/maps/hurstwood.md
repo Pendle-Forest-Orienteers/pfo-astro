@@ -5,6 +5,7 @@ terrain: "moorland"
 scale: "1:10000"
 image: "/assets/maps/Hurstwood_All_2016_Comp_A3_10000.gif"
 imageAlt: "Orienteering map of Hurstwood — moorland and woodland near Burnley, scale 1:10000"
+routeGadgetUrl: "https://www.pfo.routegadget.co.uk/rg2/#225"
 summary: "Open moorland, plantation forest, and a network of paths above Hurstwood Reservoir."
 ---
 

@@ -5,6 +5,7 @@ terrain: "forest"
 scale: "1:7500"
 image: "/assets/maps/BVFP-v7-1-7500-A3-competition.gif"
 imageAlt: "Orienteering map of Brun Valley Forest Park, Burnley"
+routeGadgetUrl: "https://www.pfo.routegadget.co.uk/rg2/#234"
 summary: "PFO's flagship venue — mixed forest, open land, and the river Brun."
 ---
 
