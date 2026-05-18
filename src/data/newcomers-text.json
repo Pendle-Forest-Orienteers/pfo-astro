@@ -1,0 +1,128 @@
+{
+  "_comment": "Text content for the /newcomers page. Edited via the CMS at /admin → Site settings → Newcomers page. Body fields support markdown (links, bold, italics) — the page renders them at build time.",
+  "hero": {
+    "eyebrow": "For newcomers",
+    "heading": "A sport for thinking on the move.",
+    "lede": "Orienteering is running, walking or jogging between control points marked on a special map. The fastest round wins, but most people are just trying to beat their own time. No special kit, no fitness minimum, and someone will always show you the ropes on your first visit.",
+    "primaryCtaLabel": "See upcoming events",
+    "primaryCtaUrl": "/events",
+    "secondaryCtaLabel": "Frequently asked questions",
+    "secondaryCtaUrl": "#faq"
+  },
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "heading": "Pick a course, find the controls, race the clock, at your own pace.",
+    "items": [
+      {
+        "title": "1. The map",
+        "body": "You're given a special orienteering map showing terrain, paths, vegetation, walls, fences, and the locations of the control points you need to find. The map is the puzzle."
+      },
+      {
+        "title": "2. The course",
+        "body": "Most events offer several colour-coded courses, White (very short, for juniors and total beginners) up to Brown (long, technical, for experienced orienteers). You pick the one that matches your fitness and confidence."
+      },
+      {
+        "title": "3. The clock",
+        "body": "You're timed from start to finish. Visit the controls in the order shown on your map, register at each one with an electronic dibber, and head for the finish. Compare your time and route against everyone else's afterwards."
+      }
+    ]
+  },
+  "whatToBring": {
+    "eyebrow": "What to bring",
+    "heading": "Trainers and a coat. That's the minimum.",
+    "items": [
+      {
+        "title": "Footwear",
+        "body": "Trainers with a decent grip are fine for your first events. Specialist orienteering shoes with studs are nice once you're hooked, but not necessary."
+      },
+      {
+        "title": "Clothing",
+        "body": "Lightweight long trousers and a long-sleeved top to protect against brambles and undergrowth in the woods. A waterproof in changeable weather. Shorts are fine for street events."
+      },
+      {
+        "title": "Compass",
+        "body": "Helpful but not essential when you're starting out. Most beginner courses can be done by following obvious features. A simple baseplate compass costs about £10."
+      },
+      {
+        "title": "Dibber (SI card)",
+        "body": "The electronic timing chip you carry round the course. PFO loans them on the day for £1. Buy your own once you're orienteering regularly."
+      },
+      {
+        "title": "Whistle",
+        "body": "Required at forest events for safety, it's how you signal for help if you get into difficulty. Typically £2 from any outdoor shop."
+      },
+      {
+        "title": "A friend",
+        "body": "You can run as a pair or trio at most events. New orienteers are very welcome to shadow a more experienced member round their first course."
+      }
+    ]
+  },
+  "yourFirstEvent": {
+    "eyebrow": "Your first event",
+    "heading": "Turn up, register, run.",
+    "steps": [
+      {
+        "lead": "Find an event near you",
+        "body": "on the [events page](/events). Local-level events are the friendliest, Wednesday evening street-Os in particular."
+      },
+      {
+        "lead": "Pre-enter online",
+        "body": "through SI Entries (link from each event page) where indicated. Some events accept entry on the day; check the event details."
+      },
+      {
+        "lead": "Arrive 30 minutes before your start time.",
+        "body": "Find the registration tent or vehicle. Tell them it's your first event, they'll explain the courses and help you choose."
+      },
+      {
+        "lead": "Collect your map and dibber",
+        "body": "at the start. The clock starts when you punch the start box."
+      },
+      {
+        "lead": "Find the controls in order",
+        "body": "using the map. Each has a unique three-digit code so you can confirm it's the right one. Punch your dibber at each."
+      },
+      {
+        "lead": "Punch the finish",
+        "body": "when you're done. Download your dibber at the registration tent, your time appears immediately, and you can compare splits with everyone else."
+      }
+    ]
+  },
+  "comingUp": {
+    "eyebrow": "Coming up",
+    "heading": "The next three events you could come to."
+  },
+  "faq": {
+    "eyebrow": "Frequently asked",
+    "heading": "The questions newcomers actually ask.",
+    "items": [
+      {
+        "question": "Do I have to run?",
+        "answer": "No. Walking an orienteering course is the best way to learn map and compass skills, and many of our regular members walk. Time pressure speeds up learning if you choose to apply it, but no one will mind if you don't."
+      },
+      {
+        "question": "How long is a course?",
+        "answer": "Beginner courses are usually under 2 km on the ground. Longer courses (Blue, Brown) can be up to 10 km with significant climb and demanding navigation. Winning times target 30–60 minutes depending on the level."
+      },
+      {
+        "question": "Can I bring children?",
+        "answer": "Absolutely, orienteering is one of the most family-friendly outdoor sports. White and Yellow courses are designed for children to do alone or with an adult. At urban events, age 15 and under should be accompanied by an adult."
+      },
+      {
+        "question": "What if I can't read a map?",
+        "answer": "Coloured-line beginner courses are designed so you can follow paths and obvious features without needing to interpret contours. Within a few events you'll find yourself reading the map naturally."
+      },
+      {
+        "question": "What if I get lost?",
+        "answer": "It happens to everyone, regularly. Stop, look around, find a feature you recognise on the map, and start again from there. Worst case, head for an obvious linear feature (a road, a wall) and follow it back. There's a course-close time so the organiser knows everyone's accounted for."
+      },
+      {
+        "question": "How much does it cost?",
+        "answer": "Local events are typically £6 for adults (less for juniors). Regional events around £10–£15. Dibber hire is £1 if you don't have your own. Annual membership of PFO and British Orienteering is around £20 a year."
+      },
+      {
+        "question": "Do I have to join the club?",
+        "answer": "You can come to PFO events without being a member. After a few events, joining gives you BO insurance, lower entry fees, and ranking points if that interests you. [More on membership](/membership)."
+      }
+    ]
+  }
+}
