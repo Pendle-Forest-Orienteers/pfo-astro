@@ -94,7 +94,9 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
 
   --gold:        #ffc400;  /* EXACT logo yellow */
   --gold-dark:   #d9a500;  /* hover / pressed state */
-  --gold-muted:  #c99b1a;  /* quieter labels and rules */
+  --gold-muted:  #7a5e0c;  /* eyebrows / quieter labels on light backgrounds.
+                              Darkened from #c99b1a to ~5:1 contrast on --paper
+                              so it passes WCAG AA on body-text-sized labels. */
   --gold-bright: #ffdc4a;  /* lighter tint for highlights */
 
   --plum:      #994890;   /* EXACT logo purple */
