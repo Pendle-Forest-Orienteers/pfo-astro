@@ -19,15 +19,15 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 const { Content } = await render(event);
 
+import { isEventUpcoming } from '../../lib/event-state';
 const now = new Date();
-const startOfToday = new Date();
-startOfToday.setHours(0, 0, 0, 0);
 // "Open for entry" — controls whether the Enter CTAs are shown.
 const isOpenForEntry = event.data.entryCloseDate >= now;
 // "Upcoming" — controls whether the event is in the future overall.
 // An event that's closed for entry but still hasn't happened yet is
-// still considered upcoming. Flips on the day after the event date.
-const isUpcoming = event.data.date >= startOfToday;
+// still considered upcoming. Flips at the event's start time, or 8pm
+// on the event date if no start time is set.
+const isUpcoming = isEventUpcoming(event.data, now);
 // Filter out any results entries marked hidden in the CMS so they don't
 // appear on the public page (the entry stays in the markdown for later).
 const visibleResults = (event.data.results ?? []).filter(r => !r.hidden);

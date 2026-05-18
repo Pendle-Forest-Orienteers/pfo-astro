@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const startOfToday = new Date();
-startOfToday.setHours(0, 0, 0, 0);
+import { isEventUpcoming } from '../lib/event-state';
+const now = new Date();
 const upcoming = (await getCollection('events'))
-  .filter(e => e.data.date >= startOfToday && !e.data.cancelled && !e.data.hidden)
+  .filter(e => isEventUpcoming(e.data, now) && !e.data.cancelled && !e.data.hidden)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
   .slice(0, 3);
 

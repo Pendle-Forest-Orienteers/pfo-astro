@@ -115,14 +115,16 @@ const fmtBoDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
 }).format(d);
 
 // ─────── Data: upcoming events from the content collection
+import { isEventUpcoming, isEventPast } from '../lib/event-state';
 const now = new Date();
 const startOfToday = new Date();
 startOfToday.setHours(0, 0, 0, 0);
 const allEvents = await getCollection('events');
 
-// Events stay under "Upcoming" until the day after the event date.
+// Events stay under "Upcoming" until their start time has passed (or 8pm
+// the same day if there's no start time set).
 const upcoming = allEvents
-  .filter(e => e.data.date >= startOfToday && !e.data.cancelled && !e.data.hidden)
+  .filter(e => isEventUpcoming(e.data, now) && !e.data.cancelled && !e.data.hidden)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 
 const nextEvent = upcoming[0];
@@ -146,7 +148,7 @@ const activeAnnouncement = activeAnnouncements[0];
 // the morning after an event can find their splits without hunting.
 const tenDaysAgo = new Date(now.getTime() - 10 * 24 * 60 * 60 * 1000);
 const latestResultEvent = allEvents
-  .filter(e => e.data.date < startOfToday
+  .filter(e => isEventPast(e.data, now)
             && e.data.date >= tenDaysAgo
             && !e.data.hidden
             && e.data.results && e.data.results.length > 0)
