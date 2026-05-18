@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+// All copy on this page lives in src/data/newcomers-text.json so the
+// committee can edit every word via the CMS (Site settings → Newcomers
+// page). The page reads the JSON and renders into the same visual
+// layout. Body fields that may contain links/bold are rendered as
+// inline markdown via marked.parseInline().
+import text from '../data/newcomers-text.json';
 
 import { isEventUpcoming } from '../lib/event-state';
 const now = new Date();
@@ -12,6 +19,12 @@ const upcoming = (await getCollection('events'))
 const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   weekday: 'short', day: 'numeric', month: 'short'
 }).format(d).replace(',', '');
+
+// Render a string of markdown to inline HTML (no <p> wrapper). Used for
+// the FAQ answers and the body half of each first-event step, both of
+// which contain inline links the editor needs to be able to set.
+marked.setOptions({ gfm: true, breaks: false });
+const inline = (s: string) => marked.parseInline(s ?? '');
 ---
 <Layout
   title="Newcomers, Pendle Forest Orienteers"
@@ -26,12 +39,12 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
       <img src="/assets/photos/training-moorland.jpg" alt="" loading="eager" fetchpriority="high">
     </div>
     <div class="newcomer-hero-wrap">
-      <p class="eyebrow rise d-1">For newcomers</p>
-      <h1 class="rise d-2">A sport for thinking on the move.</h1>
-      <p class="newcomer-lede rise d-3">Orienteering is running, walking or jogging between control points marked on a special map. The fastest round wins, but most people are just trying to beat their own time. No special kit, no fitness minimum, and someone will always show you the ropes on your first visit.</p>
+      <p class="eyebrow rise d-1">{text.hero.eyebrow}</p>
+      <h1 class="rise d-2">{text.hero.heading}</h1>
+      <p class="newcomer-lede rise d-3">{text.hero.lede}</p>
       <div class="newcomer-cta-row rise d-4">
-        <a class="btn btn-primary" href="/events">See upcoming events <span class="arrow">→</span></a>
-        <a class="btn btn-ghost" href="#faq">Frequently asked questions</a>
+        <a class="btn btn-primary" href={text.hero.primaryCtaUrl}>{text.hero.primaryCtaLabel} <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href={text.hero.secondaryCtaUrl}>{text.hero.secondaryCtaLabel}</a>
       </div>
     </div>
   </section>
@@ -39,22 +52,16 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   <!-- ─────────────────────────── How it works -->
   <section class="info-block">
     <div class="info-wrap">
-      <p class="eyebrow">How it works</p>
-      <h2>Pick a course, find the controls, race the clock, at your own pace.</h2>
+      <p class="eyebrow">{text.howItWorks.eyebrow}</p>
+      <h2>{text.howItWorks.heading}</h2>
 
       <div class="info-grid">
-        <div>
-          <h3>1. The map</h3>
-          <p>You're given a special orienteering map showing terrain, paths, vegetation, walls, fences, and the locations of the control points you need to find. The map is the puzzle.</p>
-        </div>
-        <div>
-          <h3>2. The course</h3>
-          <p>Most events offer several colour-coded courses, White (very short, for juniors and total beginners) up to Brown (long, technical, for experienced orienteers). You pick the one that matches your fitness and confidence.</p>
-        </div>
-        <div>
-          <h3>3. The clock</h3>
-          <p>You're timed from start to finish. Visit the controls in the order shown on your map, register at each one with an electronic dibber, and head for the finish. Compare your time and route against everyone else's afterwards.</p>
-        </div>
+        {text.howItWorks.items.map(item => (
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -62,33 +69,15 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   <!-- ─────────────────────────── What to bring -->
   <section class="info-block alt">
     <div class="info-wrap">
-      <p class="eyebrow">What to bring</p>
-      <h2>Trainers and a coat. That's the minimum.</h2>
+      <p class="eyebrow">{text.whatToBring.eyebrow}</p>
+      <h2>{text.whatToBring.heading}</h2>
       <div class="kit-grid">
-        <div class="kit-item">
-          <h3>Footwear</h3>
-          <p>Trainers with a decent grip are fine for your first events. Specialist orienteering shoes with studs are nice once you're hooked, but not necessary.</p>
-        </div>
-        <div class="kit-item">
-          <h3>Clothing</h3>
-          <p>Lightweight long trousers and a long-sleeved top to protect against brambles and undergrowth in the woods. A waterproof in changeable weather. Shorts are fine for street events.</p>
-        </div>
-        <div class="kit-item">
-          <h3>Compass</h3>
-          <p>Helpful but not essential when you're starting out. Most beginner courses can be done by following obvious features. A simple baseplate compass costs about £10.</p>
-        </div>
-        <div class="kit-item">
-          <h3>Dibber (SI card)</h3>
-          <p>The electronic timing chip you carry round the course. PFO loans them on the day for £1. Buy your own once you're orienteering regularly.</p>
-        </div>
-        <div class="kit-item">
-          <h3>Whistle</h3>
-          <p>Required at forest events for safety, it's how you signal for help if you get into difficulty. Typically £2 from any outdoor shop.</p>
-        </div>
-        <div class="kit-item">
-          <h3>A friend</h3>
-          <p>You can run as a pair or trio at most events. New orienteers are very welcome to shadow a more experienced member round their first course.</p>
-        </div>
+        {text.whatToBring.items.map(item => (
+          <div class="kit-item">
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -96,27 +85,14 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   <!-- ─────────────────────────── Your first event -->
   <section class="info-block">
     <div class="info-wrap">
-      <p class="eyebrow">Your first event</p>
-      <h2>Turn up, register, run.</h2>
+      <p class="eyebrow">{text.yourFirstEvent.eyebrow}</p>
+      <h2>{text.yourFirstEvent.heading}</h2>
       <ol class="steps-list">
-        <li>
-          <strong>Find an event near you</strong> on the <a href="/events">events page</a>. Local-level events are the friendliest, Wednesday evening street-Os in particular.
-        </li>
-        <li>
-          <strong>Pre-enter online</strong> through SI Entries (link from each event page) where indicated. Some events accept entry on the day; check the event details.
-        </li>
-        <li>
-          <strong>Arrive 30 minutes before your start time.</strong> Find the registration tent or vehicle. Tell them it's your first event, they'll explain the courses and help you choose.
-        </li>
-        <li>
-          <strong>Collect your map and dibber</strong> at the start. The clock starts when you punch the start box.
-        </li>
-        <li>
-          <strong>Find the controls in order</strong> using the map. Each has a unique three-digit code so you can confirm it's the right one. Punch your dibber at each.
-        </li>
-        <li>
-          <strong>Punch the finish</strong> when you're done. Download your dibber at the registration tent, your time appears immediately, and you can compare splits with everyone else.
-        </li>
+        {text.yourFirstEvent.steps.map(step => (
+          <li>
+            <strong>{step.lead}</strong> <span set:html={inline(step.body)} />
+          </li>
+        ))}
       </ol>
     </div>
   </section>
@@ -124,8 +100,8 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   {upcoming.length > 0 && (
     <section class="next-events">
       <div class="next-events-wrap">
-        <p class="eyebrow">Coming up</p>
-        <h2>The next three events you could come to.</h2>
+        <p class="eyebrow">{text.comingUp.eyebrow}</p>
+        <h2>{text.comingUp.heading}</h2>
         <ul class="next-events-list">
           {upcoming.map(event => (
             <li>
@@ -145,44 +121,16 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   <!-- ─────────────────────────── FAQ -->
   <section id="faq" class="info-block">
     <div class="info-wrap">
-      <p class="eyebrow">Frequently asked</p>
-      <h2>The questions newcomers actually ask.</h2>
+      <p class="eyebrow">{text.faq.eyebrow}</p>
+      <h2>{text.faq.heading}</h2>
 
       <div class="faq-list">
-        <details>
-          <summary>Do I have to run?</summary>
-          <p>No. Walking an orienteering course is the best way to learn map and compass skills, and many of our regular members walk. Time pressure speeds up learning if you choose to apply it, but no one will mind if you don't.</p>
-        </details>
-
-        <details>
-          <summary>How long is a course?</summary>
-          <p>Beginner courses are usually under 2 km on the ground. Longer courses (Blue, Brown) can be up to 10 km with significant climb and demanding navigation. Winning times target 30–60 minutes depending on the level.</p>
-        </details>
-
-        <details>
-          <summary>Can I bring children?</summary>
-          <p>Absolutely, orienteering is one of the most family-friendly outdoor sports. White and Yellow courses are designed for children to do alone or with an adult. At urban events, age 15 and under should be accompanied by an adult.</p>
-        </details>
-
-        <details>
-          <summary>What if I can't read a map?</summary>
-          <p>Coloured-line beginner courses are designed so you can follow paths and obvious features without needing to interpret contours. Within a few events you'll find yourself reading the map naturally.</p>
-        </details>
-
-        <details>
-          <summary>What if I get lost?</summary>
-          <p>It happens to everyone, regularly. Stop, look around, find a feature you recognise on the map, and start again from there. Worst case, head for an obvious linear feature (a road, a wall) and follow it back. There's a course-close time so the organiser knows everyone's accounted for.</p>
-        </details>
-
-        <details>
-          <summary>How much does it cost?</summary>
-          <p>Local events are typically £6 for adults (less for juniors). Regional events around £10–£15. Dibber hire is £1 if you don't have your own. Annual membership of PFO and British Orienteering is around £20 a year.</p>
-        </details>
-
-        <details>
-          <summary>Do I have to join the club?</summary>
-          <p>You can come to PFO events without being a member. After a few events, joining gives you BO insurance, lower entry fees, and ranking points if that interests you. <a href="/membership">More on membership</a>.</p>
-        </details>
+        {text.faq.items.map(item => (
+          <details>
+            <summary>{item.question}</summary>
+            <p set:html={inline(item.answer)}></p>
+          </details>
+        ))}
       </div>
     </div>
   </section>

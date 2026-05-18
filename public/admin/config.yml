@@ -114,6 +114,91 @@ collections:
               - { name: "image", label: "Image",     widget: "image",  required: false }
               - { name: "alt",   label: "Alt text",  widget: "string", required: false }
 
+      - name: "newcomers-text"
+        label: "Newcomers page text"
+        file: "src/data/newcomers-text.json"
+        description: "Every word on the /newcomers page. Sections match the page layout — Hero, How it works, What to bring, Your first event, Coming up, FAQ. Inline links can be added in body fields using markdown like [click here](/somewhere)."
+        fields:
+          - name: "hero"
+            label: "Hero (top of the page)"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { name: "eyebrow",          label: "Eyebrow (above the heading)", widget: "string", hint: "e.g. 'For newcomers'" }
+              - { name: "heading",          label: "Heading",                     widget: "string" }
+              - { name: "lede",             label: "Intro paragraph",             widget: "text" }
+              - { name: "primaryCtaLabel",  label: "Primary button label",        widget: "string" }
+              - { name: "primaryCtaUrl",    label: "Primary button link",         widget: "string", hint: "e.g. /events" }
+              - { name: "secondaryCtaLabel",label: "Secondary button label",      widget: "string" }
+              - { name: "secondaryCtaUrl",  label: "Secondary button link",       widget: "string", hint: "e.g. #faq" }
+          - name: "howItWorks"
+            label: "How it works (3-column block)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string" }
+              - name: "items"
+                label: "Items (3 cards)"
+                widget: "list"
+                summary: "{{fields.title}}"
+                hint: "Three columns shown side by side. You can add or remove items, but 3 looks best."
+                fields:
+                  - { name: "title", label: "Card title", widget: "string", hint: "e.g. '1. The map'" }
+                  - { name: "body",  label: "Card body",  widget: "text" }
+          - name: "whatToBring"
+            label: "What to bring (6-card grid)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string" }
+              - name: "items"
+                label: "Kit items"
+                widget: "list"
+                summary: "{{fields.title}}"
+                hint: "Each item is a card. Reorder by dragging; add or remove items freely."
+                fields:
+                  - { name: "title", label: "Item title", widget: "string", hint: "e.g. 'Footwear'" }
+                  - { name: "body",  label: "Description", widget: "text" }
+          - name: "yourFirstEvent"
+            label: "Your first event (numbered steps)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string" }
+              - name: "steps"
+                label: "Steps"
+                widget: "list"
+                summary: "{{fields.lead}}"
+                hint: "Each step has a bold lead-in followed by a longer explanation. Body supports markdown for links."
+                fields:
+                  - { name: "lead", label: "Bold lead-in", widget: "string", hint: "Shown in bold at the start of each step, e.g. 'Find an event near you'" }
+                  - { name: "body", label: "Rest of the sentence", widget: "text", hint: "The text that follows the bold lead-in. Use markdown for inline links, e.g. on the [events page](/events)." }
+          - name: "comingUp"
+            label: "Coming up (auto-populated event cards)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string", hint: "The 3 event cards below are pulled in automatically from upcoming events." }
+          - name: "faq"
+            label: "FAQ (expandable questions)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string" }
+              - name: "items"
+                label: "Questions"
+                widget: "list"
+                summary: "{{fields.question}}"
+                hint: "Each one is a collapsible question/answer. Add, remove, or reorder freely. Answers support markdown for inline links."
+                fields:
+                  - { name: "question", label: "Question", widget: "string" }
+                  - { name: "answer",   label: "Answer",   widget: "text", hint: "Use markdown for inline links, e.g. [More on membership](/membership)." }
+
       - name: "committee"
         label: "Committee members"
         file: "src/data/committee.json"
