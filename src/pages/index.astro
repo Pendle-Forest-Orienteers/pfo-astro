@@ -30,6 +30,22 @@ const fallbackBoNews: BoNewsItem[] = [
     date: new Date("2026-03-22") },
 ];
 
+// Decode the most common HTML entities a feed (or scraped page) might
+// emit so that titles like "Howden's Webinar" don't render as
+// "Howden&#x27;s Webinar" on the homepage. Handles named entities, plus
+// numeric (&#39;) and hex (&#x27;) character references.
+function decodeHtmlEntities(s: string): string {
+  return s
+    .replace(/&amp;/g, '&')
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)));
+}
+
 function parseRssFeed(xml: string): BoNewsItem[] {
   const out: BoNewsItem[] = [];
   for (const m of xml.matchAll(/<item\b[\s\S]*?<\/item>/g)) {
@@ -41,7 +57,7 @@ function parseRssFeed(xml: string): BoNewsItem[] {
       const date = new Date(dateMatch[1]);
       if (!Number.isNaN(date.getTime())) {
         out.push({
-          title: titleMatch[1].trim(),
+          title: decodeHtmlEntities(titleMatch[1].trim()),
           url: linkMatch[1].trim(),
           date,
         });
@@ -59,7 +75,7 @@ function scrapeBoNewsArchive(html: string): BoNewsItem[] {
   const linkRe = /href="(https?:\/\/(?:www\.)?britishorienteering\.org\.uk\/news_archive\/\d+\/[^"#]+)"[^>]*>([^<]+)</g;
   for (const m of html.matchAll(linkRe)) {
     const url = m[1];
-    const title = m[2].trim();
+    const title = decodeHtmlEntities(m[2].trim());
     if (seen.has(url) || !title || title.length < 8) continue;
     seen.add(url);
     out.push({ title, url, date: new Date() });
@@ -470,7 +486,7 @@ const orgJsonLd = {
           {boNews.map(item => (
             <li>
               <time datetime={item.date.toISOString().slice(0, 10)}>{fmtBoDate(item.date)}</time>
-              <h3><a href={item.url} rel="noopener">{item.title}</a></h3>
+              <h3><a href={item.url.startsWith('http') ? item.url : `https://www.britishorienteering.org.uk${item.url.startsWith('/') ? '' : '/'}${item.url}`} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
               <span class="read">Read →</span>
             </li>
           ))}

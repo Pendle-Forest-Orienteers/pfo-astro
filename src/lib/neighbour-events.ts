@@ -62,10 +62,13 @@ function stripTags(s: string): string {
 function decodeEntities(s: string): string {
   return s
     .replace(/&amp;/g, '&')
+    .replace(/&apos;/g, "'")
     .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
     .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>');
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)));
 }
 
 const BOF_BASE = 'https://www.britishorienteering.org.uk';
