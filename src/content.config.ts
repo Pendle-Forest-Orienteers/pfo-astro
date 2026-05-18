@@ -84,6 +84,13 @@ const events = defineCollection({
     heroImage: z.string().optional(),
     heroImageAlt: z.string().optional(),
 
+    // ─────── Post-event report (filled in after the event)
+    // Free-form markdown — typically organiser comments, planner comments,
+    // lost property, photo credits etc. When set, a "Report" button appears
+    // next to the results files on the event detail page, linking to a
+    // dedicated /events/{slug}/report page that renders this content.
+    report: z.string().optional(),
+
     // ─────── Results (filled in after the event)
     results: z.array(z.object({
       label: z.string(),                    // "Full results", "Splits", "RouteGadget"

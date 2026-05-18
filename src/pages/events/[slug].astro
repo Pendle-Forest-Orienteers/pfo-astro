@@ -32,6 +32,10 @@ const isUpcoming = isEventUpcoming(event.data, now);
 // appear on the public page (the entry stays in the markdown for later).
 const visibleResults = (event.data.results ?? []).filter(r => !r.hidden);
 const hasResults = visibleResults.length > 0;
+// True when a post-event report has been written in the CMS. Renders a
+// "Report" button next to the results files that links to a separate
+// page at /events/{slug}/report.
+const hasReport = typeof event.data.report === 'string' && event.data.report.trim().length > 0;
 
 // Decap CMS sometimes saves image paths with a "public/" prefix (the
 // repo path) instead of the public URL ("/assets/uploads/..."). This
@@ -318,11 +322,13 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
   </section>
 
   <!-- ─────────────────────────── Results files (shown FIRST so visitors landing
-       the morning after an event get straight to their splits, no scrolling) -->
-  {hasResults && (
+       the morning after an event get straight to their splits, no scrolling).
+       The Report button (if present) sits alongside the results files so it's
+       discoverable in the same place. -->
+  {(hasResults || hasReport) && (
     <section id="results" class="ev-results">
       <div class="ev-results-wrap">
-        <h2>Results</h2>
+        <h2>Results{hasReport && !hasResults ? ' & report' : ''}</h2>
         <ul class="results-list">
           {visibleResults.map(file => (
             <li>
@@ -333,6 +339,15 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
               </a>
             </li>
           ))}
+          {hasReport && (
+            <li>
+              <a href={`/events/${event.id}/report/`}>
+                <span class="result-icon" data-type="report">Report</span>
+                <span class="result-label">Event report</span>
+                <span class="result-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </section>

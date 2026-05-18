@@ -242,6 +242,7 @@ collections:
               - { label: "PDF", value: "pdf" }
               - { label: "Excel (.xlsx)", value: "xlsx" }
               - { label: "CSV", value: "csv" }
+      - { name: "report", label: "Event report (post-event)", widget: "markdown", required: false, hint: "Filled in after the event. Lost property, organiser's comments, planner's comments, photos. When you save anything here, a 'Report' button appears next to the results on the event page, linking to a separate page that displays this content." }
       - { name: "cancelled", label: "Event cancelled", widget: "boolean", default: false, required: false, hint: "Tick this if the event was supposed to happen but isn't anymore. The event still appears on the site, marked 'Cancelled'." }
       - { name: "hidden", label: "Hide from public site", widget: "boolean", default: false, required: false, hint: "Tick this to remove this event from every public page (homepage, events list, calendar, RSS) without deleting it. Use this for test entries or events not ready for the public yet — much safer than the trash icon." }
       - { name: "notes", label: "Committee notes", widget: "text", required: false, hint: "Private notes, not shown publicly" }
