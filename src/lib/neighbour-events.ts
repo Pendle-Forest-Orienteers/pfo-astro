@@ -132,7 +132,10 @@ function parseBofClubHtml(html: string, club: NeighbourClub): NeighbourEvent[] {
     // Find the first <a href> in the row — that's the event title link
     const linkM = row.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
     if (!linkM) continue;
-    let url = linkM[1];
+    // Decode entity-encoded slashes etc. in the href before further work,
+    // otherwise URLs like "&#x2f;&#x2f;www.britishorienteering.org.uk&#x2f;…"
+    // get mangled. BO's table HTML sometimes ships entity-encoded URLs.
+    let url = decodeEntities(linkM[1]);
     if (!/^https?:\/\//i.test(url)) {
       url = url.startsWith('/') ? `${BOF_BASE}${url}` : `${BOF_BASE}/${url}`;
     }

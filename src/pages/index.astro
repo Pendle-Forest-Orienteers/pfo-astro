@@ -58,7 +58,9 @@ function parseRssFeed(xml: string): BoNewsItem[] {
       if (!Number.isNaN(date.getTime())) {
         out.push({
           title: decodeHtmlEntities(titleMatch[1].trim()),
-          url: linkMatch[1].trim(),
+          // Also decode the URL — some feeds entity-encode the slashes
+          // (`&#x2f;`) which the browser then can't parse as a URL.
+          url: decodeHtmlEntities(linkMatch[1].trim()),
           date,
         });
       }
@@ -74,7 +76,7 @@ function scrapeBoNewsArchive(html: string): BoNewsItem[] {
   const seen = new Set<string>();
   const linkRe = /href="(https?:\/\/(?:www\.)?britishorienteering\.org\.uk\/news_archive\/\d+\/[^"#]+)"[^>]*>([^<]+)</g;
   for (const m of html.matchAll(linkRe)) {
-    const url = m[1];
+    const url = decodeHtmlEntities(m[1]);
     const title = decodeHtmlEntities(m[2].trim());
     if (seen.has(url) || !title || title.length < 8) continue;
     seen.add(url);
