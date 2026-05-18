@@ -32,16 +32,41 @@ export function parseStartTime(raw: unknown): { hours: number; minutes: number }
   return { hours, minutes: isNaN(m) ? 0 : m };
 }
 
-/** Returns the precise moment an event moves from "upcoming" to "results". */
+/** UK timezone offset in minutes from UTC at a given moment. Positive when
+ *  UK is ahead of UTC (BST = +60). Returns 0 for GMT. */
+function ukOffsetMinutes(date: Date): number {
+  const utc = date.getTime();
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false,
+  }).formatToParts(date);
+  const o: Record<string, string> = {};
+  for (const p of parts) if (p.type !== 'literal') o[p.type] = p.value;
+  const ukAsIfUTC = Date.UTC(+o.year, +o.month - 1, +o.day,
+                             +o.hour === 24 ? 0 : +o.hour,
+                             +o.minute, +o.second);
+  return Math.round((ukAsIfUTC - utc) / 60000);
+}
+
+/** Returns the precise moment an event moves from "upcoming" to "results".
+ *  Interprets startTime (or the 8pm fallback) as UK local time so the
+ *  transition fires at the right wall-clock moment in the UK regardless of
+ *  the build server's timezone. */
 export function eventTransitionTime(event: { date: Date; startTime?: string }): Date {
   const d = new Date(event.date);
   const t = parseStartTime(event.startTime);
-  if (t) {
-    d.setHours(t.hours, t.minutes, 0, 0);
-  } else {
-    d.setHours(20, 0, 0, 0); // 8:00pm fallback
-  }
-  return d;
+  const hours = t ? t.hours : 20; // 8pm fallback
+  const minutes = t ? t.minutes : 0;
+  const year = d.getUTCFullYear();
+  const month = d.getUTCMonth();
+  const day = d.getUTCDate();
+  // Build the UK wall-clock time as if it were UTC, then subtract the
+  // UK offset to find the real UTC instant.
+  const guess = new Date(Date.UTC(year, month, day, hours, minutes, 0, 0));
+  const offsetMin = ukOffsetMinutes(guess);
+  return new Date(guess.getTime() - offsetMin * 60000);
 }
 
 /** True if the event's transition time is in the past relative to `now`. */
