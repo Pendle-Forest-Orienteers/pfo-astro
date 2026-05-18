@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
+import text from '../data/news-text.json';
 
 // ─────── Latest news. Featured articles pinned to the top, then the
 //        rest by date. The featured-card slot at the top of the page
@@ -34,9 +35,9 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
   <!-- ─────────────────────────── Page hero -->
   <PageHero
     page="news"
-    eyebrow="News"
-    heading="Race reports, club news and the occasional triumph."
-    lede="What members have been up to, alongside the bigger announcements from PFO and British Orienteering. Newest first."
+    eyebrow={text.hero.eyebrow}
+    heading={text.hero.heading}
+    lede={text.hero.lede}
   />
 
   <!-- ─────────────────────────── Featured (most recent) -->
@@ -50,7 +51,7 @@ const fmtDate = (d: Date) => new Intl.DateTimeFormat('en-GB', {
             </div>
           )}
           <div class="featured-body">
-            <p class="eyebrow">Latest</p>
+            <p class="eyebrow">{text.featuredEyebrow}</p>
             <time class="featured-date" datetime={featured.data.date.toISOString()}>{fmtDate(featured.data.date)}</time>
             <h2>{featured.data.title}</h2>
             <p class="featured-summary">{featured.data.summary}</p>

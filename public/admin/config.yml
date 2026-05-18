@@ -199,6 +199,96 @@ collections:
                   - { name: "question", label: "Question", widget: "string" }
                   - { name: "answer",   label: "Answer",   widget: "text", hint: "Use markdown for inline links, e.g. [More on membership](/membership)." }
 
+      - name: "news-text"
+        label: "News page text"
+        file: "src/data/news-text.json"
+        description: "Wording for the /news landing page. Articles below the hero come from the News content collection automatically."
+        fields:
+          - name: "hero"
+            label: "Hero (top of the page)"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string" }
+              - { name: "lede",    label: "Intro paragraph", widget: "text" }
+          - { name: "featuredEyebrow", label: "Eyebrow above the featured article", widget: "string", hint: "Shown over the most recent / featured article card. e.g. 'Latest'." }
+
+      - name: "maps-text"
+        label: "Mapped areas page text"
+        file: "src/data/maps-text.json"
+        description: "Wording for the /maps page. The map cards themselves come from the Maps content collection."
+        fields:
+          - name: "hero"
+            label: "Hero (top of the page)"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { name: "eyebrow",         label: "Eyebrow",  widget: "string" }
+              - { name: "headingTemplate", label: "Heading template", widget: "string", hint: "Use {count} where you want the current number of mapped areas inserted. e.g. '{count} mapped areas across East Lancashire.'" }
+              - { name: "lede",            label: "Intro paragraph", widget: "text", hint: "Markdown links allowed, e.g. [RouteGadget →](https://www.pfo.routegadget.co.uk/rg2/)." }
+          - name: "terrainBlurbs"
+            label: "Terrain section blurbs"
+            widget: "object"
+            collapsed: true
+            hint: "One short blurb per terrain type, shown under that section heading on the page."
+            fields:
+              - { name: "urban",    label: "Urban",         widget: "text" }
+              - { name: "parkland", label: "Parkland",      widget: "text" }
+              - { name: "forest",   label: "Forest",        widget: "text" }
+              - { name: "moorland", label: "Moorland",      widget: "text" }
+              - { name: "mtbo",     label: "Mountain bike", widget: "text" }
+              - { name: "mixed",    label: "Mixed terrain", widget: "text" }
+
+      - name: "information-text"
+        label: "Information page text"
+        file: "src/data/information-text.json"
+        description: "Wording for the /information hub. Sub-pages link in automatically from the Info Pages collection — only the headings, blurbs and the 'Around the site' cards are edited here."
+        fields:
+          - name: "hero"
+            label: "Hero (top of the page)"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "heading", label: "Heading", widget: "string" }
+              - { name: "lede",    label: "Intro paragraph", widget: "text", hint: "Markdown links allowed, e.g. [committee](/contacts)." }
+          - name: "topLevel"
+            label: "Around the site (link cards)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - name: "items"
+                label: "Cards"
+                widget: "list"
+                summary: "{{fields.title}} — {{fields.href}}"
+                hint: "Quick-links to other parts of the site. Add, remove, reorder freely."
+                fields:
+                  - { name: "title", label: "Title", widget: "string" }
+                  - { name: "href",  label: "Link",  widget: "string", hint: "e.g. /about or /membership" }
+                  - { name: "desc",  label: "Description", widget: "text" }
+          - name: "sectionLabels"
+            label: "Section labels (the bolded eyebrow for each group of sub-pages)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "governance",    label: "Governance label",    widget: "string" }
+              - { name: "safety",        label: "Safety label",        widget: "string" }
+              - { name: "participation", label: "Participation label", widget: "string" }
+              - { name: "members",       label: "Members' resources label", widget: "string" }
+              - { name: "admin",         label: "Admin label",         widget: "string" }
+          - name: "sectionBlurbs"
+            label: "Section blurbs (one-line description under each group)"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "governance",    label: "Governance blurb",    widget: "text" }
+              - { name: "safety",        label: "Safety blurb",        widget: "text" }
+              - { name: "participation", label: "Participation blurb", widget: "text" }
+              - { name: "members",       label: "Members' resources blurb", widget: "text" }
+              - { name: "admin",         label: "Admin blurb",         widget: "text" }
+
       - name: "committee"
         label: "Committee members"
         file: "src/data/committee.json"

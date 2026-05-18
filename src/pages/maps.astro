@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import text from '../data/maps-text.json';
 
 // ─────── Data
 const allMaps = (await getCollection('maps'))
@@ -15,6 +17,13 @@ const pocMaps = allMaps.filter(m => m.data.permanentCourse);
 // add a per-map `routeGadgetUrl` field if they want specific RG entries.
 const ROUTEGADGET_URL = "https://www.pfo.routegadget.co.uk/rg2/";
 
+// Hero heading uses {count} as a placeholder for the dynamic map count.
+const heroHeading = text.hero.headingTemplate.replace('{count}', String(allMaps.length));
+// Lede may contain markdown links (e.g. the RouteGadget link). Render
+// inline so any link the editor adds in the CMS still works.
+marked.setOptions({ gfm: true, breaks: false });
+const heroLedeHtml = marked.parseInline(text.hero.lede ?? '');
+
 // Group by terrain
 const terrainOrder = ['urban', 'parkland', 'forest', 'moorland', 'mtbo', 'mixed'] as const;
 const terrainLabel: Record<string, string> = {
@@ -25,14 +34,9 @@ const terrainLabel: Record<string, string> = {
   mtbo: 'Mountain bike',
   mixed: 'Mixed terrain',
 };
-const terrainBlurb: Record<string, string> = {
-  urban: 'Streets, housing estates, town parks. Quick decisions, lots of cut-throughs.',
-  parkland: 'Mature parks and school grounds. Friendly to newcomers and families.',
-  forest: 'Plantation and mixed woodland. Real navigation, careful contour reading.',
-  moorland: 'Open hill country, rough grass and heather. Lancashire at its best.',
-  mtbo: 'Mountain bike orienteering. Rideable forest tracks and singletrack.',
-  mixed: 'Combinations of the above.',
-};
+// Per-terrain blurb text lives in the CMS so editors can rewrite without
+// touching code. See src/data/maps-text.json.
+const terrainBlurb: Record<string, string> = text.terrainBlurbs;
 
 const grouped = terrainOrder.map(t => ({
   terrain: t,
@@ -49,13 +53,10 @@ const grouped = terrainOrder.map(t => ({
   <!-- ─────────────────────────── Page hero -->
   <PageHero
     page="maps"
-    eyebrow="Mapped areas"
-    heading={`${allMaps.length} mapped areas across East Lancashire.`}
+    eyebrow={text.hero.eyebrow}
+    heading={heroHeading}
   >
-    <p class="page-lede rise d-3">
-      Every venue PFO has surveyed and run on, from town-centre street-Os to open moorland fells.
-      For previous courses and routes, head to <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" class="rg-link">PFO RouteGadget →</a>
-    </p>
+    <p class="page-lede rise d-3" set:html={heroLedeHtml}></p>
 
     <nav class="terrain-jump rise d-4" aria-label="Jump to section">
       {pocMaps.length > 0 && (

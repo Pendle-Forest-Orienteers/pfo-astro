@@ -50,9 +50,9 @@ const pageDesc = `Post-event report for ${event.data.title}, ${fmtFullDate(event
   <section class="report-hero">
     <div class="report-hero-wrap">
       <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="/events/">Events</a>
+        <a href="/events">Events</a>
         <span aria-hidden="true">›</span>
-        <a href={`/events/${event.id}/`}>{event.data.title}</a>
+        <a href={`/events/${event.id}`}>{event.data.title}</a>
         <span aria-hidden="true">›</span>
         <span aria-current="page">Report</span>
       </nav>
@@ -67,7 +67,7 @@ const pageDesc = `Post-event report for ${event.data.title}, ${fmtFullDate(event
       <article class="prose" set:html={reportHtml}></article>
 
       <div class="report-back">
-        <a href={`/events/${event.id}/`} class="back-link">
+        <a href={`/events/${event.id}`} class="back-link">
           <span aria-hidden="true">←</span>
           <span>Back to event details</span>
         </a>

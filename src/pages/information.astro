@@ -2,29 +2,30 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import text from '../data/information-text.json';
 
 // Read all info pages and group by section
 const allPages = (await getCollection('infoPages'))
   .filter(p => !p.data.draft)
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 
-const sections: { key: string; label: string; blurb: string }[] = [
-  { key: 'governance',    label: 'Governance',           blurb: 'How the club is constituted and the rules we run by.' },
-  { key: 'safety',        label: 'Safety',               blurb: 'Safeguarding, insurance, and event-day safety procedures.' },
-  { key: 'participation', label: 'Participation',        blurb: 'Anytime orienteering, training, and getting involved beyond events.' },
-  { key: 'members',       label: 'Members’ resources', blurb: 'Newsletter, rankings, trophies and other member-only items.' },
-  { key: 'admin',         label: 'Admin',                blurb: 'Expense forms and other administrative paperwork.' },
-];
+// Section labels and blurbs come from the CMS-editable JSON so the
+// committee can rewrite without touching code. The key order here is
+// what controls section ordering on the page.
+const sectionKeys = ['governance', 'safety', 'participation', 'members', 'admin'] as const;
+const sections = sectionKeys.map(key => ({
+  key,
+  label: text.sectionLabels[key],
+  blurb: text.sectionBlurbs[key],
+}));
 
-// Top-level club pages always shown at the top
-const topLevel = [
-  { title: 'About PFO',           href: '/about',       desc: 'What we do, where we cover, who runs it.' },
-  { title: 'Membership',          href: '/membership',  desc: 'How to join, current fees, what you get.' },
-  { title: 'Contact the committee', href: '/contacts', desc: 'Who to ask for what.' },
-  { title: 'Newcomers’ guide', href: '/newcomers',  desc: 'Never tried orienteering? Start here.' },
-  { title: 'Training',            href: '/training',    desc: 'Coaching and skills sessions.' },
-  { title: 'Map library',         href: '/maps',        desc: 'Every venue we currently use.' },
-];
+// Top-level club pages always shown at the top (also CMS-editable).
+const topLevel = text.topLevel.items;
+
+// Hero lede may contain markdown links (e.g. the committee link).
+marked.setOptions({ gfm: true, breaks: false });
+const heroLedeHtml = marked.parseInline(text.hero.lede ?? '');
 ---
 <Layout
   title="Information, Pendle Forest Orienteers"
@@ -35,17 +36,17 @@ const topLevel = [
 
   <PageHero
     page="information"
-    eyebrow="Information"
-    heading="Everything else."
+    eyebrow={text.hero.eyebrow}
+    heading={text.hero.heading}
   >
-    <p class="page-lede rise d-3">Constitution, policies, safeguarding, insurance, members' resources and other useful odds and ends. If you're looking for something specific and can't find it here, the <a href="/contacts">committee</a> can usually point you in the right direction.</p>
+    <p class="page-lede rise d-3" set:html={heroLedeHtml}></p>
   </PageHero>
 
   <section class="info-hub">
     <div class="info-hub-wrap">
 
       <div class="hub-section">
-        <p class="eyebrow">Around the site</p>
+        <p class="eyebrow">{text.topLevel.eyebrow}</p>
         <ul class="hub-grid">
           {topLevel.map(item => (
             <li>
