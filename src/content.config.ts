@@ -29,17 +29,19 @@ const events = defineCollection({
       lat: z.number(),
       lng: z.number(),
     }).optional(),
+    /** Which coordinate input method the editor chose for this event.
+     *  "pin" reads coordsGeoJson, "paste" reads coordsPaste. Defaults
+     *  to "paste" because pasting from Google Maps is fast and
+     *  unambiguous. Forces a deliberate single source of truth so
+     *  the same event can't accidentally have two conflicting pins. */
+    coordsMethod: z.enum(['pin', 'paste']).optional(),
     /** Optional Decap CMS "map widget" output — a GeoJSON Point string
-     *  like `{"type":"Point","coordinates":[-2.21,53.85]}`. When set,
-     *  page templates prefer this over the manual `coords` object so
-     *  Andy can just drop a pin on the map and everything else is
-     *  auto-generated. */
+     *  like `{"type":"Point","coordinates":[-2.21,53.85]}`. Only used
+     *  when coordsMethod is "pin" (or unset, for backward compat). */
     coordsGeoJson: z.string().optional(),
     /** Convenience field for Google-Maps-style "lat, lng" paste —
-     *  right-click → click coords → paste here. The page templates
-     *  parse this format and use it like `coords`. Highest-priority
-     *  format if all three are filled in is the map pin (GeoJSON);
-     *  next is this paste; last is the manual lat/lng object. */
+     *  right-click → click coords → paste here. Only used when
+     *  coordsMethod is "paste" (the default for new events). */
     coordsPaste: z.string().optional(),
     what3words: z.string().optional(),      // e.g. "typically.capacity.skips" — common on UK
                                             // orienteering events for the event-centre/parking
@@ -50,7 +52,13 @@ const events = defineCollection({
     level: z.enum(['local', 'regional', 'national', 'major']),
     duration: z.number().optional(),        // minutes
     series: z.string().optional(),          // e.g. "May Street-O", "June Series 2/3"
-    bofEventNumber: z.number().optional(),  // British Orienteering event ID, e.g. 87374
+    // British Orienteering event ID, e.g. 87374. String OR number — the
+    // editor may enter "TBC" while the event is being registered with BO
+    // and a number hasn't been assigned yet. Old events with numeric
+    // YAML values still parse cleanly. Stays optional in the schema so
+    // legacy events without it don't fail the build; the CMS marks it
+    // required for new entries.
+    bofEventNumber: z.union([z.string(), z.number()]).optional(),
     dogsAllowed: z.enum([
       'yes',                                // explicitly welcomed
       'on-lead',                            // permitted on lead only

@@ -12,47 +12,58 @@ export interface LatLng {
   lng: number;
 }
 
+function parsePaste(s: string): LatLng | undefined {
+  const m = s.trim().match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
+  if (!m) return undefined;
+  const lat = parseFloat(m[1]);
+  const lng = parseFloat(m[2]);
+  if (Number.isNaN(lat) || Number.isNaN(lng)) return undefined;
+  return { lat, lng };
+}
+
+function parseGeoJson(s: string): LatLng | undefined {
+  try {
+    const obj = JSON.parse(s);
+    if (
+      obj &&
+      obj.type === 'Point' &&
+      Array.isArray(obj.coordinates) &&
+      obj.coordinates.length >= 2
+    ) {
+      const [lng, lat] = obj.coordinates as [number, number];
+      if (typeof lat === 'number' && typeof lng === 'number') return { lat, lng };
+    }
+  } catch {
+    /* fall through */
+  }
+  return undefined;
+}
+
 export function resolveCoords(event: {
+  coordsMethod?: 'pin' | 'paste';
   coordsGeoJson?: string;
   coordsPaste?: string;
   coords?: LatLng;
 }): LatLng | undefined {
-  // 1. Google-Maps-style paste — highest priority because it's the most
-  //    explicit "I want THIS exact location" input. If the user has
-  //    typed/pasted coords here, those win over any saved map-pin
-  //    (which may carry an old default or unintentional pin).
+  // When the editor has explicitly chosen a method, honour it strictly.
+  // This makes the coordinate input deterministic — the same event can
+  // never have two conflicting locations on different parts of the site.
+  if (event.coordsMethod === 'paste') {
+    return event.coordsPaste ? parsePaste(event.coordsPaste) : undefined;
+  }
+  if (event.coordsMethod === 'pin') {
+    return event.coordsGeoJson ? parseGeoJson(event.coordsGeoJson) : undefined;
+  }
+
+  // Backward-compat fallback for events created before coordsMethod
+  // existed. Prefer paste > map pin > legacy manual lat/lng object.
   if (event.coordsPaste) {
-    const m = event.coordsPaste.trim().match(/^(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)$/);
-    if (m) {
-      const lat = parseFloat(m[1]);
-      const lng = parseFloat(m[2]);
-      if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
-        return { lat, lng };
-      }
-    }
+    const c = parsePaste(event.coordsPaste);
+    if (c) return c;
   }
-
-  // 2. Map-pin output from the Decap CMS map widget
   if (event.coordsGeoJson) {
-    try {
-      const obj = JSON.parse(event.coordsGeoJson);
-      if (
-        obj &&
-        obj.type === 'Point' &&
-        Array.isArray(obj.coordinates) &&
-        obj.coordinates.length >= 2
-      ) {
-        const [lng, lat] = obj.coordinates as [number, number];
-        if (typeof lat === 'number' && typeof lng === 'number') {
-          return { lat, lng };
-        }
-      }
-    } catch {
-      // fall through
-    }
+    const c = parseGeoJson(event.coordsGeoJson);
+    if (c) return c;
   }
-
-  // 3. Legacy manual lat/lng object (older events created before the
-  //    map widget existed — kept working without migration).
   return event.coords;
 }

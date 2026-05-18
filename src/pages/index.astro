@@ -144,14 +144,18 @@ const activeAnnouncements = allAnnouncements
 const activeAnnouncement = activeAnnouncements[0];
 
 // ─────── Latest results, most recent past event in the last 10 days that
-// has at least one results file. Shown on the homepage so people landing
-// the morning after an event can find their splits without hunting.
+// has at least one results file or a post-event report. Shown on the
+// homepage so people landing the morning after an event can find their
+// splits — or read the organiser's writeup — without hunting.
 const tenDaysAgo = new Date(now.getTime() - 10 * 24 * 60 * 60 * 1000);
+function hasReportText(e: { data: { report?: string } }) {
+  return typeof e.data.report === 'string' && e.data.report.trim().length > 0;
+}
 const latestResultEvent = allEvents
   .filter(e => isEventPast(e.data, now)
             && e.data.date >= tenDaysAgo
             && !e.data.hidden
-            && e.data.results && e.data.results.length > 0)
+            && ((e.data.results && e.data.results.length > 0) || hasReportText(e)))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 
 // ─────── Data: news article to feature on the homepage. Prefer
@@ -302,10 +306,9 @@ const orgJsonLd = {
             <p class="event-where">
               {nextEvent.data.location || nextEvent.data.summary}
             </p>
-            {(nextEvent.data.duration || nextEvent.data.entryFee) && (
+            {nextEvent.data.entryFee && (
               <p class="event-terms">
-                {nextEvent.data.duration && <span>{nextEvent.data.duration} min</span>}
-                {nextEvent.data.entryFee && <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>}
+                <span>{nextEvent.data.entryFee.split(/[(.]/)[0].trim()}</span>
               </p>
             )}
             {nextEvent.data.siEntriesUrl ? (
@@ -325,7 +328,7 @@ const orgJsonLd = {
             </p>
             <h2><a href={`/events/${latestResultEvent.id}`}>{latestResultEvent.data.title}</a></h2>
             <ul class="hero-latest-files">
-              {latestResultEvent.data.results.slice(0, 2).map(file => (
+              {(latestResultEvent.data.results ?? []).filter(r => !r.hidden).slice(0, 2).map(file => (
                 <li>
                   <a href={file.url} rel="noopener">
                     <span class="hero-latest-tag">{file.type === 'pdf' ? 'PDF' : file.type === 'xlsx' ? 'Excel' : file.type === 'csv' ? 'CSV' : 'View'}</span>
@@ -333,6 +336,14 @@ const orgJsonLd = {
                   </a>
                 </li>
               ))}
+              {hasReportText(latestResultEvent) && (
+                <li>
+                  <a href={`/events/${latestResultEvent.id}/report/`}>
+                    <span class="hero-latest-tag">Report</span>
+                    <span class="hero-latest-label">Event report</span>
+                  </a>
+                </li>
+              )}
             </ul>
             <a class="hero-latest-link" href={`/events/${latestResultEvent.id}`}>All results →</a>
           </article>

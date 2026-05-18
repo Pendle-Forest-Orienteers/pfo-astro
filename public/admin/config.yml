@@ -160,18 +160,26 @@ collections:
       - { name: "location", label: "Location", widget: "string", hint: "Short label for cards, e.g. 'Burnley'" }
       - { name: "venue", label: "Venue", widget: "string", required: false, hint: "Specific building, e.g. 'Ighten Leigh Social Club'" }
       - { name: "postcode", label: "Postcode", widget: "string", required: false }
-      # ─── Location: choose ONE of the two methods below ───────────
-      # Either drop a pin on the map, OR paste coordinates from Google
-      # Maps. Either alone is enough — the four external map links and
-      # the embedded mini-map on the event page generate automatically.
+      # ─── Location: pick ONE method, then fill in just that section ──
+      # The dropdown below tells the website which input to read, so the
+      # event can't accidentally have two conflicting locations. Only the
+      # field matching your choice will be used — the other is ignored.
+      - name: "coordsMethod"
+        label: "How are you setting the location?"
+        widget: "select"
+        default: "paste"
+        options:
+          - { label: "Paste coordinates from Google Maps (recommended — fast & accurate)", value: "paste" }
+          - { label: "Drop a pin on the OpenStreetMap picker below", value: "pin" }
+        hint: "Pick one. Only fill in the matching field below — the other will be ignored when the page builds."
+      - { name: "coordsPaste", label: "Coordinates from Google Maps", widget: "string", required: false, hint: "Use this if you chose 'Paste coordinates' above. On Google Maps: right-click the venue, then click the numbers at the top of the menu (e.g. 53.79748, -2.22698). They auto-copy. Paste here." }
       - name: "coordsGeoJson"
-        label: "Method 1 — drop a pin on the map at the venue"
+        label: "Pin on the map"
         widget: "map"
         required: false
         type: "Point"
         decimals: 7
-        hint: "Pan/zoom the map to East Lancashire, then click to drop a pin at the venue. Drag the pin to fine-tune. If you can't find the venue, use Method 2 below instead — much faster."
-      - { name: "coordsPaste", label: "Method 2 — or paste coordinates from Google Maps", widget: "string", required: false, hint: "On Google Maps: right-click the venue, then click the numbers at the top of the menu (e.g. 53.79748, -2.22698). They auto-copy. Paste here. You only need to use ONE of the two methods — whichever you've used will set the location." }
+        hint: "Use this if you chose 'Drop a pin' above. Pan/zoom to East Lancashire, then click to drop a pin at the venue. Drag the pin to fine-tune. (Map shows OpenStreetMap — Google Maps tiles aren't free.)"
       - { name: "what3words", label: "what3words", widget: "string", required: false, hint: "Three-word location for parking / event centre, e.g. 'typically.capacity.skips' (no leading slashes)" }
       - { name: "gridRef", label: "OS grid reference", widget: "string", required: false, hint: "e.g. 'SD848335'" }
       - name: "format"
@@ -184,6 +192,7 @@ collections:
           - "Urban Score"
           - "Street-O"
           - "Snook-O"
+          - "Snook-O/Ratchet"
           - "Sprint"
           - "Night-O"
           - "Regional"
@@ -199,9 +208,8 @@ collections:
           - { label: "National", value: "national" }
           - { label: "Major", value: "major" }
         default: "local"
-      - { name: "duration", label: "Duration (minutes)", widget: "number", required: false, value_type: "int", min: 0 }
       - { name: "series", label: "Series name", widget: "string", required: false, hint: "Optional series this event belongs to, e.g. 'May Street-O'" }
-      - { name: "bofEventNumber", label: "BOF event number", widget: "number", required: false, value_type: "int", min: 0, hint: "British Orienteering event ID, e.g. 87374" }
+      - { name: "bofEventNumber", label: "BOF event number", widget: "string", required: true, hint: "British Orienteering event ID, e.g. '87374'. If the event hasn't been registered with BO yet and a number hasn't been assigned, enter 'TBC' — you can come back and edit it once the number is allocated." }
       - name: "dogsAllowed"
         label: "Dog policy"
         widget: "select"

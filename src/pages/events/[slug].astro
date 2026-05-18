@@ -222,12 +222,6 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
                 <dd>{event.data.startTime}</dd>
               </div>
             )}
-            {event.data.duration && (
-              <div>
-                <dt>Duration</dt>
-                <dd>{event.data.duration} min</dd>
-              </div>
-            )}
             {event.data.entryFee && (
               <div>
                 <dt>Entry</dt>
@@ -255,12 +249,16 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
               <div>
                 <dt>BOF event no.</dt>
                 <dd class="mono">
-                  <a
-                    href={`https://www.britishorienteering.org.uk/event?event=${event.data.bofEventNumber}&bpage=0`}
-                    rel="noopener"
-                    target="_blank"
-                    class="bof-link"
-                  >{event.data.bofEventNumber} ↗</a>
+                  {/^\d+$/.test(String(event.data.bofEventNumber)) ? (
+                    <a
+                      href={`https://www.britishorienteering.org.uk/event?event=${event.data.bofEventNumber}&bpage=0`}
+                      rel="noopener"
+                      target="_blank"
+                      class="bof-link"
+                    >{event.data.bofEventNumber} ↗</a>
+                  ) : (
+                    <span>{event.data.bofEventNumber}</span>
+                  )}
                 </dd>
               </div>
             )}
