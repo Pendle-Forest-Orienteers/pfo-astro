@@ -125,6 +125,16 @@ const hasSpecificRg = !!(map.data.routeGadgetUrl || inheritedRgUrl);
             The map preview needs JavaScript. <a href={routeGadgetUrl} rel="noopener" target="_blank">Open on RouteGadget instead →</a>
           </p>
         </noscript>
+
+        <div class="map-preview-disclaimer">
+          <p><strong>Why is the map shown via RouteGadget?</strong></p>
+          <p>
+            PFO doesn't display orienteering maps on this site because they're derived from Ordnance Survey data under licence restrictions. The map above is loaded from <a href="https://www.pfo.routegadget.co.uk/rg2/" rel="noopener" target="_blank">RouteGadget</a>, which already has permission from the surveyors to display each map publicly. We're just embedding their viewer — the map content isn't hosted here.
+          </p>
+          <p>
+            <strong>Important:</strong> possession or existence of a map does not imply right of access to the area for orienteering or for any other purpose. Permission must be obtained from the landowner.
+          </p>
+        </div>
       </div>
     </section>
   )}
@@ -400,5 +410,30 @@ const hasSpecificRg = !!(map.data.routeGadgetUrl || inheritedRgUrl);
     border: 1px solid var(--rule);
     border-radius: 4px;
     font-size: 14px;
+  }
+
+  /* Yellow disclaimer box under the iframe, explaining the OS licensing
+     reasoning and the landowner-permission caveat. Same visual style as
+     the per-event disclaimers for consistency. */
+  .map-preview-disclaimer {
+    margin-top: 18px;
+    background: #fff4c2;
+    border: 1px solid #e8c952;
+    border-left: 4px solid #d8a800;
+    border-radius: 4px;
+    padding: clamp(14px, 2vw, 20px) clamp(16px, 2.5vw, 24px);
+    color: var(--ink);
+  }
+  .map-preview-disclaimer p {
+    margin: 0 0 0.6em;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .map-preview-disclaimer p:last-child { margin-bottom: 0; }
+  .map-preview-disclaimer strong { color: var(--ink); }
+  .map-preview-disclaimer a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 </style>

@@ -13,8 +13,8 @@ bofEventNumber: 87530
 planner: Sam Barnes & Karen Windle (PFO)
 siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17990
 summary: Snook-O
-heroImage: /results-archive/2026/barrowford/snooker3.jpeg
-heroImageAlt: Orienteering event using snooker rules
+heroImage: /assets/uploads/geoffrey-moffett.jpg
+heroImageAlt: Snooker table with cue ball and cues — illustrating the Snook-O event format
 coords:
   lat: 53.83907
   lng: -2.22527
