@@ -12,7 +12,7 @@ dogsAllowed: on-lead
 planner: Sam Barnes
 siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17994
 summary: Snook-O
-heroImage: public/assets/uploads/snooker-table-1.jpeg
+heroImage: /results-archive/2026/blackburn/snooker2.jpeg
 heroImageAlt: Orienteering event using snooker rules
 coords:
   lat: 53.75435
