@@ -14,7 +14,7 @@ bofEventNumber: 87934
 dogsAllowed: no
 planner: Ginny Anderson
 summary: Local · Alkincoats Park
-heroImage: public/assets/uploads/snooker-table-1.jpeg
+heroImage: /results-archive/2026/alkincoats-park/snooker1.jpeg
 heroImageAlt: Orienteering event using snooker rules
 coords:
   lat: 53.8632
