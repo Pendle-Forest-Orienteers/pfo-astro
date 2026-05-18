@@ -1,6 +1,7 @@
 ---
 title: Brun Valley Testing
-date: 2026-05-16
+date: 2026-05-18
+startTime: 10:00am
 entryCloseDate: 2026-05-13T23:59:00
 location: Burnley, Lancs
 postcode: "BB10 3LB "
