@@ -1557,7 +1557,15 @@ img.full-width {
   border: 2px solid rgba(255, 255, 255, 0.10);
   border-radius: 50%;
 }
-.newcomer-cta .eyebrow { color: var(--gold-bright); margin-bottom: 20px; position: relative; z-index: 1; }
+.newcomer-cta .eyebrow {
+  /* Use --paper (near-white) on plum to clear WCAG AA. The previous
+     --gold-bright only hit ~3.4:1 — fine for decorative accents but
+     not for small uppercase label text. */
+  color: var(--paper);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
 .newcomer-cta .eyebrow::before { background: var(--gold); }
 .newcomer-cta h2 {
   font-family: var(--ff-display);
@@ -1572,7 +1580,9 @@ img.full-width {
   color: var(--gold-bright);
 }
 .newcomer-cta p {
-  color: rgba(244, 237, 224, 0.78);
+  /* Full-opacity cream on plum gets ~6:1, passes WCAG AA comfortably.
+     Previous 0.78 opacity diluted to ~3:1 which failed AA. */
+  color: rgba(244, 237, 224, 1);
   font-size: 14px;
   line-height: 1.55;
   margin-bottom: 24px;
