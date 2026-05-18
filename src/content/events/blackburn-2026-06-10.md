@@ -9,6 +9,7 @@ format: Snook-O
 level: local
 bofEventNumber: 87933
 dogsAllowed: on-lead
+planner: Sam Barnes
 siEntriesUrl: https://www.sientries.co.uk/event.php?event_id=17994
 summary: Snook-O
 heroImage: public/assets/uploads/snooker-table-1.jpeg
@@ -96,4 +97,4 @@ Dogs are permitted, but should be under close control on a short leash. Please c
 
 ## Contacts and officials
 
-TBC
+Planner: Sam Barnes
