@@ -250,6 +250,12 @@ collections:
               - { label: "PDF", value: "pdf" }
               - { label: "Excel (.xlsx)", value: "xlsx" }
               - { label: "CSV", value: "csv" }
+      - { name: "disclaimerOverride", label: "Override the standard disclaimer for this event", widget: "boolean", default: false, required: false, hint: "Leave this UNTICKED on every normal event. When unticked, the standard club-wide disclaimer (British Orienteering insurance notice) appears in the yellow box. Tick this ONLY when you want to replace the standard wording with your own bespoke text below — e.g. unusual terrain hazards, parking rules, weather caveats. When ticked, the box below is what appears; the standard wording will NOT be shown." }
+      - name: "disclaimer"
+        label: "Custom disclaimer text (only used when override is ticked)"
+        widget: "markdown"
+        required: false
+        hint: "Only used if 'Override the standard disclaimer' is ticked above. When override is unticked this box is ignored — leave it blank or save notes here for future reference, either way it won't appear on the website."
       - { name: "report", label: "Event report (post-event)", widget: "markdown", required: false, hint: "Filled in after the event. Lost property, organiser's comments, planner's comments, photos. When you save anything here, a 'Report' button appears next to the results on the event page, linking to a separate page that displays this content." }
       - { name: "cancelled", label: "Event cancelled", widget: "boolean", default: false, required: false, hint: "Tick this if the event was supposed to happen but isn't anymore. The event still appears on the site, marked 'Cancelled'." }
       - { name: "hidden", label: "Hide from public site", widget: "boolean", default: false, required: false, hint: "Tick this to remove this event from every public page (homepage, events list, calendar, RSS) without deleting it. Use this for test entries or events not ready for the public yet — much safer than the trash icon." }

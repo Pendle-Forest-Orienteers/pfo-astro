@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Attachments from '../../components/Attachments.astro';
 import { getCollection, render } from 'astro:content';
+import { marked } from 'marked';
 
 // ─────── Generate one page per event in the collection
 // Hidden events get no page generated, their slug 404s on the public site
@@ -36,6 +37,22 @@ const hasResults = visibleResults.length > 0;
 // "Report" button next to the results files that links to a separate
 // page at /events/{slug}/report.
 const hasReport = typeof event.data.report === 'string' && event.data.report.trim().length > 0;
+
+// ─────── Disclaimer (yellow box at the bottom of the body)
+// Every event shows the club-wide BO insurance notice by default.
+// Editors can replace it on a per-event basis by ticking the
+// `disclaimerOverride` boolean in the CMS AND filling in `disclaimer`
+// with the custom markdown. To update the club-wide text, edit this
+// constant once; every event without an active override picks up the
+// new wording on the next build.
+const DEFAULT_DISCLAIMER = `**Insurance:** From 1st January 2026, participants who are not members of British Orienteering will no longer be covered by British Orienteering's public liability insurance. By entering any event from 1st January 2026, you acknowledge that you are taking part at your own risk. For example, if you were to accidentally injure a member of the public or damage property during the event, you would not be covered. British Orienteering's public liability insurance used to cover non-members at events before this date.`;
+const customDisclaimer = (event.data.disclaimer ?? '').trim();
+const disclaimerSource =
+  event.data.disclaimerOverride && customDisclaimer
+    ? customDisclaimer
+    : DEFAULT_DISCLAIMER;
+marked.setOptions({ gfm: true, breaks: true });
+const disclaimerHtml = marked.parse(disclaimerSource);
 
 // Decap CMS sometimes saves image paths with a "public/" prefix (the
 // repo path) instead of the public URL ("/assets/uploads/..."). This
@@ -379,6 +396,11 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
             </div>
           </section>
         )}
+        <!-- Disclaimer (yellow box). Lives at the bottom of the body
+             article so it sits visually below the body content on every
+             viewport — on mobile it falls between the body text and the
+             map (which is in the aside, stacked below). -->
+        <div class="ev-disclaimer-box" set:html={disclaimerHtml}></div>
       </article>
 
       <aside class="ev-meta">
@@ -874,6 +896,46 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     margin: 0 0 6px 0;
     font-weight: 500;
   }
+
+  /* ─── Disclaimer (yellow box) ──────────────────────────────────
+     Sits at the bottom of the body article so it falls visually
+     between the body content and the map (which is in the sidebar,
+     stacked below on mobile, beside on desktop). Renders the
+     event-specific disclaimer markdown, or the club-wide default
+     when the event has no override. */
+  .ev-disclaimer-box {
+    margin-top: 32px;
+    background: #fff4c2;
+    border: 1px solid #e8c952;
+    border-left: 4px solid #d8a800;
+    border-radius: 4px;
+    padding: clamp(16px, 2vw, 22px) clamp(18px, 2.5vw, 28px);
+    color: var(--ink);
+  }
+  .ev-disclaimer-box :global(p) {
+    margin: 0 0 0.7em;
+    font-size: 15px;
+    line-height: 1.55;
+    /* Override the prose paragraph cap (65ch) so the disclaimer text
+       fills the yellow box edge-to-edge instead of wrapping early. */
+    max-width: none;
+    color: var(--ink);
+  }
+  .ev-disclaimer-box :global(p:last-child) { margin-bottom: 0; }
+  .ev-disclaimer-box :global(strong) { color: var(--ink); }
+  .ev-disclaimer-box :global(a) {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .ev-disclaimer-box :global(ul),
+  .ev-disclaimer-box :global(ol) {
+    margin: 0.5em 0 0.5em 1.2em;
+    padding: 0;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .ev-disclaimer-box :global(li) { margin-bottom: 0.3em; }
 
   /* Embedded venue map, Leaflet + OpenStreetMap. Sits at the top of
      the Location block. Compact ~140px tall so it gives a clear sense

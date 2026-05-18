@@ -92,6 +92,16 @@ const events = defineCollection({
     heroImage: z.string().optional(),
     heroImageAlt: z.string().optional(),
 
+    // ─────── Per-event disclaimer
+    // The yellow box on the event page. By default every event shows
+    // the club-wide BO public-liability notice (see DEFAULT_DISCLAIMER
+    // in pages/events/[slug].astro). To replace it with bespoke wording
+    // for this event, tick `disclaimerOverride` AND fill in `disclaimer`
+    // with the markdown text to display instead. With override off, the
+    // `disclaimer` field is ignored.
+    disclaimerOverride: z.boolean().optional(),
+    disclaimer: z.string().optional(),
+
     // ─────── Post-event report (filled in after the event)
     // Free-form markdown — typically organiser comments, planner comments,
     // lost property, photo credits etc. When set, a "Report" button appears
