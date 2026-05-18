@@ -21,12 +21,24 @@ export interface Props {
 
 const { page, eyebrow, heading, lede } = Astro.props;
 const hero = (heroes as Record<string, { image?: string; alt?: string }>)[page] ?? {};
-const hasImage = !!hero.image;
+
+// Decap CMS occasionally saves uploaded image paths with a "public/"
+// prefix (the repo path) rather than the public URL ("/assets/uploads/...").
+// Strip that prefix and guarantee a leading slash so the browser can
+// always resolve the URL, regardless of how the CMS saved it.
+function normaliseImagePath(p?: string) {
+  if (!p) return p;
+  let out = p.replace(/^public\//, '/');
+  if (!out.startsWith('/') && !out.startsWith('http')) out = '/' + out;
+  return out;
+}
+const heroImageSrc = normaliseImagePath(hero.image);
+const hasImage = !!heroImageSrc;
 ---
 <section class={`page-hero ${hasImage ? 'page-hero--photo' : ''}`}>
   {hasImage && (
     <div class="page-hero-backdrop" aria-hidden="true">
-      <img src={hero.image} alt={hero.alt ?? ''} loading="eager">
+      <img src={heroImageSrc} alt={hero.alt ?? ''} loading="eager">
     </div>
   )}
   <div class="page-hero-wrap">
