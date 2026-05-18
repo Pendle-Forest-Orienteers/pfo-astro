@@ -3,7 +3,7 @@ title: "Cloughfold"
 summary: "Cloughfold 1 PXAC Start Anywhere"
 section: participation
 lastReviewed: 2020-06-22
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 Cloughfold 1 PXAC Start Anywhere

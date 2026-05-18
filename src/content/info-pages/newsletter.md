@@ -3,7 +3,7 @@ title: "Newsletter"
 summary: "Copies of PFO's newsletter can be found below"
 section: members
 lastReviewed: 2023-10-13
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 Copies of PFO's newsletter can be found below.

@@ -46,7 +46,7 @@ report: >
 
   see photo. Is it yours? Black beany hat found on the walk down from the Regional Day Finish.
 
-  also a yellow hooded sweatshirt left at the Hapton Inn. Email the Organiser to claim: helen.smethurst5@btinternet.com
+  also a yellow hooded sweatshirt left at the Hapton Inn. Email the Organiser to claim via the [contact form](/contacts).
 
   Organiser's Comments
 

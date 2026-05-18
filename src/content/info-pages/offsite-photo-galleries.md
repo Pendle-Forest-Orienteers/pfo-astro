@@ -3,7 +3,7 @@ title: "Offsite Photo Galleries"
 summary: "Photo galleries that are held on another site, mostly Google’s Picasa"
 section: members
 lastReviewed: 2021-04-11
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 Photo galleries that are held on another site, mostly Google’s Picasa.

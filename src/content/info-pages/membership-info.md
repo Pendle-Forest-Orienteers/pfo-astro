@@ -3,7 +3,7 @@ title: "Membership"
 summary: "How to join and the benefits of membership of Pendle Forest Orienteers"
 section: participation
 lastReviewed: 2019-02-12
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 How to join and the benefits of membership of Pendle Forest Orienteers.

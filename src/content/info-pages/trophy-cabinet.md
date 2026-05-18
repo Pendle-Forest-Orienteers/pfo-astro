@@ -3,7 +3,7 @@ title: "PFO Trophy Cabinet"
 summary: "Here are some of the Trophies that PFO as a club, or individual PFO members can win"
 section: members
 lastReviewed: 2022-04-22
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 Here are some of the Trophies that PFO as a club, or individual PFO members can win

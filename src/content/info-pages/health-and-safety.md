@@ -3,7 +3,7 @@ title: "Health and Safety policies, Accident Forms and Junior Medical Forms"
 summary: "PFO complete a Risk assessment form before all of their events"
 section: safety
 lastReviewed: 2019-02-05
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 PFO complete a Risk assessment form before all of their events.

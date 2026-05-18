@@ -20,4 +20,4 @@ Details of events from neighbouring clubs can be found on the [Events](/events) 
 
 Orienteering courses range from very easy (TD1) to very hard (TD5) and are usually colour coded. A brief summary of the differences between each of those five levels is in this document.
 
-[TD1-TD5 summary (PDF)](https://www.pfo.org.uk/documents/TD1-TD5-summary.pdf)
+[TD1-TD5 summary (PDF)](/documents/TD1-TD5-summary.pdf)

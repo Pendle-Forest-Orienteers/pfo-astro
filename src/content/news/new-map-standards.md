@@ -9,7 +9,7 @@ What's new in mapping standards for 2018. Includes new symbols to improve map cl
 
 **Fancy a new map?**
 
-The International Orienteering Federation (IOF) has published new mapping standards. The document is titled [ISOM 2017 International Specification for Orienteering Maps](https://www.pfo.org.uk/documents/2017_ISOM_from_2018-01-01.pdf). These new specifications apply to all IOF events from 1st January 2018, and were optional for IOF events from 1st May 2017. Whilst we are not immediately affected, all future PFO maps and updates to maps will be drawn using the new standards and symbol sets.
+The International Orienteering Federation (IOF) has published new mapping standards. The document is titled [ISOM 2017 International Specification for Orienteering Maps](/documents/2017_ISOM_from_2018-01-01.pdf). These new specifications apply to all IOF events from 1st January 2018, and were optional for IOF events from 1st May 2017. Whilst we are not immediately affected, all future PFO maps and updates to maps will be drawn using the new standards and symbol sets.
 
 Most symbols remain unchanged, though some of the rules for their use have changed. There are a number of new symbols which help clarify certain features. All dimensions given are for a 1:15000 scale map; at 1:10000 the dimensions are 150% greater, and at 1:7500 (non-IOF standard, but commonplace for small areas and young or old age groups) dimensions are 200% greater.
 
@@ -29,6 +29,6 @@ Here is a selection of important symbol additions to be aware of so you aren't b
 
 There are other additions and changes — how many can you spot?
 
-[PDF of all the ISOM 2017 symbols](https://www.pfo.org.uk/documents/ISOM_2017_Orienteering_Map_Symbols.pdf)
+[PDF of all the ISOM 2017 symbols](/documents/ISOM_2017_Orienteering_Map_Symbols.pdf)
 
 Have fun. Take care.

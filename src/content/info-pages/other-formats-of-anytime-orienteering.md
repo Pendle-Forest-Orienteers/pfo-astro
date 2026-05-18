@@ -3,7 +3,7 @@ title: "Other formats of Anytime Orienteering courses"
 summary: "In addition to the MaprunF and Permanent Orienteering courses, there are also a small number of courses available to run anytime"
 section: participation
 lastReviewed: 2020-09-07
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 In addition to the MaprunF and Permanent Orienteering courses, there are also a small number of courses available to run anytime.

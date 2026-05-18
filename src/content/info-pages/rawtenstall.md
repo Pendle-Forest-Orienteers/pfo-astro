@@ -3,7 +3,7 @@ title: "Rawtenstall"
 summary: "The following MapRunF courses are available for you to try"
 section: participation
 lastReviewed: 2020-06-23
-draft: true   # review and remove this line to publish
+draft: false
 ---
 
 The following MapRunF courses are available for you to try:

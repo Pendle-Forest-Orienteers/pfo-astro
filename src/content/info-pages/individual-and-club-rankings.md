@@ -4,7 +4,7 @@ summary: There are a number of leagues and ranking tables where you can see how
   well you have done compared to other orienteers in your age class
 section: members
 lastReviewed: 2025-01-02
-draft: true
+draft: false
 ---
 
 There are a number of leagues and ranking tables where you can see how well you have done compared to other orienteers in your age class.
