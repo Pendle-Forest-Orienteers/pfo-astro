@@ -95,6 +95,40 @@ const hasSpecificRg = !!(map.data.routeGadgetUrl || inheritedRgUrl);
     </div>
   </section>
 
+  <!-- ─────────────────────────── RouteGadget preview
+       Embed the live RouteGadget viewer inline so visitors can see the
+       actual orienteering map without leaving the page. The map content
+       is hosted on RouteGadget (which already has the surveyors'
+       permission to display it), so the PFO site is not redistributing
+       the map image itself — it's just framing the existing public
+       viewer. Only shown when we have a specific RG URL for this venue
+       (the public RG index isn't useful to embed). -->
+  {hasSpecificRg && (
+    <section class="map-preview" aria-label="Map preview on RouteGadget">
+      <div class="map-preview-wrap">
+        <div class="map-preview-head">
+          <p class="eyebrow">Map preview</p>
+          <p class="map-preview-note">
+            Live view from RouteGadget — click and drag to pan, scroll to zoom. PFO doesn't host the map itself; it's loaded from
+            <a href={routeGadgetUrl} rel="noopener" target="_blank">RouteGadget</a> where the surveyors have agreed to public display.
+          </p>
+        </div>
+        <iframe
+          src={routeGadgetUrl}
+          title={`${map.data.title} on RouteGadget`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map-preview-frame"
+        ></iframe>
+        <noscript>
+          <p class="map-preview-fallback">
+            The map preview needs JavaScript. <a href={routeGadgetUrl} rel="noopener" target="_blank">Open on RouteGadget instead →</a>
+          </p>
+        </noscript>
+      </div>
+    </section>
+  )}
+
   <!-- ─────────────────────────── Body and aside -->
   <section class="map-body">
     <div class="map-body-wrap">
@@ -321,5 +355,50 @@ const hasSpecificRg = !!(map.data.routeGadgetUrl || inheritedRgUrl);
   @media (max-width: 880px) {
     .map-body-wrap { grid-template-columns: 1fr; }
     .map-meta { position: static; }
+  }
+
+  /* ─── RouteGadget preview ──────────────────────────────────────
+     Inline iframe of the live RouteGadget viewer. Sits between the
+     hero and the body. Sized tall enough that the RG controls don't
+     dominate the orienteering map area itself. */
+  .map-preview {
+    padding: 0 var(--pad-x) clamp(28px, 4vw, 48px);
+    background: var(--paper);
+  }
+  .map-preview-wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .map-preview-head {
+    margin-bottom: 14px;
+  }
+  .map-preview-head .eyebrow {
+    color: var(--gold-muted);
+    margin-bottom: 6px;
+  }
+  .map-preview-note {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-width: 70ch;
+  }
+  .map-preview-note a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+  }
+  .map-preview-frame {
+    width: 100%;
+    height: clamp(420px, 60vh, 720px);
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    display: block;
+  }
+  .map-preview-fallback {
+    padding: 18px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    font-size: 14px;
   }
 </style>

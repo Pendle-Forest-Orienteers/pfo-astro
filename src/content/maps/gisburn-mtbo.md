@@ -5,6 +5,7 @@ terrain: "mtbo"
 scale: "1:15000"
 image: "/assets/maps/Gisburn_MTBO_2018.gif"
 imageAlt: "Mountain bike orienteering map of Gisburn Forest"
+routeGadgetUrl: "https://www.pfo.routegadget.co.uk/rg2/#113"
 summary: "Large MTBO area in the Forest of Bowland — purpose-built for bike orienteering."
 ---
 
