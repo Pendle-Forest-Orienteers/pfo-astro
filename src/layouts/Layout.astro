@@ -84,7 +84,10 @@ const ogImageAbs = new URL(ogImage, siteUrl).toString();
   --ink:      #1d1d1b;   /* exact logo charcoal */
   --ink-2:    #2a2a27;
   --ink-soft: rgba(29, 29, 27, 0.72);
-  --ink-mute: rgba(29, 29, 27, 0.48);
+  --ink-mute: rgba(29, 29, 27, 0.62);  /* bumped from 0.48 → 0.62 so that
+                                          tertiary text (weekday labels,
+                                          counts, etc.) passes WCAG AA
+                                          contrast on the paper background. */
   --rule:     rgba(29, 29, 27, 0.12);
   --rule-2:   rgba(29, 29, 27, 0.22);
 

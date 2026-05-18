@@ -120,7 +120,11 @@ const weekdayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   <div class="event-calendar-grid">
     {months.map(month => (
       <div class="cal-month">
-        <h3 class="cal-month-label">{month.label}</h3>
+        {/* Was <h3>, switched to <p> because this is a widget label, not
+            a content heading. The events page already has an h1 + h2s for
+            Upcoming/Past results; treating the calendar month as an h3
+            broke the sequential heading order check. */}
+        <p class="cal-month-label">{month.label}</p>
         <div class="cal-weekday-row" aria-hidden="true">
           {weekdayLabels.map(w => <span class="cal-weekday">{w}</span>)}
         </div>

@@ -1060,11 +1060,11 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     white-space: nowrap;
   }
   :global(.neighbour-table .nb-title a) {
-    /* Darker yellow (the brand's gold-dark mustard) for stronger
-       contrast against paper backgrounds. Bold weight + colour-shift
-       on hover do the job of signalling "this is a link" without an
-       underline. */
-    color: var(--gold-dark) !important;
+    /* Use --gold-muted (now #7a5e0c) for ~5:1 contrast on paper.
+       The previous --gold-dark only hit ~2.2:1 and failed WCAG AA.
+       Bold weight + colour-shift on hover do the job of signalling
+       "this is a link" without an underline. */
+    color: var(--gold-muted) !important;
     font-weight: 600;
     text-decoration: none;
   }
