@@ -210,8 +210,12 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     </div>
   )}
 
-  <!-- ─────────────────────────── Event hero -->
-  <section class="ev-hero">
+  <!-- ─────────────────────────── Event hero.
+       When a hero photo is set, switch to the dark-theme variant so the
+       photo banner above flows into a unified dark hero panel with
+       white text underneath. Without a photo, the hero stays on the
+       light paper-2 background as before. -->
+  <section class:list={['ev-hero', event.data.heroImage && 'ev-hero--with-photo']}>
     <div class="ev-hero-wrap">
       <a class="back-link" href="/events">← All events</a>
 
@@ -657,6 +661,29 @@ if (event.data.entryFee && event.data.siEntriesUrl) {
     background: var(--paper-2);
     border-bottom: 1px solid var(--rule);
     padding: clamp(28px, 4vw, 48px) var(--pad-x) clamp(40px, 5vw, 64px);
+  }
+  /* When a hero photo is set, the photo banner above flows into a
+     dark hero panel with white text so the two read as a single hero. */
+  .ev-hero--with-photo {
+    background: var(--navy-deep);
+    color: var(--paper);
+    border-bottom-color: var(--navy);
+  }
+  .ev-hero--with-photo .back-link { color: var(--paper); opacity: 0.85; }
+  .ev-hero--with-photo .back-link:hover { color: var(--gold); opacity: 1; }
+  .ev-hero--with-photo .ev-hero-left .eyebrow { color: var(--gold-bright); }
+  .ev-hero--with-photo .ev-hero-left .eyebrow span { color: var(--paper); opacity: 0.6; }
+  .ev-hero--with-photo .ev-hero-left h1 { color: var(--paper); }
+  .ev-hero--with-photo .ev-hero-lede { color: var(--paper); opacity: 0.9; }
+  .ev-hero--with-photo .ev-key-facts {
+    border-top-color: rgba(244, 237, 224, 0.25);
+  }
+  .ev-hero--with-photo .ev-key-facts dt { color: var(--gold-bright); }
+  .ev-hero--with-photo .ev-key-facts dd { color: var(--paper); }
+  .ev-hero--with-photo .ev-key-facts a { color: var(--paper); }
+  .ev-hero--with-photo .cancelled-banner {
+    background: var(--plum);
+    color: var(--paper);
   }
   .ev-hero-wrap {
     max-width: var(--max-w);

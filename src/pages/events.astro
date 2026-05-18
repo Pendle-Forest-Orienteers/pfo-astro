@@ -612,6 +612,23 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     padding-top: clamp(20px, 2.5vw, 28px);
     border-top: 1px solid var(--rule);
   }
+  /* When the page hero has a photo backdrop, flip the anchor-nav links
+     to white so they're legible against the dark photo overlay.
+     :global() because PageHero adds the modifier class above this
+     scoped subtree. */
+  :global(.page-hero--photo) .anchor-nav a {
+    color: var(--paper);
+    border-bottom-color: rgba(244, 237, 224, 0.4);
+  }
+  :global(.page-hero--photo) .anchor-nav a:hover {
+    color: var(--gold-bright);
+    border-bottom-color: var(--gold);
+  }
+  :global(.page-hero--photo) .anchor-nav span {
+    color: var(--paper);
+    opacity: 0.7;
+  }
+
   .anchor-nav a {
     color: var(--ink);
     border-bottom: 1px solid var(--ink);
